@@ -12,11 +12,13 @@ RepoCensus scans **all your GitHub repositories** (self-created + forked + starr
 
 - **Three-in-one view** — Self-created, Forked, and Starred repos in one dashboard
 - **Smart auto-categorization** — Multi-signal weighted engine (topics, language, keywords)
-- **5 preset templates** — Switch between by-domain / by-language / by-activity / by-purpose / by-type
+- **6 preset templates** — Switch between by-domain / by-language / by-activity / by-purpose / by-type / AI-domain
+- **Trending board** — Star velocity ranking with category filter pills
 - **Health scoring** — 0-100 score per repo based on recency, stars, README, license, topics
 - **Stale repo detection** — Find repos you should archive or delete
 - **Star timeline** — See what you starred recently, with new-star highlighting
 - **Tech profile** — Language distribution, domain coverage, activity breakdown
+- **Share card & Badge** — Generate tech profile share card (PNG/SVG) + shields.io-style README badges
 - **Dark/Light theme** — Auto-detect, toggle with one click
 - **Zero server** — Pure static site, deployed to GitHub Pages
 - **Auto-refresh** — GitHub Actions runs weekly (or on push)
@@ -139,6 +141,24 @@ Yes, but you need their public data. Fork the repo, set `GITHUB_USERNAME` as a r
 
 **Is my data private?**
 Your repo metadata (public repos, stars) is already public on GitHub. RepoCensus just organizes it. No data leaves your own GitHub repository.
+
+## Roadmap
+
+| Version | Features | Status |
+|---------|---------|--------|
+| v1.0 | Core MVP: data fetch + categorization engine + dashboard + GitHub Actions | ✅ |
+| v1.1 | YAML custom templates + cross-dimension + AI domain classification + Markdown export | ✅ |
+| v1.2 | Trending board (star velocity + monthly average + category filter) | ✅ |
+| v1.3 | Share card (PNG/SVG download) + README badges | ✅ |
+| v1.4 | Version progress panel (Changelog + Roadmap) + Trending filter fix | ✅ |
+| v1.5 | Annual repo report (Spotify Wrapped style — yearly stats + domain analysis) | 🔲 |
+| v1.6 | Search + advanced filtering (multi-dimensional: stars / language / date / topics) | 🔲 |
+| v1.7 | Smart recommendations (based on tech profile, topics similarity matching) | 🔲 |
+| v1.8 | Repo notes/tags (localStorage) + change tracking (archive/rename/star surge) | 🔲 |
+| v1.9 | Data export (CSV / JSON, import to Notion, Lark, etc.) | 🔲 |
+| v2.0 | Multi-user comparison (compare tech profiles + star overlap score) | 🔲 |
+| v2.1 | i18n (Chinese / English) | 🔲 |
+| v2.2 | Mobile responsive layout | 🔲 |
 
 ## License
 

@@ -6,6 +6,7 @@ import StarTimeline from './components/StarTimeline.vue'
 import CategoryGroups from './components/CategoryGroups.vue'
 import TrendingBoard from './components/TrendingBoard.vue'
 import ShareCard from './components/ShareCard.vue'
+import VersionPanel from './components/VersionPanel.vue'
 import { useRepos, type SortOption } from './composables/useRepos'
 import { useTheme } from './composables/useTheme'
 import { useMarkdownExport } from './composables/useExport'
@@ -110,6 +111,10 @@ const viewMode = ref<'grouped' | 'flat' | 'trending'>('grouped')
 function scrollToShare() {
   document.querySelector('.share-section')?.scrollIntoView({ behavior: 'smooth' })
 }
+
+// Version panel
+const showVersionPanel = ref(false)
+const APP_VERSION = 'v1.4.0'
 </script>
 
 <template>
@@ -133,6 +138,9 @@ function scrollToShare() {
         </button>
         <button class="header-btn share-btn" @click="scrollToShare" title="分享卡片 & Badge">
           📊
+        </button>
+        <button class="header-btn version-badge" @click="showVersionPanel = true" title="版本进度">
+          {{ APP_VERSION }}
         </button>
       </div>
     </header>
@@ -336,6 +344,9 @@ function scrollToShare() {
       <ShareCard :data="data" />
     </main>
 
+    <!-- Version Panel -->
+    <VersionPanel v-model="showVersionPanel" />
+
     <!-- Footer -->
     <footer class="footer">
       <span>RepoCensus · 数据生成于 {{ generatedDate }}</span>
@@ -423,6 +434,14 @@ function scrollToShare() {
 
 .header-btn:hover {
   border-color: var(--accent);
+}
+
+.version-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 0 12px;
+  letter-spacing: 0.5px;
 }
 
 /* Stat Cards */
