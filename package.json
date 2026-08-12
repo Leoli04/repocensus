@@ -1,6 +1,6 @@
 {
   "name": "repocensus",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Fork-and-go GitHub repository census dashboard with smart categorization",
   "type": "module",
   "scripts": {

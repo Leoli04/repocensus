@@ -7,6 +7,7 @@ import CategoryGroups from './components/CategoryGroups.vue'
 import TrendingBoard from './components/TrendingBoard.vue'
 import ShareCard from './components/ShareCard.vue'
 import VersionPanel from './components/VersionPanel.vue'
+import SectionNav from './components/SectionNav.vue'
 import { useRepos, type SortOption } from './composables/useRepos'
 import { useTheme } from './composables/useTheme'
 import { useMarkdownExport } from './composables/useExport'
@@ -114,7 +115,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.4.0'
+const APP_VERSION = 'v1.4.1'
 </script>
 
 <template>
@@ -147,7 +148,7 @@ const APP_VERSION = 'v1.4.0'
 
     <main class="main">
       <!-- Stat Cards -->
-      <section class="stat-cards">
+      <section id="overview" class="stat-cards">
         <div class="stat-card">
           <span class="stat-value">{{ stats.total }}</span>
           <span class="stat-label">总仓库</span>
@@ -175,7 +176,7 @@ const APP_VERSION = 'v1.4.0'
       </section>
 
       <!-- Controls -->
-      <section class="controls">
+      <section id="controls" class="controls">
         <!-- Template switcher row -->
         <div class="control-row">
           <div class="template-switcher">
@@ -250,7 +251,7 @@ const APP_VERSION = 'v1.4.0'
       </section>
 
       <!-- Main Content -->
-      <section class="content" :class="{ 'no-sidebar': viewMode === 'trending' }">
+      <section id="repos" class="content" :class="{ 'no-sidebar': viewMode === 'trending' }">
         <!-- Category Sidebar -->
         <aside class="sidebar" v-if="viewMode !== 'trending'">
           <h3 class="sidebar-title">分类</h3>
@@ -314,7 +315,7 @@ const APP_VERSION = 'v1.4.0'
       </section>
 
       <!-- Stale Repos -->
-      <section v-if="staleRepos.length" class="stale-section">
+      <section v-if="staleRepos.length" id="stale" class="stale-section">
         <h3 class="section-title">⚠️ 沉默仓库建议清理</h3>
         <div class="stale-list">
           <a
@@ -335,17 +336,26 @@ const APP_VERSION = 'v1.4.0'
       </section>
 
       <!-- Tech Profile -->
-      <TechProfile :profile="profile" />
+      <div id="tech-profile">
+        <TechProfile :profile="profile" />
+      </div>
 
       <!-- Star Timeline -->
-      <StarTimeline :stars="newStars" />
+      <div id="star-timeline">
+        <StarTimeline :stars="newStars" />
+      </div>
 
       <!-- Share Card & Badges -->
-      <ShareCard :data="data" />
+      <div id="share">
+        <ShareCard :data="data" />
+      </div>
     </main>
 
     <!-- Version Panel -->
     <VersionPanel v-model="showVersionPanel" />
+
+    <!-- Section Quick Nav -->
+    <SectionNav />
 
     <!-- Footer -->
     <footer class="footer">

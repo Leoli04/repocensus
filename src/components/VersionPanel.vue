@@ -19,6 +19,12 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.4.1',
+    date: '2026-08-13',
+    type: 'feature',
+    items: ['右侧快速导航：浮动锚点定位各功能区，滚动高亮当前区域'],
+  },
+  {
     version: 'v1.4.0',
     date: '2026-08-13',
     type: 'feature',
