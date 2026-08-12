@@ -1,0 +1,92 @@
+/* ============================================================
+   RepoCensus — Global Styles & Theme Variables
+   ============================================================ */
+
+/* ── Reset ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Dark Theme (default) ───────────────────────────────── */
+:root,
+[data-theme='dark'] {
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --accent: #2f81f7;
+  --accent-bg: rgba(47, 129, 247, 0.12);
+  --badge-bg: #21262d;
+  --lang-bg: #1f2937;
+  --lang-text: #93c5fd;
+  --bar-track: #21262d;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ── Light Theme ────────────────────────────────────────── */
+[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --card-bg: #ffffff;
+  --card-border: #d0d7de;
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+  --text-tertiary: #848d97;
+  --accent: #0969da;
+  --accent-bg: rgba(9, 105, 218, 0.08);
+  --badge-bg: #eaeef2;
+  --lang-bg: #ddf4ff;
+  --lang-text: #0969da;
+  --bar-track: #eaeef2;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC',
+    Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ── Transitions ────────────────────────────────────────── */
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}

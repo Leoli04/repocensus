@@ -1,0 +1,59 @@
+# RepoCensus — Custom Category Templates
+#
+# This file lets you define your own classification templates.
+# Uncomment and edit the examples below, or write your own.
+#
+# Template structure:
+#   id:          Unique identifier (no spaces)
+#   name:        Display name
+#   description: One-line description
+#   categories:  List of category rules
+#
+# Category rule:
+#   name:      Category display name
+#   priority:  Lower = checked first (for tie-breaking)
+#   matchers:  List of matchers (OR relationship, highest weight wins)
+#
+# Matcher:
+#   field:    topics | language | name | description
+#   operator: contains | equals | regex
+#   value:    String or array of strings
+#   weight:   Numeric weight (higher = stronger match)
+
+templates: []
+  # ── Example: Custom "By Team" template ──
+  # - id: by-team
+  #   name: 按团队
+  #   description: 按所属团队分类
+  #   categories:
+  #     - name: 平台团队
+  #       priority: 1
+  #       matchers:
+  #         - { field: name, operator: contains, value: [platform, infra, gateway], weight: 10 }
+  #         - { field: topics, operator: contains, value: [platform, infrastructure], weight: 8 }
+  #     - name: 业务团队
+  #       priority: 2
+  #       matchers:
+  #         - { field: name, operator: contains, value: [service, api, biz], weight: 8 }
+  #     - name: 数据团队
+  #       priority: 3
+  #       matchers:
+  #         - { field: topics, operator: contains, value: [data, etl, analytics], weight: 10 }
+
+  # ── Example: Custom "By Status" template ──
+  # - id: by-status
+  #   name: 按状态
+  #   description: 按项目状态分类
+  #   categories:
+  #     - name: 生产中
+  #       priority: 1
+  #       matchers:
+  #         - { field: topics, operator: contains, value: [production, live], weight: 10 }
+  #     - name: 开发中
+  #       priority: 2
+  #       matchers:
+  #         - { field: topics, operator: contains, value: [wip, development], weight: 8 }
+  #     - name: 已归档
+  #       priority: 3
+  #       matchers:
+  #         - { field: name, operator: contains, value: [archive, deprecated, old], weight: 5 }

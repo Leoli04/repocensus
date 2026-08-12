@@ -1,0 +1,13 @@
+node_modules
+dist
+*.local
+.env
+.DS_Store
+
+# Build artifacts
+*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+
+# Generated badges (created at build time by fetch.ts)
+public/badges/

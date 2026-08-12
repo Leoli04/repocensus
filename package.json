@@ -1,0 +1,25 @@
+{
+  "name": "repocensus",
+  "version": "1.3.0",
+  "description": "Fork-and-go GitHub repository census dashboard with smart categorization",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "fetch": "tsx scripts/fetch.ts"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.20.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "js-yaml": "^4.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.5",
+    "vue-tsc": "^2.2.0"
+  }
+}
