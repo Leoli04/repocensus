@@ -211,6 +211,7 @@ export function useRepos() {
     selectedCategory,
     sortOption,
     filtered: sorted,
+    searched,
     categories,
     crossDimGroups,
     singleDimGroups,

@@ -1,24 +1,48 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import type { TrendingData, TrendingRepo } from '../engine/types'
+import type { TrendingData, TrendingRepo, Repo, CategoryTemplate } from '../engine/types'
+import { computeTrending } from '../engine/trending'
 import { healthLabel } from '../engine/health'
 
 const props = defineProps<{
   trending: TrendingData
+  repos: Repo[]
+  template: CategoryTemplate
 }>()
 
 const selectedCategory = ref<string | null>(null)
 
+// Build prev star map from pre-computed trending data so we can recompute
+// accurately for the current template + filters at runtime.
+const prevStarMap = computed<Map<string, number>>(() => {
+  const map = new Map<string, number>()
+  for (const t of props.trending.overall) {
+    map.set(t.repo.full_name, t.prev_stars)
+  }
+  for (const group of props.trending.by_category) {
+    for (const t of group.repos) {
+      map.set(t.repo.full_name, t.prev_stars)
+    }
+  }
+  return map
+})
+
+// Live recompute trending from the currently filtered repos.
+// This ensures the hot board respects the active template and type/search filters.
+const liveTrending = computed<TrendingData>(() => {
+  return computeTrending(props.repos, prevStarMap.value)
+})
+
 const displayRepos = computed<TrendingRepo[]>(() => {
   if (selectedCategory.value) {
-    const cat = props.trending.by_category.find((c) => c.category === selectedCategory.value)
+    const cat = liveTrending.value.by_category.find((c) => c.category === selectedCategory.value)
     return cat?.repos || []
   }
-  return props.trending.overall
+  return liveTrending.value.overall
 })
 
 const categories = computed(() => {
-  return props.trending.by_category.map((c) => ({ name: c.category, count: c.repos.length }))
+  return liveTrending.value.by_category.map((c) => ({ name: c.category, count: c.repos.length }))
 })
 
 function selectCategory(cat: string | null) {
@@ -59,18 +83,18 @@ function typeIcon(type: string): string {
   <div class="trending-board">
     <div class="trending-header">
       <h3 class="board-title">🔥 Trending 热榜</h3>
-      <span class="board-period">{{ trending.period }}</span>
+      <span class="board-period">{{ liveTrending.period }}</span>
     </div>
 
     <!-- No historical data notice -->
-    <div v-if="!trending.has_historical" class="notice">
+    <div v-if="!liveTrending.has_historical" class="notice">
       <span>ℹ️ 首次运行，使用月均增速排序。下次更新后将显示周增速对比。</span>
     </div>
 
     <!-- Category filter pills -->
     <div v-if="categories.length > 1" class="cat-pills">
       <button :class="['pill', { active: !selectedCategory }]" @click="selectCategory(null)">
-        全部 · {{ trending.overall.length }}
+        全部 · {{ liveTrending.overall.length }}
       </button>
       <button
         v-for="cat in categories"

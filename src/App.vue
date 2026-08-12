@@ -23,6 +23,7 @@ const {
   selectedCategory,
   sortOption,
   filtered,
+  searched,
   categories,
   crossDimGroups,
   singleDimGroups,
@@ -269,6 +270,8 @@ function scrollToShare() {
           <TrendingBoard
             v-if="viewMode === 'trending' && trending"
             :trending="trending"
+            :repos="searched"
+            :template="activeTemplate"
           />
           <div v-else-if="viewMode === 'trending'" class="empty-state">
             Trending 数据暂不可用，等待下次数据更新
