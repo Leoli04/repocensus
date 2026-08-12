@@ -2,7 +2,7 @@
   "username": "Leoli04",
   "avatar_url": "https://avatars.githubusercontent.com/u/169586016?v=4",
   "html_url": "https://github.com/Leoli04",
-  "generated_at": "2026-08-12T23:30:46.513Z",
+  "generated_at": "2026-08-12T23:42:05.302Z",
   "repos": [
     {
       "id": 1332205303,
@@ -20,8 +20,8 @@
       "forks_count": 0,
       "open_issues_count": 0,
       "created_at": "2026-08-12T15:57:22Z",
-      "updated_at": "2026-08-12T23:30:37Z",
-      "pushed_at": "2026-08-12T23:30:33Z",
+      "updated_at": "2026-08-12T23:41:49Z",
+      "pushed_at": "2026-08-12T23:41:45Z",
       "starred_at": null,
       "archived": false,
       "has_readme": true,
@@ -923,7 +923,7 @@
         "sql"
       ],
       "stargazers_count": 43679,
-      "forks_count": 9143,
+      "forks_count": 9144,
       "open_issues_count": 45,
       "created_at": "2023-11-19T19:47:41Z",
       "updated_at": "2026-08-12T23:23:52Z",
@@ -999,11 +999,11 @@
         "rag",
         "reinforcement-learning"
       ],
-      "stargazers_count": 36596,
+      "stargazers_count": 36597,
       "forks_count": 3989,
       "open_issues_count": 4,
       "created_at": "2025-09-09T02:41:44Z",
-      "updated_at": "2026-08-12T23:28:55Z",
+      "updated_at": "2026-08-12T23:32:48Z",
       "pushed_at": "2026-08-12T15:57:03Z",
       "starred_at": "2026-07-28T02:05:30Z",
       "archived": false,
@@ -1166,11 +1166,11 @@
         "web-search",
         "youtube"
       ],
-      "stargazers_count": 58016,
-      "forks_count": 5039,
-      "open_issues_count": 126,
+      "stargazers_count": 58018,
+      "forks_count": 5040,
+      "open_issues_count": 127,
       "created_at": "2026-01-23T20:37:37Z",
-      "updated_at": "2026-08-12T23:30:25Z",
+      "updated_at": "2026-08-12T23:41:23Z",
       "pushed_at": "2026-08-09T18:44:11Z",
       "starred_at": "2026-06-24T10:59:48Z",
       "archived": false,
@@ -1304,11 +1304,11 @@
       "description": "Hermes Agent 从入门到精通 · 橙皮书系列 · Nous Research 开源 AI Agent 框架实战指南",
       "language": "Python",
       "topics": [],
-      "stargazers_count": 4821,
+      "stargazers_count": 4822,
       "forks_count": 490,
       "open_issues_count": 6,
       "created_at": "2026-04-08T02:49:02Z",
-      "updated_at": "2026-08-12T18:30:06Z",
+      "updated_at": "2026-08-12T23:31:29Z",
       "pushed_at": "2026-08-02T02:14:23Z",
       "starred_at": "2026-05-31T10:20:14Z",
       "archived": false,
@@ -1493,11 +1493,11 @@
         "typescript",
         "wsl-support"
       ],
-      "stargazers_count": 126724,
+      "stargazers_count": 126725,
       "forks_count": 8647,
       "open_issues_count": 2144,
       "created_at": "2025-08-04T14:16:16Z",
-      "updated_at": "2026-08-12T23:14:08Z",
+      "updated_at": "2026-08-12T23:35:09Z",
       "pushed_at": "2026-08-12T15:05:47Z",
       "starred_at": "2026-05-20T10:12:19Z",
       "archived": false,
@@ -1529,11 +1529,11 @@
         "spec",
         "spec-driven"
       ],
-      "stargazers_count": 126442,
-      "forks_count": 11303,
+      "stargazers_count": 126446,
+      "forks_count": 11304,
       "open_issues_count": 330,
       "created_at": "2025-08-21T22:54:31Z",
-      "updated_at": "2026-08-12T23:27:06Z",
+      "updated_at": "2026-08-12T23:35:11Z",
       "pushed_at": "2026-08-12T22:55:14Z",
       "starred_at": "2026-05-19T04:36:31Z",
       "archived": false,
@@ -1563,7 +1563,7 @@
       "forks_count": 1764,
       "open_issues_count": 51,
       "created_at": "2025-12-16T15:47:19Z",
-      "updated_at": "2026-08-12T21:57:33Z",
+      "updated_at": "2026-08-12T23:41:23Z",
       "pushed_at": "2026-08-09T20:36:04Z",
       "starred_at": "2026-05-18T08:31:36Z",
       "archived": false,
@@ -1587,12 +1587,12 @@
       "description": "The open source coding agent.",
       "language": "TypeScript",
       "topics": [],
-      "stargazers_count": 196579,
+      "stargazers_count": 196580,
       "forks_count": 25268,
-      "open_issues_count": 5120,
+      "open_issues_count": 5124,
       "created_at": "2025-04-30T20:08:00Z",
-      "updated_at": "2026-08-12T23:25:42Z",
-      "pushed_at": "2026-08-12T23:23:17Z",
+      "updated_at": "2026-08-12T23:34:17Z",
+      "pushed_at": "2026-08-12T23:35:41Z",
       "starred_at": "2026-05-18T01:27:16Z",
       "archived": false,
       "has_readme": true,
@@ -1665,10 +1665,10 @@
       ],
       "stargazers_count": 107898,
       "forks_count": 13530,
-      "open_issues_count": 1255,
+      "open_issues_count": 1256,
       "created_at": "2019-10-12T05:56:49Z",
       "updated_at": "2026-08-12T22:48:37Z",
-      "pushed_at": "2026-08-12T23:23:30Z",
+      "pushed_at": "2026-08-12T23:40:04Z",
       "starred_at": "2026-05-11T09:54:58Z",
       "archived": false,
       "has_readme": true,
@@ -1756,11 +1756,11 @@
       "description": "Skills for Real Engineers. Straight from my .agents directory.",
       "language": "Shell",
       "topics": [],
-      "stargazers_count": 215030,
+      "stargazers_count": 215032,
       "forks_count": 18558,
       "open_issues_count": 326,
       "created_at": "2026-02-03T11:15:53Z",
-      "updated_at": "2026-08-12T23:29:16Z",
+      "updated_at": "2026-08-12T23:38:35Z",
       "pushed_at": "2026-08-07T15:50:46Z",
       "starred_at": "2026-05-09T10:01:35Z",
       "archived": false,
@@ -1790,11 +1790,11 @@
         "multiagent",
         "trading"
       ],
-      "stargazers_count": 97856,
-      "forks_count": 18821,
+      "stargazers_count": 97857,
+      "forks_count": 18822,
       "open_issues_count": 358,
       "created_at": "2024-12-28T03:31:08Z",
-      "updated_at": "2026-08-12T23:25:47Z",
+      "updated_at": "2026-08-12T23:37:03Z",
       "pushed_at": "2026-07-18T15:55:05Z",
       "starred_at": "2026-05-07T09:40:52Z",
       "archived": false,
@@ -1825,11 +1825,11 @@
         "cursor",
         "skills"
       ],
-      "stargazers_count": 86592,
-      "forks_count": 9304,
+      "stargazers_count": 86593,
+      "forks_count": 9305,
       "open_issues_count": 112,
       "created_at": "2026-02-15T20:20:26Z",
-      "updated_at": "2026-08-12T23:25:02Z",
+      "updated_at": "2026-08-12T23:37:04Z",
       "pushed_at": "2026-08-11T19:48:56Z",
       "starred_at": "2026-05-04T14:06:22Z",
       "archived": false,
@@ -2150,12 +2150,12 @@
         "nous-research",
         "openai"
       ],
-      "stargazers_count": 229555,
-      "forks_count": 45316,
-      "open_issues_count": 31489,
+      "stargazers_count": 229557,
+      "forks_count": 45317,
+      "open_issues_count": 31487,
       "created_at": "2025-07-22T22:22:28Z",
-      "updated_at": "2026-08-12T23:30:27Z",
-      "pushed_at": "2026-08-12T23:29:55Z",
+      "updated_at": "2026-08-12T23:35:08Z",
+      "pushed_at": "2026-08-12T23:39:02Z",
       "starred_at": "2026-04-13T23:13:54Z",
       "archived": false,
       "has_readme": true,
@@ -2338,12 +2338,12 @@
         "own-your-data",
         "personal"
       ],
-      "stargazers_count": 386078,
+      "stargazers_count": 386079,
       "forks_count": 81150,
-      "open_issues_count": 5528,
+      "open_issues_count": 5530,
       "created_at": "2025-11-24T10:16:47Z",
-      "updated_at": "2026-08-12T23:26:53Z",
-      "pushed_at": "2026-08-12T23:30:33Z",
+      "updated_at": "2026-08-12T23:35:36Z",
+      "pushed_at": "2026-08-12T23:40:53Z",
       "starred_at": "2026-01-27T04:58:47Z",
       "archived": false,
       "has_readme": true,
@@ -2433,11 +2433,11 @@
       "description": "《动手学大模型Dive into LLMs》系列编程实践教程",
       "language": "Jupyter Notebook",
       "topics": [],
-      "stargazers_count": 48855,
+      "stargazers_count": 48856,
       "forks_count": 5861,
       "open_issues_count": 15,
       "created_at": "2024-04-08T13:11:40Z",
-      "updated_at": "2026-08-12T23:30:30Z",
+      "updated_at": "2026-08-12T23:32:26Z",
       "pushed_at": "2025-10-10T06:25:48Z",
       "starred_at": "2026-01-16T01:36:33Z",
       "archived": false,
@@ -2543,11 +2543,11 @@
         "aiagentframework",
         "llms"
       ],
-      "stargazers_count": 56999,
+      "stargazers_count": 57000,
       "forks_count": 8134,
       "open_issues_count": 782,
       "created_at": "2023-10-27T03:26:59Z",
-      "updated_at": "2026-08-12T23:20:00Z",
+      "updated_at": "2026-08-12T23:35:33Z",
       "pushed_at": "2026-08-12T22:38:39Z",
       "starred_at": "2026-01-15T04:52:48Z",
       "archived": false,
@@ -2739,7 +2739,7 @@
         "windsurf-ai"
       ],
       "stargazers_count": 142756,
-      "forks_count": 34838,
+      "forks_count": 34839,
       "open_issues_count": 158,
       "created_at": "2025-03-05T16:38:29Z",
       "updated_at": "2026-08-12T23:16:08Z",
@@ -2773,11 +2773,11 @@
         "notes-app",
         "self-learning"
       ],
-      "stargazers_count": 36746,
-      "forks_count": 4216,
+      "stargazers_count": 36747,
+      "forks_count": 4217,
       "open_issues_count": 128,
       "created_at": "2024-10-21T17:58:46Z",
-      "updated_at": "2026-08-12T23:18:33Z",
+      "updated_at": "2026-08-12T23:33:23Z",
       "pushed_at": "2026-08-11T16:00:18Z",
       "starred_at": "2025-12-28T03:54:29Z",
       "archived": false,
@@ -2876,11 +2876,11 @@
         "kmp",
         "leetcode"
       ],
-      "stargazers_count": 135320,
+      "stargazers_count": 135321,
       "forks_count": 23580,
       "open_issues_count": 4,
       "created_at": "2020-02-19T09:01:23Z",
-      "updated_at": "2026-08-12T21:20:46Z",
+      "updated_at": "2026-08-12T23:41:08Z",
       "pushed_at": "2026-02-28T10:07:31Z",
       "starred_at": "2025-12-22T01:30:58Z",
       "archived": false,
@@ -2922,11 +2922,11 @@
         "svg",
         "tailwindcss"
       ],
-      "stargazers_count": 38940,
+      "stargazers_count": 38942,
       "forks_count": 3174,
       "open_issues_count": 224,
       "created_at": "2023-07-16T17:09:20Z",
-      "updated_at": "2026-08-12T23:21:10Z",
+      "updated_at": "2026-08-12T23:40:31Z",
       "pushed_at": "2026-08-12T19:01:54Z",
       "starred_at": "2025-12-22T01:29:47Z",
       "archived": false,
@@ -2980,11 +2980,11 @@
       "topics": [
         "agent-skills"
       ],
-      "stargazers_count": 168522,
+      "stargazers_count": 168523,
       "forks_count": 20076,
       "open_issues_count": 1079,
       "created_at": "2025-09-22T15:53:31Z",
-      "updated_at": "2026-08-12T22:36:01Z",
+      "updated_at": "2026-08-12T23:36:15Z",
       "pushed_at": "2026-08-07T17:14:15Z",
       "starred_at": "2025-12-16T02:08:07Z",
       "archived": false,
@@ -3017,11 +3017,11 @@
         "subagent-driven-development",
         "superpowers"
       ],
-      "stargazers_count": 271239,
-      "forks_count": 24242,
+      "stargazers_count": 271240,
+      "forks_count": 24243,
       "open_issues_count": 313,
       "created_at": "2025-10-09T19:45:18Z",
-      "updated_at": "2026-08-12T23:26:54Z",
+      "updated_at": "2026-08-12T23:36:51Z",
       "pushed_at": "2026-08-12T22:31:42Z",
       "starred_at": "2025-12-16T02:05:31Z",
       "archived": false,
@@ -3356,11 +3356,11 @@
       "description": "人人都能用英语",
       "language": "TypeScript",
       "topics": [],
-      "stargazers_count": 36054,
+      "stargazers_count": 36055,
       "forks_count": 5027,
       "open_issues_count": 125,
       "created_at": "2019-03-15T16:33:53Z",
-      "updated_at": "2026-08-12T23:18:39Z",
+      "updated_at": "2026-08-12T23:41:21Z",
       "pushed_at": "2026-06-29T09:40:15Z",
       "starred_at": "2025-11-12T01:31:34Z",
       "archived": false,
@@ -3666,11 +3666,11 @@
         "typescript",
         "vite"
       ],
-      "stargazers_count": 44807,
+      "stargazers_count": 44806,
       "forks_count": 8920,
       "open_issues_count": 11,
       "created_at": "2019-02-23T15:08:34Z",
-      "updated_at": "2026-08-12T20:04:15Z",
+      "updated_at": "2026-08-12T23:41:20Z",
       "pushed_at": "2026-08-12T09:25:44Z",
       "starred_at": "2025-08-07T06:29:00Z",
       "archived": false,
@@ -3747,11 +3747,11 @@
         "desktop-agent",
         "multi-agent-systems"
       ],
-      "stargazers_count": 14967,
+      "stargazers_count": 14968,
       "forks_count": 1777,
       "open_issues_count": 209,
       "created_at": "2025-07-29T15:56:02Z",
-      "updated_at": "2026-08-12T21:51:54Z",
+      "updated_at": "2026-08-12T23:36:23Z",
       "pushed_at": "2026-08-12T21:40:17Z",
       "starred_at": "2025-08-03T01:07:07Z",
       "archived": false,
@@ -3874,11 +3874,11 @@
         "openai",
         "pdf"
       ],
-      "stargazers_count": 173372,
+      "stargazers_count": 173373,
       "forks_count": 12662,
       "open_issues_count": 857,
       "created_at": "2024-11-13T19:56:40Z",
-      "updated_at": "2026-08-12T23:28:28Z",
+      "updated_at": "2026-08-12T23:39:23Z",
       "pushed_at": "2026-07-29T18:18:09Z",
       "starred_at": "2025-08-02T10:33:10Z",
       "archived": false,
@@ -4183,11 +4183,11 @@
       "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
       "language": "Python",
       "topics": [],
-      "stargazers_count": 141229,
+      "stargazers_count": 141230,
       "forks_count": 22688,
-      "open_issues_count": 15878,
+      "open_issues_count": 15880,
       "created_at": "2025-02-22T17:41:21Z",
-      "updated_at": "2026-08-12T23:19:29Z",
+      "updated_at": "2026-08-12T23:38:42Z",
       "pushed_at": "2026-08-12T20:56:21Z",
       "starred_at": "2025-07-17T00:01:34Z",
       "archived": false,
@@ -4364,11 +4364,11 @@
         "resources",
         "unicorns"
       ],
-      "stargazers_count": 494970,
+      "stargazers_count": 494975,
       "forks_count": 36345,
       "open_issues_count": 100,
       "created_at": "2014-07-11T13:42:37Z",
-      "updated_at": "2026-08-12T23:25:34Z",
+      "updated_at": "2026-08-12T23:41:25Z",
       "pushed_at": "2026-06-30T18:21:16Z",
       "starred_at": "2025-06-22T23:30:15Z",
       "archived": false,
@@ -4574,7 +4574,7 @@
       "forks_count": 44770,
       "open_issues_count": 10,
       "created_at": "2017-03-15T13:45:52Z",
-      "updated_at": "2026-08-12T22:08:50Z",
+      "updated_at": "2026-08-12T23:41:08Z",
       "pushed_at": "2026-08-07T12:43:15Z",
       "starred_at": "2025-05-03T03:15:13Z",
       "archived": false,
@@ -4779,11 +4779,11 @@
         "cursor-ai-editor",
         "cursorrules"
       ],
-      "stargazers_count": 40571,
+      "stargazers_count": 40572,
       "forks_count": 3461,
       "open_issues_count": 51,
       "created_at": "2024-09-16T15:38:38Z",
-      "updated_at": "2026-08-12T21:14:18Z",
+      "updated_at": "2026-08-12T23:41:31Z",
       "pushed_at": "2026-05-30T18:01:29Z",
       "starred_at": "2025-03-25T02:47:53Z",
       "archived": false,
@@ -4822,7 +4822,7 @@
         "software"
       ],
       "stargazers_count": 455710,
-      "forks_count": 50264,
+      "forks_count": 50265,
       "open_issues_count": 1628,
       "created_at": "2016-03-20T23:49:42Z",
       "updated_at": "2026-08-12T23:29:30Z",
@@ -4941,11 +4941,11 @@
         "workflow",
         "workflow-automation"
       ],
-      "stargazers_count": 200391,
+      "stargazers_count": 200392,
       "forks_count": 60101,
       "open_issues_count": 1317,
       "created_at": "2019-06-22T09:24:21Z",
-      "updated_at": "2026-08-12T23:28:46Z",
+      "updated_at": "2026-08-12T23:36:44Z",
       "pushed_at": "2026-08-12T22:57:05Z",
       "starred_at": "2025-03-24T09:28:38Z",
       "archived": false,
@@ -5009,11 +5009,11 @@
         "browser",
         "browser-engine"
       ],
-      "stargazers_count": 65481,
+      "stargazers_count": 65482,
       "forks_count": 3129,
       "open_issues_count": 534,
       "created_at": "2024-05-30T09:18:10Z",
-      "updated_at": "2026-08-12T23:20:45Z",
+      "updated_at": "2026-08-12T23:40:45Z",
       "pushed_at": "2026-08-12T15:00:19Z",
       "starred_at": "2025-03-20T11:05:21Z",
       "archived": false,
@@ -5040,11 +5040,11 @@
         "ai",
         "mcp"
       ],
-      "stargazers_count": 92162,
+      "stargazers_count": 92163,
       "forks_count": 14395,
       "open_issues_count": 2829,
       "created_at": "2024-11-30T04:49:10Z",
-      "updated_at": "2026-08-12T23:22:48Z",
+      "updated_at": "2026-08-12T23:40:15Z",
       "pushed_at": "2026-08-03T03:09:55Z",
       "starred_at": "2025-03-20T03:15:16Z",
       "archived": false,
@@ -5117,11 +5117,11 @@
         "playwright",
         "python"
       ],
-      "stargazers_count": 108965,
+      "stargazers_count": 108966,
       "forks_count": 11973,
       "open_issues_count": 351,
       "created_at": "2024-10-31T16:00:56Z",
-      "updated_at": "2026-08-12T23:21:21Z",
+      "updated_at": "2026-08-12T23:38:54Z",
       "pushed_at": "2026-08-11T17:33:21Z",
       "starred_at": "2025-03-18T09:07:33Z",
       "archived": false,
@@ -5249,11 +5249,11 @@
         "ui",
         "unsloth"
       ],
-      "stargazers_count": 70642,
+      "stargazers_count": 70643,
       "forks_count": 6381,
-      "open_issues_count": 1109,
+      "open_issues_count": 1111,
       "created_at": "2023-11-29T16:50:09Z",
-      "updated_at": "2026-08-12T23:27:20Z",
+      "updated_at": "2026-08-12T23:34:00Z",
       "pushed_at": "2026-08-12T23:02:42Z",
       "starred_at": "2025-03-11T04:12:40Z",
       "archived": false,
@@ -5287,11 +5287,11 @@
         "llm",
         "openai"
       ],
-      "stargazers_count": 83833,
+      "stargazers_count": 83834,
       "forks_count": 10848,
       "open_issues_count": 470,
       "created_at": "2024-03-13T03:33:31Z",
-      "updated_at": "2026-08-12T23:23:21Z",
+      "updated_at": "2026-08-12T23:34:19Z",
       "pushed_at": "2026-08-12T23:18:33Z",
       "starred_at": "2025-03-10T09:47:46Z",
       "archived": false,
@@ -5346,11 +5346,11 @@
       "description": "No fortress, purely open ground.  OpenManus is Coming.",
       "language": "Python",
       "topics": [],
-      "stargazers_count": 57947,
+      "stargazers_count": 57946,
       "forks_count": 10062,
       "open_issues_count": 476,
       "created_at": "2025-03-06T14:08:14Z",
-      "updated_at": "2026-08-12T23:05:29Z",
+      "updated_at": "2026-08-12T23:37:03Z",
       "pushed_at": "2026-02-11T13:48:00Z",
       "starred_at": "2025-03-08T02:13:39Z",
       "archived": false,
@@ -5741,11 +5741,11 @@
         "software-engineering",
         "study-plan"
       ],
-      "stargazers_count": 358533,
+      "stargazers_count": 358535,
       "forks_count": 84607,
       "open_issues_count": 124,
       "created_at": "2016-06-06T02:34:12Z",
-      "updated_at": "2026-08-12T23:25:51Z",
+      "updated_at": "2026-08-12T23:40:51Z",
       "pushed_at": "2025-08-28T14:42:47Z",
       "starred_at": "2025-02-10T14:16:36Z",
       "archived": false,
@@ -6327,11 +6327,11 @@
         "python",
         "rag"
       ],
-      "stargazers_count": 132326,
-      "forks_count": 19470,
+      "stargazers_count": 132327,
+      "forks_count": 19471,
       "open_issues_count": 9,
       "created_at": "2024-04-29T05:30:25Z",
-      "updated_at": "2026-08-12T23:25:51Z",
+      "updated_at": "2026-08-12T23:35:22Z",
       "pushed_at": "2026-08-10T07:26:18Z",
       "starred_at": "2024-12-26T05:30:38Z",
       "archived": false,
@@ -6415,7 +6415,7 @@
       ],
       "stargazers_count": 46457,
       "forks_count": 17573,
-      "open_issues_count": 1888,
+      "open_issues_count": 1890,
       "created_at": "2015-04-13T18:04:58Z",
       "updated_at": "2026-08-12T22:32:44Z",
       "pushed_at": "2026-08-12T21:08:27Z",
@@ -6729,11 +6729,11 @@
         "flutter",
         "flutter-apps"
       ],
-      "stargazers_count": 87788,
+      "stargazers_count": 87791,
       "forks_count": 4870,
       "open_issues_count": 1053,
       "created_at": "2022-12-16T00:46:07Z",
-      "updated_at": "2026-08-12T23:30:31Z",
+      "updated_at": "2026-08-12T23:40:39Z",
       "pushed_at": "2026-08-11T21:48:29Z",
       "starred_at": "2024-11-04T00:57:23Z",
       "archived": false,
@@ -7645,7 +7645,7 @@
       "open_issues_count": 584,
       "created_at": "2015-07-21T18:55:34Z",
       "updated_at": "2026-08-12T22:02:43Z",
-      "pushed_at": "2026-08-12T22:44:31Z",
+      "pushed_at": "2026-08-12T23:40:39Z",
       "starred_at": "2024-08-22T00:54:38Z",
       "archived": false,
       "has_readme": true,
@@ -7776,11 +7776,11 @@
         "hugo",
         "static-site-generator"
       ],
-      "stargazers_count": 89425,
+      "stargazers_count": 89426,
       "forks_count": 8343,
       "open_issues_count": 231,
       "created_at": "2013-07-04T15:26:26Z",
-      "updated_at": "2026-08-12T22:51:09Z",
+      "updated_at": "2026-08-12T23:41:32Z",
       "pushed_at": "2026-08-12T15:39:51Z",
       "starred_at": "2024-08-13T15:55:35Z",
       "archived": false,
@@ -7851,10 +7851,10 @@
       ],
       "stargazers_count": 47040,
       "forks_count": 9292,
-      "open_issues_count": 132,
+      "open_issues_count": 133,
       "created_at": "2012-07-23T13:42:55Z",
       "updated_at": "2026-08-12T22:16:16Z",
-      "pushed_at": "2026-08-12T18:58:29Z",
+      "pushed_at": "2026-08-12T23:34:59Z",
       "starred_at": "2024-08-10T13:51:16Z",
       "archived": false,
       "has_readme": true,
@@ -7945,7 +7945,7 @@
       "language": "TypeScript",
       "topics": [],
       "stargazers_count": 26647,
-      "forks_count": 2541,
+      "forks_count": 2540,
       "open_issues_count": 44,
       "created_at": "2021-05-22T09:12:05Z",
       "updated_at": "2026-08-12T23:16:17Z",
@@ -8378,11 +8378,11 @@
         "trt-llm",
         "vllm"
       ],
-      "stargazers_count": 6255,
+      "stargazers_count": 6256,
       "forks_count": 1074,
       "open_issues_count": 465,
       "created_at": "2024-06-25T05:21:05Z",
-      "updated_at": "2026-08-12T18:54:03Z",
+      "updated_at": "2026-08-12T23:33:28Z",
       "pushed_at": "2026-08-12T14:43:20Z",
       "starred_at": "2024-07-03T06:47:00Z",
       "archived": false,
@@ -8409,11 +8409,11 @@
         "awesome-list",
         "free-for-developers"
       ],
-      "stargazers_count": 131579,
+      "stargazers_count": 131580,
       "forks_count": 13809,
       "open_issues_count": 13,
       "created_at": "2015-03-18T21:06:26Z",
-      "updated_at": "2026-08-12T23:22:23Z",
+      "updated_at": "2026-08-12T23:39:20Z",
       "pushed_at": "2026-08-12T14:19:54Z",
       "starred_at": "2024-07-03T06:46:11Z",
       "archived": false,
@@ -8852,11 +8852,11 @@
         "python",
         "pytorch"
       ],
-      "stargazers_count": 28115,
+      "stargazers_count": 28116,
       "forks_count": 7647,
       "open_issues_count": 267,
       "created_at": "2017-09-09T17:43:36Z",
-      "updated_at": "2026-08-12T22:21:31Z",
+      "updated_at": "2026-08-12T23:33:44Z",
       "pushed_at": "2026-07-30T22:41:22Z",
       "starred_at": "2024-06-07T06:32:13Z",
       "archived": false,
@@ -8919,10 +8919,10 @@
       ],
       "stargazers_count": 196982,
       "forks_count": 76001,
-      "open_issues_count": 2839,
+      "open_issues_count": 2840,
       "created_at": "2015-11-07T01:19:20Z",
       "updated_at": "2026-08-12T23:27:48Z",
-      "pushed_at": "2026-08-12T23:30:00Z",
+      "pushed_at": "2026-08-12T23:39:47Z",
       "starred_at": "2024-06-06T09:26:54Z",
       "archived": false,
       "has_readme": true,
@@ -9043,12 +9043,12 @@
         "openai",
         "skills"
       ],
-      "stargazers_count": 81610,
-      "forks_count": 15802,
-      "open_issues_count": 703,
+      "stargazers_count": 81612,
+      "forks_count": 15801,
+      "open_issues_count": 702,
       "created_at": "2023-05-21T07:19:12Z",
-      "updated_at": "2026-08-12T23:10:19Z",
-      "pushed_at": "2026-08-12T23:20:17Z",
+      "updated_at": "2026-08-12T23:40:51Z",
+      "pushed_at": "2026-08-12T23:38:44Z",
       "starred_at": "2024-06-03T02:18:24Z",
       "archived": false,
       "has_readme": true,
@@ -9205,10 +9205,10 @@
       ],
       "stargazers_count": 102351,
       "forks_count": 28847,
-      "open_issues_count": 17125,
+      "open_issues_count": 17131,
       "created_at": "2016-08-13T05:26:41Z",
       "updated_at": "2026-08-12T23:19:44Z",
-      "pushed_at": "2026-08-12T23:27:14Z",
+      "pushed_at": "2026-08-12T23:40:41Z",
       "starred_at": "2024-06-01T11:06:19Z",
       "archived": false,
       "has_readme": true,
@@ -9355,12 +9355,12 @@
       "topics": [
         "jax"
       ],
-      "stargazers_count": 36152,
+      "stargazers_count": 36153,
       "forks_count": 3734,
-      "open_issues_count": 2568,
+      "open_issues_count": 2567,
       "created_at": "2018-10-25T21:25:02Z",
-      "updated_at": "2026-08-12T22:42:18Z",
-      "pushed_at": "2026-08-12T23:20:33Z",
+      "updated_at": "2026-08-12T23:36:44Z",
+      "pushed_at": "2026-08-12T23:35:29Z",
       "starred_at": "2024-05-30T08:58:28Z",
       "archived": false,
       "has_readme": true,
@@ -9398,11 +9398,11 @@
         "rag",
         "retrieval-augmented-generation"
       ],
-      "stargazers_count": 87528,
+      "stargazers_count": 87531,
       "forks_count": 10309,
       "open_issues_count": 1881,
       "created_at": "2023-12-12T06:13:13Z",
-      "updated_at": "2026-08-12T23:27:48Z",
+      "updated_at": "2026-08-12T23:38:36Z",
       "pushed_at": "2026-08-12T14:46:25Z",
       "starred_at": "2024-05-29T10:49:24Z",
       "archived": false,
@@ -9815,10 +9815,10 @@
       ],
       "stargazers_count": 13755,
       "forks_count": 1399,
-      "open_issues_count": 454,
+      "open_issues_count": 455,
       "created_at": "2018-04-24T15:56:54Z",
       "updated_at": "2026-08-12T20:47:18Z",
-      "pushed_at": "2026-08-10T14:50:16Z",
+      "pushed_at": "2026-08-12T23:33:32Z",
       "starred_at": "2024-05-21T09:48:22Z",
       "archived": false,
       "has_readme": true,
@@ -9876,7 +9876,7 @@
         "pytorch"
       ],
       "stargazers_count": 14370,
-      "forks_count": 2658,
+      "forks_count": 2659,
       "open_issues_count": 1503,
       "created_at": "2023-08-16T17:14:27Z",
       "updated_at": "2026-08-12T23:11:13Z",
@@ -10127,11 +10127,11 @@
         "pytorch",
         "stable-diffusion"
       ],
-      "stargazers_count": 127083,
+      "stargazers_count": 127084,
       "forks_count": 14968,
-      "open_issues_count": 4556,
+      "open_issues_count": 4555,
       "created_at": "2023-01-17T03:15:56Z",
-      "updated_at": "2026-08-12T23:19:15Z",
+      "updated_at": "2026-08-12T23:33:32Z",
       "pushed_at": "2026-08-12T23:06:00Z",
       "starred_at": "2024-05-20T07:07:14Z",
       "archived": false,
@@ -10239,7 +10239,7 @@
       ],
       "stargazers_count": 5930,
       "forks_count": 734,
-      "open_issues_count": 394,
+      "open_issues_count": 393,
       "created_at": "2020-02-15T16:54:52Z",
       "updated_at": "2026-08-12T23:30:11Z",
       "pushed_at": "2026-08-12T23:30:04Z",
@@ -10793,7 +10793,7 @@
       "category": "AI/ML",
       "health_score": 100,
       "is_new": false,
-      "starred_days_ago": 817
+      "starred_days_ago": 818
     },
     {
       "id": 772699441,
@@ -11203,7 +11203,7 @@
         "sql"
       ],
       "stargazers_count": 43679,
-      "forks_count": 9143,
+      "forks_count": 9144,
       "open_issues_count": 45,
       "created_at": "2023-11-19T19:47:41Z",
       "updated_at": "2026-08-12T23:23:52Z",
@@ -11279,11 +11279,11 @@
         "rag",
         "reinforcement-learning"
       ],
-      "stargazers_count": 36596,
+      "stargazers_count": 36597,
       "forks_count": 3989,
       "open_issues_count": 4,
       "created_at": "2025-09-09T02:41:44Z",
-      "updated_at": "2026-08-12T23:28:55Z",
+      "updated_at": "2026-08-12T23:32:48Z",
       "pushed_at": "2026-08-12T15:57:03Z",
       "starred_at": "2026-07-28T02:05:30Z",
       "archived": false,
@@ -11446,11 +11446,11 @@
         "web-search",
         "youtube"
       ],
-      "stargazers_count": 58016,
-      "forks_count": 5039,
-      "open_issues_count": 126,
+      "stargazers_count": 58018,
+      "forks_count": 5040,
+      "open_issues_count": 127,
       "created_at": "2026-01-23T20:37:37Z",
-      "updated_at": "2026-08-12T23:30:25Z",
+      "updated_at": "2026-08-12T23:41:23Z",
       "pushed_at": "2026-08-09T18:44:11Z",
       "starred_at": "2026-06-24T10:59:48Z",
       "archived": false,
@@ -11584,11 +11584,11 @@
       "description": "Hermes Agent 从入门到精通 · 橙皮书系列 · Nous Research 开源 AI Agent 框架实战指南",
       "language": "Python",
       "topics": [],
-      "stargazers_count": 4821,
+      "stargazers_count": 4822,
       "forks_count": 490,
       "open_issues_count": 6,
       "created_at": "2026-04-08T02:49:02Z",
-      "updated_at": "2026-08-12T18:30:06Z",
+      "updated_at": "2026-08-12T23:31:29Z",
       "pushed_at": "2026-08-02T02:14:23Z",
       "starred_at": "2026-05-31T10:20:14Z",
       "archived": false,
@@ -11773,11 +11773,11 @@
         "typescript",
         "wsl-support"
       ],
-      "stargazers_count": 126724,
+      "stargazers_count": 126725,
       "forks_count": 8647,
       "open_issues_count": 2144,
       "created_at": "2025-08-04T14:16:16Z",
-      "updated_at": "2026-08-12T23:14:08Z",
+      "updated_at": "2026-08-12T23:35:09Z",
       "pushed_at": "2026-08-12T15:05:47Z",
       "starred_at": "2026-05-20T10:12:19Z",
       "archived": false,
@@ -11809,11 +11809,11 @@
         "spec",
         "spec-driven"
       ],
-      "stargazers_count": 126442,
-      "forks_count": 11303,
+      "stargazers_count": 126446,
+      "forks_count": 11304,
       "open_issues_count": 330,
       "created_at": "2025-08-21T22:54:31Z",
-      "updated_at": "2026-08-12T23:27:06Z",
+      "updated_at": "2026-08-12T23:35:11Z",
       "pushed_at": "2026-08-12T22:55:14Z",
       "starred_at": "2026-05-19T04:36:31Z",
       "archived": false,
@@ -11843,7 +11843,7 @@
       "forks_count": 1764,
       "open_issues_count": 51,
       "created_at": "2025-12-16T15:47:19Z",
-      "updated_at": "2026-08-12T21:57:33Z",
+      "updated_at": "2026-08-12T23:41:23Z",
       "pushed_at": "2026-08-09T20:36:04Z",
       "starred_at": "2026-05-18T08:31:36Z",
       "archived": false,
@@ -11867,12 +11867,12 @@
       "description": "The open source coding agent.",
       "language": "TypeScript",
       "topics": [],
-      "stargazers_count": 196579,
+      "stargazers_count": 196580,
       "forks_count": 25268,
-      "open_issues_count": 5120,
+      "open_issues_count": 5124,
       "created_at": "2025-04-30T20:08:00Z",
-      "updated_at": "2026-08-12T23:25:42Z",
-      "pushed_at": "2026-08-12T23:23:17Z",
+      "updated_at": "2026-08-12T23:34:17Z",
+      "pushed_at": "2026-08-12T23:35:41Z",
       "starred_at": "2026-05-18T01:27:16Z",
       "archived": false,
       "has_readme": true,
@@ -11945,10 +11945,10 @@
       ],
       "stargazers_count": 107898,
       "forks_count": 13530,
-      "open_issues_count": 1255,
+      "open_issues_count": 1256,
       "created_at": "2019-10-12T05:56:49Z",
       "updated_at": "2026-08-12T22:48:37Z",
-      "pushed_at": "2026-08-12T23:23:30Z",
+      "pushed_at": "2026-08-12T23:40:04Z",
       "starred_at": "2026-05-11T09:54:58Z",
       "archived": false,
       "has_readme": true,
@@ -12036,11 +12036,11 @@
       "description": "Skills for Real Engineers. Straight from my .agents directory.",
       "language": "Shell",
       "topics": [],
-      "stargazers_count": 215030,
+      "stargazers_count": 215032,
       "forks_count": 18558,
       "open_issues_count": 326,
       "created_at": "2026-02-03T11:15:53Z",
-      "updated_at": "2026-08-12T23:29:16Z",
+      "updated_at": "2026-08-12T23:38:35Z",
       "pushed_at": "2026-08-07T15:50:46Z",
       "starred_at": "2026-05-09T10:01:35Z",
       "archived": false,
@@ -12070,11 +12070,11 @@
         "multiagent",
         "trading"
       ],
-      "stargazers_count": 97856,
-      "forks_count": 18821,
+      "stargazers_count": 97857,
+      "forks_count": 18822,
       "open_issues_count": 358,
       "created_at": "2024-12-28T03:31:08Z",
-      "updated_at": "2026-08-12T23:25:47Z",
+      "updated_at": "2026-08-12T23:37:03Z",
       "pushed_at": "2026-07-18T15:55:05Z",
       "starred_at": "2026-05-07T09:40:52Z",
       "archived": false,
@@ -12105,11 +12105,11 @@
         "cursor",
         "skills"
       ],
-      "stargazers_count": 86592,
-      "forks_count": 9304,
+      "stargazers_count": 86593,
+      "forks_count": 9305,
       "open_issues_count": 112,
       "created_at": "2026-02-15T20:20:26Z",
-      "updated_at": "2026-08-12T23:25:02Z",
+      "updated_at": "2026-08-12T23:37:04Z",
       "pushed_at": "2026-08-11T19:48:56Z",
       "starred_at": "2026-05-04T14:06:22Z",
       "archived": false,
@@ -12430,12 +12430,12 @@
         "nous-research",
         "openai"
       ],
-      "stargazers_count": 229555,
-      "forks_count": 45316,
-      "open_issues_count": 31489,
+      "stargazers_count": 229557,
+      "forks_count": 45317,
+      "open_issues_count": 31487,
       "created_at": "2025-07-22T22:22:28Z",
-      "updated_at": "2026-08-12T23:30:27Z",
-      "pushed_at": "2026-08-12T23:29:55Z",
+      "updated_at": "2026-08-12T23:35:08Z",
+      "pushed_at": "2026-08-12T23:39:02Z",
       "starred_at": "2026-04-13T23:13:54Z",
       "archived": false,
       "has_readme": true,
@@ -12618,12 +12618,12 @@
         "own-your-data",
         "personal"
       ],
-      "stargazers_count": 386078,
+      "stargazers_count": 386079,
       "forks_count": 81150,
-      "open_issues_count": 5528,
+      "open_issues_count": 5530,
       "created_at": "2025-11-24T10:16:47Z",
-      "updated_at": "2026-08-12T23:26:53Z",
-      "pushed_at": "2026-08-12T23:30:33Z",
+      "updated_at": "2026-08-12T23:35:36Z",
+      "pushed_at": "2026-08-12T23:40:53Z",
       "starred_at": "2026-01-27T04:58:47Z",
       "archived": false,
       "has_readme": true,
@@ -12713,11 +12713,11 @@
       "description": "《动手学大模型Dive into LLMs》系列编程实践教程",
       "language": "Jupyter Notebook",
       "topics": [],
-      "stargazers_count": 48855,
+      "stargazers_count": 48856,
       "forks_count": 5861,
       "open_issues_count": 15,
       "created_at": "2024-04-08T13:11:40Z",
-      "updated_at": "2026-08-12T23:30:30Z",
+      "updated_at": "2026-08-12T23:32:26Z",
       "pushed_at": "2025-10-10T06:25:48Z",
       "starred_at": "2026-01-16T01:36:33Z",
       "archived": false,
@@ -12823,11 +12823,11 @@
         "aiagentframework",
         "llms"
       ],
-      "stargazers_count": 56999,
+      "stargazers_count": 57000,
       "forks_count": 8134,
       "open_issues_count": 782,
       "created_at": "2023-10-27T03:26:59Z",
-      "updated_at": "2026-08-12T23:20:00Z",
+      "updated_at": "2026-08-12T23:35:33Z",
       "pushed_at": "2026-08-12T22:38:39Z",
       "starred_at": "2026-01-15T04:52:48Z",
       "archived": false,
@@ -13019,7 +13019,7 @@
         "windsurf-ai"
       ],
       "stargazers_count": 142756,
-      "forks_count": 34838,
+      "forks_count": 34839,
       "open_issues_count": 158,
       "created_at": "2025-03-05T16:38:29Z",
       "updated_at": "2026-08-12T23:16:08Z",
@@ -13053,11 +13053,11 @@
         "notes-app",
         "self-learning"
       ],
-      "stargazers_count": 36746,
-      "forks_count": 4216,
+      "stargazers_count": 36747,
+      "forks_count": 4217,
       "open_issues_count": 128,
       "created_at": "2024-10-21T17:58:46Z",
-      "updated_at": "2026-08-12T23:18:33Z",
+      "updated_at": "2026-08-12T23:33:23Z",
       "pushed_at": "2026-08-11T16:00:18Z",
       "starred_at": "2025-12-28T03:54:29Z",
       "archived": false,
@@ -13156,11 +13156,11 @@
         "kmp",
         "leetcode"
       ],
-      "stargazers_count": 135320,
+      "stargazers_count": 135321,
       "forks_count": 23580,
       "open_issues_count": 4,
       "created_at": "2020-02-19T09:01:23Z",
-      "updated_at": "2026-08-12T21:20:46Z",
+      "updated_at": "2026-08-12T23:41:08Z",
       "pushed_at": "2026-02-28T10:07:31Z",
       "starred_at": "2025-12-22T01:30:58Z",
       "archived": false,
@@ -13202,11 +13202,11 @@
         "svg",
         "tailwindcss"
       ],
-      "stargazers_count": 38940,
+      "stargazers_count": 38942,
       "forks_count": 3174,
       "open_issues_count": 224,
       "created_at": "2023-07-16T17:09:20Z",
-      "updated_at": "2026-08-12T23:21:10Z",
+      "updated_at": "2026-08-12T23:40:31Z",
       "pushed_at": "2026-08-12T19:01:54Z",
       "starred_at": "2025-12-22T01:29:47Z",
       "archived": false,
@@ -13260,11 +13260,11 @@
       "topics": [
         "agent-skills"
       ],
-      "stargazers_count": 168522,
+      "stargazers_count": 168523,
       "forks_count": 20076,
       "open_issues_count": 1079,
       "created_at": "2025-09-22T15:53:31Z",
-      "updated_at": "2026-08-12T22:36:01Z",
+      "updated_at": "2026-08-12T23:36:15Z",
       "pushed_at": "2026-08-07T17:14:15Z",
       "starred_at": "2025-12-16T02:08:07Z",
       "archived": false,
@@ -13297,11 +13297,11 @@
         "subagent-driven-development",
         "superpowers"
       ],
-      "stargazers_count": 271239,
-      "forks_count": 24242,
+      "stargazers_count": 271240,
+      "forks_count": 24243,
       "open_issues_count": 313,
       "created_at": "2025-10-09T19:45:18Z",
-      "updated_at": "2026-08-12T23:26:54Z",
+      "updated_at": "2026-08-12T23:36:51Z",
       "pushed_at": "2026-08-12T22:31:42Z",
       "starred_at": "2025-12-16T02:05:31Z",
       "archived": false,
@@ -13636,11 +13636,11 @@
       "description": "人人都能用英语",
       "language": "TypeScript",
       "topics": [],
-      "stargazers_count": 36054,
+      "stargazers_count": 36055,
       "forks_count": 5027,
       "open_issues_count": 125,
       "created_at": "2019-03-15T16:33:53Z",
-      "updated_at": "2026-08-12T23:18:39Z",
+      "updated_at": "2026-08-12T23:41:21Z",
       "pushed_at": "2026-06-29T09:40:15Z",
       "starred_at": "2025-11-12T01:31:34Z",
       "archived": false,
@@ -13946,11 +13946,11 @@
         "typescript",
         "vite"
       ],
-      "stargazers_count": 44807,
+      "stargazers_count": 44806,
       "forks_count": 8920,
       "open_issues_count": 11,
       "created_at": "2019-02-23T15:08:34Z",
-      "updated_at": "2026-08-12T20:04:15Z",
+      "updated_at": "2026-08-12T23:41:20Z",
       "pushed_at": "2026-08-12T09:25:44Z",
       "starred_at": "2025-08-07T06:29:00Z",
       "archived": false,
@@ -14027,11 +14027,11 @@
         "desktop-agent",
         "multi-agent-systems"
       ],
-      "stargazers_count": 14967,
+      "stargazers_count": 14968,
       "forks_count": 1777,
       "open_issues_count": 209,
       "created_at": "2025-07-29T15:56:02Z",
-      "updated_at": "2026-08-12T21:51:54Z",
+      "updated_at": "2026-08-12T23:36:23Z",
       "pushed_at": "2026-08-12T21:40:17Z",
       "starred_at": "2025-08-03T01:07:07Z",
       "archived": false,
@@ -14154,11 +14154,11 @@
         "openai",
         "pdf"
       ],
-      "stargazers_count": 173372,
+      "stargazers_count": 173373,
       "forks_count": 12662,
       "open_issues_count": 857,
       "created_at": "2024-11-13T19:56:40Z",
-      "updated_at": "2026-08-12T23:28:28Z",
+      "updated_at": "2026-08-12T23:39:23Z",
       "pushed_at": "2026-07-29T18:18:09Z",
       "starred_at": "2025-08-02T10:33:10Z",
       "archived": false,
@@ -14463,11 +14463,11 @@
       "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
       "language": "Python",
       "topics": [],
-      "stargazers_count": 141229,
+      "stargazers_count": 141230,
       "forks_count": 22688,
-      "open_issues_count": 15878,
+      "open_issues_count": 15880,
       "created_at": "2025-02-22T17:41:21Z",
-      "updated_at": "2026-08-12T23:19:29Z",
+      "updated_at": "2026-08-12T23:38:42Z",
       "pushed_at": "2026-08-12T20:56:21Z",
       "starred_at": "2025-07-17T00:01:34Z",
       "archived": false,
@@ -14644,11 +14644,11 @@
         "resources",
         "unicorns"
       ],
-      "stargazers_count": 494970,
+      "stargazers_count": 494975,
       "forks_count": 36345,
       "open_issues_count": 100,
       "created_at": "2014-07-11T13:42:37Z",
-      "updated_at": "2026-08-12T23:25:34Z",
+      "updated_at": "2026-08-12T23:41:25Z",
       "pushed_at": "2026-06-30T18:21:16Z",
       "starred_at": "2025-06-22T23:30:15Z",
       "archived": false,
@@ -14854,7 +14854,7 @@
       "forks_count": 44770,
       "open_issues_count": 10,
       "created_at": "2017-03-15T13:45:52Z",
-      "updated_at": "2026-08-12T22:08:50Z",
+      "updated_at": "2026-08-12T23:41:08Z",
       "pushed_at": "2026-08-07T12:43:15Z",
       "starred_at": "2025-05-03T03:15:13Z",
       "archived": false,
@@ -15059,11 +15059,11 @@
         "cursor-ai-editor",
         "cursorrules"
       ],
-      "stargazers_count": 40571,
+      "stargazers_count": 40572,
       "forks_count": 3461,
       "open_issues_count": 51,
       "created_at": "2024-09-16T15:38:38Z",
-      "updated_at": "2026-08-12T21:14:18Z",
+      "updated_at": "2026-08-12T23:41:31Z",
       "pushed_at": "2026-05-30T18:01:29Z",
       "starred_at": "2025-03-25T02:47:53Z",
       "archived": false,
@@ -15102,7 +15102,7 @@
         "software"
       ],
       "stargazers_count": 455710,
-      "forks_count": 50264,
+      "forks_count": 50265,
       "open_issues_count": 1628,
       "created_at": "2016-03-20T23:49:42Z",
       "updated_at": "2026-08-12T23:29:30Z",
@@ -15221,11 +15221,11 @@
         "workflow",
         "workflow-automation"
       ],
-      "stargazers_count": 200391,
+      "stargazers_count": 200392,
       "forks_count": 60101,
       "open_issues_count": 1317,
       "created_at": "2019-06-22T09:24:21Z",
-      "updated_at": "2026-08-12T23:28:46Z",
+      "updated_at": "2026-08-12T23:36:44Z",
       "pushed_at": "2026-08-12T22:57:05Z",
       "starred_at": "2025-03-24T09:28:38Z",
       "archived": false,
@@ -15289,11 +15289,11 @@
         "browser",
         "browser-engine"
       ],
-      "stargazers_count": 65481,
+      "stargazers_count": 65482,
       "forks_count": 3129,
       "open_issues_count": 534,
       "created_at": "2024-05-30T09:18:10Z",
-      "updated_at": "2026-08-12T23:20:45Z",
+      "updated_at": "2026-08-12T23:40:45Z",
       "pushed_at": "2026-08-12T15:00:19Z",
       "starred_at": "2025-03-20T11:05:21Z",
       "archived": false,
@@ -15320,11 +15320,11 @@
         "ai",
         "mcp"
       ],
-      "stargazers_count": 92162,
+      "stargazers_count": 92163,
       "forks_count": 14395,
       "open_issues_count": 2829,
       "created_at": "2024-11-30T04:49:10Z",
-      "updated_at": "2026-08-12T23:22:48Z",
+      "updated_at": "2026-08-12T23:40:15Z",
       "pushed_at": "2026-08-03T03:09:55Z",
       "starred_at": "2025-03-20T03:15:16Z",
       "archived": false,
@@ -15397,11 +15397,11 @@
         "playwright",
         "python"
       ],
-      "stargazers_count": 108965,
+      "stargazers_count": 108966,
       "forks_count": 11973,
       "open_issues_count": 351,
       "created_at": "2024-10-31T16:00:56Z",
-      "updated_at": "2026-08-12T23:21:21Z",
+      "updated_at": "2026-08-12T23:38:54Z",
       "pushed_at": "2026-08-11T17:33:21Z",
       "starred_at": "2025-03-18T09:07:33Z",
       "archived": false,
@@ -15529,11 +15529,11 @@
         "ui",
         "unsloth"
       ],
-      "stargazers_count": 70642,
+      "stargazers_count": 70643,
       "forks_count": 6381,
-      "open_issues_count": 1109,
+      "open_issues_count": 1111,
       "created_at": "2023-11-29T16:50:09Z",
-      "updated_at": "2026-08-12T23:27:20Z",
+      "updated_at": "2026-08-12T23:34:00Z",
       "pushed_at": "2026-08-12T23:02:42Z",
       "starred_at": "2025-03-11T04:12:40Z",
       "archived": false,
@@ -15567,11 +15567,11 @@
         "llm",
         "openai"
       ],
-      "stargazers_count": 83833,
+      "stargazers_count": 83834,
       "forks_count": 10848,
       "open_issues_count": 470,
       "created_at": "2024-03-13T03:33:31Z",
-      "updated_at": "2026-08-12T23:23:21Z",
+      "updated_at": "2026-08-12T23:34:19Z",
       "pushed_at": "2026-08-12T23:18:33Z",
       "starred_at": "2025-03-10T09:47:46Z",
       "archived": false,
@@ -15626,11 +15626,11 @@
       "description": "No fortress, purely open ground.  OpenManus is Coming.",
       "language": "Python",
       "topics": [],
-      "stargazers_count": 57947,
+      "stargazers_count": 57946,
       "forks_count": 10062,
       "open_issues_count": 476,
       "created_at": "2025-03-06T14:08:14Z",
-      "updated_at": "2026-08-12T23:05:29Z",
+      "updated_at": "2026-08-12T23:37:03Z",
       "pushed_at": "2026-02-11T13:48:00Z",
       "starred_at": "2025-03-08T02:13:39Z",
       "archived": false,
@@ -16021,11 +16021,11 @@
         "software-engineering",
         "study-plan"
       ],
-      "stargazers_count": 358533,
+      "stargazers_count": 358535,
       "forks_count": 84607,
       "open_issues_count": 124,
       "created_at": "2016-06-06T02:34:12Z",
-      "updated_at": "2026-08-12T23:25:51Z",
+      "updated_at": "2026-08-12T23:40:51Z",
       "pushed_at": "2025-08-28T14:42:47Z",
       "starred_at": "2025-02-10T14:16:36Z",
       "archived": false,
@@ -16607,11 +16607,11 @@
         "python",
         "rag"
       ],
-      "stargazers_count": 132326,
-      "forks_count": 19470,
+      "stargazers_count": 132327,
+      "forks_count": 19471,
       "open_issues_count": 9,
       "created_at": "2024-04-29T05:30:25Z",
-      "updated_at": "2026-08-12T23:25:51Z",
+      "updated_at": "2026-08-12T23:35:22Z",
       "pushed_at": "2026-08-10T07:26:18Z",
       "starred_at": "2024-12-26T05:30:38Z",
       "archived": false,
@@ -16695,7 +16695,7 @@
       ],
       "stargazers_count": 46457,
       "forks_count": 17573,
-      "open_issues_count": 1888,
+      "open_issues_count": 1890,
       "created_at": "2015-04-13T18:04:58Z",
       "updated_at": "2026-08-12T22:32:44Z",
       "pushed_at": "2026-08-12T21:08:27Z",
@@ -17009,11 +17009,11 @@
         "flutter",
         "flutter-apps"
       ],
-      "stargazers_count": 87788,
+      "stargazers_count": 87791,
       "forks_count": 4870,
       "open_issues_count": 1053,
       "created_at": "2022-12-16T00:46:07Z",
-      "updated_at": "2026-08-12T23:30:31Z",
+      "updated_at": "2026-08-12T23:40:39Z",
       "pushed_at": "2026-08-11T21:48:29Z",
       "starred_at": "2024-11-04T00:57:23Z",
       "archived": false,
@@ -17925,7 +17925,7 @@
       "open_issues_count": 584,
       "created_at": "2015-07-21T18:55:34Z",
       "updated_at": "2026-08-12T22:02:43Z",
-      "pushed_at": "2026-08-12T22:44:31Z",
+      "pushed_at": "2026-08-12T23:40:39Z",
       "starred_at": "2024-08-22T00:54:38Z",
       "archived": false,
       "has_readme": true,
@@ -18056,11 +18056,11 @@
         "hugo",
         "static-site-generator"
       ],
-      "stargazers_count": 89425,
+      "stargazers_count": 89426,
       "forks_count": 8343,
       "open_issues_count": 231,
       "created_at": "2013-07-04T15:26:26Z",
-      "updated_at": "2026-08-12T22:51:09Z",
+      "updated_at": "2026-08-12T23:41:32Z",
       "pushed_at": "2026-08-12T15:39:51Z",
       "starred_at": "2024-08-13T15:55:35Z",
       "archived": false,
@@ -18131,10 +18131,10 @@
       ],
       "stargazers_count": 47040,
       "forks_count": 9292,
-      "open_issues_count": 132,
+      "open_issues_count": 133,
       "created_at": "2012-07-23T13:42:55Z",
       "updated_at": "2026-08-12T22:16:16Z",
-      "pushed_at": "2026-08-12T18:58:29Z",
+      "pushed_at": "2026-08-12T23:34:59Z",
       "starred_at": "2024-08-10T13:51:16Z",
       "archived": false,
       "has_readme": true,
@@ -18225,7 +18225,7 @@
       "language": "TypeScript",
       "topics": [],
       "stargazers_count": 26647,
-      "forks_count": 2541,
+      "forks_count": 2540,
       "open_issues_count": 44,
       "created_at": "2021-05-22T09:12:05Z",
       "updated_at": "2026-08-12T23:16:17Z",
@@ -18658,11 +18658,11 @@
         "trt-llm",
         "vllm"
       ],
-      "stargazers_count": 6255,
+      "stargazers_count": 6256,
       "forks_count": 1074,
       "open_issues_count": 465,
       "created_at": "2024-06-25T05:21:05Z",
-      "updated_at": "2026-08-12T18:54:03Z",
+      "updated_at": "2026-08-12T23:33:28Z",
       "pushed_at": "2026-08-12T14:43:20Z",
       "starred_at": "2024-07-03T06:47:00Z",
       "archived": false,
@@ -18689,11 +18689,11 @@
         "awesome-list",
         "free-for-developers"
       ],
-      "stargazers_count": 131579,
+      "stargazers_count": 131580,
       "forks_count": 13809,
       "open_issues_count": 13,
       "created_at": "2015-03-18T21:06:26Z",
-      "updated_at": "2026-08-12T23:22:23Z",
+      "updated_at": "2026-08-12T23:39:20Z",
       "pushed_at": "2026-08-12T14:19:54Z",
       "starred_at": "2024-07-03T06:46:11Z",
       "archived": false,
@@ -19132,11 +19132,11 @@
         "python",
         "pytorch"
       ],
-      "stargazers_count": 28115,
+      "stargazers_count": 28116,
       "forks_count": 7647,
       "open_issues_count": 267,
       "created_at": "2017-09-09T17:43:36Z",
-      "updated_at": "2026-08-12T22:21:31Z",
+      "updated_at": "2026-08-12T23:33:44Z",
       "pushed_at": "2026-07-30T22:41:22Z",
       "starred_at": "2024-06-07T06:32:13Z",
       "archived": false,
@@ -19199,10 +19199,10 @@
       ],
       "stargazers_count": 196982,
       "forks_count": 76001,
-      "open_issues_count": 2839,
+      "open_issues_count": 2840,
       "created_at": "2015-11-07T01:19:20Z",
       "updated_at": "2026-08-12T23:27:48Z",
-      "pushed_at": "2026-08-12T23:30:00Z",
+      "pushed_at": "2026-08-12T23:39:47Z",
       "starred_at": "2024-06-06T09:26:54Z",
       "archived": false,
       "has_readme": true,
@@ -19323,12 +19323,12 @@
         "openai",
         "skills"
       ],
-      "stargazers_count": 81610,
-      "forks_count": 15802,
-      "open_issues_count": 703,
+      "stargazers_count": 81612,
+      "forks_count": 15801,
+      "open_issues_count": 702,
       "created_at": "2023-05-21T07:19:12Z",
-      "updated_at": "2026-08-12T23:10:19Z",
-      "pushed_at": "2026-08-12T23:20:17Z",
+      "updated_at": "2026-08-12T23:40:51Z",
+      "pushed_at": "2026-08-12T23:38:44Z",
       "starred_at": "2024-06-03T02:18:24Z",
       "archived": false,
       "has_readme": true,
@@ -19485,10 +19485,10 @@
       ],
       "stargazers_count": 102351,
       "forks_count": 28847,
-      "open_issues_count": 17125,
+      "open_issues_count": 17131,
       "created_at": "2016-08-13T05:26:41Z",
       "updated_at": "2026-08-12T23:19:44Z",
-      "pushed_at": "2026-08-12T23:27:14Z",
+      "pushed_at": "2026-08-12T23:40:41Z",
       "starred_at": "2024-06-01T11:06:19Z",
       "archived": false,
       "has_readme": true,
@@ -19635,12 +19635,12 @@
       "topics": [
         "jax"
       ],
-      "stargazers_count": 36152,
+      "stargazers_count": 36153,
       "forks_count": 3734,
-      "open_issues_count": 2568,
+      "open_issues_count": 2567,
       "created_at": "2018-10-25T21:25:02Z",
-      "updated_at": "2026-08-12T22:42:18Z",
-      "pushed_at": "2026-08-12T23:20:33Z",
+      "updated_at": "2026-08-12T23:36:44Z",
+      "pushed_at": "2026-08-12T23:35:29Z",
       "starred_at": "2024-05-30T08:58:28Z",
       "archived": false,
       "has_readme": true,
@@ -19678,11 +19678,11 @@
         "rag",
         "retrieval-augmented-generation"
       ],
-      "stargazers_count": 87528,
+      "stargazers_count": 87531,
       "forks_count": 10309,
       "open_issues_count": 1881,
       "created_at": "2023-12-12T06:13:13Z",
-      "updated_at": "2026-08-12T23:27:48Z",
+      "updated_at": "2026-08-12T23:38:36Z",
       "pushed_at": "2026-08-12T14:46:25Z",
       "starred_at": "2024-05-29T10:49:24Z",
       "archived": false,
@@ -20095,10 +20095,10 @@
       ],
       "stargazers_count": 13755,
       "forks_count": 1399,
-      "open_issues_count": 454,
+      "open_issues_count": 455,
       "created_at": "2018-04-24T15:56:54Z",
       "updated_at": "2026-08-12T20:47:18Z",
-      "pushed_at": "2026-08-10T14:50:16Z",
+      "pushed_at": "2026-08-12T23:33:32Z",
       "starred_at": "2024-05-21T09:48:22Z",
       "archived": false,
       "has_readme": true,
@@ -20156,7 +20156,7 @@
         "pytorch"
       ],
       "stargazers_count": 14370,
-      "forks_count": 2658,
+      "forks_count": 2659,
       "open_issues_count": 1503,
       "created_at": "2023-08-16T17:14:27Z",
       "updated_at": "2026-08-12T23:11:13Z",
@@ -20407,11 +20407,11 @@
         "pytorch",
         "stable-diffusion"
       ],
-      "stargazers_count": 127083,
+      "stargazers_count": 127084,
       "forks_count": 14968,
-      "open_issues_count": 4556,
+      "open_issues_count": 4555,
       "created_at": "2023-01-17T03:15:56Z",
-      "updated_at": "2026-08-12T23:19:15Z",
+      "updated_at": "2026-08-12T23:33:32Z",
       "pushed_at": "2026-08-12T23:06:00Z",
       "starred_at": "2024-05-20T07:07:14Z",
       "archived": false,
@@ -20519,7 +20519,7 @@
       ],
       "stargazers_count": 5930,
       "forks_count": 734,
-      "open_issues_count": 394,
+      "open_issues_count": 393,
       "created_at": "2020-02-15T16:54:52Z",
       "updated_at": "2026-08-12T23:30:11Z",
       "pushed_at": "2026-08-12T23:30:04Z",
@@ -21073,7 +21073,7 @@
       "category": "AI/ML",
       "health_score": 100,
       "is_new": false,
-      "starred_days_ago": 817
+      "starred_days_ago": 818
     },
     {
       "id": 772699441,
@@ -21201,12 +21201,12 @@
             "own-your-data",
             "personal"
           ],
-          "stargazers_count": 386078,
+          "stargazers_count": 386079,
           "forks_count": 81150,
-          "open_issues_count": 5528,
+          "open_issues_count": 5530,
           "created_at": "2025-11-24T10:16:47Z",
-          "updated_at": "2026-08-12T23:26:53Z",
-          "pushed_at": "2026-08-12T23:30:33Z",
+          "updated_at": "2026-08-12T23:35:36Z",
+          "pushed_at": "2026-08-12T23:40:53Z",
           "starred_at": "2026-01-27T04:58:47Z",
           "archived": false,
           "has_readme": true,
@@ -21217,10 +21217,10 @@
           "is_new": false,
           "starred_days_ago": 197
         },
-        "star_delta": 2,
-        "prev_stars": 386076,
-        "star_velocity": 44376.78,
-        "trending_score": 92634.34
+        "star_delta": 1,
+        "prev_stars": 386078,
+        "star_velocity": 44376.9,
+        "trending_score": 92624.58
       },
       {
         "repo": {
@@ -21260,10 +21260,10 @@
           "is_new": false,
           "starred_days_ago": 95
         },
-        "star_delta": 1,
-        "prev_stars": 239751,
+        "star_delta": 0,
+        "prev_stars": 239752,
         "star_velocity": 34915.34,
-        "trending_score": 72238.2
+        "trending_score": 72228.2
       },
       {
         "repo": {
@@ -21278,11 +21278,11 @@
           "description": "Skills for Real Engineers. Straight from my .agents directory.",
           "language": "Shell",
           "topics": [],
-          "stargazers_count": 215030,
+          "stargazers_count": 215032,
           "forks_count": 18558,
           "open_issues_count": 326,
           "created_at": "2026-02-03T11:15:53Z",
-          "updated_at": "2026-08-12T23:29:16Z",
+          "updated_at": "2026-08-12T23:38:35Z",
           "pushed_at": "2026-08-07T15:50:46Z",
           "starred_at": "2026-05-09T10:01:35Z",
           "archived": false,
@@ -21294,10 +21294,10 @@
           "is_new": false,
           "starred_days_ago": 95
         },
-        "star_delta": 9,
-        "prev_stars": 215021,
-        "star_velocity": 33952.11,
-        "trending_score": 70144.51
+        "star_delta": 2,
+        "prev_stars": 215030,
+        "star_velocity": 33952.42,
+        "trending_score": 70075.16
       },
       {
         "repo": {
@@ -21321,11 +21321,11 @@
             "subagent-driven-development",
             "superpowers"
           ],
-          "stargazers_count": 271239,
-          "forks_count": 24242,
+          "stargazers_count": 271240,
+          "forks_count": 24243,
           "open_issues_count": 313,
           "created_at": "2025-10-09T19:45:18Z",
-          "updated_at": "2026-08-12T23:26:54Z",
+          "updated_at": "2026-08-12T23:36:51Z",
           "pushed_at": "2026-08-12T22:31:42Z",
           "starred_at": "2025-12-16T02:05:31Z",
           "archived": false,
@@ -21337,10 +21337,10 @@
           "is_new": false,
           "starred_days_ago": 239
         },
-        "star_delta": 2,
-        "prev_stars": 271237,
-        "star_velocity": 26505.44,
-        "trending_score": 55743.27
+        "star_delta": 1,
+        "prev_stars": 271239,
+        "star_velocity": 26505.54,
+        "trending_score": 55733.47
       },
       {
         "repo": {
@@ -21369,12 +21369,12 @@
             "nous-research",
             "openai"
           ],
-          "stargazers_count": 229555,
-          "forks_count": 45316,
-          "open_issues_count": 31489,
+          "stargazers_count": 229557,
+          "forks_count": 45317,
+          "open_issues_count": 31487,
           "created_at": "2025-07-22T22:22:28Z",
-          "updated_at": "2026-08-12T23:30:27Z",
-          "pushed_at": "2026-08-12T23:29:55Z",
+          "updated_at": "2026-08-12T23:35:08Z",
+          "pushed_at": "2026-08-12T23:39:02Z",
           "starred_at": "2026-04-13T23:13:54Z",
           "archived": false,
           "has_readme": true,
@@ -21385,10 +21385,10 @@
           "is_new": false,
           "starred_days_ago": 121
         },
-        "star_delta": 4,
-        "prev_stars": 229551,
-        "star_velocity": 17841.06,
-        "trending_score": 38017.67
+        "star_delta": 2,
+        "prev_stars": 229555,
+        "star_velocity": 17841.22,
+        "trending_score": 37998.01
       },
       {
         "repo": {
@@ -21405,11 +21405,11 @@
           "topics": [
             "agent-skills"
           ],
-          "stargazers_count": 168522,
+          "stargazers_count": 168523,
           "forks_count": 20076,
           "open_issues_count": 1079,
           "created_at": "2025-09-22T15:53:31Z",
-          "updated_at": "2026-08-12T22:36:01Z",
+          "updated_at": "2026-08-12T23:36:15Z",
           "pushed_at": "2026-08-07T17:14:15Z",
           "starred_at": "2025-12-16T02:08:07Z",
           "archived": false,
@@ -21421,10 +21421,10 @@
           "is_new": false,
           "starred_days_ago": 239
         },
-        "star_delta": 0,
+        "star_delta": 1,
         "prev_stars": 168522,
-        "star_velocity": 15603.89,
-        "trending_score": 32893
+        "star_velocity": 15603.98,
+        "trending_score": 32903.19
       },
       {
         "repo": {
@@ -21446,11 +21446,11 @@
             "cursor",
             "skills"
           ],
-          "stargazers_count": 86592,
-          "forks_count": 9304,
+          "stargazers_count": 86593,
+          "forks_count": 9305,
           "open_issues_count": 112,
           "created_at": "2026-02-15T20:20:26Z",
-          "updated_at": "2026-08-12T23:25:02Z",
+          "updated_at": "2026-08-12T23:37:04Z",
           "pushed_at": "2026-08-11T19:48:56Z",
           "starred_at": "2026-05-04T14:06:22Z",
           "archived": false,
@@ -21462,10 +21462,10 @@
           "is_new": false,
           "starred_days_ago": 100
         },
-        "star_delta": 3,
-        "prev_stars": 86589,
-        "star_velocity": 14594.16,
-        "trending_score": 30084.23
+        "star_delta": 1,
+        "prev_stars": 86592,
+        "star_velocity": 14594.33,
+        "trending_score": 30064.58
       },
       {
         "repo": {
@@ -21480,12 +21480,12 @@
           "description": "The open source coding agent.",
           "language": "TypeScript",
           "topics": [],
-          "stargazers_count": 196579,
+          "stargazers_count": 196580,
           "forks_count": 25268,
-          "open_issues_count": 5120,
+          "open_issues_count": 5124,
           "created_at": "2025-04-30T20:08:00Z",
-          "updated_at": "2026-08-12T23:25:42Z",
-          "pushed_at": "2026-08-12T23:23:17Z",
+          "updated_at": "2026-08-12T23:34:17Z",
+          "pushed_at": "2026-08-12T23:35:41Z",
           "starred_at": "2026-05-18T01:27:16Z",
           "archived": false,
           "has_readme": true,
@@ -21496,10 +21496,10 @@
           "is_new": false,
           "starred_days_ago": 86
         },
-        "star_delta": 5,
-        "prev_stars": 196574,
-        "star_velocity": 12574.35,
-        "trending_score": 27164.49
+        "star_delta": 1,
+        "prev_stars": 196579,
+        "star_velocity": 12574.41,
+        "trending_score": 27124.63
       },
       {
         "repo": {
@@ -21522,11 +21522,11 @@
             "spec",
             "spec-driven"
           ],
-          "stargazers_count": 126442,
-          "forks_count": 11303,
+          "stargazers_count": 126446,
+          "forks_count": 11304,
           "open_issues_count": 330,
           "created_at": "2025-08-21T22:54:31Z",
-          "updated_at": "2026-08-12T23:27:06Z",
+          "updated_at": "2026-08-12T23:35:11Z",
           "pushed_at": "2026-08-12T22:55:14Z",
           "starred_at": "2026-05-19T04:36:31Z",
           "archived": false,
@@ -21538,10 +21538,10 @@
           "is_new": false,
           "starred_days_ago": 85
         },
-        "star_delta": 7,
-        "prev_stars": 126435,
-        "star_velocity": 10655.22,
-        "trending_score": 22644.87
+        "star_delta": 4,
+        "prev_stars": 126442,
+        "star_velocity": 10655.56,
+        "trending_score": 22615.58
       },
       {
         "repo": {
@@ -21577,11 +21577,11 @@
             "typescript",
             "wsl-support"
           ],
-          "stargazers_count": 126724,
+          "stargazers_count": 126725,
           "forks_count": 8647,
           "open_issues_count": 2144,
           "created_at": "2025-08-04T14:16:16Z",
-          "updated_at": "2026-08-12T23:14:08Z",
+          "updated_at": "2026-08-12T23:35:09Z",
           "pushed_at": "2026-08-12T15:05:47Z",
           "starred_at": "2026-05-20T10:12:19Z",
           "archived": false,
@@ -21594,9 +21594,9 @@
           "starred_days_ago": 84
         },
         "star_delta": 1,
-        "prev_stars": 126723,
-        "star_velocity": 10192.28,
-        "trending_score": 21661.8
+        "prev_stars": 126724,
+        "star_velocity": 10192.36,
+        "trending_score": 21661.97
       },
       {
         "repo": {
@@ -21648,10 +21648,10 @@
           "is_new": false,
           "starred_days_ago": 81
         },
-        "star_delta": 1,
-        "prev_stars": 46608,
+        "star_delta": 0,
+        "prev_stars": 46609,
         "star_velocity": 9512.04,
-        "trending_score": 19500.17
+        "trending_score": 19490.17
       },
       {
         "repo": {
@@ -21674,11 +21674,11 @@
             "openai",
             "pdf"
           ],
-          "stargazers_count": 173372,
+          "stargazers_count": 173373,
           "forks_count": 12662,
           "open_issues_count": 857,
           "created_at": "2024-11-13T19:56:40Z",
-          "updated_at": "2026-08-12T23:28:28Z",
+          "updated_at": "2026-08-12T23:39:23Z",
           "pushed_at": "2026-07-29T18:18:09Z",
           "starred_at": "2025-08-02T10:33:10Z",
           "archived": false,
@@ -21691,9 +21691,9 @@
           "starred_days_ago": 375
         },
         "star_delta": 1,
-        "prev_stars": 173371,
-        "star_velocity": 8165.09,
-        "trending_score": 18073.89
+        "prev_stars": 173372,
+        "star_velocity": 8165.13,
+        "trending_score": 18074
       },
       {
         "repo": {
@@ -21729,11 +21729,11 @@
             "web-search",
             "youtube"
           ],
-          "stargazers_count": 58016,
-          "forks_count": 5039,
-          "open_issues_count": 126,
+          "stargazers_count": 58018,
+          "forks_count": 5040,
+          "open_issues_count": 127,
           "created_at": "2026-01-23T20:37:37Z",
-          "updated_at": "2026-08-12T23:30:25Z",
+          "updated_at": "2026-08-12T23:41:23Z",
           "pushed_at": "2026-08-09T18:44:11Z",
           "starred_at": "2026-06-24T10:59:48Z",
           "archived": false,
@@ -21745,10 +21745,10 @@
           "is_new": false,
           "starred_days_ago": 49
         },
-        "star_delta": 1,
-        "prev_stars": 58015,
-        "star_velocity": 8659.1,
-        "trending_score": 17908.37
+        "star_delta": 2,
+        "prev_stars": 58016,
+        "star_velocity": 8659.4,
+        "trending_score": 17918.99
       },
       {
         "repo": {
@@ -21785,7 +21785,7 @@
             "windsurf-ai"
           ],
           "stargazers_count": 142756,
-          "forks_count": 34838,
+          "forks_count": 34839,
           "open_issues_count": 158,
           "created_at": "2025-03-05T16:38:29Z",
           "updated_at": "2026-08-12T23:16:08Z",
@@ -21800,10 +21800,10 @@
           "is_new": false,
           "starred_days_ago": 227
         },
-        "star_delta": 1,
-        "prev_stars": 142755,
+        "star_delta": 0,
+        "prev_stars": 142756,
         "star_velocity": 8157.49,
-        "trending_score": 17752.53
+        "trending_score": 17742.53
       },
       {
         "repo": {
@@ -21818,11 +21818,11 @@
           "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
           "language": "Python",
           "topics": [],
-          "stargazers_count": 141229,
+          "stargazers_count": 141230,
           "forks_count": 22688,
-          "open_issues_count": 15878,
+          "open_issues_count": 15880,
           "created_at": "2025-02-22T17:41:21Z",
-          "updated_at": "2026-08-12T23:19:29Z",
+          "updated_at": "2026-08-12T23:38:42Z",
           "pushed_at": "2026-08-12T20:56:21Z",
           "starred_at": "2025-07-17T00:01:34Z",
           "archived": false,
@@ -21834,10 +21834,10 @@
           "is_new": false,
           "starred_days_ago": 391
         },
-        "star_delta": 3,
-        "prev_stars": 141226,
-        "star_velocity": 7904.61,
-        "trending_score": 17251.51
+        "star_delta": 1,
+        "prev_stars": 141229,
+        "star_velocity": 7904.66,
+        "trending_score": 17231.63
       },
       {
         "repo": {
@@ -21875,10 +21875,10 @@
           "is_new": false,
           "starred_days_ago": 506
         },
-        "star_delta": 2,
-        "prev_stars": 539118,
+        "star_delta": 0,
+        "prev_stars": 539120,
         "star_velocity": 5360.82,
-        "trending_score": 16132.84
+        "trending_score": 16112.84
       },
       {
         "repo": {
@@ -21927,10 +21927,10 @@
           "is_new": false,
           "starred_days_ago": 271
         },
-        "star_delta": 1,
-        "prev_stars": 72370,
+        "star_delta": 0,
+        "prev_stars": 72371,
         "star_velocity": 7261.3,
-        "trending_score": 15256.32
+        "trending_score": 15246.32
       },
       {
         "repo": {
@@ -21968,10 +21968,10 @@
           "is_new": false,
           "starred_days_ago": 12
         },
-        "star_delta": 1,
-        "prev_stars": 20279,
+        "star_delta": 0,
+        "prev_stars": 20280,
         "star_velocity": 7074.42,
-        "trending_score": 14361.64
+        "trending_score": 14351.64
       },
       {
         "repo": {
@@ -22108,7 +22108,7 @@
             "software"
           ],
           "stargazers_count": 455710,
-          "forks_count": 50264,
+          "forks_count": 50265,
           "open_issues_count": 1628,
           "created_at": "2016-03-20T23:49:42Z",
           "updated_at": "2026-08-12T23:29:30Z",
@@ -22123,10 +22123,10 @@
           "is_new": false,
           "starred_days_ago": 506
         },
-        "star_delta": 3,
-        "prev_stars": 455707,
+        "star_delta": 0,
+        "prev_stars": 455710,
         "star_velocity": 3601.5,
-        "trending_score": 11790.1
+        "trending_score": 11760.1
       },
       {
         "repo": {
@@ -22147,11 +22147,11 @@
             "resources",
             "unicorns"
           ],
-          "stargazers_count": 494970,
+          "stargazers_count": 494975,
           "forks_count": 36345,
           "open_issues_count": 100,
           "created_at": "2014-07-11T13:42:37Z",
-          "updated_at": "2026-08-12T23:25:34Z",
+          "updated_at": "2026-08-12T23:41:25Z",
           "pushed_at": "2026-06-30T18:21:16Z",
           "starred_at": "2025-06-22T23:30:15Z",
           "archived": false,
@@ -22163,10 +22163,10 @@
           "is_new": false,
           "starred_days_ago": 416
         },
-        "star_delta": 4,
-        "prev_stars": 494966,
-        "star_velocity": 3363.33,
-        "trending_score": 11716.36
+        "star_delta": 5,
+        "prev_stars": 494970,
+        "star_velocity": 3363.36,
+        "trending_score": 11726.48
       },
       {
         "repo": {
@@ -22189,11 +22189,11 @@
             "playwright",
             "python"
           ],
-          "stargazers_count": 108965,
+          "stargazers_count": 108966,
           "forks_count": 11973,
           "open_issues_count": 351,
           "created_at": "2024-10-31T16:00:56Z",
-          "updated_at": "2026-08-12T23:21:21Z",
+          "updated_at": "2026-08-12T23:38:54Z",
           "pushed_at": "2026-08-11T17:33:21Z",
           "starred_at": "2025-03-18T09:07:33Z",
           "archived": false,
@@ -22206,9 +22206,9 @@
           "starred_days_ago": 512
         },
         "star_delta": 1,
-        "prev_stars": 108964,
-        "star_velocity": 5029.15,
-        "trending_score": 11157.96
+        "prev_stars": 108965,
+        "star_velocity": 5029.2,
+        "trending_score": 11158.06
       },
       {
         "repo": {
@@ -22300,10 +22300,10 @@
           "is_new": false,
           "starred_days_ago": 204
         },
-        "star_delta": -1,
-        "prev_stars": 64688,
+        "star_delta": 0,
+        "prev_stars": 64687,
         "star_velocity": 5216.69,
-        "trending_score": 11070.26
+        "trending_score": 11080.26
       },
       {
         "repo": {
@@ -22371,11 +22371,11 @@
             "multiagent",
             "trading"
           ],
-          "stargazers_count": 97856,
-          "forks_count": 18821,
+          "stargazers_count": 97857,
+          "forks_count": 18822,
           "open_issues_count": 358,
           "created_at": "2024-12-28T03:31:08Z",
-          "updated_at": "2026-08-12T23:25:47Z",
+          "updated_at": "2026-08-12T23:37:03Z",
           "pushed_at": "2026-07-18T15:55:05Z",
           "starred_at": "2026-05-07T09:40:52Z",
           "archived": false,
@@ -22387,10 +22387,10 @@
           "is_new": false,
           "starred_days_ago": 97
         },
-        "star_delta": 3,
-        "prev_stars": 97853,
-        "star_velocity": 4958.92,
-        "trending_score": 10926.4
+        "star_delta": 1,
+        "prev_stars": 97856,
+        "star_velocity": 4958.97,
+        "trending_score": 10906.51
       },
       {
         "repo": {
@@ -22456,11 +22456,11 @@
             "python",
             "rag"
           ],
-          "stargazers_count": 132326,
-          "forks_count": 19470,
+          "stargazers_count": 132327,
+          "forks_count": 19471,
           "open_issues_count": 9,
           "created_at": "2024-04-29T05:30:25Z",
-          "updated_at": "2026-08-12T23:25:51Z",
+          "updated_at": "2026-08-12T23:35:22Z",
           "pushed_at": "2026-08-10T07:26:18Z",
           "starred_at": "2024-12-26T05:30:38Z",
           "archived": false,
@@ -22472,10 +22472,10 @@
           "is_new": false,
           "starred_days_ago": 594
         },
-        "star_delta": 2,
-        "prev_stars": 132324,
-        "star_velocity": 4754.23,
-        "trending_score": 10851.72
+        "star_delta": 1,
+        "prev_stars": 132326,
+        "star_velocity": 4754.26,
+        "trending_score": 10841.8
       }
     ],
     "by_category": [
@@ -22503,12 +22503,12 @@
                 "own-your-data",
                 "personal"
               ],
-              "stargazers_count": 386078,
+              "stargazers_count": 386079,
               "forks_count": 81150,
-              "open_issues_count": 5528,
+              "open_issues_count": 5530,
               "created_at": "2025-11-24T10:16:47Z",
-              "updated_at": "2026-08-12T23:26:53Z",
-              "pushed_at": "2026-08-12T23:30:33Z",
+              "updated_at": "2026-08-12T23:35:36Z",
+              "pushed_at": "2026-08-12T23:40:53Z",
               "starred_at": "2026-01-27T04:58:47Z",
               "archived": false,
               "has_readme": true,
@@ -22519,10 +22519,10 @@
               "is_new": false,
               "starred_days_ago": 197
             },
-            "star_delta": 2,
-            "prev_stars": 386076,
-            "star_velocity": 44376.78,
-            "trending_score": 92634.34
+            "star_delta": 1,
+            "prev_stars": 386078,
+            "star_velocity": 44376.9,
+            "trending_score": 92624.58
           },
           {
             "repo": {
@@ -22562,10 +22562,10 @@
               "is_new": false,
               "starred_days_ago": 95
             },
-            "star_delta": 1,
-            "prev_stars": 239751,
+            "star_delta": 0,
+            "prev_stars": 239752,
             "star_velocity": 34915.34,
-            "trending_score": 72238.2
+            "trending_score": 72228.2
           },
           {
             "repo": {
@@ -22580,11 +22580,11 @@
               "description": "Skills for Real Engineers. Straight from my .agents directory.",
               "language": "Shell",
               "topics": [],
-              "stargazers_count": 215030,
+              "stargazers_count": 215032,
               "forks_count": 18558,
               "open_issues_count": 326,
               "created_at": "2026-02-03T11:15:53Z",
-              "updated_at": "2026-08-12T23:29:16Z",
+              "updated_at": "2026-08-12T23:38:35Z",
               "pushed_at": "2026-08-07T15:50:46Z",
               "starred_at": "2026-05-09T10:01:35Z",
               "archived": false,
@@ -22596,10 +22596,10 @@
               "is_new": false,
               "starred_days_ago": 95
             },
-            "star_delta": 9,
-            "prev_stars": 215021,
-            "star_velocity": 33952.11,
-            "trending_score": 70144.51
+            "star_delta": 2,
+            "prev_stars": 215030,
+            "star_velocity": 33952.42,
+            "trending_score": 70075.16
           },
           {
             "repo": {
@@ -22623,11 +22623,11 @@
                 "subagent-driven-development",
                 "superpowers"
               ],
-              "stargazers_count": 271239,
-              "forks_count": 24242,
+              "stargazers_count": 271240,
+              "forks_count": 24243,
               "open_issues_count": 313,
               "created_at": "2025-10-09T19:45:18Z",
-              "updated_at": "2026-08-12T23:26:54Z",
+              "updated_at": "2026-08-12T23:36:51Z",
               "pushed_at": "2026-08-12T22:31:42Z",
               "starred_at": "2025-12-16T02:05:31Z",
               "archived": false,
@@ -22639,10 +22639,10 @@
               "is_new": false,
               "starred_days_ago": 239
             },
-            "star_delta": 2,
-            "prev_stars": 271237,
-            "star_velocity": 26505.44,
-            "trending_score": 55743.27
+            "star_delta": 1,
+            "prev_stars": 271239,
+            "star_velocity": 26505.54,
+            "trending_score": 55733.47
           },
           {
             "repo": {
@@ -22671,12 +22671,12 @@
                 "nous-research",
                 "openai"
               ],
-              "stargazers_count": 229555,
-              "forks_count": 45316,
-              "open_issues_count": 31489,
+              "stargazers_count": 229557,
+              "forks_count": 45317,
+              "open_issues_count": 31487,
               "created_at": "2025-07-22T22:22:28Z",
-              "updated_at": "2026-08-12T23:30:27Z",
-              "pushed_at": "2026-08-12T23:29:55Z",
+              "updated_at": "2026-08-12T23:35:08Z",
+              "pushed_at": "2026-08-12T23:39:02Z",
               "starred_at": "2026-04-13T23:13:54Z",
               "archived": false,
               "has_readme": true,
@@ -22687,10 +22687,10 @@
               "is_new": false,
               "starred_days_ago": 121
             },
-            "star_delta": 4,
-            "prev_stars": 229551,
-            "star_velocity": 17841.06,
-            "trending_score": 38017.67
+            "star_delta": 2,
+            "prev_stars": 229555,
+            "star_velocity": 17841.22,
+            "trending_score": 37998.01
           },
           {
             "repo": {
@@ -22707,11 +22707,11 @@
               "topics": [
                 "agent-skills"
               ],
-              "stargazers_count": 168522,
+              "stargazers_count": 168523,
               "forks_count": 20076,
               "open_issues_count": 1079,
               "created_at": "2025-09-22T15:53:31Z",
-              "updated_at": "2026-08-12T22:36:01Z",
+              "updated_at": "2026-08-12T23:36:15Z",
               "pushed_at": "2026-08-07T17:14:15Z",
               "starred_at": "2025-12-16T02:08:07Z",
               "archived": false,
@@ -22723,10 +22723,10 @@
               "is_new": false,
               "starred_days_ago": 239
             },
-            "star_delta": 0,
+            "star_delta": 1,
             "prev_stars": 168522,
-            "star_velocity": 15603.89,
-            "trending_score": 32893
+            "star_velocity": 15603.98,
+            "trending_score": 32903.19
           },
           {
             "repo": {
@@ -22748,11 +22748,11 @@
                 "cursor",
                 "skills"
               ],
-              "stargazers_count": 86592,
-              "forks_count": 9304,
+              "stargazers_count": 86593,
+              "forks_count": 9305,
               "open_issues_count": 112,
               "created_at": "2026-02-15T20:20:26Z",
-              "updated_at": "2026-08-12T23:25:02Z",
+              "updated_at": "2026-08-12T23:37:04Z",
               "pushed_at": "2026-08-11T19:48:56Z",
               "starred_at": "2026-05-04T14:06:22Z",
               "archived": false,
@@ -22764,10 +22764,10 @@
               "is_new": false,
               "starred_days_ago": 100
             },
-            "star_delta": 3,
-            "prev_stars": 86589,
-            "star_velocity": 14594.16,
-            "trending_score": 30084.23
+            "star_delta": 1,
+            "prev_stars": 86592,
+            "star_velocity": 14594.33,
+            "trending_score": 30064.58
           },
           {
             "repo": {
@@ -22790,11 +22790,11 @@
                 "spec",
                 "spec-driven"
               ],
-              "stargazers_count": 126442,
-              "forks_count": 11303,
+              "stargazers_count": 126446,
+              "forks_count": 11304,
               "open_issues_count": 330,
               "created_at": "2025-08-21T22:54:31Z",
-              "updated_at": "2026-08-12T23:27:06Z",
+              "updated_at": "2026-08-12T23:35:11Z",
               "pushed_at": "2026-08-12T22:55:14Z",
               "starred_at": "2026-05-19T04:36:31Z",
               "archived": false,
@@ -22806,10 +22806,10 @@
               "is_new": false,
               "starred_days_ago": 85
             },
-            "star_delta": 7,
-            "prev_stars": 126435,
-            "star_velocity": 10655.22,
-            "trending_score": 22644.87
+            "star_delta": 4,
+            "prev_stars": 126442,
+            "star_velocity": 10655.56,
+            "trending_score": 22615.58
           },
           {
             "repo": {
@@ -22845,11 +22845,11 @@
                 "typescript",
                 "wsl-support"
               ],
-              "stargazers_count": 126724,
+              "stargazers_count": 126725,
               "forks_count": 8647,
               "open_issues_count": 2144,
               "created_at": "2025-08-04T14:16:16Z",
-              "updated_at": "2026-08-12T23:14:08Z",
+              "updated_at": "2026-08-12T23:35:09Z",
               "pushed_at": "2026-08-12T15:05:47Z",
               "starred_at": "2026-05-20T10:12:19Z",
               "archived": false,
@@ -22862,9 +22862,9 @@
               "starred_days_ago": 84
             },
             "star_delta": 1,
-            "prev_stars": 126723,
-            "star_velocity": 10192.28,
-            "trending_score": 21661.8
+            "prev_stars": 126724,
+            "star_velocity": 10192.36,
+            "trending_score": 21661.97
           },
           {
             "repo": {
@@ -22916,10 +22916,10 @@
               "is_new": false,
               "starred_days_ago": 81
             },
-            "star_delta": 1,
-            "prev_stars": 46608,
+            "star_delta": 0,
+            "prev_stars": 46609,
             "star_velocity": 9512.04,
-            "trending_score": 19500.17
+            "trending_score": 19490.17
           }
         ]
       },
@@ -22939,12 +22939,12 @@
               "description": "The open source coding agent.",
               "language": "TypeScript",
               "topics": [],
-              "stargazers_count": 196579,
+              "stargazers_count": 196580,
               "forks_count": 25268,
-              "open_issues_count": 5120,
+              "open_issues_count": 5124,
               "created_at": "2025-04-30T20:08:00Z",
-              "updated_at": "2026-08-12T23:25:42Z",
-              "pushed_at": "2026-08-12T23:23:17Z",
+              "updated_at": "2026-08-12T23:34:17Z",
+              "pushed_at": "2026-08-12T23:35:41Z",
               "starred_at": "2026-05-18T01:27:16Z",
               "archived": false,
               "has_readme": true,
@@ -22955,10 +22955,10 @@
               "is_new": false,
               "starred_days_ago": 86
             },
-            "star_delta": 5,
-            "prev_stars": 196574,
-            "star_velocity": 12574.35,
-            "trending_score": 27164.49
+            "star_delta": 1,
+            "prev_stars": 196579,
+            "star_velocity": 12574.41,
+            "trending_score": 27124.63
           },
           {
             "repo": {
@@ -22996,7 +22996,7 @@
               "forks_count": 44770,
               "open_issues_count": 10,
               "created_at": "2017-03-15T13:45:52Z",
-              "updated_at": "2026-08-12T22:08:50Z",
+              "updated_at": "2026-08-12T23:41:08Z",
               "pushed_at": "2026-08-07T12:43:15Z",
               "starred_at": "2025-05-03T03:15:13Z",
               "archived": false,
@@ -23046,10 +23046,10 @@
               "is_new": false,
               "starred_days_ago": 109
             },
-            "star_delta": -1,
-            "prev_stars": 40997,
+            "star_delta": 0,
+            "prev_stars": 40996,
             "star_velocity": 4424.03,
-            "trending_score": 9248.02
+            "trending_score": 9258.02
           },
           {
             "repo": {
@@ -23231,10 +23231,10 @@
               "is_new": false,
               "starred_days_ago": 506
             },
-            "star_delta": 1,
-            "prev_stars": 129448,
+            "star_delta": 0,
+            "prev_stars": 129449,
             "star_velocity": 1608.73,
-            "trending_score": 4521.95
+            "trending_score": 4511.95
           },
           {
             "repo": {
@@ -23271,10 +23271,10 @@
               ],
               "stargazers_count": 107898,
               "forks_count": 13530,
-              "open_issues_count": 1255,
+              "open_issues_count": 1256,
               "created_at": "2019-10-12T05:56:49Z",
               "updated_at": "2026-08-12T22:48:37Z",
-              "pushed_at": "2026-08-12T23:23:30Z",
+              "pushed_at": "2026-08-12T23:40:04Z",
               "starred_at": "2026-05-11T09:54:58Z",
               "archived": false,
               "has_readme": true,
@@ -23425,10 +23425,10 @@
               "is_new": false,
               "starred_days_ago": 506
             },
-            "star_delta": 2,
-            "prev_stars": 539118,
+            "star_delta": 0,
+            "prev_stars": 539120,
             "star_velocity": 5360.82,
-            "trending_score": 16132.84
+            "trending_score": 16112.84
           },
           {
             "repo": {
@@ -23513,10 +23513,10 @@
               "is_new": false,
               "starred_days_ago": 822
             },
-            "star_delta": 2,
-            "prev_stars": 86965,
+            "star_delta": 0,
+            "prev_stars": 86967,
             "star_velocity": 2463.65,
-            "trending_score": 5816.98
+            "trending_score": 5796.98
           },
           {
             "repo": {
@@ -23674,7 +23674,7 @@
                 "software"
               ],
               "stargazers_count": 455710,
-              "forks_count": 50264,
+              "forks_count": 50265,
               "open_issues_count": 1628,
               "created_at": "2016-03-20T23:49:42Z",
               "updated_at": "2026-08-12T23:29:30Z",
@@ -23689,10 +23689,10 @@
               "is_new": false,
               "starred_days_ago": 506
             },
-            "star_delta": 3,
-            "prev_stars": 455707,
+            "star_delta": 0,
+            "prev_stars": 455710,
             "star_velocity": 3601.5,
-            "trending_score": 11790.1
+            "trending_score": 11760.1
           },
           {
             "repo": {
@@ -24053,7 +24053,7 @@
               "open_issues_count": 584,
               "created_at": "2015-07-21T18:55:34Z",
               "updated_at": "2026-08-12T22:02:43Z",
-              "pushed_at": "2026-08-12T22:44:31Z",
+              "pushed_at": "2026-08-12T23:40:39Z",
               "starred_at": "2024-08-22T00:54:38Z",
               "archived": false,
               "has_readme": true,
@@ -24147,11 +24147,11 @@
                 "resources",
                 "unicorns"
               ],
-              "stargazers_count": 494970,
+              "stargazers_count": 494975,
               "forks_count": 36345,
               "open_issues_count": 100,
               "created_at": "2014-07-11T13:42:37Z",
-              "updated_at": "2026-08-12T23:25:34Z",
+              "updated_at": "2026-08-12T23:41:25Z",
               "pushed_at": "2026-06-30T18:21:16Z",
               "starred_at": "2025-06-22T23:30:15Z",
               "archived": false,
@@ -24163,10 +24163,10 @@
               "is_new": false,
               "starred_days_ago": 416
             },
-            "star_delta": 4,
-            "prev_stars": 494966,
-            "star_velocity": 3363.33,
-            "trending_score": 11716.36
+            "star_delta": 5,
+            "prev_stars": 494970,
+            "star_velocity": 3363.36,
+            "trending_score": 11726.48
           },
           {
             "repo": {
@@ -24218,11 +24218,11 @@
                 "browser",
                 "browser-engine"
               ],
-              "stargazers_count": 65481,
+              "stargazers_count": 65482,
               "forks_count": 3129,
               "open_issues_count": 534,
               "created_at": "2024-05-30T09:18:10Z",
-              "updated_at": "2026-08-12T23:20:45Z",
+              "updated_at": "2026-08-12T23:40:45Z",
               "pushed_at": "2026-08-12T15:00:19Z",
               "starred_at": "2025-03-20T11:05:21Z",
               "archived": false,
@@ -24235,9 +24235,9 @@
               "starred_days_ago": 510
             },
             "star_delta": 1,
-            "prev_stars": 65480,
-            "star_velocity": 2443.32,
-            "trending_score": 5551.45
+            "prev_stars": 65481,
+            "star_velocity": 2443.36,
+            "trending_score": 5551.54
           },
           {
             "repo": {
@@ -24255,11 +24255,11 @@
                 "awesome-list",
                 "free-for-developers"
               ],
-              "stargazers_count": 131579,
+              "stargazers_count": 131580,
               "forks_count": 13809,
               "open_issues_count": 13,
               "created_at": "2015-03-18T21:06:26Z",
-              "updated_at": "2026-08-12T23:22:23Z",
+              "updated_at": "2026-08-12T23:39:20Z",
               "pushed_at": "2026-08-12T14:19:54Z",
               "starred_at": "2024-07-03T06:46:11Z",
               "archived": false,
@@ -24272,9 +24272,9 @@
               "starred_days_ago": 770
             },
             "star_delta": 1,
-            "prev_stars": 131578,
-            "star_velocity": 947.75,
-            "trending_score": 3221.29
+            "prev_stars": 131579,
+            "star_velocity": 947.76,
+            "trending_score": 3221.31
           },
           {
             "repo": {
@@ -24552,11 +24552,11 @@
                 "hugo",
                 "static-site-generator"
               ],
-              "stargazers_count": 89425,
+              "stargazers_count": 89426,
               "forks_count": 8343,
               "open_issues_count": 231,
               "created_at": "2013-07-04T15:26:26Z",
-              "updated_at": "2026-08-12T22:51:09Z",
+              "updated_at": "2026-08-12T23:41:32Z",
               "pushed_at": "2026-08-12T15:39:51Z",
               "starred_at": "2024-08-13T15:55:35Z",
               "archived": false,
@@ -24568,10 +24568,10 @@
               "is_new": false,
               "starred_days_ago": 729
             },
-            "star_delta": 0,
+            "star_delta": 1,
             "prev_stars": 89425,
-            "star_velocity": 560.42,
-            "trending_score": 2015.1
+            "star_velocity": 560.43,
+            "trending_score": 2025.12
           },
           {
             "repo": {
@@ -24641,7 +24641,7 @@
               ],
               "stargazers_count": 5930,
               "forks_count": 734,
-              "open_issues_count": 394,
+              "open_issues_count": 393,
               "created_at": "2020-02-15T16:54:52Z",
               "updated_at": "2026-08-12T23:30:11Z",
               "pushed_at": "2026-08-12T23:30:04Z",
@@ -24828,11 +24828,11 @@
                 "software-engineering",
                 "study-plan"
               ],
-              "stargazers_count": 358533,
+              "stargazers_count": 358535,
               "forks_count": 84607,
               "open_issues_count": 124,
               "created_at": "2016-06-06T02:34:12Z",
-              "updated_at": "2026-08-12T23:25:51Z",
+              "updated_at": "2026-08-12T23:40:51Z",
               "pushed_at": "2025-08-28T14:42:47Z",
               "starred_at": "2025-02-10T14:16:36Z",
               "archived": false,
@@ -24844,10 +24844,10 @@
               "is_new": false,
               "starred_days_ago": 548
             },
-            "star_delta": 1,
-            "prev_stars": 358532,
-            "star_velocity": 2892.17,
-            "trending_score": 9379.68
+            "star_delta": 2,
+            "prev_stars": 358533,
+            "star_velocity": 2892.19,
+            "trending_score": 9389.73
           },
           {
             "repo": {
@@ -24887,10 +24887,10 @@
               "is_new": false,
               "starred_days_ago": 594
             },
-            "star_delta": 2,
-            "prev_stars": 278848,
+            "star_delta": 0,
+            "prev_stars": 278850,
             "star_velocity": 2453.95,
-            "trending_score": 7716.39
+            "trending_score": 7696.39
           },
           {
             "repo": {
@@ -25003,11 +25003,11 @@
                 "kmp",
                 "leetcode"
               ],
-              "stargazers_count": 135320,
+              "stargazers_count": 135321,
               "forks_count": 23580,
               "open_issues_count": 4,
               "created_at": "2020-02-19T09:01:23Z",
-              "updated_at": "2026-08-12T21:20:46Z",
+              "updated_at": "2026-08-12T23:41:08Z",
               "pushed_at": "2026-02-28T10:07:31Z",
               "starred_at": "2025-12-22T01:30:58Z",
               "archived": false,
@@ -25019,10 +25019,10 @@
               "is_new": false,
               "starred_days_ago": 233
             },
-            "star_delta": 0,
+            "star_delta": 1,
             "prev_stars": 135320,
-            "star_velocity": 1715.81,
-            "trending_score": 4784.81
+            "star_velocity": 1715.82,
+            "trending_score": 4794.85
           },
           {
             "repo": {
@@ -25044,11 +25044,11 @@
                 "notes-app",
                 "self-learning"
               ],
-              "stargazers_count": 36746,
-              "forks_count": 4216,
+              "stargazers_count": 36747,
+              "forks_count": 4217,
               "open_issues_count": 128,
               "created_at": "2024-10-21T17:58:46Z",
-              "updated_at": "2026-08-12T23:18:33Z",
+              "updated_at": "2026-08-12T23:33:23Z",
               "pushed_at": "2026-08-11T16:00:18Z",
               "starred_at": "2025-12-28T03:54:29Z",
               "archived": false,
@@ -25061,9 +25061,9 @@
               "starred_days_ago": 227
             },
             "star_delta": 1,
-            "prev_stars": 36745,
-            "star_velocity": 1670.27,
-            "trending_score": 3718.01
+            "prev_stars": 36746,
+            "star_velocity": 1670.32,
+            "trending_score": 3718.11
           },
           {
             "repo": {
@@ -25426,7 +25426,7 @@
                 "sql"
               ],
               "stargazers_count": 43679,
-              "forks_count": 9143,
+              "forks_count": 9144,
               "open_issues_count": 45,
               "created_at": "2023-11-19T19:47:41Z",
               "updated_at": "2026-08-12T23:23:52Z",
@@ -25535,10 +25535,10 @@
               "is_new": false,
               "starred_days_ago": 771
             },
-            "star_delta": 1,
-            "prev_stars": 63238,
+            "star_delta": 0,
+            "prev_stars": 63239,
             "star_velocity": 338.84,
-            "trending_score": 1320.07
+            "trending_score": 1310.07
           }
         ]
       },
