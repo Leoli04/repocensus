@@ -5,7 +5,7 @@ on:
     - cron: '0 0 * * 0' # Every Sunday at 00:00 UTC
   workflow_dispatch: # Manual trigger
   push:
-    branches: [main]
+    branches: [main, feat/high-priority-v1.5]
     paths:
       - 'src/**'
       - 'scripts/**'
