@@ -1,0 +1,51 @@
+name: Release
+
+# 打 tag（vX.Y.Z）自动构建并发布 GitHub Release + 上传构建产物压缩包
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write # 创建 release / 上传 asset 需要写权限
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch GitHub data (build only, no commit)
+        run: npx tsx scripts/fetch.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+
+      - name: Build
+        run: npm run build
+
+      - name: Package dist as release asset
+        run: |
+          cd dist
+          zip -r "../repocensus-${{ github.ref_name }}.zip" .
+          cd ..
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: repocensus-${{ github.ref_name }}.zip
+          generate_release_notes: true # 自动根据 commit 生成 release notes
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

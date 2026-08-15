@@ -8,6 +8,9 @@ import TrendingBoard from './components/TrendingBoard.vue'
 import ShareCard from './components/ShareCard.vue'
 import VersionPanel from './components/VersionPanel.vue'
 import SectionNav from './components/SectionNav.vue'
+import AdvancedFilters from './components/AdvancedFilters.vue'
+import AnnualReport from './components/AnnualReport.vue'
+import RecommendBoard from './components/RecommendBoard.vue'
 import { useRepos, type SortOption } from './composables/useRepos'
 import { useTheme } from './composables/useTheme'
 import { useMarkdownExport } from './composables/useExport'
@@ -35,6 +38,15 @@ const {
   setCategory,
   setSort,
   setSecondaryTemplate,
+  languageFilter,
+  minStarsFilter,
+  yearFilter,
+  topicFilter,
+  setLanguageFilter,
+  setMinStarsFilter,
+  setYearFilter,
+  setTopicFilter,
+  resetAdvancedFilters,
 } = useRepos()
 
 const { theme, toggle } = useTheme()
@@ -115,7 +127,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.4.1'
+const APP_VERSION = 'v1.5.0'
 </script>
 
 <template>
@@ -248,6 +260,9 @@ const APP_VERSION = 'v1.4.1'
             <button :class="['view-btn', { active: viewMode === 'trending' }]" @click="viewMode = 'trending'" title="Trending 热榜">🔥</button>
           </div>
         </div>
+
+        <!-- Advanced filters -->
+        <AdvancedFilters />
       </section>
 
       <!-- Main Content -->
@@ -338,6 +353,16 @@ const APP_VERSION = 'v1.4.1'
       <!-- Tech Profile -->
       <div id="tech-profile">
         <TechProfile :profile="profile" />
+      </div>
+
+      <!-- Annual Report -->
+      <div id="annual-report">
+        <AnnualReport />
+      </div>
+
+      <!-- Smart Recommendations -->
+      <div id="recommend">
+        <RecommendBoard />
       </div>
 
       <!-- Star Timeline -->
