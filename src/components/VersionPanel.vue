@@ -19,6 +19,17 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.5.0',
+    date: '2026-08-15',
+    type: 'release',
+    items: [
+      '高优先级功能三连发：搜索+高级过滤、年度仓库报告、智能推荐',
+      '高级过滤：按语言/最少 Star/创建年份/Topic 多维度组合筛选',
+      '年度仓库报告：类似 Spotify Wrapped 的年度卡（新建数、语言、领域、月度活跃、热门 Topic）',
+      '智能推荐：基于技术画像 topic 相似度匹配，推荐最契合的仓库 + 探索新领域',
+    ],
+  },
+  {
     version: 'v1.4.1',
     date: '2026-08-13',
     type: 'feature',
@@ -78,15 +89,6 @@ interface TodoGroup {
 }
 
 const todoGroups: TodoGroup[] = [
-  {
-    tier: '🔥 高优先级',
-    tierClass: 'tier-high',
-    items: [
-      { name: '年度仓库报告', desc: '类似 Spotify Wrapped — 年度 star 统计、最关注领域、活跃月份排行', icon: '📊' },
-      { name: '搜索 + 高级过滤', desc: '按 stars / language / date / topics 多维度组合过滤', icon: '🔍' },
-      { name: '智能推荐', desc: '基于技术画像推荐可能感兴趣的仓库（topics 相似度匹配）', icon: '🤖' },
-    ],
-  },
   {
     tier: '⭐ 中优先级',
     tierClass: 'tier-mid',

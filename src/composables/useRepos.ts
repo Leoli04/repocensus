@@ -39,6 +39,12 @@ const typeFilter = ref<string>(loadPref('typeFilter', 'all'))
 // Search query
 const searchQuery = ref<string>('')
 
+// Advanced filters
+const languageFilter = ref<string | null>(null)
+const minStarsFilter = ref<number>(0)
+const yearFilter = ref<number | null>(null) // created year, null = all
+const topicFilter = ref<string | null>(null)
+
 // Selected category (null = all)
 const selectedCategory = ref<string | null>(null)
 
@@ -80,17 +86,36 @@ export function useRepos() {
     return categorizedRepos.value.filter((r) => r.type === typeFilter.value)
   })
 
-  // Filter by search
+  // Filter by search + advanced filters
   const searched = computed<Repo[]>(() => {
-    if (!searchQuery.value.trim()) return typeFiltered.value
-    const q = searchQuery.value.toLowerCase()
-    return typeFiltered.value.filter(
-      (r) =>
-        r.name.toLowerCase().includes(q) ||
-        (r.description || '').toLowerCase().includes(q) ||
-        (r.language || '').toLowerCase().includes(q) ||
-        r.full_name.toLowerCase().includes(q)
-    )
+    const q = searchQuery.value.trim().toLowerCase()
+    return typeFiltered.value.filter((r) => {
+      // Text search
+      if (q) {
+        const hit =
+          r.name.toLowerCase().includes(q) ||
+          (r.description || '').toLowerCase().includes(q) ||
+          (r.language || '').toLowerCase().includes(q) ||
+          r.full_name.toLowerCase().includes(q)
+        if (!hit) return false
+      }
+      // Language filter
+      if (languageFilter.value && r.language !== languageFilter.value) return false
+      // Min stars filter
+      if (minStarsFilter.value > 0 && r.stargazers_count < minStarsFilter.value) return false
+      // Year filter (created year)
+      if (yearFilter.value !== null) {
+        const y = new Date(r.created_at).getFullYear()
+        if (y !== yearFilter.value) return false
+      }
+      // Topic filter
+      if (topicFilter.value) {
+        const t = topicFilter.value.toLowerCase()
+        const has = (r.topics || []).some((tp) => tp.toLowerCase().includes(t))
+        if (!has) return false
+      }
+      return true
+    })
   })
 
   // Filter by category
@@ -195,6 +220,29 @@ export function useRepos() {
     sortOption.value = opt
   }
 
+  function setLanguageFilter(lang: string | null) {
+    languageFilter.value = lang
+  }
+
+  function setMinStarsFilter(n: number) {
+    minStarsFilter.value = n
+  }
+
+  function setYearFilter(y: number | null) {
+    yearFilter.value = y
+  }
+
+  function setTopicFilter(t: string | null) {
+    topicFilter.value = t
+  }
+
+  function resetAdvancedFilters() {
+    languageFilter.value = null
+    minStarsFilter.value = 0
+    yearFilter.value = null
+    topicFilter.value = null
+  }
+
   function setSecondaryTemplate(id: string | null) {
     secondaryTemplateId.value = id
   }
@@ -208,6 +256,10 @@ export function useRepos() {
     secondaryTemplateId,
     typeFilter,
     searchQuery,
+    languageFilter,
+    minStarsFilter,
+    yearFilter,
+    topicFilter,
     selectedCategory,
     sortOption,
     filtered: sorted,
@@ -220,6 +272,11 @@ export function useRepos() {
     setType,
     setCategory,
     setSort,
+    setLanguageFilter,
+    setMinStarsFilter,
+    setYearFilter,
+    setTopicFilter,
+    resetAdvancedFilters,
     setSecondaryTemplate,
   }
 }

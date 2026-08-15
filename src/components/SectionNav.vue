@@ -13,6 +13,8 @@ const navItems: NavItem[] = [
   { id: 'repos', label: '仓库', icon: '📦' },
   { id: 'stale', label: '沉默仓库', icon: '⚠️' },
   { id: 'tech-profile', label: '技术画像', icon: '🔬' },
+  { id: 'annual-report', label: '年度报告', icon: '🎉' },
+  { id: 'recommend', label: '智能推荐', icon: '🤖' },
   { id: 'star-timeline', label: 'Star 时间线', icon: '🆕' },
   { id: 'share', label: '分享', icon: '🏷️' },
 ]
