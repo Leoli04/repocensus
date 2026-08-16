@@ -7,7 +7,7 @@ import { useI18n } from '../i18n'
 import { useRepoMeta } from '../composables/useRepoMeta'
 
 const props = defineProps<{ repo: Repo; showCategory?: boolean }>()
-const { t } = useI18n()
+const { t, catLabel } = useI18n()
 const { getMeta, setNote, setTags } = useRepoMeta()
 
 const typeIcon: Record<string, string> = {
@@ -96,7 +96,7 @@ function removeTag(tag: string) {
 
       <div class="card-meta">
         <div class="badges">
-          <span v-if="showCategory && repo.category" class="badge cat-badge">{{ repo.category }}</span>
+          <span v-if="showCategory && repo.category" class="badge cat-badge">{{ catLabel(repo.category) }}</span>
           <span v-if="repo.language" class="badge lang-badge">{{ repo.language }}</span>
           <span class="badge star-badge">⭐ {{ formatStars(repo.stargazers_count) }}</span>
         </div>

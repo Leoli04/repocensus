@@ -82,7 +82,7 @@ export function findStaleRepos(repos: Repo[]): StaleRepo[] {
     if (days > 730 && repo.stargazers_count < 3) {
       stale.push({
         repo,
-        reason: `${Math.floor(days / 365)} 年未更新, ${repo.stargazers_count} star`,
+        reason: '{years} 年未更新，{stars} star',
         days_since_update: days,
       })
     }

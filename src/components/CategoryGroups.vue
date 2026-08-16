@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Repo, CategoryTemplate } from '../engine/types'
 import RepoCard from './RepoCard.vue'
+import { catLabel } from '../i18n'
 
 export interface CategoryGroup {
   name: string
@@ -29,7 +30,7 @@ const props = defineProps<{
         @click="toggleCollapse(group.name)"
       >
         <span class="toggle-icon">{{ collapsedSet.has(group.name) ? '▶' : '▼' }}</span>
-        <span class="group-name">{{ group.name }}</span>
+        <span class="group-name">{{ catLabel(group.name) }}</span>
         <span class="group-count">{{ group.count }}</span>
       </button>
 
@@ -48,7 +49,7 @@ const props = defineProps<{
             @click="toggleCollapse(`${group.name}/${sub.name}`)"
           >
             <span class="toggle-icon">{{ collapsedSet.has(`${group.name}/${sub.name}`) ? '▶' : '▼' }}</span>
-            <span class="sub-name">{{ sub.name }}</span>
+            <span class="sub-name">{{ catLabel(sub.name) }}</span>
             <span class="sub-count">{{ sub.count }}</span>
           </button>
           <div v-if="!collapsedSet.has(`${group.name}/${sub.name}`)" class="group-repos">

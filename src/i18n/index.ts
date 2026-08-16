@@ -51,6 +51,22 @@ watch(
   { immediate: true }
 )
 
+/**
+ * Translate a category name (data-driven, originally Chinese).
+ * Falls back to the raw name if no translation exists.
+ */
+export function catLabel(name: string): string {
+  return t(`cat.${name}`)
+}
+
+/**
+ * Translate a template name (data-driven, originally Chinese).
+ * Falls back to the raw name if no translation exists.
+ */
+export function tplLabel(name: string): string {
+  return t(`tpl.${name}`)
+}
+
 export function useI18n() {
   function setLocale(l: Lang) {
     locale.value = l
@@ -58,5 +74,5 @@ export function useI18n() {
   function toggleLocale() {
     locale.value = locale.value === 'zh' ? 'en' : 'zh'
   }
-  return { t, locale, setLocale, toggleLocale }
+  return { t, locale, setLocale, toggleLocale, catLabel, tplLabel }
 }

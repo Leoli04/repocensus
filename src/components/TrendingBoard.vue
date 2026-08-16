@@ -10,7 +10,7 @@ const props = defineProps<{
   repos: Repo[]
   template: CategoryTemplate
 }>()
-const { t } = useI18n()
+const { t, catLabel } = useI18n()
 
 const selectedCategory = ref<string | null>(null)
 
@@ -103,7 +103,7 @@ function typeIcon(type: string): string {
         :class="['pill', { active: selectedCategory === cat.name }]"
         @click="selectCategory(cat.name)"
       >
-        {{ cat.name }} · {{ cat.count }}
+        {{ catLabel(cat.name) }} · {{ cat.count }}
       </button>
     </div>
 

@@ -53,7 +53,7 @@ const {
 
 const { theme, toggle } = useTheme()
 const { exportMarkdown, exportJSON, exportCSV } = useExport()
-const { t, locale, toggleLocale } = useI18n()
+const { t, locale, toggleLocale, catLabel, tplLabel } = useI18n()
 
 // Collapsed groups state
 const collapsedSet = ref<Set<string>>(new Set())
@@ -223,7 +223,7 @@ const APP_VERSION = 'v1.6.0'
               @click="setTemplate(tpl.id)"
               :title="tpl.description"
             >
-              {{ tpl.name }}
+              {{ tplLabel(tpl.name) }}
             </button>
           </div>
         </div>
@@ -244,7 +244,7 @@ const APP_VERSION = 'v1.6.0'
             @change="(e) => setSecondaryTemplate((e.target as HTMLSelectElement).value)"
             class="secondary-select"
           >
-            <option v-for="tpl in allTemplates" :key="tpl.id" :value="tpl.id">{{ tpl.name }}</option>
+            <option v-for="tpl in allTemplates" :key="tpl.id" :value="tpl.id">{{ tplLabel(tpl.name) }}</option>
           </select>
         </div>
 
@@ -298,7 +298,7 @@ const APP_VERSION = 'v1.6.0'
             :class="['cat-btn', { active: !selectedCategory }]"
             @click="setCategory(null)"
           >
-            <span>全部</span>
+            <span>{{ t('common.all') }}</span>
             <span class="cat-count">{{ filtered.length }}</span>
           </button>
           <button
@@ -307,7 +307,7 @@ const APP_VERSION = 'v1.6.0'
             :class="['cat-btn', { active: selectedCategory === cat.name }]"
             @click="setCategory(cat.name)"
           >
-            <span>{{ cat.name }}</span>
+            <span>{{ catLabel(cat.name) }}</span>
             <span class="cat-count">{{ cat.count }}</span>
           </button>
         </aside>
@@ -330,7 +330,7 @@ const APP_VERSION = 'v1.6.0'
             <div class="repo-count">
               {{ t('app.repoCount', { n: filtered.length }) }}
               <span v-if="selectedCategory" class="filter-hint">{{ t('app.filterHintCat', { cat: selectedCategory }) }}</span>
-              <span v-if="secondaryTemplate" class="filter-hint">{{ t('app.filterCross', { a: activeTemplate.name, b: secondaryTemplate.name }) }}</span>
+              <span v-if="secondaryTemplate" class="filter-hint">{{ t('app.filterCross', { a: tplLabel(activeTemplate.name), b: tplLabel(secondaryTemplate.name) }) }}</span>
             </div>
 
             <!-- Grouped view -->
@@ -367,9 +367,9 @@ const APP_VERSION = 'v1.6.0'
           >
             <div class="stale-info">
               <span class="stale-name">{{ stale.repo.name }}</span>
-              <span class="stale-reason">{{ stale.reason }}</span>
+              <span class="stale-reason">{{ t('stale.reason', { years: Math.floor(stale.days_since_update / 365), stars: stale.repo.stargazers_count }) }}</span>
             </div>
-            <span class="stale-action">查看 →</span>
+            <span class="stale-action">{{ t('common.view') }}</span>
           </a>
         </div>
       </section>
