@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRepos } from '../composables/useRepos'
+import { useI18n } from '../i18n'
 
 const {
   data,
@@ -14,6 +15,7 @@ const {
   setTopicFilter,
   resetAdvancedFilters,
 } = useRepos()
+const { t } = useI18n()
 
 const showFilters = computed(() => {
   return languageFilter.value !== null || minStarsFilter.value > 0 || yearFilter.value !== null || topicFilter.value
@@ -56,13 +58,13 @@ const starOptions = [0, 10, 50, 100, 500, 1000]
     <div class="filter-grid">
       <!-- Language -->
       <div class="filter-field">
-        <label class="filter-label">语言</label>
+        <label class="filter-label">{{ t('filter.language') }}</label>
         <select
           :value="languageFilter || ''"
           @change="setLanguageFilter(($event.target as HTMLSelectElement).value || null)"
           class="filter-select"
         >
-          <option value="">全部语言</option>
+          <option value="">{{ t('filter.allLanguage') }}</option>
           <option v-for="lang in languages" :key="lang.name" :value="lang.name">
             {{ lang.name }} ({{ lang.count }})
           </option>
@@ -71,49 +73,49 @@ const starOptions = [0, 10, 50, 100, 500, 1000]
 
       <!-- Min stars -->
       <div class="filter-field">
-        <label class="filter-label">最少 Star</label>
+        <label class="filter-label">{{ t('filter.minStars') }}</label>
         <select
           :value="minStarsFilter"
           @change="setMinStarsFilter(Number(($event.target as HTMLSelectElement).value))"
           class="filter-select"
         >
           <option v-for="opt in starOptions" :key="opt" :value="opt">
-            {{ opt === 0 ? '不限' : `${opt}+` }}
+            {{ opt === 0 ? t('filter.noLimit') : `${opt}+` }}
           </option>
         </select>
       </div>
 
       <!-- Year -->
       <div class="filter-field">
-        <label class="filter-label">创建年份</label>
+        <label class="filter-label">{{ t('filter.year') }}</label>
         <select
           :value="yearFilter ?? ''"
           @change="setYearFilter(($event.target as HTMLSelectElement).value ? Number(($event.target as HTMLSelectElement).value) : null)"
           class="filter-select"
         >
-          <option value="">全部年份</option>
+          <option value="">{{ t('filter.allYear') }}</option>
           <option v-for="y in years" :key="y" :value="y">{{ y }}</option>
         </select>
       </div>
 
       <!-- Topic -->
       <div class="filter-field">
-        <label class="filter-label">Topic</label>
+        <label class="filter-label">{{ t('filter.topic') }}</label>
         <input
           :value="topicFilter || ''"
           @input="setTopicFilter(($event.target as HTMLInputElement).value.trim() || null)"
           type="text"
-          placeholder="按 topic 过滤..."
+          :placeholder="t('filter.topicPlaceholder')"
           class="filter-input"
         />
       </div>
 
       <!-- Reset -->
       <button v-if="activeCount > 0" class="reset-btn" @click="resetAdvancedFilters">
-        清除筛选 ({{ activeCount }})
+        {{ t('filter.reset', { n: activeCount }) }}
       </button>
     </div>
-    <span v-if="showFilters" class="filter-hint">高级筛选已启用</span>
+    <span v-if="showFilters" class="filter-hint">{{ t('filter.active') }}</span>
   </div>
 </template>
 

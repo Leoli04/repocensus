@@ -11,6 +11,7 @@ export interface ExploreTopic {
   topic: string
   relatedCount: number
   currentCount: number
+  repos: Repo[]
 }
 
 export interface RecommendResult {
@@ -94,7 +95,7 @@ export function computeRecommendations(data: CensusData, limit = 8): RecommendRe
   // Explore new topics: topics that appear in the collection but are NOT in user's top profile,
   // and are related to the user's interests (share repos with profile topics)
   const profileSet = new Set(topProfile.map((t) => t.toLowerCase()))
-  const exploreMap = new Map<string, { related: number; current: number }>()
+  const exploreMap = new Map<string, { related: number; current: number; repos: Repo[] }>()
 
   for (const r of repos) {
     const rTopics = (r.topics || []).map((t) => t.toLowerCase())
@@ -103,16 +104,24 @@ export function computeRecommendations(data: CensusData, limit = 8): RecommendRe
     // This repo also has non-profile topics -> candidate explore topics
     for (const t of rTopics) {
       if (!profileSet.has(t)) {
-        const entry = exploreMap.get(t) || { related: 0, current: 0 }
+        const entry = exploreMap.get(t) || { related: 0, current: 0, repos: [] }
         entry.related += 1
         entry.current = globalFreq.get(t) || 0
+        entry.repos.push(r)
         exploreMap.set(t, entry)
       }
     }
   }
 
   const exploreTopics = Array.from(exploreMap.entries())
-    .map(([topic, v]) => ({ topic, relatedCount: v.related, currentCount: v.current }))
+    .map(([topic, v]) => ({
+      topic,
+      relatedCount: v.related,
+      currentCount: v.current,
+      repos: [...v.repos]
+        .sort((a, b) => b.stargazers_count - a.stargazers_count)
+        .slice(0, 6),
+    }))
     .sort((a, b) => b.relatedCount - a.relatedCount)
     .slice(0, 10)
 

@@ -89,6 +89,37 @@ export interface CensusData {
   new_stars: Repo[]
   trending?: TrendingData
   custom_templates?: CategoryTemplate[]
+  history?: ChangeSnapshot[]
+}
+
+/** A lightweight per-run snapshot used for change tracking */
+export interface ChangeSnapshot {
+  generated_at: string
+  names: string[]
+  stars: Record<string, number>
+  urls: Record<string, string>
+}
+
+export interface ChangeEntry {
+  full_name: string
+  stars: number
+}
+
+export interface StarChange {
+  full_name: string
+  from: number
+  to: number
+  delta: number
+}
+
+export interface ChangeDiff {
+  from: ChangeSnapshot
+  to: ChangeSnapshot
+  added: ChangeEntry[]
+  removed: ChangeEntry[]
+  starUp: StarChange[]
+  starDown: StarChange[]
+  unchangedCount: number
 }
 
 export interface TechProfile {

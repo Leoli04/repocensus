@@ -2,9 +2,13 @@ import { ref, computed, watch } from 'vue'
 import type { CensusData, Repo, CategoryTemplate } from '../engine/types'
 import { PRESET_TEMPLATES } from '../engine/templates'
 import { recategorize, categorize } from '../engine/categorizer'
+import { useRepoMeta } from './useRepoMeta'
 
 // Static import — Vite bundles this at build time
 import rawData from '../data/repos.json'
+
+// Per-repo user metadata (note + custom tags), shared with RepoCard & export
+const { meta: repoMeta } = useRepoMeta()
 
 // ── State ─────────────────────────────────────────────────
 const data = ref<CensusData>(rawData as unknown as CensusData)
@@ -90,13 +94,18 @@ export function useRepos() {
   const searched = computed<Repo[]>(() => {
     const q = searchQuery.value.trim().toLowerCase()
     return typeFiltered.value.filter((r) => {
-      // Text search
+      // Text search (incl. custom note & tags)
       if (q) {
+        const m = repoMeta.value[String(r.id)]
+        const note = (m?.note || '').toLowerCase()
+        const tags = (m?.tags || []).join(' ').toLowerCase()
         const hit =
           r.name.toLowerCase().includes(q) ||
           (r.description || '').toLowerCase().includes(q) ||
           (r.language || '').toLowerCase().includes(q) ||
-          r.full_name.toLowerCase().includes(q)
+          r.full_name.toLowerCase().includes(q) ||
+          note.includes(q) ||
+          tags.includes(q)
         if (!hit) return false
       }
       // Language filter

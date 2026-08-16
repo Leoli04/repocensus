@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { Repo } from '../engine/types'
 import { healthLabel } from '../engine/health'
 import { daysSince } from '../engine/categorizer'
+import { useI18n } from '../i18n'
+import { useRepoMeta } from '../composables/useRepoMeta'
 
 const props = defineProps<{ repo: Repo; showCategory?: boolean }>()
+const { t } = useI18n()
+const { getMeta, setNote, setTags } = useRepoMeta()
 
 const typeIcon: Record<string, string> = {
   original: '🛠️',
@@ -12,10 +16,10 @@ const typeIcon: Record<string, string> = {
   star: '⭐',
 }
 
-const typeLabel: Record<string, string> = {
-  original: '自建',
-  fork: 'Fork',
-  star: 'Star',
+function typeText(type: string): string {
+  if (type === 'original') return t('repo.typeOriginal')
+  if (type === 'fork') return t('repo.typeFork')
+  return t('repo.typeStar')
 }
 
 function formatStars(n: number): string {
@@ -25,35 +29,70 @@ function formatStars(n: number): string {
 
 function formatUpdate(dateStr: string): string {
   const days = daysSince(dateStr)
-  if (days <= 0) return '今天'
-  if (days === 1) return '昨天'
-  if (days < 30) return `${days} 天前`
-  if (days < 365) return `${Math.floor(days / 30)} 个月前`
-  return `${Math.floor(days / 365)} 年前`
+  if (days <= 0) return t('star.today')
+  if (days === 1) return t('star.yesterday')
+  if (days < 30) return t('star.daysAgo', { n: days })
+  if (days < 365) return t('star.monthsAgo', { n: Math.floor(days / 30) })
+  return t('star.yearsAgo', { n: Math.floor(days / 365) })
 }
 
-const health = computed(() => healthLabel(props.repo.health_score))
+const health = computed(() => {
+  const hl = healthLabel(props.repo.health_score)
+  const labelKey =
+    props.repo.health_score >= 70
+      ? 'repo.healthHealthy'
+      : props.repo.health_score >= 40
+        ? 'repo.healthFair'
+        : 'repo.healthRisk'
+  return { ...hl, label: t(labelKey) }
+})
 const updateColor = computed(() => {
   const days = daysSince(props.repo.updated_at)
   if (days <= 180) return '#22c55e'
   if (days <= 730) return '#f59e0b'
   return '#ef4444'
 })
+
+// ── Note / tag editor ─────────────────────────────────────
+const editing = ref(false)
+const noteText = ref('')
+const tagInput = ref('')
+
+const meta = computed(() => getMeta(props.repo.id))
+
+function openEditor() {
+  noteText.value = getMeta(props.repo.id).note
+  editing.value = true
+}
+function saveNote() {
+  setNote(props.repo.id, noteText.value)
+}
+function addTag() {
+  const v = tagInput.value.trim()
+  if (!v) return
+  const cur = getMeta(props.repo.id).tags
+  if (!cur.includes(v)) setTags(props.repo.id, [...cur, v])
+  tagInput.value = ''
+}
+function removeTag(tag: string) {
+  const cur = getMeta(props.repo.id).tags
+  setTags(props.repo.id, cur.filter((x) => x !== tag))
+}
 </script>
 
 <template>
-  <a :href="repo.html_url" target="_blank" rel="noopener" class="repo-card">
+  <div class="repo-card" :class="{ editing }">
     <!-- Health bar at top -->
     <div class="health-bar" :style="{ background: health.color }" />
 
-    <div class="card-body">
+    <a class="card-main" :href="repo.html_url" target="_blank" rel="noopener">
       <div class="card-header">
-        <span class="type-icon" :title="typeLabel[repo.type]">{{ typeIcon[repo.type] }}</span>
+        <span class="type-icon" :title="typeText(repo.type)">{{ typeIcon[repo.type] }}</span>
         <span class="repo-name">{{ repo.name }}</span>
-        <span v-if="repo.is_new" class="new-badge">NEW</span>
+        <span v-if="repo.is_new" class="new-badge">{{ t('repo.new') }}</span>
       </div>
 
-      <p class="repo-desc">{{ repo.description || 'No description' }}</p>
+      <p class="repo-desc">{{ repo.description || t('repo.noDesc') }}</p>
 
       <div class="card-meta">
         <div class="badges">
@@ -62,7 +101,7 @@ const updateColor = computed(() => {
           <span class="badge star-badge">⭐ {{ formatStars(repo.stargazers_count) }}</span>
         </div>
         <div class="meta-row">
-          <span class="health-score" :style="{ color: health.color }" :title="`健康分: ${repo.health_score}/100`">
+          <span class="health-score" :style="{ color: health.color }" :title="t('repo.healthTitle', { n: repo.health_score })">
             {{ health.label }} {{ repo.health_score }}
           </span>
           <span class="update-time" :style="{ color: updateColor }">
@@ -70,22 +109,56 @@ const updateColor = computed(() => {
           </span>
         </div>
         <span v-if="repo.fork && repo.parent_full_name" class="fork-source">
-          ← {{ repo.parent_full_name }}
+          {{ t('repo.fromFork', { name: repo.parent_full_name }) }}
         </span>
       </div>
+    </a>
+
+    <!-- Custom tags (always visible if any) -->
+    <div class="meta-tags" v-if="meta.tags.length && !editing">
+      <span v-for="tag in meta.tags" :key="tag" class="meta-tag">#{{ tag }}</span>
     </div>
-  </a>
+
+    <!-- Note button -->
+    <button class="note-btn" :title="t('repo.noteAdd')" @click.stop="openEditor">
+      📝
+    </button>
+
+    <!-- Editor panel -->
+    <div v-if="editing" class="editor" @click.stop>
+      <textarea
+        v-model="noteText"
+        class="note-input"
+        :placeholder="t('repo.notePlaceholder')"
+        @blur="saveNote"
+      />
+      <div class="tag-edit">
+        <span v-for="tag in meta.tags" :key="tag" class="tag-chip">
+          #{{ tag }}
+          <button class="tag-x" @click="removeTag(tag)" title="remove">×</button>
+        </span>
+      </div>
+      <input
+        v-model="tagInput"
+        class="tag-input"
+        :placeholder="t('repo.tagPlaceholder')"
+        @keydown.enter.prevent="addTag"
+      />
+      <div class="editor-actions">
+        <button class="editor-done" @click="editing = false">{{ t('recommend.collapse') }}</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
 .repo-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  text-decoration: none;
-  color: var(--text-primary);
   transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
   overflow: hidden;
 }
@@ -101,11 +174,14 @@ const updateColor = computed(() => {
   width: 100%;
 }
 
-.card-body {
-  padding: 14px 16px;
+.card-main {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--text-primary);
+  flex: 1;
 }
 
 .card-header {
@@ -204,5 +280,134 @@ const updateColor = computed(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Custom tags */
+.meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0 16px 10px;
+}
+
+.meta-tag {
+  font-size: 10px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 1px 7px;
+  border-radius: 8px;
+}
+
+/* Note button */
+.note-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  cursor: pointer;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.15s, border-color 0.15s;
+  z-index: 2;
+}
+
+.repo-card:hover .note-btn,
+.repo-card.editing .note-btn {
+  opacity: 1;
+}
+
+.note-btn:hover {
+  border-color: var(--accent);
+}
+
+/* Editor */
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 16px 14px;
+  border-top: 1px solid var(--card-border);
+  padding-top: 12px;
+}
+
+.note-input {
+  width: 100%;
+  min-height: 56px;
+  resize: vertical;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.note-input:focus {
+  border-color: var(--accent);
+}
+
+.tag-edit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag-chip {
+  font-size: 10px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 2px 6px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tag-x {
+  border: none;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+}
+
+.tag-input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.tag-input:focus {
+  border-color: var(--accent);
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editor-done {
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
 }
 </style>

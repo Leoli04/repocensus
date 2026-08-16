@@ -1,20 +1,30 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRepos } from '../composables/useRepos'
 import { computeRecommendations } from '../engine/recommend'
+import { useI18n } from '../i18n'
+import RepoCard from './RepoCard.vue'
 
 const { data } = useRepos()
+const { t, locale } = useI18n()
 
 const result = computed(() => computeRecommendations(data.value, 8))
+const expanded = ref<string | null>(null)
+
+function toggleTopic(topic: string) {
+  expanded.value = expanded.value === topic ? null : topic
+}
+
+const sep = computed(() => (locale.value === 'zh' ? '、' : ', '))
 </script>
 
 <template>
   <div class="recommend-board">
-    <h3 class="section-title">🤖 智能推荐</h3>
+    <h3 class="section-title">{{ t('recommend.title') }}</h3>
 
     <!-- Recommendations -->
     <div class="rec-section">
-      <h4 class="rec-heading">为你推荐 · 最契合你技术画像的仓库</h4>
+      <h4 class="rec-heading">{{ t('recommend.forYou') }}</h4>
       <div class="rec-grid">
         <a
           v-for="rec in result.recommendations"
@@ -28,30 +38,37 @@ const result = computed(() => computeRecommendations(data.value, 8))
             <span class="rec-name">{{ rec.repo.name }}</span>
             <span class="rec-stars">⭐ {{ rec.repo.stargazers_count || 0 }}</span>
           </div>
-          <p class="rec-desc">{{ rec.repo.description || '无描述' }}</p>
+          <p class="rec-desc">{{ rec.repo.description || t('repo.noDesc') }}</p>
           <div class="rec-meta">
             <span v-if="rec.repo.language" class="rec-lang">{{ rec.repo.language }}</span>
-            <span class="rec-reason">{{ rec.reason }}</span>
+            <span class="rec-reason" v-if="rec.matchedTopics.length">{{ t('recommend.reason') }}{{ rec.matchedTopics.slice(0, 3).join(sep) }}</span>
+            <span class="rec-reason" v-else>{{ t('recommend.matchProfile') }}</span>
           </div>
           <div class="rec-topics">
-            <span v-for="t in rec.matchedTopics.slice(0, 4)" :key="t" class="rec-topic">#{{ t }}</span>
+            <span v-for="tt in rec.matchedTopics.slice(0, 4)" :key="tt" class="rec-topic">#{{ tt }}</span>
           </div>
         </a>
       </div>
     </div>
 
-    <!-- Explore new topics -->
+    <!-- Explore new topics (drill-down) -->
     <div class="rec-section" v-if="result.exploreTopics.length">
-      <h4 class="rec-heading">🧭 探索新领域 · 与你兴趣相关但尚未深入</h4>
+      <h4 class="rec-heading">{{ t('recommend.explore') }}</h4>
       <div class="explore-list">
-        <div v-for="ex in result.exploreTopics" :key="ex.topic" class="explore-item">
-          <span class="explore-topic">#{{ ex.topic }}</span>
-          <span class="explore-count">{{ ex.relatedCount }} 个相关仓库</span>
-          <div class="explore-bar">
-            <div
-              class="explore-fill"
-              :style="{ width: Math.min((ex.relatedCount / result.exploreTopics[0].relatedCount) * 100, 100) + '%' }"
-            />
+        <div v-for="ex in result.exploreTopics" :key="ex.topic" class="explore-item-wrap">
+          <button class="explore-item" @click="toggleTopic(ex.topic)" :title="ex.topic">
+            <span class="explore-topic">#{{ ex.topic }}</span>
+            <span class="explore-count">{{ ex.relatedCount }} {{ t('recommend.relatedRepos') }}</span>
+            <span class="explore-chevron">{{ expanded === ex.topic ? '▼' : '▶' }}</span>
+            <div class="explore-bar">
+              <div
+                class="explore-fill"
+                :style="{ width: Math.min((ex.relatedCount / result.exploreTopics[0].relatedCount) * 100, 100) + '%' }"
+              />
+            </div>
+          </button>
+          <div v-if="expanded === ex.topic" class="explore-repos">
+            <RepoCard v-for="r in ex.repos" :key="r.id" :repo="r" />
           </div>
         </div>
       </div>
@@ -179,6 +196,12 @@ const result = computed(() => computeRecommendations(data.value, 8))
   gap: 8px;
 }
 
+.explore-item-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .explore-item {
   display: flex;
   align-items: center;
@@ -187,6 +210,14 @@ const result = computed(() => computeRecommendations(data.value, 8))
   border-radius: 10px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: border-color 0.15s;
+}
+
+.explore-item:hover {
+  border-color: var(--accent);
 }
 
 .explore-topic {
@@ -194,12 +225,22 @@ const result = computed(() => computeRecommendations(data.value, 8))
   font-weight: 600;
   color: var(--text-primary);
   min-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .explore-count {
   font-size: 11px;
   color: var(--text-tertiary);
   white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.explore-chevron {
+  font-size: 9px;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .explore-bar {
@@ -217,12 +258,18 @@ const result = computed(() => computeRecommendations(data.value, 8))
   transition: width 0.4s ease;
 }
 
+.explore-repos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  padding-left: 8px;
+  border-left: 2px solid var(--card-border);
+}
+
 @media (max-width: 768px) {
-  .rec-grid {
+  .rec-grid,
+  .explore-repos {
     grid-template-columns: 1fr;
-  }
-  .explore-item {
-    flex-wrap: wrap;
   }
   .explore-topic {
     min-width: auto;

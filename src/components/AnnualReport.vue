@@ -2,8 +2,10 @@
 import { computed } from 'vue'
 import { useRepos } from '../composables/useRepos'
 import { computeAnnualReport, type AnnualReport as AnnualReportData } from '../engine/annualReport'
+import { useI18n } from '../i18n'
 
 const { data } = useRepos()
+const { t, locale } = useI18n()
 
 const report = computed<AnnualReportData>(() => computeAnnualReport(data.value))
 
@@ -26,62 +28,66 @@ const maxMonthly = computed(() =>
   Math.max(...report.value.monthlyActivity.map((m) => m.created + m.pushed), 1)
 )
 
-const monthLabels = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+const monthLabels = computed(() =>
+  locale.value === 'zh'
+    ? ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+)
 
 function monthLabel(m: number): string {
-  return monthLabels[m - 1]
+  return monthLabels.value[m - 1]
 }
 </script>
 
 <template>
   <div class="annual-report">
-    <h3 class="section-title">🎉 {{ report.year }} 年度仓库报告</h3>
+    <h3 class="section-title">🎉 {{ t('annual.title', { year: report.year }) }}</h3>
 
     <!-- Hero stats -->
     <div class="hero-grid">
       <div class="hero-card primary">
         <span class="hero-value">{{ report.originalThisYear + report.forkThisYear }}</span>
-        <span class="hero-label">今年新增仓库</span>
-        <span class="hero-sub">自建 {{ report.originalThisYear }} · Fork {{ report.forkThisYear }}</span>
+        <span class="hero-label">{{ t('annual.newRepos') }}</span>
+        <span class="hero-sub">{{ t('annual.newSub', { o: report.originalThisYear, f: report.forkThisYear }) }}</span>
       </div>
       <div class="hero-card">
         <span class="hero-value">{{ report.totalStarsReceived.toLocaleString() }}</span>
-        <span class="hero-label">累计收到 Star</span>
-        <span class="hero-sub">自建+Fork 仓库今年新增 {{ report.starsThisYear.toLocaleString() }}</span>
+        <span class="hero-label">{{ t('annual.totalStars') }}</span>
+        <span class="hero-sub">{{ t('annual.starsSub', { n: report.starsThisYear.toLocaleString() }) }}</span>
       </div>
       <div class="hero-card">
         <span class="hero-value">{{ report.healthAvg }}</span>
-        <span class="hero-label">平均健康分</span>
-        <span class="hero-sub">仅自建 + Fork 仓库</span>
+        <span class="hero-label">{{ t('annual.avgHealth') }}</span>
+        <span class="hero-sub">{{ t('annual.avgHealthSub') }}</span>
       </div>
       <div class="hero-card star">
         <span class="hero-value">{{ report.starTotal }}</span>
-        <span class="hero-label">⭐ 标星仓库</span>
-        <span class="hero-sub">今年标星 {{ report.starThisYear }}</span>
+        <span class="hero-label">⭐ {{ t('annual.starred') }}</span>
+        <span class="hero-sub">{{ t('annual.starredSub', { n: report.starThisYear }) }}</span>
       </div>
     </div>
 
     <!-- Composition: three categories -->
     <div class="report-card full">
-      <h4 class="card-title">📊 仓库构成（三类）</h4>
+      <h4 class="card-title">📊 {{ t('annual.composition') }}</h4>
       <div class="composition">
         <div class="comp-row">
           <span class="comp-icon">🏠</span>
-          <span class="comp-name">自建仓库</span>
+          <span class="comp-name">{{ t('annual.ownRepos') }}</span>
           <span class="comp-total">{{ report.originalTotal }}</span>
-          <span class="comp-sub">今年新建 {{ report.originalThisYear }}</span>
+          <span class="comp-sub">{{ t('annual.createdThisYear', { n: report.originalThisYear }) }}</span>
         </div>
         <div class="comp-row">
           <span class="comp-icon">🍴</span>
-          <span class="comp-name">Fork 仓库</span>
+          <span class="comp-name">{{ t('annual.forkRepos') }}</span>
           <span class="comp-total">{{ report.forkTotal }}</span>
-          <span class="comp-sub">今年 Fork {{ report.forkThisYear }}</span>
+          <span class="comp-sub">{{ t('annual.forkedThisYear', { n: report.forkThisYear }) }}</span>
         </div>
         <div class="comp-row star">
           <span class="comp-icon">⭐</span>
-          <span class="comp-name">标星仓库</span>
+          <span class="comp-name">{{ t('annual.starRepos') }}</span>
           <span class="comp-total">{{ report.starTotal }}</span>
-          <span class="comp-sub">今年标星 {{ report.starThisYear }}（你的兴趣，非产出）</span>
+          <span class="comp-sub">{{ t('annual.starredSub', { n: report.starThisYear }) }} {{ t('annual.starNote') }}</span>
         </div>
       </div>
     </div>
@@ -89,7 +95,7 @@ function monthLabel(m: number): string {
     <!-- Languages & Domains (own repos) -->
     <div class="report-grid">
       <div class="report-card">
-        <h4 class="card-title">🔧 最常用语言（自建 + Fork）</h4>
+        <h4 class="card-title">🔧 {{ t('annual.topLanguages') }}</h4>
         <div class="lang-list">
           <div v-for="lang in report.topLanguages" :key="lang.name" class="lang-row">
             <span class="lang-name">{{ lang.name }}</span>
@@ -104,47 +110,47 @@ function monthLabel(m: number): string {
             </div>
             <span class="lang-count">{{ lang.count }}</span>
           </div>
-          <div v-if="!report.topLanguages.length" class="empty-hint">暂无自有仓库语言数据</div>
+          <div v-if="!report.topLanguages.length" class="empty-hint">{{ t('annual.noLang') }}</div>
         </div>
       </div>
 
       <div class="report-card">
-        <h4 class="card-title">📂 主要领域（自建 + Fork）</h4>
+        <h4 class="card-title">📂 {{ t('annual.topDomains') }}</h4>
         <div class="domain-chips">
           <span v-for="dom in report.topDomains" :key="dom.name" class="domain-chip">
             {{ dom.name }} <b>{{ dom.count }}</b>
           </span>
-          <span v-if="!report.topDomains.length" class="empty-hint">暂无自有仓库领域数据</span>
+          <span v-if="!report.topDomains.length" class="empty-hint">{{ t('annual.noDomain') }}</span>
         </div>
       </div>
     </div>
 
     <!-- Interests: starred repos -->
     <div class="report-card full">
-      <h4 class="card-title">⭐ 你的兴趣（来自 {{ report.starTotal }} 个标星仓库）</h4>
-      <p class="interest-note">标星仓库代表你关注的方向，不是你创建的仓库。</p>
+      <h4 class="card-title">⭐ {{ t('annual.interests', { n: report.starTotal }) }}</h4>
+      <p class="interest-note">{{ t('annual.interestNote') }}</p>
       <div class="report-grid inner">
         <div class="report-card inner-card">
-          <h5 class="inner-title">标星仓库常用语言</h5>
+          <h5 class="inner-title">{{ t('annual.starredLang') }}</h5>
           <div class="domain-chips">
             <span v-for="lang in report.starredLangTop" :key="lang.name" class="domain-chip alt">
               {{ lang.name }} <b>{{ lang.count }}</b>
             </span>
-            <span v-if="!report.starredLangTop.length" class="empty-hint">无</span>
+            <span v-if="!report.starredLangTop.length" class="empty-hint">{{ t('common.none') }}</span>
           </div>
         </div>
         <div class="report-card inner-card">
-          <h5 class="inner-title">标星关注热点 Topic</h5>
+          <h5 class="inner-title">{{ t('annual.starredTopic') }}</h5>
           <div class="topic-cloud">
             <span
-              v-for="t in report.starredTopicTop"
-              :key="t.name"
+              v-for="tt in report.starredTopicTop"
+              :key="tt.name"
               class="topic-tag"
-              :style="{ fontSize: 11 + Math.min(t.count, 40) / 3 + 'px' }"
+              :style="{ fontSize: 11 + Math.min(tt.count, 40) / 3 + 'px' }"
             >
-              #{{ t.name }} <b>{{ t.count }}</b>
+              #{{ tt.name }} <b>{{ tt.count }}</b>
             </span>
-            <span v-if="!report.starredTopicTop.length" class="empty-hint">无</span>
+            <span v-if="!report.starredTopicTop.length" class="empty-hint">{{ t('common.none') }}</span>
           </div>
         </div>
       </div>
@@ -152,14 +158,14 @@ function monthLabel(m: number): string {
 
     <!-- Monthly activity heatmap (own repos) -->
     <div class="report-card full">
-      <h4 class="card-title">📅 {{ report.year }} 月度活跃度（自建 + Fork）</h4>
+      <h4 class="card-title">📅 {{ t('annual.monthly', { year: report.year }) }}</h4>
       <div class="month-bars">
         <div v-for="m in report.monthlyActivity" :key="m.month" class="month-col">
           <div class="month-track">
             <div
               class="month-fill"
               :style="{ height: ((m.created + m.pushed) / maxMonthly) * 100 + '%' }"
-              :title="`${monthLabel(m.month)}: 创建 ${m.created} / 推送 ${m.pushed}`"
+              :title="t('annual.monthTip', { m: monthLabel(m.month), c: m.created, p: m.pushed })"
             />
           </div>
           <span class="month-label">{{ monthLabel(m.month) }}</span>
@@ -169,17 +175,17 @@ function monthLabel(m: number): string {
 
     <!-- Top topics (own repos) -->
     <div class="report-card full">
-      <h4 class="card-title">🔥 自建 / Fork 热门 Topic</h4>
+      <h4 class="card-title">🔥 {{ t('annual.topTopics') }}</h4>
       <div class="topic-cloud">
         <span
-          v-for="t in report.topTopics"
-          :key="t.name"
+          v-for="tt in report.topTopics"
+          :key="tt.name"
           class="topic-tag"
-          :style="{ fontSize: 11 + Math.min(t.count, 40) / 3 + 'px' }"
+          :style="{ fontSize: 11 + Math.min(tt.count, 40) / 3 + 'px' }"
         >
-          #{{ t.name }} <b>{{ t.count }}</b>
+          #{{ tt.name }} <b>{{ tt.count }}</b>
         </span>
-        <span v-if="!report.topTopics.length" class="empty-hint">暂无自有仓库 Topic 数据</span>
+        <span v-if="!report.topTopics.length" class="empty-hint">{{ t('annual.noTopic') }}</span>
       </div>
     </div>
   </div>

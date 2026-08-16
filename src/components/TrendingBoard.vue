@@ -3,12 +3,14 @@ import { ref, computed } from 'vue'
 import type { TrendingData, TrendingRepo, Repo, CategoryTemplate } from '../engine/types'
 import { computeTrending } from '../engine/trending'
 import { healthLabel } from '../engine/health'
+import { useI18n } from '../i18n'
 
 const props = defineProps<{
   trending: TrendingData
   repos: Repo[]
   template: CategoryTemplate
 }>()
+const { t } = useI18n()
 
 const selectedCategory = ref<string | null>(null)
 
@@ -16,19 +18,18 @@ const selectedCategory = ref<string | null>(null)
 // accurately for the current template + filters at runtime.
 const prevStarMap = computed<Map<string, number>>(() => {
   const map = new Map<string, number>()
-  for (const t of props.trending.overall) {
-    map.set(t.repo.full_name, t.prev_stars)
+  for (const tr of props.trending.overall) {
+    map.set(tr.repo.full_name, tr.prev_stars)
   }
   for (const group of props.trending.by_category) {
-    for (const t of group.repos) {
-      map.set(t.repo.full_name, t.prev_stars)
+    for (const tr of group.repos) {
+      map.set(tr.repo.full_name, tr.prev_stars)
     }
   }
   return map
 })
 
 // Live recompute trending from the currently filtered repos.
-// This ensures the hot board respects the active template and type/search filters.
 const liveTrending = computed<TrendingData>(() => {
   return computeTrending(props.repos, prevStarMap.value)
 })
@@ -60,8 +61,8 @@ function deltaColor(delta: number): string {
   return 'var(--text-tertiary)'
 }
 
-function isHot(t: TrendingRepo): boolean {
-  return t.star_delta >= 10 || t.star_velocity >= 5
+function isHot(tr: TrendingRepo): boolean {
+  return tr.star_delta >= 10 || tr.star_velocity >= 5
 }
 
 function rankIcon(rank: number): string {
@@ -82,19 +83,19 @@ function typeIcon(type: string): string {
 <template>
   <div class="trending-board">
     <div class="trending-header">
-      <h3 class="board-title">🔥 Trending 热榜</h3>
+      <h3 class="board-title">🔥 {{ t('trending.title') }}</h3>
       <span class="board-period">{{ liveTrending.period }}</span>
     </div>
 
     <!-- No historical data notice -->
     <div v-if="!liveTrending.has_historical" class="notice">
-      <span>ℹ️ 首次运行，使用月均增速排序。下次更新后将显示周增速对比。</span>
+      <span>ℹ️ {{ t('trending.notice') }}</span>
     </div>
 
     <!-- Category filter pills -->
     <div v-if="categories.length > 1" class="cat-pills">
       <button :class="['pill', { active: !selectedCategory }]" @click="selectCategory(null)">
-        全部 · {{ liveTrending.overall.length }}
+        {{ t('trending.all', { n: liveTrending.overall.length }) }}
       </button>
       <button
         v-for="cat in categories"
@@ -117,30 +118,27 @@ function typeIcon(type: string): string {
         class="trending-item"
         :class="{ hot: isHot(item) }"
       >
-        <!-- Rank -->
         <span class="rank">
           <span v-if="idx < 3" class="rank-medal">{{ rankIcon(idx + 1) }}</span>
           <span v-else class="rank-num">{{ idx + 1 }}</span>
         </span>
 
-        <!-- Repo info -->
         <div class="repo-info">
           <div class="repo-name-row">
             <span class="type-icon">{{ typeIcon(item.repo.type) }}</span>
             <span class="repo-name">{{ item.repo.name }}</span>
             <span v-if="isHot(item)" class="fire-badge">🔥</span>
           </div>
-          <span class="repo-desc">{{ item.repo.description || 'No description' }}</span>
+          <span class="repo-desc">{{ item.repo.description || t('repo.noDesc') }}</span>
         </div>
 
-        <!-- Metrics -->
         <div class="metrics">
           <div class="metric delta" :style="{ color: deltaColor(item.star_delta) }">
             <span class="metric-label">Δ</span>
             <span class="metric-value">{{ formatDelta(item.star_delta) }}</span>
           </div>
           <div class="metric">
-            <span class="metric-label">月增速</span>
+            <span class="metric-label">{{ t('trending.monthRate') }}</span>
             <span class="metric-value">{{ item.star_velocity }}</span>
           </div>
           <div class="metric">
@@ -151,7 +149,7 @@ function typeIcon(type: string): string {
             <span
               class="health-dot"
               :style="{ background: healthLabel(item.repo.health_score).color }"
-              :title="`健康分: ${item.repo.health_score}`"
+              :title="`${t('repo.healthTitle', { n: item.repo.health_score })}`"
             ></span>
           </div>
         </div>
@@ -159,7 +157,7 @@ function typeIcon(type: string): string {
     </div>
 
     <div v-if="displayRepos.length === 0" class="empty">
-      暂无 Trending 数据
+      {{ t('trending.noData') }}
     </div>
   </div>
 </template>
@@ -363,7 +361,6 @@ function typeIcon(type: string): string {
   font-size: 14px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .trending-item {
     flex-wrap: wrap;

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { TechProfile } from '../engine/types'
+import { useI18n } from '../i18n'
 
 const props = defineProps<{ profile: TechProfile }>()
+const { t } = useI18n()
 
 const langColors: Record<string, string> = {
   Java: '#b07219',
@@ -32,12 +34,12 @@ import { computed } from 'vue'
 
 <template>
   <div class="tech-profile">
-    <h3 class="section-title">技术画像</h3>
+    <h3 class="section-title">{{ t('tech.title') }}</h3>
 
     <div class="profile-grid">
       <!-- Language Distribution -->
       <div class="profile-card">
-        <h4 class="card-title">语言分布</h4>
+        <h4 class="card-title">{{ t('tech.langDist') }}</h4>
         <div class="lang-bars">
           <div v-for="lang in profile.languages.slice(0, 8)" :key="lang.name" class="lang-bar">
             <span class="lang-name">{{ lang.name }}</span>
@@ -57,7 +59,7 @@ import { computed } from 'vue'
 
       <!-- Domain Distribution -->
       <div class="profile-card">
-        <h4 class="card-title">领域分布</h4>
+        <h4 class="card-title">{{ t('tech.domainDist') }}</h4>
         <div class="domain-list">
           <div v-for="domain in profile.domains.slice(0, 8)" :key="domain.name" class="domain-item">
             <span class="domain-name">{{ domain.name }}</span>
@@ -68,37 +70,37 @@ import { computed } from 'vue'
 
       <!-- Activity & Stars -->
       <div class="profile-card">
-        <h4 class="card-title">活跃度 & Star</h4>
+        <h4 class="card-title">{{ t('tech.activityStars') }}</h4>
         <div class="activity-bar">
           <div
             class="activity-seg active"
             :style="{ width: (activityTotal ? (profile.activity.active / activityTotal) * 100 : 0) + '%' }"
-            :title="`活跃: ${profile.activity.active}`"
+            :title="`${t('tech.active')}: ${profile.activity.active}`"
           />
           <div
             class="activity-seg silent"
             :style="{ width: (activityTotal ? (profile.activity.silent / activityTotal) * 100 : 0) + '%' }"
-            :title="`沉默: ${profile.activity.silent}`"
+            :title="`${t('tech.silent')}: ${profile.activity.silent}`"
           />
           <div
             class="activity-seg archived"
             :style="{ width: (activityTotal ? (profile.activity.archived / activityTotal) * 100 : 0) + '%' }"
-            :title="`归档: ${profile.activity.archived}`"
+            :title="`${t('tech.archived')}: ${profile.activity.archived}`"
           />
         </div>
         <div class="activity-legend">
-          <span><i class="dot active"></i>活跃 {{ profile.activity.active }}</span>
-          <span><i class="dot silent"></i>沉默 {{ profile.activity.silent }}</span>
-          <span><i class="dot archived"></i>归档 {{ profile.activity.archived }}</span>
+          <span><i class="dot active"></i>{{ t('tech.active') }} {{ profile.activity.active }}</span>
+          <span><i class="dot silent"></i>{{ t('tech.silent') }} {{ profile.activity.silent }}</span>
+          <span><i class="dot archived"></i>{{ t('tech.archived') }} {{ profile.activity.archived }}</span>
         </div>
         <div class="star-stats">
           <div class="star-stat">
             <span class="star-num">{{ profile.total_stars_received }}</span>
-            <span class="star-label">收到 Star</span>
+            <span class="star-label">{{ t('tech.starsReceived') }}</span>
           </div>
           <div class="star-stat">
             <span class="star-num">{{ profile.total_stars_given }}</span>
-            <span class="star-label">给出 Star</span>
+            <span class="star-label">{{ t('tech.starsGiven') }}</span>
           </div>
         </div>
       </div>

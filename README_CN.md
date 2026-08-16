@@ -207,9 +207,9 @@ repocensus/
 | v1.2 | Trending 热榜（Star 增速排行 + 月均 velocity + 分类筛选） | ✅ |
 | v1.3 | 技术画像分享卡片（PNG/SVG 下载）+ README Badge | ✅ |
 | v1.4 | 版本进度面板（Changelog + Roadmap）+ Trending 筛选联动修复 | ✅ |
-| v1.5 | 年度仓库报告（类似 Spotify Wrapped，年度 star 统计 + 领域分析 + 活跃月份） | ✅ |
-| v1.6 | 搜索 + 高级过滤（按 stars / language / date / topics 多维度组合过滤） | ✅ |
-| v1.7 | 智能推荐（基于技术画像推荐可能感兴趣的仓库，topics 相似度匹配） | ✅ |
+| v1.5 | 年度仓库报告（类似 Spotify Wrapped，年度 star 统计 + 领域分析 + 活跃月份） | 🔲 |
+| v1.6 | 搜索 + 高级过滤（按 stars / language / date / topics 多维度组合过滤） | 🔲 |
+| v1.7 | 智能推荐（基于技术画像推荐可能感兴趣的仓库，topics 相似度匹配） | 🔲 |
 | v1.8 | 仓库笔记/标签（localStorage 自定义标签）+ 变化追踪（archive/改名/star 涨跌） | 🔲 |
 | v1.9 | 数据导出（CSV / JSON，支持导入 Notion、飞书） | 🔲 |
 | v2.0 | 多用户对比（输入 GitHub 用户名对比技术画像 + Star 重叠度） | 🔲 |

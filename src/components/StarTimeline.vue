@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Repo } from '../engine/types'
+import { useI18n } from '../i18n'
 
 const props = defineProps<{ stars: Repo[] }>()
+const { t } = useI18n()
 
 const groups = computed(() => {
   const week: Repo[] = []
@@ -20,24 +23,20 @@ const groups = computed(() => {
 
 function formatDays(days: number | null): string {
   if (days === null) return ''
-  if (days === 0) return '今天'
-  if (days === 1) return '昨天'
-  if (days < 7) return `${days} 天前`
-  if (days < 30) return `${Math.floor(days / 7)} 周前`
-  return `${Math.floor(days / 30)} 个月前`
+  if (days === 0) return t('star.today')
+  if (days === 1) return t('star.yesterday')
+  if (days < 7) return t('star.daysAgo', { n: days })
+  if (days < 30) return t('star.weeksAgo', { n: Math.floor(days / 7) })
+  return t('star.monthsAgo', { n: Math.floor(days / 30) })
 }
-</script>
-
-<script lang="ts">
-import { computed } from 'vue'
 </script>
 
 <template>
   <div class="star-timeline" v-if="stars.length">
-    <h3 class="section-title">🆕 Star 时间线</h3>
+    <h3 class="section-title">{{ t('star.title') }}</h3>
 
     <div v-if="groups.week.length" class="time-group">
-      <h4 class="group-title">本周</h4>
+      <h4 class="group-title">{{ t('star.week') }}</h4>
       <div class="star-items">
         <a v-for="star in groups.week" :key="star.id" :href="star.html_url" target="_blank" rel="noopener" class="star-item">
           <span class="star-name">{{ star.full_name }}</span>
@@ -47,7 +46,7 @@ import { computed } from 'vue'
     </div>
 
     <div v-if="groups.month.length" class="time-group">
-      <h4 class="group-title">本月</h4>
+      <h4 class="group-title">{{ t('star.month') }}</h4>
       <div class="star-items">
         <a v-for="star in groups.month" :key="star.id" :href="star.html_url" target="_blank" rel="noopener" class="star-item">
           <span class="star-name">{{ star.full_name }}</span>
@@ -58,7 +57,7 @@ import { computed } from 'vue'
 
     <div v-if="groups.older.length" class="time-group">
       <details>
-        <summary class="group-title">更早 ({{ groups.older.length }})</summary>
+        <summary class="group-title">{{ t('star.older', { n: groups.older.length }) }}</summary>
         <div class="star-items">
           <a v-for="star in groups.older" :key="star.id" :href="star.html_url" target="_blank" rel="noopener" class="star-item">
             <span class="star-name">{{ star.full_name }}</span>

@@ -16,7 +16,7 @@ import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import yaml from 'js-yaml'
 
-import type { Repo, CensusData, RepoType, CategoryTemplate } from '../src/engine/types'
+import type { Repo, CensusData, RepoType, CategoryTemplate, ChangeSnapshot } from '../src/engine/types'
 import { PRESET_TEMPLATES } from '../src/engine/templates'
 import { categorize, daysSince } from '../src/engine/categorizer'
 import { calculateHealthScore, avgHealth } from '../src/engine/health'
@@ -27,6 +27,8 @@ import { generateBadges } from './badges'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_PATH = resolve(__dirname, '../src/data/repos.json')
 const TEMPLATES_PATH = resolve(__dirname, '../config/templates.yml')
+const SNAPSHOTS_PATH = resolve(__dirname, '../src/data/snapshots.json')
+const MAX_SNAPSHOTS = 12
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || ''
 const USERNAME = process.env.GITHUB_USERNAME || ''
@@ -290,6 +292,27 @@ async function main() {
     trending,
     custom_templates: customTemplates,
   }
+
+  // 11.5 Change-tracking history: append a lightweight snapshot of this run
+  let history: ChangeSnapshot[] = []
+  if (existsSync(SNAPSHOTS_PATH)) {
+    try {
+      history = JSON.parse(readFileSync(SNAPSHOTS_PATH, 'utf-8'))
+    } catch {
+      console.log('⚠️ Could not parse snapshots.json, starting fresh')
+    }
+  }
+  const snapshot: ChangeSnapshot = {
+    generated_at: data.generated_at,
+    names: repos.map((r) => r.full_name),
+    stars: Object.fromEntries(repos.map((r) => [r.full_name, r.stargazers_count])),
+    urls: Object.fromEntries(repos.map((r) => [r.full_name, r.html_url])),
+  }
+  history.push(snapshot)
+  if (history.length > MAX_SNAPSHOTS) history = history.slice(-MAX_SNAPSHOTS)
+  writeFileSync(SNAPSHOTS_PATH, JSON.stringify(history, null, 2))
+  data.history = history
+  console.log(`📸 Snapshot saved (${history.length} total, comparing last two for change tracking)`)
 
   // 12. Write
   writeFileSync(DATA_PATH, JSON.stringify(data, null, 2))

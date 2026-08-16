@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { useI18n } from '../i18n'
+
+const { t } = useI18n()
 
 interface NavItem {
   id: string
@@ -7,17 +10,18 @@ interface NavItem {
   icon: string
 }
 
-const navItems: NavItem[] = [
-  { id: 'overview', label: '概览', icon: '📊' },
-  { id: 'controls', label: '筛选', icon: '🎛️' },
-  { id: 'repos', label: '仓库', icon: '📦' },
-  { id: 'stale', label: '沉默仓库', icon: '⚠️' },
-  { id: 'tech-profile', label: '技术画像', icon: '🔬' },
-  { id: 'annual-report', label: '年度报告', icon: '🎉' },
-  { id: 'recommend', label: '智能推荐', icon: '🤖' },
-  { id: 'star-timeline', label: 'Star 时间线', icon: '🆕' },
-  { id: 'share', label: '分享', icon: '🏷️' },
-]
+const navItems = computed<NavItem[]>(() => [
+  { id: 'overview', label: t('nav.overview'), icon: '📊' },
+  { id: 'controls', label: t('nav.controls'), icon: '🎛️' },
+  { id: 'repos', label: t('nav.repos'), icon: '📦' },
+  { id: 'stale', label: t('nav.stale'), icon: '⚠️' },
+  { id: 'tech-profile', label: t('nav.tech'), icon: '🔬' },
+  { id: 'annual-report', label: t('nav.annual'), icon: '🎉' },
+  { id: 'recommend', label: t('nav.recommend'), icon: '🤖' },
+  { id: 'star-timeline', label: t('nav.star'), icon: '🆕' },
+  { id: 'changes', label: t('nav.changes'), icon: '📈' },
+  { id: 'share', label: t('nav.share'), icon: '🏷️' },
+])
 
 const activeSection = ref('overview')
 let observer: IntersectionObserver | null = null
@@ -31,7 +35,6 @@ function scrollToSection(id: string) {
 
 onMounted(async () => {
   await nextTick()
-  // Small delay to ensure all sections are rendered
   setTimeout(() => {
     const options: IntersectionObserverInit = {
       rootMargin: '-20% 0px -60% 0px',
@@ -46,7 +49,7 @@ onMounted(async () => {
       }
     }, options)
 
-    for (const item of navItems) {
+    for (const item of navItems.value) {
       const el = document.getElementById(item.id)
       if (el) observer.observe(el)
     }

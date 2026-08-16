@@ -13,8 +13,10 @@ import AnnualReport from './components/AnnualReport.vue'
 import RecommendBoard from './components/RecommendBoard.vue'
 import { useRepos, type SortOption } from './composables/useRepos'
 import { useTheme } from './composables/useTheme'
-import { useMarkdownExport } from './composables/useExport'
+import { useExport } from './composables/useExport'
+import { useI18n } from './i18n'
 import { PRESET_TEMPLATES } from './engine/templates'
+import ChangeTracker from './components/ChangeTracker.vue'
 
 const {
   data,
@@ -50,7 +52,8 @@ const {
 } = useRepos()
 
 const { theme, toggle } = useTheme()
-const { exportMarkdown } = useMarkdownExport()
+const { exportMarkdown, exportJSON, exportCSV } = useExport()
+const { t, locale, toggleLocale } = useI18n()
 
 // Collapsed groups state
 const collapsedSet = ref<Set<string>>(new Set())
@@ -69,21 +72,21 @@ const displayGroups = computed(() => {
   return crossDimGroups.value || singleDimGroups.value
 })
 
-// Sort options
-const sortOptions: { value: SortOption; label: string }[] = [
-  { value: 'stars', label: '⭐ Star 数' },
-  { value: 'updated', label: '📅 更新时间' },
-  { value: 'created', label: '🐣 创建时间' },
-  { value: 'name', label: '🔤 名称' },
-  { value: 'health', label: '🏥 健康分' },
-]
+// Sort options (i18n)
+const sortOptions = computed<{ value: SortOption; label: string }[]>(() => [
+  { value: 'stars', label: t('ctrl.sortStars') },
+  { value: 'updated', label: t('ctrl.sortUpdated') },
+  { value: 'created', label: t('ctrl.sortCreated') },
+  { value: 'name', label: t('ctrl.sortName') },
+  { value: 'health', label: t('ctrl.sortHealth') },
+])
 
-const typeTabs = [
-  { id: 'all', label: '全部', icon: '📋' },
-  { id: 'original', label: '自建', icon: '🛠️' },
-  { id: 'fork', label: 'Fork', icon: '🍴' },
-  { id: 'star', label: 'Star', icon: '⭐' },
-]
+const typeTabs = computed(() => [
+  { id: 'all', label: t('ctrl.typeAll'), icon: '📋' },
+  { id: 'original', label: t('ctrl.typeOriginal'), icon: '🛠️' },
+  { id: 'fork', label: t('ctrl.typeFork'), icon: '🍴' },
+  { id: 'star', label: t('ctrl.typeStar'), icon: '⭐' },
+])
 
 const stats = computed(() => data.value.stats)
 const profile = computed(() => data.value.tech_profile)
@@ -91,7 +94,8 @@ const newStars = computed(() => data.value.new_stars)
 const staleRepos = computed(() => data.value.stale_repos)
 
 const generatedDate = computed(() => {
-  return new Date(data.value.generated_at).toLocaleString('zh-CN', {
+  const loc = locale.value === 'zh' ? 'zh-CN' : 'en-US'
+  return new Date(data.value.generated_at).toLocaleString(loc, {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -100,21 +104,32 @@ const generatedDate = computed(() => {
   })
 })
 
-// Export handler
-function handleExport() {
-  exportMarkdown(
-    displayGroups.value as any,
-    {
-      username: data.value.username,
-      generatedAt: data.value.generated_at,
-      total: stats.value.total,
-      original: stats.value.original,
-      fork: stats.value.fork,
-      star: stats.value.star,
-    },
-    activeTemplate.value.name,
-    secondaryTemplate.value?.name
-  )
+// Language switch button label (target language)
+const langSwitchLabel = computed(() => (locale.value === 'zh' ? 'EN' : '中文'))
+
+// Export menu
+const showExportMenu = ref(false)
+function doExport(kind: 'md' | 'json' | 'csv') {
+  showExportMenu.value = false
+  if (kind === 'md') {
+    exportMarkdown(
+      displayGroups.value as any,
+      {
+        username: data.value.username,
+        generatedAt: data.value.generated_at,
+        total: stats.value.total,
+        original: stats.value.original,
+        fork: stats.value.fork,
+        star: stats.value.star,
+      },
+      activeTemplate.value.name,
+      secondaryTemplate.value?.name
+    )
+  } else if (kind === 'json') {
+    exportJSON()
+  } else {
+    exportCSV()
+  }
 }
 
 // Flat view toggle
@@ -127,7 +142,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.5.0'
+const APP_VERSION = 'v1.6.0'
 </script>
 
 <template>
@@ -136,23 +151,32 @@ const APP_VERSION = 'v1.5.0'
     <header class="header">
       <div class="header-left">
         <h1 class="logo">RepoCensus</h1>
-        <span class="tagline">仓库普查仪表盘</span>
+        <span class="tagline">{{ t('app.tagline') }}</span>
       </div>
       <div class="header-right">
         <a :href="data.html_url" target="_blank" rel="noopener" class="user-link">
           <img :src="data.avatar_url" :alt="data.username" class="avatar" />
           <span>{{ data.username }}</span>
         </a>
-        <button class="header-btn theme-toggle" @click="toggle" :title="theme === 'dark' ? '切换亮色' : '切换暗色'">
+        <button class="header-btn lang-toggle" @click="toggleLocale" :title="t('app.langTo')">
+          {{ langSwitchLabel }}
+        </button>
+        <button class="header-btn theme-toggle" @click="toggle" :title="theme === 'dark' ? t('app.themeToLight') : t('app.themeToDark')">
           {{ theme === 'dark' ? '☀️' : '🌙' }}
         </button>
-        <button class="header-btn export-btn" @click="handleExport" title="导出 Markdown 报告">
-          📄
-        </button>
-        <button class="header-btn share-btn" @click="scrollToShare" title="分享卡片 & Badge">
+        <div class="export-wrap">
+          <button class="header-btn export-btn" @click="showExportMenu = !showExportMenu" :title="t('app.btnExport')">📄</button>
+          <div v-if="showExportMenu" class="export-menu">
+            <button @click="doExport('md')">📝 Markdown</button>
+            <button @click="doExport('json')">🧾 JSON</button>
+            <button @click="doExport('csv')">📊 CSV</button>
+          </div>
+        </div>
+        <div v-if="showExportMenu" class="export-backdrop" @click="showExportMenu = false"></div>
+        <button class="header-btn share-btn" @click="scrollToShare" :title="t('app.btnShare')">
           📊
         </button>
-        <button class="header-btn version-badge" @click="showVersionPanel = true" title="版本进度">
+        <button class="header-btn version-badge" @click="showVersionPanel = true" :title="t('app.btnVersion')">
           {{ APP_VERSION }}
         </button>
       </div>
@@ -163,27 +187,27 @@ const APP_VERSION = 'v1.5.0'
       <section id="overview" class="stat-cards">
         <div class="stat-card">
           <span class="stat-value">{{ stats.total }}</span>
-          <span class="stat-label">总仓库</span>
+          <span class="stat-label">{{ t('common.total') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-value">{{ stats.original }}</span>
-          <span class="stat-label">🛠️ 自建</span>
+          <span class="stat-label">🛠️ {{ t('common.own') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-value">{{ stats.fork }}</span>
-          <span class="stat-label">🍴 Fork</span>
+          <span class="stat-label">🍴 {{ t('common.fork') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-value">{{ stats.star }}</span>
-          <span class="stat-label">⭐ Star</span>
+          <span class="stat-label">⭐ {{ t('common.star') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-value">{{ stats.avg_health }}</span>
-          <span class="stat-label">平均健康分</span>
+          <span class="stat-label">{{ t('app.avgHealth') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-value">{{ stats.active_count }}</span>
-          <span class="stat-label">🟢 活跃</span>
+          <span class="stat-label">🟢 {{ t('common.active') }}</span>
         </div>
       </section>
 
@@ -212,7 +236,7 @@ const APP_VERSION = 'v1.5.0'
               :checked="secondaryTemplateId !== null"
               @change="(e) => setSecondaryTemplate((e.target as HTMLInputElement).checked ? 'by-language' : null)"
             />
-            <span>叠加第二维度</span>
+            <span>{{ t('ctrl.crossDim') }}</span>
           </label>
           <select
             v-if="secondaryTemplateId !== null"
@@ -241,7 +265,7 @@ const APP_VERSION = 'v1.5.0'
             <input
               v-model="searchQuery"
               type="text"
-              placeholder="搜索仓库名、描述、语言..."
+              :placeholder="t('ctrl.searchPlaceholder')"
               class="search-input"
             />
           </div>
@@ -255,9 +279,9 @@ const APP_VERSION = 'v1.5.0'
           </select>
 
           <div class="view-toggle">
-            <button :class="['view-btn', { active: viewMode === 'grouped' }]" @click="viewMode = 'grouped'" title="分组视图">🗂️</button>
-            <button :class="['view-btn', { active: viewMode === 'flat' }]" @click="viewMode = 'flat'" title="平铺视图">📋</button>
-            <button :class="['view-btn', { active: viewMode === 'trending' }]" @click="viewMode = 'trending'" title="Trending 热榜">🔥</button>
+            <button :class="['view-btn', { active: viewMode === 'grouped' }]" @click="viewMode = 'grouped'" :title="t('ctrl.viewGrouped')">🗂️</button>
+            <button :class="['view-btn', { active: viewMode === 'flat' }]" @click="viewMode = 'flat'" :title="t('ctrl.viewFlat')">📋</button>
+            <button :class="['view-btn', { active: viewMode === 'trending' }]" @click="viewMode = 'trending'" :title="t('ctrl.viewTrending')">🔥</button>
           </div>
         </div>
 
@@ -269,7 +293,7 @@ const APP_VERSION = 'v1.5.0'
       <section id="repos" class="content" :class="{ 'no-sidebar': viewMode === 'trending' }">
         <!-- Category Sidebar -->
         <aside class="sidebar" v-if="viewMode !== 'trending'">
-          <h3 class="sidebar-title">分类</h3>
+          <h3 class="sidebar-title">{{ t('ctrl.sidebarTitle') }}</h3>
           <button
             :class="['cat-btn', { active: !selectedCategory }]"
             @click="setCategory(null)"
@@ -298,15 +322,15 @@ const APP_VERSION = 'v1.5.0'
             :template="activeTemplate"
           />
           <div v-else-if="viewMode === 'trending'" class="empty-state">
-            Trending 数据暂不可用，等待下次数据更新
+            {{ t('app.emptyTrending') }}
           </div>
 
           <!-- Normal views -->
           <template v-else>
             <div class="repo-count">
-              {{ filtered.length }} 个仓库
-              <span v-if="selectedCategory" class="filter-hint">· {{ selectedCategory }}</span>
-              <span v-if="secondaryTemplate" class="filter-hint">· {{ activeTemplate.name }} × {{ secondaryTemplate.name }}</span>
+              {{ t('app.repoCount', { n: filtered.length }) }}
+              <span v-if="selectedCategory" class="filter-hint">{{ t('app.filterHintCat', { cat: selectedCategory }) }}</span>
+              <span v-if="secondaryTemplate" class="filter-hint">{{ t('app.filterCross', { a: activeTemplate.name, b: secondaryTemplate.name }) }}</span>
             </div>
 
             <!-- Grouped view -->
@@ -323,7 +347,7 @@ const APP_VERSION = 'v1.5.0'
             </div>
 
             <div v-else class="empty-state">
-              没有匹配的仓库
+              {{ t('app.emptyNoMatch') }}
             </div>
           </template>
         </div>
@@ -331,7 +355,7 @@ const APP_VERSION = 'v1.5.0'
 
       <!-- Stale Repos -->
       <section v-if="staleRepos.length" id="stale" class="stale-section">
-        <h3 class="section-title">⚠️ 沉默仓库建议清理</h3>
+        <h3 class="section-title">⚠️ {{ t('app.staleTitle') }}</h3>
         <div class="stale-list">
           <a
             v-for="stale in staleRepos"
@@ -370,6 +394,11 @@ const APP_VERSION = 'v1.5.0'
         <StarTimeline :stars="newStars" />
       </div>
 
+      <!-- Change Tracking -->
+      <div id="changes">
+        <ChangeTracker :history="data.history" />
+      </div>
+
       <!-- Share Card & Badges -->
       <div id="share">
         <ShareCard :data="data" />
@@ -384,9 +413,9 @@ const APP_VERSION = 'v1.5.0'
 
     <!-- Footer -->
     <footer class="footer">
-      <span>RepoCensus · 数据生成于 {{ generatedDate }}</span>
+      <span>RepoCensus · {{ t('app.footer1', { date: generatedDate }) }}</span>
       <a href="https://github.com/Leoli04/repocensus" target="_blank" rel="noopener" class="footer-link">
-        Fork me on GitHub →
+        {{ t('app.footer2') }}
       </a>
     </footer>
   </div>
@@ -469,6 +498,66 @@ const APP_VERSION = 'v1.5.0'
 
 .header-btn:hover {
   border-color: var(--accent);
+}
+
+.lang-toggle {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  width: auto;
+  padding: 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.export-wrap {
+  position: relative;
+}
+
+.export-menu {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 130px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  z-index: 200;
+}
+
+.export-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.export-menu button:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.export-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
 }
 
 .version-badge {

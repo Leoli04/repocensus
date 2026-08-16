@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from '../i18n'
 
 const props = defineProps<{ modelValue: boolean }>()
 const emit = defineEmits<{ 'update:modelValue': [value: boolean] }>()
+const { t } = useI18n()
 
 const activeTab = ref<'changelog' | 'todo'>('changelog')
 
@@ -18,6 +20,18 @@ interface ChangelogEntry {
 }
 
 const changelog: ChangelogEntry[] = [
+  {
+    version: 'v1.6.0',
+    date: '2026-08-15',
+    type: 'release',
+    items: [
+      '中英双语 i18n：全局语言切换（中文 / English），偏好持久化到 localStorage',
+      '仓库笔记 / 标签：给任意仓库加自定义备注与标签（localStorage），可搜索、可随导出带走',
+      '数据导出升级：在 Markdown 基础上新增 JSON / CSV 导出（含笔记与标签）',
+      '探索新领域下钻：点击兴趣 Topic 展开相关仓库卡片',
+      '变化追踪：构建时保存历史快照，对比两次采集的新增 / 移除 / Star 涨跌',
+    ],
+  },
   {
     version: 'v1.5.0',
     date: '2026-08-15',
@@ -93,18 +107,9 @@ const todoGroups: TodoGroup[] = [
     tier: '⭐ 中优先级',
     tierClass: 'tier-mid',
     items: [
-      { name: '仓库笔记 / 标签', desc: '给仓库加自定义标签和备注（存 localStorage），如"待研究""已用过"', icon: '📝' },
-      { name: '变化追踪', desc: '记录仓库变化：被 archive、改名、star 暴涨/暴跌，生成时间线', icon: '📈' },
-      { name: '数据导出', desc: '导出 CSV / JSON，方便导入 Notion、飞书等做二次分析', icon: '📤' },
-    ],
-  },
-  {
-    tier: '📋 待规划',
-    tierClass: 'tier-low',
-    items: [
-      { name: 'i18n 中英双语', desc: '完整中英文国际化切换', icon: '🌐' },
       { name: '多用户对比', desc: '输入 GitHub 用户名对比技术画像，Star 重叠度计算', icon: '👥' },
       { name: '移动端适配', desc: '响应式布局优化，手机浏览可用', icon: '📱' },
+      { name: '贡献热力图', desc: '按仓库/语言的提交活跃热力图，识别高产与沉寂区', icon: '🔥' },
     ],
   },
 ]
@@ -119,7 +124,7 @@ const todoGroups: TodoGroup[] = [
           <div class="panel-header">
             <div class="panel-title">
               <span class="panel-icon">🏷️</span>
-              <span>RepoCensus 版本进度</span>
+              <span>{{ t('ver.title') }}</span>
             </div>
             <button class="close-btn" @click="close">✕</button>
           </div>
@@ -130,13 +135,13 @@ const todoGroups: TodoGroup[] = [
               :class="['tab', { active: activeTab === 'changelog' }]"
               @click="activeTab = 'changelog'"
             >
-              📋 Changelog
+              📋 {{ t('ver.changelog') }}
             </button>
             <button
               :class="['tab', { active: activeTab === 'todo' }]"
               @click="activeTab = 'todo'"
             >
-              🗺️ Roadmap
+              🗺️ {{ t('ver.roadmap') }}
             </button>
           </div>
 
@@ -153,7 +158,7 @@ const todoGroups: TodoGroup[] = [
                   <span class="entry-version">{{ entry.version }}</span>
                   <span class="entry-date">{{ entry.date }}</span>
                   <span :class="['entry-badge', `badge-${entry.type}`]">
-                    {{ entry.type === 'release' ? '发布' : entry.type === 'fix' ? '修复' : '功能' }}
+                    {{ entry.type === 'release' ? t('ver.badgeRelease') : entry.type === 'fix' ? t('ver.badgeFix') : t('ver.badgeFeature') }}
                   </span>
                 </div>
                 <ul class="entry-items">
@@ -169,7 +174,9 @@ const todoGroups: TodoGroup[] = [
                 :key="group.tier"
                 :class="['todo-group', group.tierClass]"
               >
-                <h4 class="group-title">{{ group.tier }}</h4>
+                <h4 class="group-title">
+                  {{ group.tierClass === 'tier-mid' ? t('ver.todoMid') : t('ver.todoLow') }}
+                </h4>
                 <div class="todo-items">
                   <div v-for="item in group.items" :key="item.name" class="todo-item">
                     <span class="todo-icon">{{ item.icon }}</span>
@@ -177,7 +184,7 @@ const todoGroups: TodoGroup[] = [
                       <span class="todo-name">{{ item.name }}</span>
                       <span class="todo-desc">{{ item.desc }}</span>
                     </div>
-                    <span class="todo-status">计划中</span>
+                    <span class="todo-status">{{ t('ver.planned') }}</span>
                   </div>
                 </div>
               </div>
@@ -189,7 +196,7 @@ const todoGroups: TodoGroup[] = [
                   rel="noopener"
                   class="repo-link"
                 >
-                  在 GitHub 查看完整路线图 →
+                  {{ t('ver.roadmapLink') }}
                 </a>
               </div>
             </div>

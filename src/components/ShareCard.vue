@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { CensusData } from '../engine/types'
+import { useI18n } from '../i18n'
 
 const props = defineProps<{
   data: CensusData
 }>()
+const { t } = useI18n()
 
 // ── Language colors ──────────────────────────────────────
 const langColors: Record<string, string> = {
@@ -84,26 +86,26 @@ const cardSVG = computed(() => {
   <circle cx="40" cy="38" r="18" fill="#58a6ff"/>
   <text x="40" y="44" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">${initial.value}</text>
   <text x="68" y="34" fill="#e6edf3" font-size="18" font-weight="700">${props.data.username}</text>
-  <text x="68" y="50" fill="#7d8590" font-size="11">${s.total} repos · ${p.total_stars_received} stars received</text>
+  <text x="68" y="50" fill="#7d8590" font-size="11">${s.total} ${t('share.svgTotal')} · ${p.total_stars_received} ${t('share.svgStars')}</text>
   <text x="460" y="34" text-anchor="end" fill="#58a6ff" font-size="14" font-weight="700">RepoCensus</text>
-  <text x="460" y="48" text-anchor="end" fill="#484f58" font-size="9">仓库普查</text>
+  <text x="460" y="48" text-anchor="end" fill="#484f58" font-size="9">${t('share.svgCensus')}</text>
 
   <!-- Stat boxes -->
   <rect x="20" y="68" width="100" height="50" rx="8" fill="#21262d"/>
   <text x="70" y="88" text-anchor="middle" fill="#58a6ff" font-size="20" font-weight="800">${s.total}</text>
-  <text x="70" y="106" text-anchor="middle" fill="#7d8590" font-size="10">总仓库</text>
+  <text x="70" y="106" text-anchor="middle" fill="#7d8590" font-size="10">${t('share.svgTotal')}</text>
 
   <rect x="132" y="68" width="100" height="50" rx="8" fill="#21262d"/>
   <text x="182" y="88" text-anchor="middle" fill="#f78166" font-size="20" font-weight="800">${p.total_stars_received}</text>
-  <text x="182" y="106" text-anchor="middle" fill="#7d8590" font-size="10">⭐ Stars</text>
+  <text x="182" y="106" text-anchor="middle" fill="#7d8590" font-size="10">⭐ ${t('share.svgStars')}</text>
 
   <rect x="244" y="68" width="100" height="50" rx="8" fill="#21262d"/>
   <text x="294" y="88" text-anchor="middle" fill="#3fb950" font-size="20" font-weight="800">${s.avg_health}</text>
-  <text x="294" y="106" text-anchor="middle" fill="#7d8590" font-size="10">健康分</text>
+  <text x="294" y="106" text-anchor="middle" fill="#7d8590" font-size="10">${t('share.svgHealth')}</text>
 
   <rect x="356" y="68" width="104" height="50" rx="8" fill="#21262d"/>
   <text x="408" y="88" text-anchor="middle" fill="#d2a8ff" font-size="20" font-weight="800">${s.active_count}</text>
-  <text x="408" y="106" text-anchor="middle" fill="#7d8590" font-size="10">🟢 活跃</text>
+  <text x="408" y="106" text-anchor="middle" fill="#7d8590" font-size="10">🟢 ${t('share.svgActive')}</text>
 
   <!-- Languages -->
   <text x="20" y="160" fill="#e6edf3" font-size="12" font-weight="600">Languages</text>
@@ -115,7 +117,7 @@ const cardSVG = computed(() => {
 
   <!-- Footer -->
   <line x1="20" y1="300" x2="460" y2="300" stroke="#21262d" stroke-width="1"/>
-  <text x="20" y="314" fill="#484f58" font-size="9">Generated ${generatedDate.value}</text>
+  <text x="20" y="314" fill="#484f58" font-size="9">${t('share.svgGenerated')} ${generatedDate.value}</text>
   <text x="460" y="314" text-anchor="end" fill="#484f58" font-size="9">github.com/${props.data.username}</text>
 </svg>`
 })
@@ -197,22 +199,22 @@ async function copyToClipboard(text: string, label: string) {
   <div class="share-section">
     <!-- Share Card -->
     <div class="card-area">
-      <h3 class="section-title">📊 技术画像分享卡片</h3>
+      <h3 class="section-title">{{ t('share.cardTitle') }}</h3>
       <div class="card-preview" v-html="cardSVG"></div>
       <div class="card-actions">
         <button class="action-btn primary" @click="downloadPNG">
-          📥 下载 PNG
+          📥 {{ t('share.downloadPNG') }}
         </button>
         <button class="action-btn" @click="downloadSVG">
-          📥 下载 SVG
+          📥 {{ t('share.downloadSVG') }}
         </button>
       </div>
     </div>
 
     <!-- Badge Section -->
     <div class="badge-area">
-      <h3 class="section-title">🏷️ README Badge</h3>
-      <p class="badge-desc">将以下代码嵌入你的 README，展示仓库统计：</p>
+      <h3 class="section-title">{{ t('share.badgeTitle') }}</h3>
+      <p class="badge-desc">{{ t('share.badgeDesc') }}</p>
 
       <!-- Badge preview -->
       <div class="badge-preview">
@@ -222,9 +224,9 @@ async function copyToClipboard(text: string, label: string) {
       <!-- Markdown code -->
       <div class="code-block">
         <div class="code-header">
-          <span class="code-label">Markdown (全部 badge)</span>
+          <span class="code-label">{{ t('share.mdAll') }}</span>
           <button class="copy-btn" @click="copyToClipboard(markdownAll, 'all')">
-            {{ copied === 'all' ? '✅ 已复制' : '📋 复制' }}
+            {{ copied === 'all' ? t('common.copied') : t('common.copy') }}
           </button>
         </div>
         <pre class="code-content">{{ markdownAll }}</pre>
@@ -232,9 +234,9 @@ async function copyToClipboard(text: string, label: string) {
 
       <div class="code-block">
         <div class="code-header">
-          <span class="code-label">Markdown (带链接)</span>
+          <span class="code-label">{{ t('share.mdLink') }}</span>
           <button class="copy-btn" @click="copyToClipboard(markdownLink, 'link')">
-            {{ copied === 'link' ? '✅ 已复制' : '📋 复制' }}
+            {{ copied === 'link' ? t('common.copied') : t('common.copy') }}
           </button>
         </div>
         <pre class="code-content">{{ markdownLink }}</pre>
@@ -370,7 +372,6 @@ async function copyToClipboard(text: string, label: string) {
   word-break: break-all;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .card-preview :deep(svg) {
     width: 100%;
