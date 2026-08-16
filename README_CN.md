@@ -25,6 +25,16 @@ RepoCensus 扫描你 **所有的 GitHub 仓库**（自建 + Fork + Star），自
 | **零服务器** | 纯静态站点，部署在 GitHub Pages，不花一分钱 |
 | **自动刷新** | GitHub Actions 每周自动拉取最新数据（也可手动触发） |
 
+## v1.6.0 新功能
+
+v1.6.0 一次性合入了 5 项社区呼声最高的功能（2026-08-16 上线，地址 https://leoli04.github.io/repocensus/）：
+
+- **🌐 i18n 中英双语** — 头部一键切换语言，偏好持久化到 `localStorage`，并按 `navigator.language` 自动探测。所有界面文案均通过轻量自写的 `t()` 模块翻译（不引入 `vue-i18n` 依赖）。
+- **📝 仓库笔记 / 标签** — 给任意仓库添加自定义笔记和标签（按 repo id 存于 `localStorage`），在卡片上常驻显示、可被搜索、导出时一并带走。
+- **📤 数据导出** — 支持 **Markdown / JSON / CSV** 三类导出。CSV 带 UTF-8 BOM，Excel 打开中文不乱码；笔记与标签三类格式均包含。
+- **🧭 探索新领域下钻** — 「探索新领域」板块现在可点击展开：点 topic 看其下 star 最高的 6 个仓库，并给出「为何匹配你画像」的理由。
+- **📈 变化追踪** — 每次定时构建保存一份轻量快照，对比两次快照即可看到 **新增 / 移除仓库** 与 **Star 涨 / 跌**。入口为导航栏新增的 📈 变化追踪。历史需在两次定时构建后逐步累积。
+
 ## 快速开始
 
 ```
@@ -144,16 +154,33 @@ repocensus/
 │   │   ├── templates.ts       # 5 种预设分类模板
 │   │   ├── categorizer.ts     # 多信号加权匹配器
 │   │   ├── health.ts          # 健康评分计算器
-│   │   └── profiler.ts        # 技术画像 + 沉默仓库分析
+│   │   ├── profiler.ts        # 技术画像 + 沉默仓库分析
+│   │   ├── recommend.ts       # 智能推荐引擎（topics 相似度）
+│   │   └── changeTracker.ts   # 变化追踪（快照对比）
 │   ├── components/            # Vue 组件
-│   │   ├── RepoCard.vue       # 仓库卡片
+│   │   ├── RepoCard.vue       # 仓库卡片（笔记/标签编辑）
 │   │   ├── TechProfile.vue    # 技术画像
-│   │   └── StarTimeline.vue   # Star 时间线
+│   │   ├── StarTimeline.vue   # Star 时间线
+│   │   ├── TrendingBoard.vue  # Trending 热榜
+│   │   ├── ShareCard.vue      # 分享卡片
+│   │   ├── RecommendBoard.vue # 探索新领域下钻
+│   │   ├── ChangeTracker.vue  # 变化追踪看板
+│   │   ├── SectionNav.vue     # 侧边导航
+│   │   ├── VersionPanel.vue   # 版本进度面板
+│   │   ├── CategoryGroups.vue # 分组视图
+│   │   └── AdvancedFilters.vue# 高级筛选
 │   ├── composables/           # 组合式函数
 │   │   ├── useRepos.ts        # 数据 + 筛选 + 模板切换
-│   │   └── useTheme.ts        # 暗色/亮色主题
+│   │   ├── useTheme.ts        # 暗色/亮色主题
+│   │   ├── useRepoMeta.ts     # 仓库笔记/标签（localStorage）
+│   │   └── useExport.ts       # Markdown / JSON / CSV 导出
+│   ├── i18n/                  # 轻量 i18n（不依赖 vue-i18n）
+│   │   ├── index.ts           # t() + locale ref
+│   │   ├── zh.ts              # 中文文案
+│   │   └── en.ts              # 英文文案
 │   ├── data/
-│   │   └── repos.json         # 数据文件（Action 自动更新）
+│   │   ├── repos.json         # 数据文件（Action 自动更新）
+│   │   └── snapshots.json     # 变化追踪历史快照
 │   ├── styles/
 │   │   └── main.css           # 全局样式 + 主题变量
 │   ├── App.vue                # 主应用
@@ -207,13 +234,13 @@ repocensus/
 | v1.2 | Trending 热榜（Star 增速排行 + 月均 velocity + 分类筛选） | ✅ |
 | v1.3 | 技术画像分享卡片（PNG/SVG 下载）+ README Badge | ✅ |
 | v1.4 | 版本进度面板（Changelog + Roadmap）+ Trending 筛选联动修复 | ✅ |
-| v1.5 | 年度仓库报告（类似 Spotify Wrapped，年度 star 统计 + 领域分析 + 活跃月份） | 🔲 |
-| v1.6 | 搜索 + 高级过滤（按 stars / language / date / topics 多维度组合过滤） | 🔲 |
-| v1.7 | 智能推荐（基于技术画像推荐可能感兴趣的仓库，topics 相似度匹配） | 🔲 |
-| v1.8 | 仓库笔记/标签（localStorage 自定义标签）+ 变化追踪（archive/改名/star 涨跌） | 🔲 |
-| v1.9 | 数据导出（CSV / JSON，支持导入 Notion、飞书） | 🔲 |
+| v1.5 | 年度仓库报告（类似 Spotify Wrapped，年度 star 统计 + 领域分析 + 活跃月份） | ✅ |
+| v1.6 | 搜索 + 高级过滤（按 stars / language / date / topics 多维度组合过滤） | ✅ |
+| v1.7 | 智能推荐（基于技术画像的 topics 相似度匹配 + 探索新领域下钻） | ✅ |
+| v1.8 | 仓库笔记/标签（localStorage 自定义标签）+ 变化追踪（新增/移除 + star 涨/跌） | ✅ |
+| v1.9 | 数据导出（Markdown / JSON / CSV，支持导入 Notion、飞书） | ✅ |
 | v2.0 | 多用户对比（输入 GitHub 用户名对比技术画像 + Star 重叠度） | 🔲 |
-| v2.1 | i18n 中英双语国际化 | 🔲 |
+| v2.1 | i18n 中英双语国际化 | ✅ |
 | v2.2 | 移动端适配（响应式布局优化） | 🔲 |
 
 ## 与竞品对比

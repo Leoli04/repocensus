@@ -23,6 +23,16 @@ RepoCensus scans **all your GitHub repositories** (self-created + forked + starr
 - **Zero server** — Pure static site, deployed to GitHub Pages
 - **Auto-refresh** — GitHub Actions runs weekly (or on push)
 
+## What's New in v1.6.0
+
+The v1.6.0 release bundles five community-requested features (shipped 2026-08-16, live at https://leoli04.github.io/repocensus/):
+
+- **🌐 i18n (Chinese / English)** — One-click language toggle in the header; preference persisted to `localStorage`; auto-detected from `navigator.language`. Every UI string is now translatable via a lightweight self-written `t()` module (no `vue-i18n` dependency).
+- **📝 Repo Notes & Tags** — Add custom notes and tags to any repo (stored in `localStorage` keyed by repo id). Visible on the repo card, searchable, and carried along when you export.
+- **📤 Data Export** — Export your census as **Markdown / JSON / CSV**. CSV ships with a UTF-8 BOM so Excel won't mangle Chinese characters. Notes & tags are included in every format.
+- **🧭 Explore Topics drill-down** — The "Explore new domains" board now expands: click a topic to reveal the top-6 repos (by stars) behind it, with a reason why they matched your profile.
+- **📈 Change Tracking** — Each weekly build saves a lightweight snapshot; compare two snapshots to see **new / removed repos** and **star gains / drops** over time. Lives under the new 📈 Changes nav item. (History accumulates after two scheduled builds.)
+
 ## Quick Start
 
 ```
@@ -104,16 +114,33 @@ repocensus/
 │   │   ├── templates.ts       # 5 preset category templates
 │   │   ├── categorizer.ts     # Multi-signal weighted matcher
 │   │   ├── health.ts          # Health score calculator
-│   │   └── profiler.ts        # Tech profile + stale repo analysis
+│   │   ├── profiler.ts        # Tech profile + stale repo analysis
+│   │   ├── recommend.ts       # Smart recommendation engine (topic similarity)
+│   │   └── changeTracker.ts   # Change tracking (snapshot diff)
 │   ├── components/            # Vue components
-│   │   ├── RepoCard.vue
+│   │   ├── RepoCard.vue       # Repo card (notes/tags editor)
 │   │   ├── TechProfile.vue
-│   │   └── StarTimeline.vue
+│   │   ├── StarTimeline.vue
+│   │   ├── TrendingBoard.vue
+│   │   ├── ShareCard.vue
+│   │   ├── RecommendBoard.vue # Explore-topics drill-down
+│   │   ├── ChangeTracker.vue  # Change tracking board
+│   │   ├── SectionNav.vue
+│   │   ├── VersionPanel.vue
+│   │   ├── CategoryGroups.vue
+│   │   └── AdvancedFilters.vue
 │   ├── composables/           # Vue composables
 │   │   ├── useRepos.ts        # Data + filtering + template switching
-│   │   └── useTheme.ts        # Dark/light theme
+│   │   ├── useTheme.ts        # Dark/light theme
+│   │   ├── useRepoMeta.ts     # Repo notes/tags (localStorage)
+│   │   └── useExport.ts       # Markdown / JSON / CSV export
+│   ├── i18n/                  # Lightweight i18n (no vue-i18n dependency)
+│   │   ├── index.ts           # t() + locale ref
+│   │   ├── zh.ts              # Chinese strings
+│   │   └── en.ts              # English strings
 │   ├── data/
-│   │   └── repos.json         # Generated data (auto-updated by Action)
+│   │   ├── repos.json         # Generated data (auto-updated by Action)
+│   │   └── snapshots.json     # History snapshots for change tracking
 │   ├── styles/
 │   │   └── main.css           # Global styles + theme variables
 │   ├── App.vue                # Main app
@@ -151,13 +178,13 @@ Your repo metadata (public repos, stars) is already public on GitHub. RepoCensus
 | v1.2 | Trending board (star velocity + monthly average + category filter) | ✅ |
 | v1.3 | Share card (PNG/SVG download) + README badges | ✅ |
 | v1.4 | Version progress panel (Changelog + Roadmap) + Trending filter fix | ✅ |
-| v1.5 | Annual repo report (Spotify Wrapped style — yearly stats + domain analysis) | 🔲 |
-| v1.6 | Search + advanced filtering (multi-dimensional: stars / language / date / topics) | 🔲 |
-| v1.7 | Smart recommendations (based on tech profile, topics similarity matching) | 🔲 |
-| v1.8 | Repo notes/tags (localStorage) + change tracking (archive/rename/star surge) | 🔲 |
-| v1.9 | Data export (CSV / JSON, import to Notion, Lark, etc.) | 🔲 |
+| v1.5 | Annual repo report (Spotify Wrapped style — yearly stats + domain analysis) | ✅ |
+| v1.6 | Search + advanced filtering (multi-dimensional: stars / language / date / topics) | ✅ |
+| v1.7 | Smart recommendations (tech-profile-based topic similarity + explore drill-down) | ✅ |
+| v1.8 | Repo notes/tags (localStorage) + change tracking (new/removed + star surge/drop) | ✅ |
+| v1.9 | Data export (Markdown / JSON / CSV, import to Notion, Lark, etc.) | ✅ |
 | v2.0 | Multi-user comparison (compare tech profiles + star overlap score) | 🔲 |
-| v2.1 | i18n (Chinese / English) | 🔲 |
+| v2.1 | i18n (Chinese / English) | ✅ |
 | v2.2 | Mobile responsive layout | 🔲 |
 
 ## License
