@@ -11,3 +11,32 @@ vite.config.js
 
 # Generated badges (created at build time by fetch.ts)
 public/badges/
+
+# ── AI Agent 工作目录（本地工具生成，不应入库）────────────
+# Claude Code
+.claude/
+.claude.json
+# Cursor
+.cursor/
+# GitHub Copilot
+.copilot/
+# OpenAI Codex
+.codex/
+# Gemini CLI
+.gemini/
+# Windsurf
+.windsurf/
+# Trae
+.trae/
+# Roo Code
+.roo/
+# Continue
+.continue/
+# Cline
+.cline/
+# Aider
+.aider*
+# Codeium
+.codeium/
+# WorkBuddy 项目数据（本地记忆，不入库）
+.workbuddy/
