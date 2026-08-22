@@ -229,6 +229,15 @@ export default {
   'nav.share': 'Share',
   'nav.changes': 'Changes',
 
+  // Top tabs
+  'tab.overview': 'Overview',
+  'tab.repos': 'Repos',
+  'tab.activity': 'Activity',
+  'tab.profile': 'Profile',
+  'tab.compare': 'Compare',
+  'tab.activityComing': 'Followed-project updates are in development (v2.4) — configure config/followed.yml to see latest Releases here.',
+  'tab.compareComing': 'Multi-user comparison is in development (v2.1) — enter a GitHub username to compare tech profiles & star overlap.',
+
   // Version panel
   'ver.title': 'RepoCensus Version Progress',
   'ver.changelog': 'Changelog',

@@ -229,6 +229,15 @@ export default {
   'nav.share': '分享',
   'nav.changes': '变化追踪',
 
+  // 顶部 Tab
+  'tab.overview': '概览',
+  'tab.repos': '仓库',
+  'tab.activity': '动态',
+  'tab.profile': '画像',
+  'tab.compare': '对比',
+  'tab.activityComing': '关注项目动态开发中（v2.4）—— 配置 config/followed.yml 后，这里将展示关注仓库的最新 Releases。',
+  'tab.compareComing': '多用户对比开发中（v2.1）—— 输入 GitHub 用户名，对比双方技术画像与 Star 重叠度。',
+
   // 版本面板
   'ver.title': 'RepoCensus 版本进度',
   'ver.changelog': 'Changelog',

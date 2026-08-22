@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import RepoCard from './components/RepoCard.vue'
 import TechProfile from './components/TechProfile.vue'
 import StarTimeline from './components/StarTimeline.vue'
@@ -7,7 +7,7 @@ import CategoryGroups from './components/CategoryGroups.vue'
 import TrendingBoard from './components/TrendingBoard.vue'
 import ShareCard from './components/ShareCard.vue'
 import VersionPanel from './components/VersionPanel.vue'
-import SectionNav from './components/SectionNav.vue'
+import TabBar from './components/TabBar.vue'
 import AdvancedFilters from './components/AdvancedFilters.vue'
 import AnnualReport from './components/AnnualReport.vue'
 import RecommendBoard from './components/RecommendBoard.vue'
@@ -17,6 +17,24 @@ import { useExport } from './composables/useExport'
 import { useI18n } from './i18n'
 import { PRESET_TEMPLATES } from './engine/templates'
 import ChangeTracker from './components/ChangeTracker.vue'
+
+// ── Active tab (persisted) ────────────────────────────────
+const TAB_KEY = 'repocensus:tab'
+function getInitialTab(): string {
+  try {
+    return localStorage.getItem(TAB_KEY) || 'overview'
+  } catch {
+    return 'overview'
+  }
+}
+const activeTab = ref<string>(getInitialTab())
+watch(activeTab, (v) => {
+  try {
+    localStorage.setItem(TAB_KEY, v)
+  } catch {
+    // ignore
+  }
+})
 
 const {
   data,
@@ -135,14 +153,17 @@ function doExport(kind: 'md' | 'json' | 'csv') {
 // Flat view toggle
 const viewMode = ref<'grouped' | 'flat' | 'trending'>('grouped')
 
-// Scroll to share section
+// Scroll to share section (switch to Profile tab first)
 function scrollToShare() {
-  document.querySelector('.share-section')?.scrollIntoView({ behavior: 'smooth' })
+  activeTab.value = 'profile'
+  nextTick(() => {
+    document.querySelector('.share-section')?.scrollIntoView({ behavior: 'smooth' })
+  })
 }
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.6.0'
+const APP_VERSION = 'v1.7.0'
 </script>
 
 <template>
@@ -183,233 +204,258 @@ const APP_VERSION = 'v1.6.0'
     </header>
 
     <main class="main">
-      <!-- Stat Cards -->
-      <section id="overview" class="stat-cards">
-        <div class="stat-card">
-          <span class="stat-value">{{ stats.total }}</span>
-          <span class="stat-label">{{ t('common.total') }}</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">{{ stats.original }}</span>
-          <span class="stat-label">🛠️ {{ t('common.own') }}</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">{{ stats.fork }}</span>
-          <span class="stat-label">🍴 {{ t('common.fork') }}</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">{{ stats.star }}</span>
-          <span class="stat-label">⭐ {{ t('common.star') }}</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">{{ stats.avg_health }}</span>
-          <span class="stat-label">{{ t('app.avgHealth') }}</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">{{ stats.active_count }}</span>
-          <span class="stat-label">🟢 {{ t('common.active') }}</span>
-        </div>
-      </section>
+      <!-- Top Tab Bar -->
+      <TabBar :active="activeTab" @update:active="(id) => (activeTab = id)" />
 
-      <!-- Controls -->
-      <section id="controls" class="controls">
-        <!-- Template switcher row -->
-        <div class="control-row">
-          <div class="template-switcher">
-            <button
-              v-for="tpl in allTemplates"
-              :key="tpl.id"
-              :class="['tpl-btn', { active: activeTemplateId === tpl.id }]"
-              @click="setTemplate(tpl.id)"
-              :title="tpl.description"
+      <!-- ══ Overview Tab ══ -->
+      <template v-if="activeTab === 'overview'">
+        <section id="overview" class="stat-cards">
+          <div class="stat-card">
+            <span class="stat-value">{{ stats.total }}</span>
+            <span class="stat-label">{{ t('common.total') }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">{{ stats.original }}</span>
+            <span class="stat-label">🛠️ {{ t('common.own') }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">{{ stats.fork }}</span>
+            <span class="stat-label">🍴 {{ t('common.fork') }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">{{ stats.star }}</span>
+            <span class="stat-label">⭐ {{ t('common.star') }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">{{ stats.avg_health }}</span>
+            <span class="stat-label">{{ t('app.avgHealth') }}</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">{{ stats.active_count }}</span>
+            <span class="stat-label">🟢 {{ t('common.active') }}</span>
+          </div>
+        </section>
+
+        <!-- Tech Profile -->
+        <div id="tech-profile">
+          <TechProfile :profile="profile" />
+        </div>
+
+        <!-- Star Timeline -->
+        <div id="star-timeline">
+          <StarTimeline :stars="newStars" />
+        </div>
+      </template>
+
+      <!-- ══ Repos Tab ══ -->
+      <template v-else-if="activeTab === 'repos'">
+        <!-- Controls -->
+        <section id="controls" class="controls">
+          <!-- Template switcher row -->
+          <div class="control-row">
+            <div class="template-switcher">
+              <button
+                v-for="tpl in allTemplates"
+                :key="tpl.id"
+                :class="['tpl-btn', { active: activeTemplateId === tpl.id }]"
+                @click="setTemplate(tpl.id)"
+                :title="tpl.description"
+              >
+                {{ tplLabel(tpl.name) }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Cross-dimension toggle -->
+          <div class="control-row cross-dim-row">
+            <label class="cross-dim-toggle">
+              <input
+                type="checkbox"
+                :checked="secondaryTemplateId !== null"
+                @change="(e) => setSecondaryTemplate((e.target as HTMLInputElement).checked ? 'by-language' : null)"
+              />
+              <span>{{ t('ctrl.crossDim') }}</span>
+            </label>
+            <select
+              v-if="secondaryTemplateId !== null"
+              :value="secondaryTemplateId"
+              @change="(e) => setSecondaryTemplate((e.target as HTMLSelectElement).value)"
+              class="secondary-select"
             >
-              {{ tplLabel(tpl.name) }}
-            </button>
+              <option v-for="tpl in allTemplates" :key="tpl.id" :value="tpl.id">{{ tplLabel(tpl.name) }}</option>
+            </select>
           </div>
-        </div>
 
-        <!-- Cross-dimension toggle -->
-        <div class="control-row cross-dim-row">
-          <label class="cross-dim-toggle">
-            <input
-              type="checkbox"
-              :checked="secondaryTemplateId !== null"
-              @change="(e) => setSecondaryTemplate((e.target as HTMLInputElement).checked ? 'by-language' : null)"
-            />
-            <span>{{ t('ctrl.crossDim') }}</span>
-          </label>
-          <select
-            v-if="secondaryTemplateId !== null"
-            :value="secondaryTemplateId"
-            @change="(e) => setSecondaryTemplate((e.target as HTMLSelectElement).value)"
-            class="secondary-select"
-          >
-            <option v-for="tpl in allTemplates" :key="tpl.id" :value="tpl.id">{{ tplLabel(tpl.name) }}</option>
-          </select>
-        </div>
+          <!-- Type tabs + search + sort -->
+          <div class="control-row">
+            <div class="type-tabs">
+              <button
+                v-for="tab in typeTabs"
+                :key="tab.id"
+                :class="['tab-btn', { active: typeFilter === tab.id }]"
+                @click="setType(tab.id)"
+              >
+                {{ tab.icon }} {{ tab.label }}
+              </button>
+            </div>
 
-        <!-- Type tabs + search + sort -->
-        <div class="control-row">
-          <div class="type-tabs">
-            <button
-              v-for="tab in typeTabs"
-              :key="tab.id"
-              :class="['tab-btn', { active: typeFilter === tab.id }]"
-              @click="setType(tab.id)"
+            <div class="search-box">
+              <input
+                v-model="searchQuery"
+                type="text"
+                :placeholder="t('ctrl.searchPlaceholder')"
+                class="search-input"
+              />
+            </div>
+
+            <select
+              :value="sortOption"
+              @change="(e) => setSort((e.target as HTMLSelectElement).value as SortOption)"
+              class="sort-select"
             >
-              {{ tab.icon }} {{ tab.label }}
+              <option v-for="opt in sortOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
+            </select>
+
+            <div class="view-toggle">
+              <button :class="['view-btn', { active: viewMode === 'grouped' }]" @click="viewMode = 'grouped'" :title="t('ctrl.viewGrouped')">🗂️</button>
+              <button :class="['view-btn', { active: viewMode === 'flat' }]" @click="viewMode = 'flat'" :title="t('ctrl.viewFlat')">📋</button>
+              <button :class="['view-btn', { active: viewMode === 'trending' }]" @click="viewMode = 'trending'" :title="t('ctrl.viewTrending')">🔥</button>
+            </div>
+          </div>
+
+          <!-- Advanced filters -->
+          <AdvancedFilters />
+        </section>
+
+        <!-- Main Content -->
+        <section id="repos" class="content" :class="{ 'no-sidebar': viewMode === 'trending' }">
+          <!-- Category Sidebar -->
+          <aside class="sidebar" v-if="viewMode !== 'trending'">
+            <h3 class="sidebar-title">{{ t('ctrl.sidebarTitle') }}</h3>
+            <button
+              :class="['cat-btn', { active: !selectedCategory }]"
+              @click="setCategory(null)"
+            >
+              <span>{{ t('common.all') }}</span>
+              <span class="cat-count">{{ filtered.length }}</span>
             </button>
-          </div>
+            <button
+              v-for="cat in categories"
+              :key="cat.name"
+              :class="['cat-btn', { active: selectedCategory === cat.name }]"
+              @click="setCategory(cat.name)"
+            >
+              <span>{{ catLabel(cat.name) }}</span>
+              <span class="cat-count">{{ cat.count }}</span>
+            </button>
+          </aside>
 
-          <div class="search-box">
-            <input
-              v-model="searchQuery"
-              type="text"
-              :placeholder="t('ctrl.searchPlaceholder')"
-              class="search-input"
+          <!-- Repo Grid -->
+          <div class="repo-section">
+            <!-- Trending view -->
+            <TrendingBoard
+              v-if="viewMode === 'trending' && trending"
+              :trending="trending"
+              :repos="searched"
+              :template="activeTemplate"
             />
-          </div>
+            <div v-else-if="viewMode === 'trending'" class="empty-state">
+              {{ t('app.emptyTrending') }}
+            </div>
 
-          <select
-            :value="sortOption"
-            @change="(e) => setSort((e.target as HTMLSelectElement).value as SortOption)"
-            class="sort-select"
-          >
-            <option v-for="opt in sortOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
-          </select>
+            <!-- Normal views -->
+            <template v-else>
+              <div class="repo-count">
+                {{ t('app.repoCount', { n: filtered.length }) }}
+                <span v-if="selectedCategory" class="filter-hint">{{ t('app.filterHintCat', { cat: selectedCategory }) }}</span>
+                <span v-if="secondaryTemplate" class="filter-hint">{{ t('app.filterCross', { a: tplLabel(activeTemplate.name), b: tplLabel(secondaryTemplate.name) }) }}</span>
+              </div>
 
-          <div class="view-toggle">
-            <button :class="['view-btn', { active: viewMode === 'grouped' }]" @click="viewMode = 'grouped'" :title="t('ctrl.viewGrouped')">🗂️</button>
-            <button :class="['view-btn', { active: viewMode === 'flat' }]" @click="viewMode = 'flat'" :title="t('ctrl.viewFlat')">📋</button>
-            <button :class="['view-btn', { active: viewMode === 'trending' }]" @click="viewMode = 'trending'" :title="t('ctrl.viewTrending')">🔥</button>
+              <!-- Grouped view -->
+              <CategoryGroups
+                v-if="viewMode === 'grouped' && filtered.length > 0"
+                :groups="displayGroups"
+                :collapsed-set="collapsedSet"
+                :toggle-collapse="toggleCollapse"
+              />
+
+              <!-- Flat view -->
+              <div v-else-if="viewMode === 'flat' && filtered.length > 0" class="repo-grid">
+                <RepoCard v-for="repo in filtered" :key="repo.id" :repo="repo" show-category />
+              </div>
+
+              <div v-else class="empty-state">
+                {{ t('app.emptyNoMatch') }}
+              </div>
+            </template>
           </div>
+        </section>
+
+        <!-- Stale Repos -->
+        <section v-if="staleRepos.length" id="stale" class="stale-section">
+          <h3 class="section-title">⚠️ {{ t('app.staleTitle') }}</h3>
+          <div class="stale-list">
+            <a
+              v-for="stale in staleRepos"
+              :key="stale.repo.id"
+              :href="stale.repo.html_url"
+              target="_blank"
+              rel="noopener"
+              class="stale-item"
+            >
+              <div class="stale-info">
+                <span class="stale-name">{{ stale.repo.name }}</span>
+                <span class="stale-reason">{{ t('stale.reason', { years: Math.floor(stale.days_since_update / 365), stars: stale.repo.stargazers_count }) }}</span>
+              </div>
+              <span class="stale-action">{{ t('common.view') }}</span>
+            </a>
+          </div>
+        </section>
+      </template>
+
+      <!-- ══ Activity Tab ══ -->
+      <template v-else-if="activeTab === 'activity'">
+        <!-- Change Tracking -->
+        <div id="changes">
+          <ChangeTracker :history="data.history" />
         </div>
 
-        <!-- Advanced filters -->
-        <AdvancedFilters />
-      </section>
+        <!-- Followed projects (v2.4, placeholder) -->
+        <section class="coming-soon">
+          <h3 class="section-title">📡 {{ t('tab.activity') }}</h3>
+          <p class="coming-soon-text">{{ t('tab.activityComing') }}</p>
+        </section>
+      </template>
 
-      <!-- Main Content -->
-      <section id="repos" class="content" :class="{ 'no-sidebar': viewMode === 'trending' }">
-        <!-- Category Sidebar -->
-        <aside class="sidebar" v-if="viewMode !== 'trending'">
-          <h3 class="sidebar-title">{{ t('ctrl.sidebarTitle') }}</h3>
-          <button
-            :class="['cat-btn', { active: !selectedCategory }]"
-            @click="setCategory(null)"
-          >
-            <span>{{ t('common.all') }}</span>
-            <span class="cat-count">{{ filtered.length }}</span>
-          </button>
-          <button
-            v-for="cat in categories"
-            :key="cat.name"
-            :class="['cat-btn', { active: selectedCategory === cat.name }]"
-            @click="setCategory(cat.name)"
-          >
-            <span>{{ catLabel(cat.name) }}</span>
-            <span class="cat-count">{{ cat.count }}</span>
-          </button>
-        </aside>
-
-        <!-- Repo Grid -->
-        <div class="repo-section">
-          <!-- Trending view -->
-          <TrendingBoard
-            v-if="viewMode === 'trending' && trending"
-            :trending="trending"
-            :repos="searched"
-            :template="activeTemplate"
-          />
-          <div v-else-if="viewMode === 'trending'" class="empty-state">
-            {{ t('app.emptyTrending') }}
-          </div>
-
-          <!-- Normal views -->
-          <template v-else>
-            <div class="repo-count">
-              {{ t('app.repoCount', { n: filtered.length }) }}
-              <span v-if="selectedCategory" class="filter-hint">{{ t('app.filterHintCat', { cat: selectedCategory }) }}</span>
-              <span v-if="secondaryTemplate" class="filter-hint">{{ t('app.filterCross', { a: tplLabel(activeTemplate.name), b: tplLabel(secondaryTemplate.name) }) }}</span>
-            </div>
-
-            <!-- Grouped view -->
-            <CategoryGroups
-              v-if="viewMode === 'grouped' && filtered.length > 0"
-              :groups="displayGroups"
-              :collapsed-set="collapsedSet"
-              :toggle-collapse="toggleCollapse"
-            />
-
-            <!-- Flat view -->
-            <div v-else-if="viewMode === 'flat' && filtered.length > 0" class="repo-grid">
-              <RepoCard v-for="repo in filtered" :key="repo.id" :repo="repo" show-category />
-            </div>
-
-            <div v-else class="empty-state">
-              {{ t('app.emptyNoMatch') }}
-            </div>
-          </template>
+      <!-- ══ Profile Tab ══ -->
+      <template v-else-if="activeTab === 'profile'">
+        <!-- Annual Report -->
+        <div id="annual-report">
+          <AnnualReport />
         </div>
-      </section>
 
-      <!-- Stale Repos -->
-      <section v-if="staleRepos.length" id="stale" class="stale-section">
-        <h3 class="section-title">⚠️ {{ t('app.staleTitle') }}</h3>
-        <div class="stale-list">
-          <a
-            v-for="stale in staleRepos"
-            :key="stale.repo.id"
-            :href="stale.repo.html_url"
-            target="_blank"
-            rel="noopener"
-            class="stale-item"
-          >
-            <div class="stale-info">
-              <span class="stale-name">{{ stale.repo.name }}</span>
-              <span class="stale-reason">{{ t('stale.reason', { years: Math.floor(stale.days_since_update / 365), stars: stale.repo.stargazers_count }) }}</span>
-            </div>
-            <span class="stale-action">{{ t('common.view') }}</span>
-          </a>
+        <!-- Smart Recommendations -->
+        <div id="recommend">
+          <RecommendBoard />
         </div>
-      </section>
 
-      <!-- Tech Profile -->
-      <div id="tech-profile">
-        <TechProfile :profile="profile" />
-      </div>
+        <!-- Share Card & Badges -->
+        <div id="share">
+          <ShareCard :data="data" />
+        </div>
+      </template>
 
-      <!-- Annual Report -->
-      <div id="annual-report">
-        <AnnualReport />
-      </div>
-
-      <!-- Smart Recommendations -->
-      <div id="recommend">
-        <RecommendBoard />
-      </div>
-
-      <!-- Star Timeline -->
-      <div id="star-timeline">
-        <StarTimeline :stars="newStars" />
-      </div>
-
-      <!-- Change Tracking -->
-      <div id="changes">
-        <ChangeTracker :history="data.history" />
-      </div>
-
-      <!-- Share Card & Badges -->
-      <div id="share">
-        <ShareCard :data="data" />
-      </div>
+      <!-- ══ Compare Tab ══ -->
+      <template v-else-if="activeTab === 'compare'">
+        <section class="coming-soon">
+          <h3 class="section-title">⚖️ {{ t('tab.compare') }}</h3>
+          <p class="coming-soon-text">{{ t('tab.compareComing') }}</p>
+        </section>
+      </template>
     </main>
 
     <!-- Version Panel -->
     <VersionPanel v-model="showVersionPanel" />
-
-    <!-- Section Quick Nav -->
-    <SectionNav />
 
     <!-- Footer -->
     <footer class="footer">
@@ -847,6 +893,22 @@ const APP_VERSION = 'v1.6.0'
 /* Stale Repos */
 .stale-section {
   margin-top: 32px;
+}
+
+/* Coming soon placeholder */
+.coming-soon {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px dashed var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+}
+
+.coming-soon-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 720px;
 }
 
 .section-title {
