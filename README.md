@@ -23,16 +23,6 @@ RepoCensus scans **all your GitHub repositories** (self-created + forked + starr
 - **Zero server** — Pure static site, deployed to GitHub Pages
 - **Auto-refresh** — GitHub Actions runs weekly (or on push)
 
-## What's New in v1.6.0
-
-The v1.6.0 release bundles five community-requested features (shipped 2026-08-16, live at https://leoli04.github.io/repocensus/):
-
-- **🌐 i18n (Chinese / English)** — One-click language toggle in the header; preference persisted to `localStorage`; auto-detected from `navigator.language`. Every UI string is now translatable via a lightweight self-written `t()` module (no `vue-i18n` dependency).
-- **📝 Repo Notes & Tags** — Add custom notes and tags to any repo (stored in `localStorage` keyed by repo id). Visible on the repo card, searchable, and carried along when you export.
-- **📤 Data Export** — Export your census as **Markdown / JSON / CSV**. CSV ships with a UTF-8 BOM so Excel won't mangle Chinese characters. Notes & tags are included in every format.
-- **🧭 Explore Topics drill-down** — The "Explore new domains" board now expands: click a topic to reveal the top-6 repos (by stars) behind it, with a reason why they matched your profile.
-- **📈 Change Tracking** — Each weekly build saves a lightweight snapshot; compare two snapshots to see **new / removed repos** and **star gains / drops** over time. Lives under the new 📈 Changes nav item. (History accumulates after two scheduled builds.)
-
 ## Quick Start
 
 ```
@@ -171,21 +161,28 @@ Your repo metadata (public repos, stars) is already public on GitHub. RepoCensus
 
 ## Roadmap
 
+> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.7.0**.
+
 | Version | Features | Status |
 |---------|---------|--------|
 | v1.0 | Core MVP: data fetch + categorization engine + dashboard + GitHub Actions | ✅ |
-| v1.1 | YAML custom templates + cross-dimension + AI domain classification + Markdown export | ✅ |
+| v1.1 | YAML custom templates + cross-dimension + AI domain classification + Markdown export + multi-sort | ✅ |
 | v1.2 | Trending board (star velocity + monthly average + category filter) | ✅ |
 | v1.3 | Share card (PNG/SVG download) + README badges | ✅ |
-| v1.4 | Version progress panel (Changelog + Roadmap) + Trending filter fix | ✅ |
-| v1.5 | Annual repo report (Spotify Wrapped style — yearly stats + domain analysis) | ✅ |
-| v1.6 | Search + advanced filtering (multi-dimensional: stars / language / date / topics) | ✅ |
-| v1.7 | Smart recommendations (tech-profile-based topic similarity + explore drill-down) | ✅ |
-| v1.8 | Repo notes/tags (localStorage) + change tracking (new/removed + star surge/drop) | ✅ |
-| v1.9 | Data export (Markdown / JSON / CSV, import to Notion, Lark, etc.) | ✅ |
-| v2.0 | Multi-user comparison (compare tech profiles + star overlap score) | 🔲 |
-| v2.1 | i18n (Chinese / English) | ✅ |
-| v2.2 | Mobile responsive layout | 🔲 |
+| v1.4 | Version progress panel (Changelog + Roadmap) + Trending filter fix + right-side quick nav | ✅ |
+| v1.5 | Search + advanced filtering + annual repo report (Spotify Wrapped style) + smart recommendations | ✅ |
+| v1.6 | i18n (Chinese / English) + repo notes/tags + data export (JSON/CSV) + explore drill-down + change tracking | ✅ |
+| v1.7 | Tab-based multi-view layout (Overview / Repos / Activity / Profile / Compare) | ✅ |
+| v2.1 | Multi-user comparison (compare tech profiles + star overlap score) | 🔲 |
+| v2.2 | Repo detail slide-over panel (click card to view details without leaving GitHub) | 🔲 |
+| v2.3 | Trend charts (snapshot history → star growth line + update heatmap) | 🔲 |
+| v2.4 | Followed repos activity (followed.yml + daily incremental Releases fetch + activity timeline) | 🔲 |
+| v2.5 | AI insight summary (optional LLM: profile summary, cleanup tips, weekly digest) | 🔲 |
+| v2.6 | Tech profile share card / README badge (external form of the in-app profile) | 🔲 |
+| v2.7 | HTML report export (single-file self-contained report, readable by non-technical audiences) | 🔲 |
+| v2.8 | Learning path view (intro → intermediate → advanced template) | 🔲 |
+| Later | Mobile responsive layout | 🔲 |
+| Later | Contribution heatmap (commit activity heatmap by repo/language) | 🔲 |
 
 ## License
 
