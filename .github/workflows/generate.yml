@@ -2,7 +2,8 @@ name: Generate Dashboard
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0' # Every Sunday at 00:00 UTC — full refresh
+    - cron: '0 12 * * *' # Every day at 12:00 UTC — incremental followed-repos fetch
   workflow_dispatch: # Manual trigger
   push:
     branches: [main]
@@ -39,11 +40,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch GitHub data
+      - name: Fetch GitHub data (full)
+        if: github.event.schedule != '0 12 * * *'
         run: npx tsx scripts/fetch.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
+
+      - name: Fetch followed repos (incremental)
+        if: github.event.schedule == '0 12 * * *'
+        run: npx tsx scripts/fetch-followed.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: npm run build
@@ -52,7 +60,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add src/data/repos.json src/data/snapshots.json
+          git add src/data/repos.json src/data/snapshots.json src/data/followed.json
           git diff --staged --quiet || git commit -m 'chore: update census data [skip ci]'
           git push
 

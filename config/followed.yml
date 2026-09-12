@@ -1,0 +1,11 @@
+# 关注项目清单 —— 每日增量采集 Releases 动态（v2.4）
+# 格式：repo: owner/repo（需公开仓库）
+# 可选：alias（展示用别名）、tags（筛选标签）
+# 上限：50 个
+followed:
+  - repo: vuejs/core
+    tags: [前端]
+  - repo: langgenius/dify
+    tags: [AI]
+  - repo: microsoft/TypeScript
+    tags: [语言]

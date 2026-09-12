@@ -21,6 +21,19 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.8.0',
+    date: '2026-09-12',
+    type: 'release',
+    items: [
+      '关注项目动态 (v2.4)：config/followed.yml 关注清单 + Releases 每日增量采集 + 动态时间线（新动态置顶、历史折叠）',
+      '仓库详情侧滑面板 (v2.2)：点击仓库卡片滑出详情（描述/Topics/License/统计/笔记），GitHub 与主页直达',
+      '变化趋势图 (v2.3)：基于快照历史的 Star 总数折线 + Star 增长最快仓库 sparkline',
+      '贡献热力图：按日统计仓库推送活跃度（GitHub 风格年度格子图）',
+      'HTML 报告导出 (v2.7)：单文件离线成品报告（画像+图表+分类明细），非技术人可读',
+      'workflow 新增每日 12:00 UTC 增量采集 cron，followed.json 随构建提交',
+    ],
+  },
+  {
     version: 'v1.7.0',
     date: '2026-08-22',
     type: 'release',
@@ -121,21 +134,16 @@ const todoGroups: TodoGroup[] = [
     tier: '⭐ 中优先级',
     tierClass: 'tier-mid',
     items: [
-      { name: '多用户对比', desc: '输入 GitHub 用户名对比技术画像，Star 重叠度计算', icon: '👥' },
+      { name: '多用户对比', desc: '输入 GitHub 用户名对比技术画像，Star 重叠度计算（v2.1）', icon: '👥' },
       { name: '移动端适配', desc: '响应式布局优化，手机浏览可用', icon: '📱' },
-      { name: '贡献热力图', desc: '按仓库/语言的提交活跃热力图，识别高产与沉寂区', icon: '🔥' },
     ],
   },
   {
     tier: '📋 待规划',
     tierClass: 'tier-low',
     items: [
-      { name: '关注项目动态', desc: 'followed.yml 关注清单 + Releases 每日增量采集 + 动态时间线（v2.4）', icon: '📡' },
-      { name: '仓库详情侧滑面板', desc: '点击卡片侧滑查看详情，不跳转 GitHub（v2.2）', icon: '🪟' },
-      { name: '变化趋势图', desc: '快照历史 → Star 增长折线 + 更新热力图（v2.3）', icon: '📈' },
-      { name: 'HTML 报告导出', desc: '单文件成品报告，非技术人可读（v2.7）', icon: '📄' },
-      { name: '学习路径视角', desc: '入门→进阶→实战 学习模板（v2.8）', icon: '🎓' },
       { name: 'AI 洞察摘要', desc: '可选 LLM：画像总结、整理建议、动态周报（v2.5）', icon: '✨' },
+      { name: '学习路径视角', desc: '入门→进阶→实战 学习模板（v2.8）', icon: '🎓' },
     ],
   },
 ]

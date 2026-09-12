@@ -7,6 +7,7 @@ import { useI18n } from '../i18n'
 import { useRepoMeta } from '../composables/useRepoMeta'
 
 const props = defineProps<{ repo: Repo; showCategory?: boolean }>()
+const emit = defineEmits<{ open: [repo: Repo] }>()
 const { t, catLabel } = useI18n()
 const { getMeta, setNote, setTags } = useRepoMeta()
 
@@ -85,7 +86,7 @@ function removeTag(tag: string) {
     <!-- Health bar at top -->
     <div class="health-bar" :style="{ background: health.color }" />
 
-    <a class="card-main" :href="repo.html_url" target="_blank" rel="noopener">
+    <div class="card-main" :title="t('detail.openHint')" @click="emit('open', props.repo)">
       <div class="card-header">
         <span class="type-icon" :title="typeText(repo.type)">{{ typeIcon[repo.type] }}</span>
         <span class="repo-name">{{ repo.name }}</span>
@@ -112,7 +113,7 @@ function removeTag(tag: string) {
           {{ t('repo.fromFork', { name: repo.parent_full_name }) }}
         </span>
       </div>
-    </a>
+    </div>
 
     <!-- Custom tags (always visible if any) -->
     <div class="meta-tags" v-if="meta.tags.length && !editing">
@@ -182,6 +183,7 @@ function removeTag(tag: string) {
   text-decoration: none;
   color: var(--text-primary);
   flex: 1;
+  cursor: pointer;
 }
 
 .card-header {

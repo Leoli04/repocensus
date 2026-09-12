@@ -17,6 +17,11 @@ import { useExport } from './composables/useExport'
 import { useI18n } from './i18n'
 import { PRESET_TEMPLATES } from './engine/templates'
 import ChangeTracker from './components/ChangeTracker.vue'
+import TrendChart from './components/TrendChart.vue'
+import FollowedFeed from './components/FollowedFeed.vue'
+import ActivityHeatmap from './components/ActivityHeatmap.vue'
+import RepoDetailPanel from './components/RepoDetailPanel.vue'
+import type { Repo } from './engine/types'
 
 // ── Active tab (persisted) ────────────────────────────────
 const TAB_KEY = 'repocensus:tab'
@@ -70,7 +75,7 @@ const {
 } = useRepos()
 
 const { theme, toggle } = useTheme()
-const { exportMarkdown, exportJSON, exportCSV } = useExport()
+const { exportMarkdown, exportJSON, exportCSV, exportHTML } = useExport()
 const { t, locale, toggleLocale, catLabel, tplLabel } = useI18n()
 
 // Collapsed groups state
@@ -127,7 +132,7 @@ const langSwitchLabel = computed(() => (locale.value === 'zh' ? 'EN' : '中文')
 
 // Export menu
 const showExportMenu = ref(false)
-function doExport(kind: 'md' | 'json' | 'csv') {
+function doExport(kind: 'md' | 'json' | 'csv' | 'html') {
   showExportMenu.value = false
   if (kind === 'md') {
     exportMarkdown(
@@ -145,9 +150,17 @@ function doExport(kind: 'md' | 'json' | 'csv') {
     )
   } else if (kind === 'json') {
     exportJSON()
+  } else if (kind === 'html') {
+    exportHTML()
   } else {
     exportCSV()
   }
+}
+
+// Repo detail slide panel (v2.2)
+const selectedRepo = ref<Repo | null>(null)
+function openRepoDetail(repo: Repo) {
+  selectedRepo.value = repo
 }
 
 // Flat view toggle
@@ -191,6 +204,7 @@ const APP_VERSION = 'v1.7.0'
             <button @click="doExport('md')">📝 Markdown</button>
             <button @click="doExport('json')">🧾 JSON</button>
             <button @click="doExport('csv')">📊 CSV</button>
+            <button @click="doExport('html')">🌐 HTML 报告</button>
           </div>
         </div>
         <div v-if="showExportMenu" class="export-backdrop" @click="showExportMenu = false"></div>
@@ -377,11 +391,12 @@ const APP_VERSION = 'v1.7.0'
                 :groups="displayGroups"
                 :collapsed-set="collapsedSet"
                 :toggle-collapse="toggleCollapse"
+                @open-repo="openRepoDetail"
               />
 
               <!-- Flat view -->
               <div v-else-if="viewMode === 'flat' && filtered.length > 0" class="repo-grid">
-                <RepoCard v-for="repo in filtered" :key="repo.id" :repo="repo" show-category />
+                <RepoCard v-for="repo in filtered" :key="repo.id" :repo="repo" show-category @open="openRepoDetail" />
               </div>
 
               <div v-else class="empty-state">

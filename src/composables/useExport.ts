@@ -138,5 +138,162 @@ export function useExport() {
     download(`repocensus-${data.value.username}.csv`, '﻿' + csv, 'text/csv;charset=utf-8')
   }
 
-  return { exportMarkdown, exportJSON, exportCSV }
+  // ── Standalone HTML report (v2.7) ───────────────────────
+  function exportHTML(): void {
+    const repos = withMeta(data.value.repos)
+    const d = data.value
+    const p = d.tech_profile
+    const genLoc = new Date(d.generated_at).toLocaleString('zh-CN')
+    const esc = (s: unknown) =>
+      String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+
+    // Group by category (default template classification)
+    const byCat = new Map<string, Row[]>()
+    for (const r of repos) {
+      if (!byCat.has(r.category)) byCat.set(r.category, [])
+      byCat.get(r.category)!.push(r)
+    }
+    const cats = Array.from(byCat.entries()).sort((a, b) => b[1].length - a[1].length)
+
+    // Monthly push activity (last 12 months)
+    const months: { label: string; count: number }[] = []
+    {
+      const now = new Date()
+      for (let i = 11; i >= 0; i--) {
+        const m = new Date(now.getFullYear(), now.getMonth() - i, 1)
+        const label = `${m.getFullYear()}-${String(m.getMonth() + 1).padStart(2, '0')}`
+        months.push({ label, count: 0 })
+      }
+      const idx = new Map(months.map((m, i) => [m.label, i]))
+      for (const r of repos) {
+        if (!r.pushed_at) continue
+        const dt = new Date(r.pushed_at)
+        const label = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}`
+        const i = idx.get(label)
+        if (i !== undefined) months[i].count++
+      }
+    }
+    const maxMonth = Math.max(1, ...months.map((m) => m.count))
+
+    const bar = (name: string, count: number, max: number, pct?: number) => `
+      <div class="bar-row">
+        <span class="bar-name">${esc(name)}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${(count / max) * 100}%"></div></div>
+        <span class="bar-num">${pct !== undefined ? pct + '%' : count}</span>
+      </div>`
+
+    const typeText = (t: string) =>
+      t === 'original' ? '🛠️ 自建' : t === 'fork' ? '🍴 Fork' : '⭐ Star'
+
+    const repoRow = (r: Row) => `
+      <tr>
+        <td><a href="${esc(r.html_url)}" target="_blank" rel="noopener">${esc(r.full_name)}</a></td>
+        <td class="desc">${esc(r.description || '-')}</td>
+        <td>${esc(r.language || '-')}</td>
+        <td class="num">${r.stargazers_count}</td>
+        <td>${typeText(r.type)}</td>
+        <td class="desc">${esc([r.note, ...(r.tags || []).map((t) => '#' + t)].filter(Boolean).join(' ') || '-')}</td>
+      </tr>`
+
+    const html = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RepoCensus 报告 — ${esc(d.username)}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; line-height: 1.55; padding: 32px 16px; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  .card { background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  h2 { font-size: 18px; margin-bottom: 12px; }
+  h3 { font-size: 15px; margin: 18px 0 8px; }
+  .meta { color: #656d76; font-size: 13px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 16px 0; }
+  .stat { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 10px; padding: 12px; text-align: center; }
+  .stat b { display: block; font-size: 22px; color: #0969da; }
+  .stat span { font-size: 12px; color: #656d76; }
+  .bar-row { display: grid; grid-template-columns: 140px 1fr 52px; align-items: center; gap: 10px; margin: 5px 0; }
+  .bar-name { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-track { background: #eaeef2; border-radius: 5px; height: 12px; overflow: hidden; }
+  .bar-fill { height: 100%; background: #0969da; border-radius: 5px; }
+  .bar-num { font-size: 12px; color: #656d76; text-align: right; }
+  .heat { display: flex; align-items: flex-end; gap: 4px; height: 80px; margin-top: 8px; }
+  .heat .col { flex: 1; background: #0969da; border-radius: 3px 3px 0 0; min-height: 3px; position: relative; }
+  .heat-labels { display: flex; gap: 4px; }
+  .heat-labels span { flex: 1; font-size: 9px; color: #848d97; text-align: center; overflow: hidden; white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid #d0d7de; text-align: left; }
+  th { background: #f6f8fa; font-size: 12px; color: #656d76; }
+  td.num { text-align: right; }
+  td.desc { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #656d76; }
+  a { color: #0969da; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer { text-align: center; color: #848d97; font-size: 12px; padding: 16px 0 8px; }
+  @media print { body { background: #fff; padding: 0; } .card { border: none; page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>📊 RepoCensus 仓库普查报告</h1>
+    <p class="meta">
+      开发者：<a href="${esc(d.html_url)}" target="_blank" rel="noopener">${esc(d.username)}</a>
+      · 生成时间：${esc(genLoc)}
+      · 数据来自 GitHub 公开仓库
+    </p>
+    <div class="stats">
+      <div class="stat"><b>${d.stats.total}</b><span>总仓库</span></div>
+      <div class="stat"><b>${d.stats.original}</b><span>🛠️ 自建</span></div>
+      <div class="stat"><b>${d.stats.fork}</b><span>🍴 Fork</span></div>
+      <div class="stat"><b>${d.stats.star}</b><span>⭐ Star</span></div>
+      <div class="stat"><b>${d.stats.avg_health}</b><span>平均健康分</span></div>
+      <div class="stat"><b>${d.stats.active_count}</b><span>🟢 活跃</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🧭 技术画像</h2>
+    ${p.languages.slice(0, 8).map((l) => bar(l.name, l.count, p.languages[0].count, l.percentage)).join('')}
+    <h3>领域分布</h3>
+    ${p.domains.slice(0, 8).map((dm) => bar(dm.name, dm.count, p.domains[0].count)).join('')}
+    <h3>活跃度</h3>
+    <p class="meta">🟢 活跃 ${p.activity.active} · 🟡 沉默 ${p.activity.silent} · 🔴 归档 ${p.activity.archived} · 收到 Star ${p.total_stars_received} · 给出 Star ${p.total_stars_given}</p>
+    <h3>近 12 个月推送活跃度</h3>
+    <div class="heat">${months.map((m) => `<div class="col" style="height:${Math.max(3, (m.count / maxMonth) * 100)}%" title="${m.label}: ${m.count}"></div>`).join('')}</div>
+    <div class="heat-labels">${months.map((m) => `<span>${m.label.slice(5)}</span>`).join('')}</div>
+  </div>
+
+  <div class="card">
+    <h2>🗂️ 仓库分类明细（${cats.length} 类）</h2>
+    ${cats
+      .map(
+        ([cat, list]) => `
+      <h3>${esc(cat)}（${list.length}）</h3>
+      <table>
+        <thead><tr><th>仓库</th><th>描述</th><th>语言</th><th style="text-align:right">⭐</th><th>类型</th><th>笔记/标签</th></tr></thead>
+        <tbody>${list.map(repoRow).join('')}</tbody>
+      </table>`
+      )
+      .join('')}
+  </div>
+
+  <p class="footer">Generated by <a href="https://github.com/Leoli04/repocensus" target="_blank" rel="noopener">RepoCensus</a> · 本文件为单文件离线报告，可直接转发</p>
+</div>
+</body>
+</html>`
+
+    download(
+      `repocensus-report-${d.username}-${new Date().toISOString().slice(0, 10)}.html`,
+      html,
+      'text/html;charset=utf-8'
+    )
+  }
+
+  return { exportMarkdown, exportJSON, exportCSV, exportHTML }
 }

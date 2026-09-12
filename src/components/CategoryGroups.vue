@@ -19,6 +19,8 @@ const props = defineProps<{
   collapsedSet: Set<string>
   toggleCollapse: (name: string) => void
 }>()
+
+const emit = defineEmits<{ openRepo: [repo: Repo] }>()
 </script>
 
 <template>
@@ -37,7 +39,7 @@ const props = defineProps<{
       <!-- Repos (no cross-dim) -->
       <div v-if="!collapsedSet.has(group.name) && !group.subCategories" class="group-repos">
         <div class="repo-grid">
-          <RepoCard v-for="repo in group.repos" :key="repo.id" :repo="repo" show-category />
+          <RepoCard v-for="repo in group.repos" :key="repo.id" :repo="repo" show-category @open="emit('openRepo', repo)" />
         </div>
       </div>
 
@@ -54,7 +56,7 @@ const props = defineProps<{
           </button>
           <div v-if="!collapsedSet.has(`${group.name}/${sub.name}`)" class="group-repos">
             <div class="repo-grid">
-              <RepoCard v-for="repo in sub.repos" :key="repo.id" :repo="repo" />
+              <RepoCard v-for="repo in sub.repos" :key="repo.id" :repo="repo" @open="emit('openRepo', repo)" />
             </div>
           </div>
         </div>

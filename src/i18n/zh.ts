@@ -267,4 +267,41 @@ export default {
   'change.stars': 'Stars',
   'change.repoName': '仓库',
   'change.delta': '变化',
+
+  // 变化趋势图 (v2.3)
+  'trend.title': '📉 变化趋势',
+  'trend.subtitle': '基于最近 {n} 次数据快照',
+  'trend.totalStars': 'Star 总数走势',
+  'trend.topRepos': 'Star 增长最快',
+  'trend.noHistory': '快照不足 2 条，下次数据更新后自动生成趋势图。',
+
+  // 贡献热力图
+  'heat.title': '贡献热力图',
+  'heat.subtitle': '按日统计全部仓库的推送（push）活跃度，最近一年',
+  'heat.activeDays': '{n} 个活跃日',
+  'heat.less': '少',
+  'heat.more': '多',
+  'heat.cellTitle': '{date}：{n} 个仓库推送',
+
+  // 关注项目动态 (v2.4)
+  'follow.title': '关注项目动态',
+  'follow.subtitle': '每日增量采集 Releases · 数据生成于 {date}',
+  'follow.newCount': '{n} 条新动态',
+  'follow.new': '新',
+  'follow.noConfig': '暂无关注项目。编辑 config/followed.yml 添加 owner/repo，推送后每日自动采集 Releases 动态。',
+  'follow.releaseCount': '{n} 个版本',
+  'follow.noRelease': '暂无 Release',
+  'follow.lastPush': '最近推送 {ago}',
+
+  // 仓库详情侧滑面板 (v2.2)
+  'detail.openHint': '点击查看详情',
+  'detail.homepage': '主页',
+  'detail.issues': 'Issues',
+  'detail.category': '分类',
+  'detail.license': 'License',
+  'detail.created': '创建于',
+  'detail.updated': '更新于',
+  'detail.pushed': '最近推送',
+  'detail.forkFrom': 'Fork 自',
+  'detail.topics': 'Topics',
 }

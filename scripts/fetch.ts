@@ -191,6 +191,7 @@ function normalizeRepo(raw: any): Repo {
     has_readme: true, // optimistic; could check via API but too many calls
     has_license: !!raw.license,
     license: raw.license?.spdx_id || raw.license?.name || null,
+    homepage: raw.homepage || null,
     category: '',
     health_score: 0,
     is_new: false,

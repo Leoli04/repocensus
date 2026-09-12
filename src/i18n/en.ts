@@ -267,4 +267,41 @@ export default {
   'change.stars': 'Stars',
   'change.repoName': 'Repo',
   'change.delta': 'Delta',
+
+  // Trend charts (v2.3)
+  'trend.title': '📉 Trends',
+  'trend.subtitle': 'Based on the last {n} data snapshots',
+  'trend.totalStars': 'Total stars over time',
+  'trend.topRepos': 'Fastest star gainers',
+  'trend.noHistory': 'Fewer than 2 snapshots. Trends appear after the next data update.',
+
+  // Contribution heatmap
+  'heat.title': 'Contribution Heatmap',
+  'heat.subtitle': 'Daily push activity across all repos, last 12 months',
+  'heat.activeDays': '{n} active days',
+  'heat.less': 'Less',
+  'heat.more': 'More',
+  'heat.cellTitle': '{date}: {n} repos pushed',
+
+  // Followed projects (v2.4)
+  'follow.title': 'Followed Projects',
+  'follow.subtitle': 'Daily incremental Releases · generated at {date}',
+  'follow.newCount': '{n} new updates',
+  'follow.new': 'NEW',
+  'follow.noConfig': 'No followed repos yet. Edit config/followed.yml to add owner/repo entries — releases are collected daily after push.',
+  'follow.releaseCount': '{n} releases',
+  'follow.noRelease': 'No releases',
+  'follow.lastPush': 'last push {ago}',
+
+  // Repo detail panel (v2.2)
+  'detail.openHint': 'Click to view details',
+  'detail.homepage': 'Homepage',
+  'detail.issues': 'Issues',
+  'detail.category': 'Category',
+  'detail.license': 'License',
+  'detail.created': 'Created',
+  'detail.updated': 'Updated',
+  'detail.pushed': 'Last push',
+  'detail.forkFrom': 'Forked from',
+  'detail.topics': 'Topics',
 }

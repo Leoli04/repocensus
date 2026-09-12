@@ -36,6 +36,7 @@ export interface Repo {
   has_readme: boolean
   has_license: boolean
   license: string | null
+  homepage?: string | null
 
   // computed (filled by engine)
   category: string
@@ -155,4 +156,48 @@ export interface TrendingData {
   by_category: { category: string; repos: TrendingRepo[] }[]
   period: string // e.g. "7 days"
   has_historical: boolean // false on first run
+}
+
+// ── Followed projects (v2.4) ─────────────────────────────
+
+/** A single release of a followed repo */
+export interface ReleaseUpdate {
+  tag_name: string
+  name: string | null
+  published_at: string
+  html_url: string
+  prerelease: boolean
+  is_new: boolean // first seen in the latest collection run
+}
+
+/** A followed repo with its collected releases */
+export interface FollowedRepo {
+  full_name: string
+  alias: string | null
+  tags: string[]
+  html_url: string
+  pushed_at: string | null // last push activity (for repos that don't release)
+  releases: ReleaseUpdate[] // newest first, capped
+}
+
+/** Aggregated followed.json payload (built by scripts/fetch-followed.ts) */
+export interface FollowedData {
+  generated_at: string
+  repos: FollowedRepo[]
+}
+
+// ── Trend charts (v2.3) ──────────────────────────────────
+
+/** One point on the global star history line */
+export interface StarPoint {
+  date: string
+  total: number
+}
+
+/** Per-repo star trend across snapshots */
+export interface RepoTrend {
+  full_name: string
+  url: string
+  points: number[] // star counts aligned with the history window
+  delta: number // last - first
 }
