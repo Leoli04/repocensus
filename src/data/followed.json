@@ -1,4 +1,278 @@
 {
-  "generated_at": "1970-01-01T00:00:00.000Z",
-  "repos": []
+  "generated_at": "2026-09-12T14:02:51.750Z",
+  "repos": [
+    {
+      "full_name": "vuejs/core",
+      "alias": null,
+      "tags": [
+        "前端"
+      ],
+      "html_url": "https://github.com/vuejs/core",
+      "pushed_at": "2026-09-11T22:56:42Z",
+      "releases": [
+        {
+          "tag_name": "v3.6.0-rc.8",
+          "name": "v3.6.0-rc.8",
+          "published_at": "2026-09-11T05:46:16Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.8",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.7",
+          "name": "v3.6.0-rc.7",
+          "published_at": "2026-09-04T07:43:15Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.7",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.6",
+          "name": "v3.6.0-rc.6",
+          "published_at": "2026-08-28T05:54:05Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.6",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.5.42",
+          "name": "v3.5.42",
+          "published_at": "2026-08-27T05:47:42Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.42",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.5",
+          "name": "v3.6.0-rc.5",
+          "published_at": "2026-08-21T09:21:06Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.5",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.4",
+          "name": "v3.6.0-rc.4",
+          "published_at": "2026-08-14T08:58:48Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.4",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.3",
+          "name": "v3.6.0-rc.3",
+          "published_at": "2026-08-11T03:55:47Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.3",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.5.41",
+          "name": "v3.5.41",
+          "published_at": "2026-08-05T06:59:01Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.41",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.2",
+          "name": "v3.6.0-rc.2",
+          "published_at": "2026-07-22T09:32:10Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.2",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v3.6.0-rc.1",
+          "name": "v3.6.0-rc.1",
+          "published_at": "2026-07-18T01:12:03Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.1",
+          "prerelease": true,
+          "is_new": false
+        }
+      ]
+    },
+    {
+      "full_name": "langgenius/dify",
+      "alias": null,
+      "tags": [
+        "AI"
+      ],
+      "html_url": "https://github.com/langgenius/dify",
+      "pushed_at": "2026-09-12T11:14:36Z",
+      "releases": [
+        {
+          "tag_name": "1.17.1",
+          "name": "v1.17.1 - Bug Fixes and Improvements",
+          "published_at": "2026-09-10T10:04:06Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.17.1",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.17.0",
+          "name": "v1.17.0",
+          "published_at": "2026-08-25T11:28:25Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.17.0",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.16.1",
+          "name": "v1.16.1 - Bug Fixes and Security Enhancements",
+          "published_at": "2026-07-28T03:43:51Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.16.1",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.16.0",
+          "name": "v1.16.0",
+          "published_at": "2026-07-17T11:14:06Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.16.0",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.16.0-rc1",
+          "name": "v1.16.0-rc1",
+          "published_at": "2026-07-09T14:06:30Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.16.0-rc1",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.15.0",
+          "name": "1.15.0",
+          "published_at": "2026-06-25T13:16:14Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.15.0",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.14.2",
+          "name": "v1.14.2 - Security fixes, agent groundwork, workflow reliability, and deployment updates",
+          "published_at": "2026-05-19T05:34:25Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.2",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.14.1",
+          "name": "v1.14.1 - Security hardening, workflow stability, and cleaner self-hosted deployments",
+          "published_at": "2026-05-12T08:19:23Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.1",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.14.0",
+          "name": "v1.14.0",
+          "published_at": "2026-04-29T04:06:08Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.0",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "1.13.3",
+          "name": "v1.13.3",
+          "published_at": "2026-03-27T08:46:46Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.13.3",
+          "prerelease": false,
+          "is_new": false
+        }
+      ]
+    },
+    {
+      "full_name": "microsoft/TypeScript",
+      "alias": null,
+      "tags": [
+        "语言"
+      ],
+      "html_url": "https://github.com/microsoft/TypeScript",
+      "pushed_at": "2026-09-12T00:32:38Z",
+      "releases": [
+        {
+          "tag_name": "v7.0.2",
+          "name": "TypeScript 7.0.2",
+          "published_at": "2026-08-20T18:09:49Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v7.0.2",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v6.0.3",
+          "name": "TypeScript 6.0.3",
+          "published_at": "2026-04-16T23:43:08Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0.3",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v6.0.2",
+          "name": "TypeScript 6.0",
+          "published_at": "2026-03-23T16:19:11Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0.2",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v6.0-rc",
+          "name": "TypeScript 6.0.1 RC",
+          "published_at": "2026-03-06T17:56:53Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0-rc",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v6.0-beta",
+          "name": "TypeScript 6.0 Beta",
+          "published_at": "2026-02-18T18:11:46Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0-beta",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v5.9.2",
+          "name": "TypeScript 5.9",
+          "published_at": "2025-10-01T20:37:10Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9.2",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v5.9-rc",
+          "name": "TypeScript 5.9 RC",
+          "published_at": "2025-10-01T20:35:11Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9-rc",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v5.9-beta",
+          "name": "TypeScript 5.9 Beta",
+          "published_at": "2025-10-01T20:32:50Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9-beta",
+          "prerelease": true,
+          "is_new": false
+        },
+        {
+          "tag_name": "v5.8.3",
+          "name": "TypeScript 5.8.3",
+          "published_at": "2025-10-01T20:29:30Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.8.3",
+          "prerelease": false,
+          "is_new": false
+        },
+        {
+          "tag_name": "v5.9.3",
+          "name": "TypeScript 5.9.3",
+          "published_at": "2025-10-01T19:06:07Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9.3",
+          "prerelease": false,
+          "is_new": false
+        }
+      ]
+    }
+  ]
 }
