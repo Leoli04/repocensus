@@ -2,8 +2,8 @@ name: Generate Dashboard
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at 00:00 UTC — full refresh
-    - cron: '0 12 * * *' # Every day at 12:00 UTC — incremental followed-repos fetch
+    - cron: '0 0 * * 0' # Every Sunday at 00:00 UTC — extra full refresh
+    - cron: '0 12 * * *' # Every day at 12:00 UTC (= 20:00 Beijing) — full refresh + redeploy
   workflow_dispatch: # Manual trigger
   push:
     branches: [main]
@@ -41,14 +41,12 @@ jobs:
         run: npm ci
 
       - name: Fetch GitHub data (full)
-        if: github.event.schedule != '0 12 * * *'
         run: npx tsx scripts/fetch.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
 
       - name: Fetch followed repos (incremental)
-        if: github.event.schedule == '0 12 * * *'
         run: npx tsx scripts/fetch-followed.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

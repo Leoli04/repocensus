@@ -131,11 +131,13 @@ async function main() {
       const knownTags = new Set(
         (prevByRepo.get(cfg.full_name)?.releases || []).map((r) => r.tag_name)
       )
+      // First-ever run = baseline snapshot: mark nothing as new to avoid noise
+      const isBaseline = !prevByRepo.has(cfg.full_name)
 
       const releases: ReleaseUpdate[] = (Array.isArray(releasesRaw) ? releasesRaw : [])
         .slice(0, MAX_RELEASES)
         .map((r: any) => {
-          const isNew = !knownTags.has(r.tag_name)
+          const isNew = !isBaseline && !knownTags.has(r.tag_name)
           if (isNew) newCount++
           return {
             tag_name: r.tag_name || '',

@@ -21,6 +21,18 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.8.1',
+    date: '2026-09-12',
+    type: 'fix',
+    items: [
+      '修复：v1.8.0 的四个新组件（热力图/趋势图/关注动态/详情面板）未实际挂载到页面，本次已全部接入对应 Tab',
+      '修复：热力图在 UTC+8 时区日期错位一天（toISOString 时区偏移）',
+      '修复：首次采集关注项目时全部 Release 误标为「新」，现首次运行作为基线不再标记',
+      '改进：每日定时任务（北京 20:00）改为全量刷新 + 重新部署，不再只跑增量',
+      '修复：顶栏版本徽章仍显示 v1.7.0 的不一致',
+    ],
+  },
+  {
     version: 'v1.8.0',
     date: '2026-09-12',
     type: 'release',

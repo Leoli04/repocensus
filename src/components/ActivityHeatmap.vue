@@ -8,6 +8,15 @@ const { t } = useI18n()
 
 const WEEKS = 52
 
+// Local-date key (YYYY-MM-DD). Do NOT use toISOString() — it converts to UTC
+// and shifts the date back one day for timezones east of UTC (e.g. UTC+8).
+function localDateKey(d: Date): string {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
 interface DayCell {
   date: string
   count: number
@@ -22,7 +31,7 @@ const grid = computed<{ weeks: DayCell[][]; max: number; monthLabels: { col: num
     if (!repo.pushed_at) continue
     const day = new Date(repo.pushed_at)
     day.setHours(0, 0, 0, 0)
-    const key = day.toISOString().slice(0, 10)
+    const key = localDateKey(day)
     counts.set(key, (counts.get(key) || 0) + 1)
   }
 
@@ -45,7 +54,7 @@ const grid = computed<{ weeks: DayCell[][]; max: number; monthLabels: { col: num
   for (let w = 0; w < WEEKS; w++) {
     const col: DayCell[] = []
     for (let d = 0; d < 7; d++) {
-      const iso = cursor.toISOString().slice(0, 10)
+      const iso = localDateKey(cursor)
       const future = cursor.getTime() > today.getTime()
       const count = counts.get(iso) || 0
       if (count > max) max = count

@@ -176,7 +176,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.7.0'
+const APP_VERSION = 'v1.8.1'
 </script>
 
 <template>
@@ -259,6 +259,9 @@ const APP_VERSION = 'v1.7.0'
         <div id="star-timeline">
           <StarTimeline :stars="newStars" />
         </div>
+
+        <!-- Contribution Heatmap (v1.8) -->
+        <ActivityHeatmap :repos="data.repos" />
       </template>
 
       <!-- ══ Repos Tab ══ -->
@@ -436,10 +439,9 @@ const APP_VERSION = 'v1.7.0'
         </div>
 
         <!-- Followed projects (v2.4, placeholder) -->
-        <section class="coming-soon">
-          <h3 class="section-title">📡 {{ t('tab.activity') }}</h3>
-          <p class="coming-soon-text">{{ t('tab.activityComing') }}</p>
-        </section>
+        <TrendChart :history="data.history" />
+
+        <FollowedFeed />
       </template>
 
       <!-- ══ Profile Tab ══ -->
@@ -471,6 +473,9 @@ const APP_VERSION = 'v1.7.0'
 
     <!-- Version Panel -->
     <VersionPanel v-model="showVersionPanel" />
+
+    <!-- Repo Detail Slide Panel (v2.2) -->
+    <RepoDetailPanel :repo="selectedRepo" @close="selectedRepo = null" />
 
     <!-- Footer -->
     <footer class="footer">
