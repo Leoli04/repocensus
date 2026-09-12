@@ -1,0 +1,18 @@
+{
+  "name": "RepoCensus — GitHub Repo Census Dashboard",
+  "short_name": "RepoCensus",
+  "description": "Fork-and-go GitHub repository census dashboard with smart categorization",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

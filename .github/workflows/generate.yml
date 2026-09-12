@@ -18,6 +18,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write # followed-releases notifier (v1.10)
 
 concurrency:
   group: 'pages'
@@ -50,6 +51,13 @@ jobs:
         run: npx tsx scripts/fetch-followed.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify followed updates (create issue if new releases)
+        if: github.event_name == 'schedule'
+        run: npx tsx scripts/notify-followed.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
       - name: Build
         run: npm run build

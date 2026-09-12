@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import type { Repo } from '../engine/types'
 import { useI18n } from '../i18n'
 import { useRepoMeta } from '../composables/useRepoMeta'
@@ -11,6 +11,90 @@ const emit = defineEmits<{ close: [] }>()
 
 const { t, catLabel, locale } = useI18n()
 const { getMeta } = useRepoMeta()
+
+// ── README quick view (v1.10) ─────────────────────────────
+const readmeState = ref<'idle' | 'loading' | 'ok' | 'error'>('idle')
+const readmeHtml = ref('')
+const readmeRepoKey = ref('')
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+
+/** Minimal, XSS-safe markdown rendering: escape first, then transform */
+function renderMarkdown(md: string): string {
+  const capped = md.slice(0, 12000) + (md.length > 12000 ? '\n\n…' : '')
+  const escaped = escapeHtml(capped)
+  const lines = escaped.split('\n')
+  const out: string[] = []
+  let inCode = false
+  for (const line of lines) {
+    if (line.trim().startsWith('```')) {
+      out.push(inCode ? '</code></pre>' : '<pre><code>')
+      inCode = !inCode
+      continue
+    }
+    if (inCode) {
+      out.push(line)
+      continue
+    }
+    let l = line
+    l = l.replace(/`([^`]+)`/g, '<code>$1</code>')
+    l = l.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    l = l.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    const heading = l.match(/^(#{1,4})\s+(.*)$/)
+    if (heading) {
+      const level = heading[1].length
+      out.push(`<h${level + 2}>${heading[2]}</h${level + 2}>`)
+      continue
+    }
+    const bullet = l.match(/^\s*[-*]\s+(.*)$/)
+    if (bullet) {
+      out.push(`<div class="md-li">• ${bullet[1]}</div>`)
+      continue
+    }
+    if (l.startsWith('<img')) continue // skip raw escaped image tags
+    out.push(l.trim() === '' ? '<div class="md-gap"></div>' : `<div>${l}</div>`)
+  }
+  if (inCode) out.push('</code></pre>')
+  return out.join('\n')
+}
+
+async function loadReadme() {
+  if (!props.repo) return
+  readmeRepoKey.value = props.repo.full_name
+  readmeState.value = 'loading'
+  try {
+    const headers: Record<string, string> = { Accept: 'application/vnd.github.raw' }
+    const token = localStorage.getItem('repocensus:gh-token')
+    if (token) headers.Authorization = `Bearer ${token}`
+    const resp = await fetch(`https://api.github.com/repos/${props.repo.full_name}/readme`, { headers })
+    if (!resp.ok) throw new Error(String(resp.status))
+    const md = await resp.text()
+    readmeHtml.value = renderMarkdown(md)
+    readmeState.value = 'ok'
+  } catch {
+    readmeState.value = 'error'
+  }
+}
+
+function toggleReadme() {
+  if (readmeState.value === 'ok') {
+    readmeState.value = 'idle'
+    return
+  }
+  loadReadme()
+}
+
+// Reset readme state when switching repos
+watch(
+  () => props.repo?.full_name,
+  () => {
+    readmeState.value = 'idle'
+    readmeHtml.value = ''
+    readmeRepoKey.value = ''
+  }
+)
 
 const meta = computed(() => (props.repo ? getMeta(props.repo.id) : { note: '', tags: [] }))
 
@@ -107,7 +191,15 @@ watch(
               >
                 🌐 {{ t('detail.homepage') }}
               </a>
+              <button class="action-btn" @click="toggleReadme">
+                📖 {{ readmeState === 'ok' ? t('detail.readmeHide') : t('detail.readme') }}
+              </button>
             </div>
+
+            <!-- README quick view (v1.10) -->
+            <div v-if="readmeState === 'loading'" class="readme-block readme-loading">⏳ {{ t('detail.readmeLoading') }}</div>
+            <p v-else-if="readmeState === 'error'" class="readme-block readme-error">{{ t('detail.readmeError') }}</p>
+            <div v-else-if="readmeState === 'ok'" class="readme-block readme-body" v-html="readmeHtml" />
 
             <!-- Stats grid -->
             <div class="stat-grid">
@@ -321,6 +413,73 @@ watch(
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
+}
+
+/* README quick view (v1.10) */
+.readme-block {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+}
+
+.readme-loading,
+.readme-error {
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.readme-error {
+  color: #ef4444;
+}
+
+.readme-body {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.readme-body h3,
+.readme-body h4,
+.readme-body h5,
+.readme-body h6 {
+  margin: 10px 0 4px;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.readme-body code {
+  background: var(--badge-bg);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+}
+
+.readme-body pre {
+  background: var(--badge-bg);
+  border-radius: 8px;
+  padding: 10px;
+  overflow-x: auto;
+  font-size: 11px;
+  margin: 6px 0;
+}
+
+.readme-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.readme-body a {
+  color: var(--accent);
+}
+
+.readme-body .md-li {
+  padding-left: 8px;
+}
+
+.readme-body .md-gap {
+  height: 6px;
 }
 
 .stat-grid {

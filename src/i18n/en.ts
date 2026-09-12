@@ -335,4 +335,8 @@ export default {
   'detail.pushed': 'Last push',
   'detail.forkFrom': 'Forked from',
   'detail.topics': 'Topics',
+  'detail.readme': 'README',
+  'detail.readmeHide': 'Hide README',
+  'detail.readmeLoading': 'Loading README…',
+  'detail.readmeError': 'Failed to load README (possibly rate limited), try again later',
 }

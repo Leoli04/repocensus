@@ -21,6 +21,18 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.10.0',
+    date: '2026-09-12',
+    type: 'release',
+    items: [
+      '语言分布环形图：技术画像语言卡片新增 Donut 图 + 图例，中心显示占比最高语言',
+      '仓库详情面板新增 README 速览：一键加载 README（Markdown 轻量渲染，XSS 安全）',
+      'PWA 支持：manifest + Service Worker（stale-while-revalidate），可安装到桌面/手机',
+      'Release 通知：每日采集发现关注项目新版本时自动创建 GitHub Issue 汇总',
+      'scripts/dev-sync.ps1：本地副本一键同步远端 main（保留 node_modules/.git）',
+    ],
+  },
+  {
     version: 'v1.9.0',
     date: '2026-09-12',
     type: 'release',

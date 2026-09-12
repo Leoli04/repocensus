@@ -23,6 +23,30 @@ const langColors: Record<string, string> = {
 
 const maxLangCount = computed(() => Math.max(...props.profile.languages.map((l) => l.count), 1))
 
+// ── Language donut (v1.10) ────────────────────────────────
+const DONUT_R = 40
+const DONUT_C = 2 * Math.PI * DONUT_R
+
+const donutSegs = computed(() => {
+  const langs = props.profile.languages.slice(0, 8)
+  const total = langs.reduce((s, l) => s + l.count, 0) || 1
+  let offset = 0
+  return langs.map((l) => {
+    const len = (l.count / total) * DONUT_C
+    const seg = {
+      color: langColors[l.name] || '#888',
+      dasharray: `${Math.max(len - 1.5, 0.5)} ${DONUT_C}`,
+      dashoffset: -offset,
+      name: l.name,
+      pct: Math.round((l.count / total) * 100),
+    }
+    offset += len
+    return seg
+  })
+})
+
+const donutTop = computed(() => donutSegs.value[0])
+
 const activityTotal = computed(() =>
   props.profile.activity.active + props.profile.activity.silent + props.profile.activity.archived
 )
@@ -40,6 +64,36 @@ import { computed } from 'vue'
       <!-- Language Distribution -->
       <div class="profile-card">
         <h4 class="card-title">{{ t('tech.langDist') }}</h4>
+        <div class="lang-donut-row">
+          <!-- Donut chart (v1.10) -->
+          <div v-if="donutSegs.length" class="donut-wrap">
+            <svg viewBox="0 0 100 100" class="donut-svg" role="img">
+              <circle cx="50" cy="50" :r="DONUT_R" fill="none" stroke="var(--bar-track)" stroke-width="14" />
+              <circle
+                v-for="seg in donutSegs"
+                :key="seg.name"
+                cx="50"
+                cy="50"
+                :r="DONUT_R"
+                fill="none"
+                :stroke="seg.color"
+                stroke-width="14"
+                :stroke-dasharray="seg.dasharray"
+                :stroke-dashoffset="seg.dashoffset"
+                transform="rotate(-90 50 50)"
+              />
+            </svg>
+            <div class="donut-center">
+              <span class="donut-top-lang">{{ donutTop?.name || '—' }}</span>
+              <span class="donut-top-pct">{{ donutTop?.pct || 0 }}%</span>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <span v-for="seg in donutSegs" :key="seg.name" class="donut-legend-item">
+              <i class="dot" :style="{ background: seg.color }" />{{ seg.name }} {{ seg.pct }}%
+            </span>
+          </div>
+        </div>
         <div class="lang-bars">
           <div v-for="lang in profile.languages.slice(0, 8)" :key="lang.name" class="lang-bar">
             <span class="lang-name">{{ lang.name }}</span>
@@ -144,6 +198,73 @@ import { computed } from 'vue'
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Language donut (v1.10) */
+.lang-donut-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.donut-wrap {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+}
+
+.donut-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-top-lang {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.donut-top-pct {
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.donut-legend-item {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.donut-legend-item .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 
 .lang-bar {

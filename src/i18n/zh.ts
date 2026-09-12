@@ -335,4 +335,8 @@ export default {
   'detail.pushed': '最近推送',
   'detail.forkFrom': 'Fork 自',
   'detail.topics': 'Topics',
+  'detail.readme': 'README',
+  'detail.readmeHide': '收起 README',
+  'detail.readmeLoading': '正在加载 README…',
+  'detail.readmeError': 'README 加载失败（可能是 API 限额），稍后再试',
 }
