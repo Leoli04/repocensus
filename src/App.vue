@@ -21,6 +21,8 @@ import TrendChart from './components/TrendChart.vue'
 import FollowedFeed from './components/FollowedFeed.vue'
 import ActivityHeatmap from './components/ActivityHeatmap.vue'
 import RepoDetailPanel from './components/RepoDetailPanel.vue'
+import ComparePanel from './components/ComparePanel.vue'
+import LearningPath from './components/LearningPath.vue'
 import type { Repo } from './engine/types'
 
 // ── Active tab (persisted) ────────────────────────────────
@@ -176,7 +178,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.8.1'
+const APP_VERSION = 'v1.9.0'
 </script>
 
 <template>
@@ -456,18 +458,20 @@ const APP_VERSION = 'v1.8.1'
           <RecommendBoard />
         </div>
 
+        <!-- Learning Path (v2.8) -->
+        <div id="learning-path">
+          <LearningPath :repos="data.repos" />
+        </div>
+
         <!-- Share Card & Badges -->
         <div id="share">
           <ShareCard :data="data" />
         </div>
       </template>
 
-      <!-- ══ Compare Tab ══ -->
+      <!-- ══ Compare Tab (v2.1) ══ -->
       <template v-else-if="activeTab === 'compare'">
-        <section class="coming-soon">
-          <h3 class="section-title">⚖️ {{ t('tab.compare') }}</h3>
-          <p class="coming-soon-text">{{ t('tab.compareComing') }}</p>
-        </section>
+        <ComparePanel :data="data" />
       </template>
     </main>
 

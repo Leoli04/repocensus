@@ -293,6 +293,37 @@ export default {
   'follow.noRelease': '暂无 Release',
   'follow.lastPush': '最近推送 {ago}',
 
+  // 多用户对比 (v2.1)
+  'cmp.title': '多用户对比',
+  'cmp.subtitle': '输入任意 GitHub 用户名，并排对比双方技术画像与仓库重叠度',
+  'cmp.placeholder': 'GitHub 用户名，如 torvalds',
+  'cmp.go': '对比',
+  'cmp.hint': '浏览器端直接调用 GitHub 公共 API，未登录限额 60 次/小时；可在 localStorage 写入 repocensus:gh-token 提高限额',
+  'cmp.errSelf': '不能和自己对比 😄',
+  'cmp.errNotFound': '找不到用户 {name}，请检查用户名',
+  'cmp.errRate': 'GitHub API 限额已用完（60 次/小时），请稍后再试，或配置 repocensus:gh-token',
+  'cmp.errFetch': '请求失败，请检查网络后重试',
+  'cmp.you': '我',
+  'cmp.repos': '自建仓库',
+  'cmp.totalStars': '收到 Star',
+  'cmp.active': '半年活跃',
+  'cmp.avgStars': '场均 Star',
+  'cmp.langs': '语言分布',
+  'cmp.topRepos': '明星仓库',
+  'cmp.overlapTitle': '仓库重叠度',
+  'cmp.overlapNum': '共同 {n} 个 · {p}%',
+  'cmp.overlapNone': '双方没有共同仓库，兴趣完全互补 🎉',
+
+  // 学习路径视角 (v2.8)
+  'learn.title': '学习路径',
+  'learn.subtitle': '你的自建仓库按成熟度分为三阶：入门练手 → 进阶打磨 → 实战旗舰',
+  'learn.starter': '入门 · 练手',
+  'learn.starterHint': '刚起步或小实验项目，适合作为练手记录',
+  'learn.mid': '进阶 · 打磨',
+  'learn.midHint': '有一定完成度或获得关注的项目',
+  'learn.advanced': '实战 · 旗舰',
+  'learn.advancedHint': '你的代表作，可写进简历的重点项目',
+
   // 仓库详情侧滑面板 (v2.2)
   'detail.openHint': '点击查看详情',
   'detail.homepage': '主页',

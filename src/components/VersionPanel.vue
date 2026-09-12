@@ -21,6 +21,17 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.9.0',
+    date: '2026-09-12',
+    type: 'release',
+    items: [
+      '多用户对比 (v2.1)：输入任意 GitHub 用户名，并排对比技术画像（仓库数/Star/活跃/语言分布/明星仓库，优胜项高亮）+ 仓库重叠度',
+      '对比页为最后一个占位 Tab，至此四个 Tab 全部为实功能',
+      '学习路径视角 (v2.8)：自建仓库按成熟度分为 入门练手 → 进阶打磨 → 实战旗舰 三阶展示',
+      '对比面板支持 localStorage 写入 repocensus:gh-token 提升 API 限额',
+    ],
+  },
+  {
     version: 'v1.8.1',
     date: '2026-09-12',
     type: 'fix',
@@ -145,18 +156,12 @@ const todoGroups: TodoGroup[] = [
   {
     tier: '⭐ 中优先级',
     tierClass: 'tier-mid',
-    items: [
-      { name: '多用户对比', desc: '输入 GitHub 用户名对比技术画像，Star 重叠度计算（v2.1）', icon: '👥' },
-      { name: '移动端适配', desc: '响应式布局优化，手机浏览可用', icon: '📱' },
-    ],
+    items: [{ name: '移动端适配', desc: '响应式布局优化，手机浏览可用', icon: '📱' }],
   },
   {
     tier: '📋 待规划',
     tierClass: 'tier-low',
-    items: [
-      { name: 'AI 洞察摘要', desc: '可选 LLM：画像总结、整理建议、动态周报（v2.5）', icon: '✨' },
-      { name: '学习路径视角', desc: '入门→进阶→实战 学习模板（v2.8）', icon: '🎓' },
-    ],
+    items: [{ name: 'AI 洞察摘要', desc: '可选 LLM：画像总结、整理建议、动态周报（v2.5）', icon: '✨' }],
   },
 ]
 </script>

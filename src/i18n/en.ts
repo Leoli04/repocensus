@@ -293,6 +293,37 @@ export default {
   'follow.noRelease': 'No releases',
   'follow.lastPush': 'last push {ago}',
 
+  // Multi-user compare (v2.1)
+  'cmp.title': 'Multi-user Compare',
+  'cmp.subtitle': 'Enter any GitHub username to compare tech profiles & repo overlap side by side',
+  'cmp.placeholder': 'GitHub username, e.g. torvalds',
+  'cmp.go': 'Compare',
+  'cmp.hint': 'Calls the GitHub public API from your browser (60 req/hr unauthenticated); set localStorage key repocensus:gh-token to raise the limit',
+  'cmp.errSelf': 'You cannot compare with yourself 😄',
+  'cmp.errNotFound': 'User {name} not found, check the username',
+  'cmp.errRate': 'GitHub API rate limit exhausted (60/hr). Try later or set repocensus:gh-token',
+  'cmp.errFetch': 'Request failed, check your network and retry',
+  'cmp.you': 'Me',
+  'cmp.repos': 'Original repos',
+  'cmp.totalStars': 'Stars earned',
+  'cmp.active': 'Active (6mo)',
+  'cmp.avgStars': 'Avg stars/repo',
+  'cmp.langs': 'Languages',
+  'cmp.topRepos': 'Top repos',
+  'cmp.overlapTitle': 'Repo Overlap',
+  'cmp.overlapNum': '{n} in common · {p}%',
+  'cmp.overlapNone': 'No shared repos — perfectly complementary interests 🎉',
+
+  // Learning path (v2.8)
+  'learn.title': 'Learning Path',
+  'learn.subtitle': 'Your original repos split into three maturity tiers: Starter → Intermediate → Advanced',
+  'learn.starter': '① Starter',
+  'learn.starterHint': 'Early experiments and small practice projects',
+  'learn.mid': '② Intermediate',
+  'learn.midHint': 'Projects with reasonable completeness or some traction',
+  'learn.advanced': '③ Advanced',
+  'learn.advancedHint': 'Your flagship work — resume-worthy highlights',
+
   // Repo detail panel (v2.2)
   'detail.openHint': 'Click to view details',
   'detail.homepage': 'Homepage',
