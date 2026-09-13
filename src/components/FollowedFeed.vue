@@ -4,6 +4,17 @@ import { useFollowed } from '../composables/useFollowed'
 import { useI18n } from '../i18n'
 import { daysSince } from '../engine/categorizer'
 
+const props = withDefaults(
+  defineProps<{
+    /** Max entries to show. 0 / undefined = no limit (full page) */
+    limit?: number
+    /** Full-page variant (no filter pills, no "view more") */
+    full?: boolean
+  }>(),
+  { limit: 10, full: false }
+)
+const emit = defineEmits<{ (e: 'viewAll'): void }>()
+
 const { t, locale } = useI18n()
 const { data, newCount } = useFollowed()
 
@@ -56,9 +67,15 @@ const allEntries = computed<Entry[]>(() => {
 
 // Filter: all / only new
 const showOnlyNew = ref(false)
-const entries = computed(() =>
+const filtered = computed(() =>
   showOnlyNew.value ? allEntries.value.filter((e) => e.is_new) : allEntries.value
 )
+
+// Cap the list on the tab view; the full page passes limit = 0
+const entries = computed(() =>
+  props.limit && props.limit > 0 ? filtered.value.slice(0, props.limit) : filtered.value
+)
+const hasMore = computed(() => props.limit > 0 && filtered.value.length > props.limit)
 
 // Expanded release notes
 const expanded = ref<Set<string>>(new Set())
@@ -268,6 +285,14 @@ function fmtDate(iso: string): string {
         </footer>
       </article>
     </div>
+
+    <!-- View more → full page -->
+    <button v-if="hasMore" class="view-all-btn" @click="emit('viewAll')">
+      {{ t('follow.viewAll', { n: filtered.length }) }} →
+    </button>
+    <p v-else-if="props.full === false && filtered.length > 0" class="feed-end">
+      {{ t('follow.endOfList') }}
+    </p>
   </section>
 </template>
 
@@ -603,5 +628,33 @@ function fmtDate(iso: string): string {
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
+}
+
+/* ── View all ── */
+.view-all-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed var(--card-border);
+  background: var(--card-bg);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.view-all-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg, rgba(59, 130, 246, 0.1));
+}
+
+.feed-end {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin: 14px 0 0;
 }
 </style>

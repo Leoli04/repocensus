@@ -5,11 +5,45 @@ import { computeChange } from '../engine/changeTracker'
 import { useI18n } from '../i18n'
 import { useRepos } from '../composables/useRepos'
 
-const props = defineProps<{ history?: ChangeSnapshot[] }>()
+const props = withDefaults(
+  defineProps<{
+    history?: ChangeSnapshot[]
+    /** Max rows per block; 0 = unlimited (full page) */
+    limit?: number
+    /** Full-page variant */
+    full?: boolean
+  }>(),
+  { limit: 10, full: false }
+)
+const emit = defineEmits<{ (e: 'viewAll'): void }>()
 const { t, locale } = useI18n()
 const { data } = useRepos()
 
 const diff = computed(() => computeChange(props.history))
+
+/** Cap a list for the tab view */
+function capped<T>(list: T[]): T[] {
+  return props.limit > 0 ? list.slice(0, props.limit) : list
+}
+
+/** Any block truncated → offer "view all" */
+const hasMore = computed(() => {
+  const d = diff.value
+  if (!d || props.limit <= 0) return false
+  return (
+    d.added.length > props.limit ||
+    d.removed.length > props.limit ||
+    d.starUp.length > props.limit ||
+    d.starDown.length > props.limit
+  )
+})
+
+/** Total affected rows (for the "view all" label) */
+const totalRows = computed(() => {
+  const d = diff.value
+  if (!d) return 0
+  return d.added.length + d.removed.length + d.starUp.length + d.starDown.length
+})
 
 // Lookup the live html_url (fall back to the snapshot's captured url)
 const urlMap = computed(() => {
@@ -85,7 +119,7 @@ const hasChanges = computed(() => {
         <div v-if="diff.added.length" class="change-block">
           <h4 class="block-title added">＋ {{ t('change.added') }}</h4>
           <ul class="change-list">
-            <li v-for="r in diff.added" :key="r.full_name">
+            <li v-for="r in capped(diff.added)" :key="r.full_name">
               <a :href="repoUrl(r.full_name)" target="_blank" rel="noopener">{{ r.full_name }}</a>
               <span class="stars">⭐ {{ r.stars }}</span>
             </li>
@@ -96,7 +130,7 @@ const hasChanges = computed(() => {
         <div v-if="diff.removed.length" class="change-block">
           <h4 class="block-title removed">－ {{ t('change.removed') }}</h4>
           <ul class="change-list">
-            <li v-for="r in diff.removed" :key="r.full_name">
+            <li v-for="r in capped(diff.removed)" :key="r.full_name">
               <span class="removed-name">{{ r.full_name }}</span>
               <span class="stars">⭐ {{ r.stars }}</span>
             </li>
@@ -107,7 +141,7 @@ const hasChanges = computed(() => {
         <div v-if="diff.starUp.length" class="change-block">
           <h4 class="block-title up">▲ {{ t('change.starUp') }}</h4>
           <ul class="change-list">
-            <li v-for="r in diff.starUp" :key="r.full_name">
+            <li v-for="r in capped(diff.starUp)" :key="r.full_name">
               <a :href="repoUrl(r.full_name)" target="_blank" rel="noopener">{{ r.full_name }}</a>
               <span class="delta up">+{{ r.delta }} <span class="muted">({{ r.from }} → {{ r.to }})</span></span>
             </li>
@@ -118,12 +152,17 @@ const hasChanges = computed(() => {
         <div v-if="diff.starDown.length" class="change-block">
           <h4 class="block-title down">▼ {{ t('change.starDown') }}</h4>
           <ul class="change-list">
-            <li v-for="r in diff.starDown" :key="r.full_name">
+            <li v-for="r in capped(diff.starDown)" :key="r.full_name">
               <a :href="repoUrl(r.full_name)" target="_blank" rel="noopener">{{ r.full_name }}</a>
               <span class="delta down">{{ r.delta }} <span class="muted">({{ r.from }} → {{ r.to }})</span></span>
             </li>
           </ul>
         </div>
+
+        <!-- View more → full page -->
+        <button v-if="hasMore" class="view-all-btn" @click="emit('viewAll')">
+          {{ t('change.viewAll', { n: totalRows }) }} →
+        </button>
       </template>
     </template>
   </section>
@@ -280,6 +319,26 @@ const hasChanges = computed(() => {
   background: var(--card-bg);
   border: 1px dashed var(--card-border);
   border-radius: 12px;
+}
+
+.view-all-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed var(--card-border);
+  background: var(--card-bg);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.view-all-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg, rgba(59, 130, 246, 0.1));
 }
 
 @media (max-width: 768px) {

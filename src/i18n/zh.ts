@@ -267,6 +267,12 @@ export default {
   'change.stars': 'Stars',
   'change.repoName': '仓库',
   'change.delta': '变化',
+  'change.viewAll': '查看更多（共 {n} 条）',
+
+  // 查看全部页面 (v1.12)
+  'all.back': '返回',
+  'all.generated': '数据生成于 {date}',
+  'all.repoCount': '{n} 个关注项目',
 
   // 变化趋势图 (v2.3)
   'trend.title': '📉 变化趋势',
@@ -299,6 +305,8 @@ export default {
   'follow.readLess': '收起',
   'follow.filterAll': '全部',
   'follow.filterNew': '仅新动态',
+  'follow.viewAll': '查看更多（共 {n} 条）',
+  'follow.endOfList': '已经到底啦',
   'follow.releaseCount': '{n} 个版本',
   'follow.noRelease': '暂无 Release',
   'follow.lastPush': '最近推送 {ago}',

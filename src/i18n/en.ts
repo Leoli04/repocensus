@@ -267,6 +267,12 @@ export default {
   'change.stars': 'Stars',
   'change.repoName': 'Repo',
   'change.delta': 'Delta',
+  'change.viewAll': 'View more ({n} total)',
+
+  // View-all page (v1.12)
+  'all.back': 'Back',
+  'all.generated': 'Generated at {date}',
+  'all.repoCount': '{n} followed repos',
 
   // Trend charts (v2.3)
   'trend.title': '📉 Trends',
@@ -299,6 +305,8 @@ export default {
   'follow.readLess': 'Read less',
   'follow.filterAll': 'All',
   'follow.filterNew': 'New only',
+  'follow.viewAll': 'View more ({n} total)',
+  'follow.endOfList': 'That is all',
   'follow.releaseCount': '{n} releases',
   'follow.noRelease': 'No releases',
   'follow.lastPush': 'last push {ago}',

@@ -21,6 +21,17 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.12.0',
+    date: '2026-09-13',
+    type: 'release',
+    items: [
+      '关注动态移回动态页并置于最上方，默认只展示最近 10 条，「查看更多」跳转全屏页展示全部',
+      '变化追踪（Star 上涨/下跌/新增/移除）同样只展示前 10 条并按块提供「查看更多」',
+      '新增全屏「查看全部」页（hash 路由 #/all/releases、#/all/changes），带返回按钮与 Esc 关闭',
+      '侧边快速定位导航上线：按当前 Tab 动态生成锚点，滚动自动高亮，点击平滑定位，到页顶自动隐藏',
+    ],
+  },
+  {
     version: 'v1.11.0',
     date: '2026-09-13',
     type: 'release',

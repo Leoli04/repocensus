@@ -23,6 +23,8 @@ import ActivityHeatmap from './components/ActivityHeatmap.vue'
 import RepoDetailPanel from './components/RepoDetailPanel.vue'
 import ComparePanel from './components/ComparePanel.vue'
 import LearningPath from './components/LearningPath.vue'
+import SectionNav from './components/SectionNav.vue'
+import AllView from './components/AllView.vue'
 import type { Repo } from './engine/types'
 
 // ── Active tab (persisted) ────────────────────────────────
@@ -165,6 +167,12 @@ function openRepoDetail(repo: Repo) {
   selectedRepo.value = repo
 }
 
+// ── Full-page "view all" views via hash routing (v1.12) ──
+function openAll(kind: 'releases' | 'changes') {
+  location.hash = `#/all/${kind}`
+  window.scrollTo({ top: 0, behavior: 'auto' })
+}
+
 // Flat view toggle
 const viewMode = ref<'grouped' | 'flat' | 'trending'>('grouped')
 
@@ -178,7 +186,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.11.0'
+const APP_VERSION = 'v1.12.0'
 </script>
 
 <template>
@@ -223,11 +231,11 @@ const APP_VERSION = 'v1.11.0'
       <!-- Top Tab Bar -->
       <TabBar :active="activeTab" @update:active="(id) => (activeTab = id)" />
 
+      <!-- Side quick-jump navigation (v1.12) -->
+      <SectionNav :active="activeTab" />
+
       <!-- ══ Overview Tab ══ -->
       <template v-if="activeTab === 'overview'">
-        <!-- Followed projects feed — pinned to the very top (v1.11) -->
-        <FollowedFeed />
-
         <section id="overview" class="stat-cards">
           <div class="stat-card">
             <span class="stat-value">{{ stats.total }}</span>
@@ -266,7 +274,9 @@ const APP_VERSION = 'v1.11.0'
         </div>
 
         <!-- Contribution Heatmap (v1.8) -->
-        <ActivityHeatmap :repos="data.repos" />
+        <div id="heatmap">
+          <ActivityHeatmap :repos="data.repos" />
+        </div>
       </template>
 
       <!-- ══ Repos Tab ══ -->
@@ -438,13 +448,20 @@ const APP_VERSION = 'v1.11.0'
 
       <!-- ══ Activity Tab ══ -->
       <template v-else-if="activeTab === 'activity'">
-        <!-- Change Tracking -->
-        <div id="changes">
-          <ChangeTracker :history="data.history" />
+        <!-- ① Followed projects feed — top of the tab, latest 10 (v1.12) -->
+        <div id="followed-feed">
+          <FollowedFeed :limit="10" @view-all="openAll('releases')" />
         </div>
 
-        <!-- Followed projects (v2.4, placeholder) -->
-        <TrendChart :history="data.history" />
+        <!-- ② Change tracking — latest 10 rows per block (v1.12) -->
+        <div id="changes">
+          <ChangeTracker :history="data.history" :limit="10" @view-all="openAll('changes')" />
+        </div>
+
+        <!-- ③ Star trend charts -->
+        <div id="trend">
+          <TrendChart :history="data.history" />
+        </div>
       </template>
 
       <!-- ══ Profile Tab ══ -->
@@ -472,12 +489,17 @@ const APP_VERSION = 'v1.11.0'
 
       <!-- ══ Compare Tab (v2.1) ══ -->
       <template v-else-if="activeTab === 'compare'">
-        <ComparePanel :data="data" />
+        <div id="compare-panel">
+          <ComparePanel :data="data" />
+        </div>
       </template>
     </main>
 
     <!-- Version Panel -->
     <VersionPanel v-model="showVersionPanel" />
+
+    <!-- Full-page view-all (v1.12) -->
+    <AllView />
 
     <!-- Repo Detail Slide Panel (v2.2) -->
     <RepoDetailPanel :repo="selectedRepo" @close="selectedRepo = null" />
