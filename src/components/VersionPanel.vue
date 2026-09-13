@@ -21,6 +21,12 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.12.1',
+    date: '2026-09-13',
+    type: 'fix',
+    items: ['修复：动态页侧边快速定位缺少「关注项目动态」锚点，现已补齐'],
+  },
+  {
     version: 'v1.12.0',
     date: '2026-09-13',
     type: 'release',

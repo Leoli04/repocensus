@@ -186,7 +186,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.12.0'
+const APP_VERSION = 'v1.12.1'
 </script>
 
 <template>

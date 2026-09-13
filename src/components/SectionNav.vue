@@ -27,6 +27,7 @@ const tabAnchors = computed<Record<string, NavItem[]>>(() => ({
     { id: 'stale', label: t('nav.stale'), icon: '⚠️' },
   ],
   activity: [
+    { id: 'followed-feed', label: t('follow.title'), icon: '📡' },
     { id: 'changes', label: t('nav.changes'), icon: '📈' },
     { id: 'trend', label: t('trend.title'), icon: '📉' },
   ],
