@@ -332,16 +332,6 @@ export default {
   'cmp.overlapNum': '共同 {n} 个 · {p}%',
   'cmp.overlapNone': '双方没有共同仓库，兴趣完全互补 🎉',
 
-  // 学习路径视角 (v2.8)
-  'learn.title': '学习路径',
-  'learn.subtitle': '你的自建仓库按成熟度分为三阶：入门练手 → 进阶打磨 → 实战旗舰',
-  'learn.starter': '入门 · 练手',
-  'learn.starterHint': '刚起步或小实验项目，适合作为练手记录',
-  'learn.mid': '进阶 · 打磨',
-  'learn.midHint': '有一定完成度或获得关注的项目',
-  'learn.advanced': '实战 · 旗舰',
-  'learn.advancedHint': '你的代表作，可写进简历的重点项目',
-
   // 仓库详情侧滑面板 (v2.2)
   'detail.openHint': '点击查看详情',
   'detail.homepage': '主页',

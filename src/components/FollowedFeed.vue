@@ -99,7 +99,7 @@ function escapeHtml(s: string): string {
     .replace(/"/g, '&quot;')
 }
 
-function renderBody(md: string): string {
+function renderBody(md: string, repoFullName: string): string {
   const escaped = escapeHtml(md)
   const out: string[] = []
   let inCode = false
@@ -116,6 +116,13 @@ function renderBody(md: string): string {
     // Strip markdown badges/images — noisy in a compact feed
     if (/^\s*!\[/.test(line) || /<img/.test(line)) continue
     let l = line
+    // Headings must be handled BEFORE inline transforms, otherwise "## 1.2"
+    // and "#123" collide with the issue-reference replacement below.
+    const heading = l.match(/^(#{1,6})\s+(.*)$/)
+    if (heading) {
+      out.push(`<div class="md-heading">${heading[2]}</div>`)
+      continue
+    }
     l = l.replace(/`([^`]+)`/g, '<code>$1</code>')
     l = l.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     l = l.replace(
@@ -127,15 +134,11 @@ function renderBody(md: string): string {
       /@([A-Za-z0-9-]+)/g,
       '<a href="https://github.com/$1" target="_blank" rel="noopener">@$1</a>'
     )
+    // #123 → the repo's PR/issue page (GitHub resolves either)
     l = l.replace(
       /#(\d+)/g,
-      '<a href="https://github.com/$&" class="issue-ref">#$1</a>'
+      `<a href="https://github.com/${repoFullName}/pull/$1" target="_blank" rel="noopener" class="issue-ref">#$1</a>`
     )
-    const heading = l.match(/^(#{1,6})\s+(.*)$/)
-    if (heading) {
-      out.push(`<div class="md-heading">${heading[2]}</div>`)
-      continue
-    }
     const bullet = l.match(/^\s*[-*]\s+(.*)$/)
     if (bullet) {
       out.push(`<div class="md-li">• ${bullet[1]}</div>`)
@@ -238,12 +241,12 @@ function fmtDate(iso: string): string {
           <div
             v-if="expanded.has(entryKey(e))"
             class="release-body"
-            v-html="renderBody(e.body)"
+            v-html="renderBody(e.body, e.repo)"
           />
           <div
             v-else
             class="release-body"
-            v-html="renderBody(bodyPreview(e))"
+            v-html="renderBody(bodyPreview(e), e.repo)"
           />
           <button
             v-if="e.body.length > 420"

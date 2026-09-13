@@ -198,7 +198,7 @@ async function copyToClipboard(text: string, label: string) {
 <template>
   <div class="share-section">
     <!-- Share Card -->
-    <div class="card-area">
+    <div id="share-card" class="card-area">
       <h3 class="section-title">{{ t('share.cardTitle') }}</h3>
       <div class="card-preview" v-html="cardSVG"></div>
       <div class="card-actions">
@@ -212,7 +212,7 @@ async function copyToClipboard(text: string, label: string) {
     </div>
 
     <!-- Badge Section -->
-    <div class="badge-area">
+    <div id="badge" class="badge-area">
       <h3 class="section-title">{{ t('share.badgeTitle') }}</h3>
       <p class="badge-desc">{{ t('share.badgeDesc') }}</p>
 

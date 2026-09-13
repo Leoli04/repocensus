@@ -34,8 +34,8 @@ const tabAnchors = computed<Record<string, NavItem[]>>(() => ({
   profile: [
     { id: 'annual-report', label: t('nav.annual'), icon: '🎉' },
     { id: 'recommend', label: t('nav.recommend'), icon: '🤖' },
-    { id: 'learning-path', label: t('learn.title'), icon: '🎓' },
-    { id: 'share', label: t('nav.share'), icon: '🏷️' },
+    { id: 'share-card', label: t('share.cardTitle'), icon: '🏷️' },
+    { id: 'badge', label: t('share.badgeTitle'), icon: '🛡️' },
   ],
   compare: [{ id: 'compare-panel', label: t('cmp.title'), icon: '⚖️' }],
 }))

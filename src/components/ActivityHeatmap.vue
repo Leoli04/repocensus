@@ -224,24 +224,25 @@ function cellTitle(cell: DayCell): string {
   min-height: 9px;
 }
 
-/* Intensity levels — accent-based green scale */
+/* Intensity levels — green scale calibrated per theme so every level stays
+   legible against its own card background (dark card is #161b22, light is #fff). */
 .day-cell.lv-0 {
-  background: var(--badge-bg);
+  background: var(--heat-lv0);
 }
 .day-cell.future {
   opacity: 0.25;
 }
 .day-cell.lv-1 {
-  background: rgba(34, 197, 94, 0.18);
+  background: var(--heat-lv1);
 }
 .day-cell.lv-2 {
-  background: rgba(34, 197, 94, 0.35);
+  background: var(--heat-lv2);
 }
 .day-cell.lv-3 {
-  background: rgba(34, 197, 94, 0.6);
+  background: var(--heat-lv3);
 }
 .day-cell.lv-4 {
-  background: #16a34a;
+  background: var(--heat-lv4);
 }
 
 .legend {

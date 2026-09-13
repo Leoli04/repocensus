@@ -28,6 +28,12 @@
   --lang-text: #93c5fd;
   --bar-track: #21262d;
   --shadow-color: rgba(0, 0, 0, 0.3);
+  /* Heatmap intensity scale (dark) — GitHub-style greens lifted for contrast */
+  --heat-lv0: #21262d;
+  --heat-lv1: #0e4429;
+  --heat-lv2: #006d32;
+  --heat-lv3: #26a641;
+  --heat-lv4: #39d353;
 }
 
 /* ── Light Theme ────────────────────────────────────────── */
@@ -46,6 +52,12 @@
   --lang-text: #0969da;
   --bar-track: #eaeef2;
   --shadow-color: rgba(0, 0, 0, 0.08);
+  /* Heatmap intensity scale (light) — deeper greens for contrast on white */
+  --heat-lv0: #ebedf0;
+  --heat-lv1: #9be9a8;
+  --heat-lv2: #40c463;
+  --heat-lv3: #30a14e;
+  --heat-lv4: #216e39;
 }
 
 /* ── Base ───────────────────────────────────────────────── */

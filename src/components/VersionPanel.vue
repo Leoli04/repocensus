@@ -21,6 +21,20 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.13.0',
+    date: '2026-09-14',
+    type: 'release',
+    items: [
+      '移除「学习路径视角」：定位与其他视图重叠，清理组件与 16 条多语言文案',
+      '侧边快速定位补齐：画像页新增「技术画像分享卡片」「README Badge」锚点；顶栏分享按钮改为精确跳转卡片',
+      '修复：关注动态 Release 正文中 #123 引用链接错误（原先指向 github.com 首页，现指向该仓库的 PR/Issue）',
+      '修复：Markdown 标题行与 #编号引用的解析顺序冲突（形如 "## 1.2" 的标题不再被误当作引用）',
+      '暗色图表配色校准：贡献热力图 5 级色阶改为跟随主题（暗色用 GitHub 加深绿阶，亮色用标准绿阶），趋势折线同步收口到主题变量',
+      '构建产物清理：emptyOutDir 开启，每次构建清除历史 hash 资源（本地 dist 曾累积 15 个废弃 JS/CSS）',
+      '构建告警收敛：数据内联属零服务器定位的既定设计，显式放宽体积告警阈值，构建输出干净',
+    ],
+  },
+  {
     version: 'v1.12.1',
     date: '2026-09-13',
     type: 'fix',
@@ -208,7 +222,7 @@ const todoGroups: TodoGroup[] = [
     items: [
       { name: '仓库收藏夹/置顶', desc: '标记重要仓库，概览页置顶展示（localStorage）', icon: '📌' },
       { name: 'PNG 分享图增强', desc: '分享卡片支持多主题配色（极简白/深色科技/渐变）', icon: '🎨' },
-      { name: '暗色图表配色校准', desc: '热力图/环形图在暗色主题下的对比度微调', icon: '🌙' },
+      { name: '数据分包加载', desc: 'repos.json 约 1MB 内联进主包，可评估按需懒加载', icon: '📦' },
       { name: 'AI 洞察摘要', desc: '可选 LLM：画像总结、整理建议、动态周报（v2.5）', icon: '✨' },
     ],
   },

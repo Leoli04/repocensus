@@ -22,7 +22,6 @@ import FollowedFeed from './components/FollowedFeed.vue'
 import ActivityHeatmap from './components/ActivityHeatmap.vue'
 import RepoDetailPanel from './components/RepoDetailPanel.vue'
 import ComparePanel from './components/ComparePanel.vue'
-import LearningPath from './components/LearningPath.vue'
 import SectionNav from './components/SectionNav.vue'
 import AllView from './components/AllView.vue'
 import type { Repo } from './engine/types'
@@ -180,13 +179,15 @@ const viewMode = ref<'grouped' | 'flat' | 'trending'>('grouped')
 function scrollToShare() {
   activeTab.value = 'profile'
   nextTick(() => {
-    document.querySelector('.share-section')?.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      document.getElementById('share-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 120)
   })
 }
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.12.1'
+const APP_VERSION = 'v1.13.0'
 </script>
 
 <template>
@@ -476,13 +477,8 @@ const APP_VERSION = 'v1.12.1'
           <RecommendBoard />
         </div>
 
-        <!-- Learning Path (v2.8) -->
-        <div id="learning-path">
-          <LearningPath :repos="data.repos" />
-        </div>
-
         <!-- Share Card & Badges -->
-        <div id="share">
+        <div id="share-card-group">
           <ShareCard :data="data" />
         </div>
       </template>

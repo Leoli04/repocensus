@@ -332,16 +332,6 @@ export default {
   'cmp.overlapNum': '{n} in common · {p}%',
   'cmp.overlapNone': 'No shared repos — perfectly complementary interests 🎉',
 
-  // Learning path (v2.8)
-  'learn.title': 'Learning Path',
-  'learn.subtitle': 'Your original repos split into three maturity tiers: Starter → Intermediate → Advanced',
-  'learn.starter': '① Starter',
-  'learn.starterHint': 'Early experiments and small practice projects',
-  'learn.mid': '② Intermediate',
-  'learn.midHint': 'Projects with reasonable completeness or some traction',
-  'learn.advanced': '③ Advanced',
-  'learn.advancedHint': 'Your flagship work — resume-worthy highlights',
-
   // Repo detail panel (v2.2)
   'detail.openHint': 'Click to view details',
   'detail.homepage': 'Homepage',

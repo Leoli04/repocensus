@@ -230,7 +230,7 @@ function sparkPath(points: number[], w = 88, h = 26): string {
 }
 
 .chart-delta.up {
-  color: #22c55e;
+  color: var(--heat-lv3);
 }
 
 .global-svg {
@@ -311,7 +311,7 @@ function sparkPath(points: number[], w = 88, h = 26): string {
 .spark-delta {
   font-size: 12px;
   font-weight: 700;
-  color: #22c55e;
+  color: var(--heat-lv3);
   flex-shrink: 0;
 }
 
@@ -323,7 +323,7 @@ function sparkPath(points: number[], w = 88, h = 26): string {
 
 .spark-line {
   fill: none;
-  stroke: #22c55e;
+  stroke: var(--heat-lv3);
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
