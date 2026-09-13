@@ -283,12 +283,22 @@ export default {
   'heat.more': '多',
   'heat.cellTitle': '{date}：{n} 个仓库推送',
 
-  // 关注项目动态 (v2.4)
+  // 关注项目动态 (v2.4 / 卡片化 v1.11)
   'follow.title': '关注项目动态',
   'follow.subtitle': '每日增量采集 Releases · 数据生成于 {date}',
   'follow.newCount': '{n} 条新动态',
   'follow.new': '新',
   'follow.noConfig': '暂无关注项目。编辑 config/followed.yml 添加 owner/repo，推送后每日自动采集 Releases 动态。',
+  'follow.noEntries': '暂无动态（关注项目尚未发布 Release）',
+  'follow.noNotes': '该版本未提供更新说明',
+  'follow.released': '发布了新版本',
+  'follow.contributors': '贡献者',
+  'follow.viewContrib': '查看全部贡献者',
+  'follow.viewRelease': '查看完整 Release',
+  'follow.readMore': '展开全部',
+  'follow.readLess': '收起',
+  'follow.filterAll': '全部',
+  'follow.filterNew': '仅新动态',
   'follow.releaseCount': '{n} 个版本',
   'follow.noRelease': '暂无 Release',
   'follow.lastPush': '最近推送 {ago}',

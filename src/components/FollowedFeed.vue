@@ -7,36 +7,132 @@ import { daysSince } from '../engine/categorizer'
 const { t, locale } = useI18n()
 const { data, newCount } = useFollowed()
 
-// Collapsed repos (default: repos without new releases are collapsed)
-const collapsed = ref<Set<string>>(new Set())
-
-function toggleCollapse(fullName: string) {
-  const next = new Set(collapsed.value)
-  if (next.has(fullName)) next.delete(fullName)
-  else next.add(fullName)
-  collapsed.value = next
+// ── Feed entries: one card per release (GitHub-feed style) ─
+interface Entry {
+  repo: string
+  repoUrl: string
+  alias: string | null
+  avatar: string | null
+  description: string | null
+  stars: number
+  tags: string[]
+  tag_name: string
+  title: string
+  body: string | null
+  published_at: string
+  html_url: string
+  prerelease: boolean
+  is_new: boolean
+  contributors: { login: string; avatar_url: string; html_url: string }[]
 }
 
-const sortedRepos = computed(() => {
-  const repos = [...data.value.repos]
-  // Repos with new releases first, then by latest release date
-  return repos.sort((a, b) => {
-    const aNew = a.releases.some((r) => r.is_new) ? 1 : 0
-    const bNew = b.releases.some((r) => r.is_new) ? 1 : 0
-    if (aNew !== bNew) return bNew - aNew
-    const aDate = a.releases[0]?.published_at || a.pushed_at || ''
-    const bDate = b.releases[0]?.published_at || b.pushed_at || ''
-    return bDate.localeCompare(aDate)
-  })
+const allEntries = computed<Entry[]>(() => {
+  const out: Entry[] = []
+  for (const repo of data.value.repos) {
+    for (const rel of repo.releases) {
+      out.push({
+        repo: repo.full_name,
+        repoUrl: repo.html_url,
+        alias: repo.alias,
+        avatar: repo.owner_avatar,
+        description: repo.description,
+        stars: repo.stars,
+        tags: repo.tags,
+        tag_name: rel.tag_name,
+        title: rel.name || rel.tag_name,
+        body: rel.body,
+        published_at: rel.published_at,
+        html_url: rel.html_url,
+        prerelease: rel.prerelease,
+        is_new: rel.is_new,
+        contributors: rel.contributors || [],
+      })
+    }
+  }
+  return out.sort(
+    (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+  )
 })
 
-function fmtDate(iso: string): string {
-  const loc = locale.value === 'zh' ? 'zh-CN' : 'en-US'
-  return new Date(iso).toLocaleDateString(loc, {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  })
+// Filter: all / only new
+const showOnlyNew = ref(false)
+const entries = computed(() =>
+  showOnlyNew.value ? allEntries.value.filter((e) => e.is_new) : allEntries.value
+)
+
+// Expanded release notes
+const expanded = ref<Set<string>>(new Set())
+function toggleBody(key: string) {
+  const next = new Set(expanded.value)
+  if (next.has(key)) next.delete(key)
+  else next.add(key)
+  expanded.value = next
+}
+
+function entryKey(e: Entry): string {
+  return `${e.repo}@${e.tag_name}`
+}
+
+// ── Markdown-lite renderer (escape first, then transform) ──
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+function renderBody(md: string): string {
+  const escaped = escapeHtml(md)
+  const out: string[] = []
+  let inCode = false
+  for (const line of escaped.split('\n')) {
+    if (line.trim().startsWith('```')) {
+      out.push(inCode ? '</code></pre>' : '<pre><code>')
+      inCode = !inCode
+      continue
+    }
+    if (inCode) {
+      out.push(line)
+      continue
+    }
+    // Strip markdown badges/images — noisy in a compact feed
+    if (/^\s*!\[/.test(line) || /<img/.test(line)) continue
+    let l = line
+    l = l.replace(/`([^`]+)`/g, '<code>$1</code>')
+    l = l.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    l = l.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener">$1</a>'
+    )
+    // "by @user in #123" style mentions
+    l = l.replace(
+      /@([A-Za-z0-9-]+)/g,
+      '<a href="https://github.com/$1" target="_blank" rel="noopener">@$1</a>'
+    )
+    l = l.replace(
+      /#(\d+)/g,
+      '<a href="https://github.com/$&" class="issue-ref">#$1</a>'
+    )
+    const heading = l.match(/^(#{1,6})\s+(.*)$/)
+    if (heading) {
+      out.push(`<div class="md-heading">${heading[2]}</div>`)
+      continue
+    }
+    const bullet = l.match(/^\s*[-*]\s+(.*)$/)
+    if (bullet) {
+      out.push(`<div class="md-li">• ${bullet[1]}</div>`)
+      continue
+    }
+    out.push(l.trim() === '' ? '<div class="md-gap"></div>' : `<div>${l}</div>`)
+  }
+  if (inCode) out.push('</code></pre>')
+  return out.join('\n')
+}
+
+function bodyPreview(e: Entry): string {
+  if (!e.body) return ''
+  return e.body.length > 420 ? e.body.slice(0, 420) + '…' : e.body
 }
 
 function fmtAgo(iso: string): string {
@@ -47,64 +143,145 @@ function fmtAgo(iso: string): string {
   if (days < 365) return t('star.monthsAgo', { n: Math.floor(days / 30) })
   return t('star.yearsAgo', { n: Math.floor(days / 365) })
 }
+
+function fmtStars(n: number): string {
+  if (n >= 1000) return (n / 1000).toFixed(1) + 'k'
+  return String(n)
+}
+
+function fmtDate(iso: string): string {
+  const loc = locale.value === 'zh' ? 'zh-CN' : 'en-US'
+  return new Date(iso).toLocaleDateString(loc, { year: 'numeric', month: '2-digit', day: '2-digit' })
+}
 </script>
 
 <template>
   <section class="followed-feed">
     <div class="feed-header">
       <h3 class="section-title">📡 {{ t('follow.title') }}</h3>
-      <span v-if="newCount > 0" class="new-count">{{ t('follow.newCount', { n: newCount }) }}</span>
+      <div class="feed-header-right">
+        <button
+          :class="['feed-filter', { active: !showOnlyNew }]"
+          @click="showOnlyNew = false"
+        >
+          {{ t('follow.filterAll') }} · {{ allEntries.length }}
+        </button>
+        <button
+          :class="['feed-filter', { active: showOnlyNew }]"
+          @click="showOnlyNew = true"
+        >
+          {{ t('follow.filterNew') }} · {{ newCount }}
+        </button>
+      </div>
     </div>
     <p class="section-subtitle">{{ t('follow.subtitle', { date: fmtDate(data.generated_at) }) }}</p>
 
     <div v-if="!data.repos.length" class="empty-state">
       {{ t('follow.noConfig') }}
     </div>
+    <div v-else-if="!entries.length" class="empty-state">
+      {{ t('follow.noEntries') }}
+    </div>
 
-    <div v-else class="repo-list">
-      <div
-        v-for="repo in sortedRepos"
-        :key="repo.full_name"
-        :class="['repo-block', { 'has-new': repo.releases.some((r) => r.is_new) }]"
+    <div v-else class="feed-list">
+      <article
+        v-for="e in entries"
+        :key="entryKey(e)"
+        :class="['feed-card', { 'is-new': e.is_new }]"
       >
-        <div class="repo-head" @click="toggleCollapse(repo.full_name)">
-          <span class="repo-caret">{{ collapsed.has(repo.full_name) ? '▸' : '▾' }}</span>
-          <a :href="repo.html_url" target="_blank" rel="noopener" class="repo-name" @click.stop>
-            {{ repo.alias || repo.full_name }}
-            <span v-if="repo.alias" class="repo-fullname">{{ repo.full_name }}</span>
+        <!-- Head: avatar + repo + action + time -->
+        <header class="feed-head">
+          <img v-if="e.avatar" :src="e.avatar" :alt="e.repo" class="feed-avatar" />
+          <div v-else class="feed-avatar placeholder">📦</div>
+          <div class="feed-head-text">
+            <div class="feed-title-line">
+              <a :href="e.repoUrl" target="_blank" rel="noopener" class="feed-repo">{{ e.repo }}</a>
+              <span class="feed-action">{{ t('follow.released') }}</span>
+              <span v-if="e.is_new" class="new-badge">{{ t('follow.new') }}</span>
+              <span v-if="e.prerelease" class="pre-badge">pre</span>
+            </div>
+            <div class="feed-sub-line">
+              <span class="feed-ago">{{ fmtAgo(e.published_at) }}</span>
+              <span v-if="e.stars" class="feed-stars">⭐ {{ fmtStars(e.stars) }}</span>
+              <span v-for="tag in e.tags" :key="tag" class="feed-tag">{{ tag }}</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Repo description -->
+        <p v-if="e.description" class="feed-desc">{{ e.description }}</p>
+
+        <!-- Release title -->
+        <a :href="e.html_url" target="_blank" rel="noopener" class="release-title">
+          {{ e.title }}
+        </a>
+
+        <!-- Release notes -->
+        <div v-if="e.body" class="release-body-wrap">
+          <div
+            v-if="expanded.has(entryKey(e))"
+            class="release-body"
+            v-html="renderBody(e.body)"
+          />
+          <div
+            v-else
+            class="release-body"
+            v-html="renderBody(bodyPreview(e))"
+          />
+          <button
+            v-if="e.body.length > 420"
+            class="read-more"
+            @click="toggleBody(entryKey(e))"
+          >
+            {{ expanded.has(entryKey(e)) ? t('follow.readLess') : t('follow.readMore') }}
+          </button>
+        </div>
+        <p v-else class="release-no-body">{{ t('follow.noNotes') }}</p>
+
+        <!-- Contributors -->
+        <div v-if="e.contributors.length" class="contributors">
+          <span class="contrib-label">{{ t('follow.contributors') }}</span>
+          <div class="contrib-avatars">
+            <a
+              v-for="c in e.contributors"
+              :key="c.login"
+              :href="c.html_url"
+              target="_blank"
+              rel="noopener"
+              :title="c.login"
+              class="contrib-avatar-link"
+            >
+              <img :src="c.avatar_url" :alt="c.login" class="contrib-avatar" />
+            </a>
+          </div>
+          <a :href="e.repoUrl + '/graphs/contributors'" target="_blank" rel="noopener" class="contrib-more">
+            {{ t('follow.viewContrib') }} →
           </a>
-          <span v-if="repo.releases.some((r) => r.is_new)" class="new-badge">{{ t('follow.new') }}</span>
-          <span class="repo-meta">
-            {{ repo.releases.length ? t('follow.releaseCount', { n: repo.releases.length }) : t('follow.noRelease') }}
-            <template v-if="repo.pushed_at"> · {{ t('follow.lastPush', { ago: fmtAgo(repo.pushed_at) }) }}</template>
-          </span>
         </div>
 
-        <ul v-if="!collapsed.has(repo.full_name) && repo.releases.length" class="release-list">
-          <li v-for="rel in repo.releases" :key="rel.tag_name" :class="['release-item', { 'is-new': rel.is_new }]">
-            <a :href="rel.html_url" target="_blank" rel="noopener" class="release-link">
-              <span class="release-tag">{{ rel.tag_name }}</span>
-              <span v-if="rel.is_new" class="release-new">{{ t('follow.new') }}</span>
-              <span v-if="rel.prerelease" class="release-pre">pre</span>
-              <span class="release-name">{{ rel.name || rel.tag_name }}</span>
-              <span class="release-date">{{ fmtAgo(rel.published_at) }}</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+        <!-- Footer: tag + link -->
+        <footer class="feed-foot">
+          <span class="release-tag">{{ e.tag_name }}</span>
+          <a :href="e.html_url" target="_blank" rel="noopener" class="release-link">
+            {{ t('follow.viewRelease') }} →
+          </a>
+        </footer>
+      </article>
     </div>
   </section>
 </template>
 
 <style scoped>
 .followed-feed {
-  margin-top: 32px;
+  margin-top: 8px;
 }
 
 .feed-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .section-title {
@@ -114,13 +291,26 @@ function fmtAgo(iso: string): string {
   color: var(--text-primary);
 }
 
-.new-count {
+.feed-header-right {
+  display: flex;
+  gap: 6px;
+}
+
+.feed-filter {
+  padding: 4px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
   font-size: 12px;
-  font-weight: 700;
-  color: #22c55e;
-  background: rgba(34, 197, 94, 0.12);
-  padding: 2px 10px;
-  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feed-filter.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg, rgba(59, 130, 246, 0.12));
 }
 
 .section-subtitle {
@@ -139,57 +329,74 @@ function fmtAgo(iso: string): string {
   border-radius: 12px;
 }
 
-.repo-list {
+.feed-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
-.repo-block {
+/* ── Feed card ── */
+.feed-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
-  overflow: hidden;
+  padding: 16px 18px;
 }
 
-.repo-block.has-new {
+.feed-card.is-new {
   border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.12);
 }
 
-.repo-head {
+.feed-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.feed-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.feed-avatar.placeholder {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  cursor: pointer;
-  user-select: none;
+  justify-content: center;
+  background: var(--badge-bg);
+  font-size: 16px;
 }
 
-.repo-caret {
-  font-size: 11px;
-  color: var(--text-tertiary);
-  flex-shrink: 0;
+.feed-head-text {
+  flex: 1;
+  min-width: 0;
 }
 
-.repo-name {
+.feed-title-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.feed-repo {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.repo-name:hover {
+.feed-repo:hover {
   color: var(--accent);
 }
 
-.repo-fullname {
-  font-size: 11px;
-  font-weight: 400;
+.feed-action {
+  font-size: 13px;
   color: var(--text-tertiary);
-  margin-left: 6px;
 }
 
 .new-badge {
@@ -199,47 +406,189 @@ function fmtAgo(iso: string): string {
   background: #22c55e;
   padding: 1px 7px;
   border-radius: 8px;
-  flex-shrink: 0;
 }
 
-.repo-meta {
-  font-size: 11px;
-  color: var(--text-tertiary);
-  margin-left: auto;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.release-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 16px 12px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.release-item {
+.pre-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+  padding: 0 6px;
   border-radius: 8px;
 }
 
-.release-link {
+.feed-sub-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 3px;
+  flex-wrap: wrap;
+}
+
+.feed-ago,
+.feed-stars {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.feed-tag {
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  color: var(--text-secondary);
+}
+
+.feed-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 10px 0 0;
+  line-height: 1.5;
+}
+
+.release-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  margin: 12px 0 8px;
+  line-height: 1.35;
+}
+
+.release-title:hover {
+  color: var(--accent);
+}
+
+/* ── Release notes ── */
+.release-body-wrap {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--bg-secondary, rgba(128, 128, 128, 0.04));
+}
+
+.release-body {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.release-body :deep(.md-heading) {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--text-primary);
+  margin: 8px 0 4px;
+}
+
+.release-body :deep(.md-li) {
+  padding-left: 6px;
+  margin: 2px 0;
+}
+
+.release-body :deep(.md-gap) {
+  height: 5px;
+}
+
+.release-body :deep(code) {
+  background: var(--badge-bg);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+}
+
+.release-body :deep(pre) {
+  background: var(--badge-bg);
+  border-radius: 8px;
+  padding: 9px;
+  overflow-x: auto;
+  font-size: 11px;
+  margin: 6px 0;
+}
+
+.release-body :deep(pre code) {
+  background: none;
+  padding: 0;
+}
+
+.release-body :deep(a) {
+  color: var(--accent);
+}
+
+.read-more {
+  margin-top: 8px;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.release-no-body {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin: 6px 0 0;
+}
+
+/* ── Contributors ── */
+.contributors {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 12px;
-  border-radius: 8px;
-  background: var(--bg-secondary, rgba(128, 128, 128, 0.06));
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.contrib-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.contrib-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.contrib-avatar-link {
+  margin-left: -6px;
+}
+
+.contrib-avatar-link:first-child {
+  margin-left: 0;
+}
+
+.contrib-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--card-bg);
+  object-fit: cover;
+  transition: transform 0.15s;
+}
+
+.contrib-avatar:hover {
+  transform: translateY(-2px);
+}
+
+.contrib-more {
+  font-size: 11px;
+  color: var(--accent);
   text-decoration: none;
-  transition: background 0.15s;
+  margin-left: 4px;
 }
 
-.release-link:hover {
-  background: var(--accent-bg);
-}
-
-.release-item.is-new .release-link {
-  border-left: 2px solid #22c55e;
+.feed-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--card-border);
 }
 
 .release-tag {
@@ -247,41 +596,12 @@ function fmtAgo(iso: string): string {
   font-weight: 700;
   color: var(--accent);
   font-family: ui-monospace, monospace;
-  flex-shrink: 0;
 }
 
-.release-new {
-  font-size: 9px;
-  font-weight: 700;
-  color: #fff;
-  background: #22c55e;
-  padding: 1px 6px;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.release-pre {
-  font-size: 9px;
-  font-weight: 600;
-  color: #f59e0b;
-  border: 1px solid #f59e0b;
-  padding: 0 5px;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.release-name {
+.release-link {
   font-size: 12px;
-  color: var(--text-secondary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  flex: 1;
-}
-
-.release-date {
-  font-size: 11px;
-  color: var(--text-tertiary);
-  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
 }
 </style>

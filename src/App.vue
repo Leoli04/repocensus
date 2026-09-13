@@ -178,7 +178,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.10.0'
+const APP_VERSION = 'v1.11.0'
 </script>
 
 <template>
@@ -225,6 +225,9 @@ const APP_VERSION = 'v1.10.0'
 
       <!-- ══ Overview Tab ══ -->
       <template v-if="activeTab === 'overview'">
+        <!-- Followed projects feed — pinned to the very top (v1.11) -->
+        <FollowedFeed />
+
         <section id="overview" class="stat-cards">
           <div class="stat-card">
             <span class="stat-value">{{ stats.total }}</span>
@@ -442,8 +445,6 @@ const APP_VERSION = 'v1.10.0'
 
         <!-- Followed projects (v2.4, placeholder) -->
         <TrendChart :history="data.history" />
-
-        <FollowedFeed />
       </template>
 
       <!-- ══ Profile Tab ══ -->

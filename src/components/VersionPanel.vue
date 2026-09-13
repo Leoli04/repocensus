@@ -21,6 +21,17 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.11.0',
+    date: '2026-09-13',
+    type: 'release',
+    items: [
+      '关注项目动态卡片化：对齐 GitHub Feed 形态——每条 Release 一张卡片，含仓库头像/描述/Star、Release 标题、What\u2019s Changed 正文（Markdown 轻量渲染，@提及与 #PR 可点）、贡献者头像组、展开/收起',
+      '采集脚本新增 release body、contributors、仓库 star/description（正文截断 1200 字，贡献者取前 8）',
+      '关注动态从动态页移至概览页最上方，并加「全部 / 仅新动态」筛选',
+      'Roadmap 登记 5 项待做：仓库收藏夹/置顶、PNG 分享图增强、Fork 价值分析、暗色图表配色校准、语言熟练度雷达图',
+    ],
+  },
+  {
     version: 'v1.10.0',
     date: '2026-09-12',
     type: 'release',
@@ -168,12 +179,21 @@ const todoGroups: TodoGroup[] = [
   {
     tier: '⭐ 中优先级',
     tierClass: 'tier-mid',
-    items: [{ name: '移动端适配', desc: '响应式布局优化，手机浏览可用', icon: '📱' }],
+    items: [
+      { name: '移动端适配', desc: '响应式布局优化，手机浏览可用', icon: '📱' },
+      { name: 'Fork 价值分析', desc: '识别哪些 Fork 真正改过代码、哪些可清理', icon: '🍴' },
+      { name: '语言熟练度雷达图', desc: '按语言数量/Star/活跃度给熟练度打分，雷达图展示', icon: '📊' },
+    ],
   },
   {
     tier: '📋 待规划',
     tierClass: 'tier-low',
-    items: [{ name: 'AI 洞察摘要', desc: '可选 LLM：画像总结、整理建议、动态周报（v2.5）', icon: '✨' }],
+    items: [
+      { name: '仓库收藏夹/置顶', desc: '标记重要仓库，概览页置顶展示（localStorage）', icon: '📌' },
+      { name: 'PNG 分享图增强', desc: '分享卡片支持多主题配色（极简白/深色科技/渐变）', icon: '🎨' },
+      { name: '暗色图表配色校准', desc: '热力图/环形图在暗色主题下的对比度微调', icon: '🌙' },
+      { name: 'AI 洞察摘要', desc: '可选 LLM：画像总结、整理建议、动态周报（v2.5）', icon: '✨' },
+    ],
   },
 ]
 </script>

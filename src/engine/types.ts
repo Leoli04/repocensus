@@ -160,14 +160,23 @@ export interface TrendingData {
 
 // ── Followed projects (v2.4) ─────────────────────────────
 
+/** A contributor avatar shown on a release card */
+export interface ReleaseContributor {
+  login: string
+  avatar_url: string
+  html_url: string
+}
+
 /** A single release of a followed repo */
 export interface ReleaseUpdate {
   tag_name: string
   name: string | null
+  body: string | null // release notes (markdown, capped)
   published_at: string
   html_url: string
   prerelease: boolean
   is_new: boolean // first seen in the latest collection run
+  contributors: ReleaseContributor[]
 }
 
 /** A followed repo with its collected releases */
@@ -176,6 +185,9 @@ export interface FollowedRepo {
   alias: string | null
   tags: string[]
   html_url: string
+  owner_avatar: string | null
+  description: string | null
+  stars: number
   pushed_at: string | null // last push activity (for repos that don't release)
   releases: ReleaseUpdate[] // newest first, capped
 }

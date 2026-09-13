@@ -18,12 +18,19 @@ import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import yaml from 'js-yaml'
 
-import type { FollowedData, FollowedRepo, ReleaseUpdate } from '../src/engine/types'
+import type {
+  FollowedData,
+  FollowedRepo,
+  ReleaseUpdate,
+  ReleaseContributor,
+} from '../src/engine/types'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const FOLLOWED_PATH = resolve(__dirname, '../src/data/followed.json')
 const FOLLOWED_YML = resolve(__dirname, '../config/followed.yml')
 const MAX_RELEASES = Number(process.env.FOLLOWED_MAX_RELEASES || 10)
+const MAX_BODY_CHARS = Number(process.env.FOLLOWED_MAX_BODY_CHARS || 1200)
+const MAX_CONTRIBUTORS = 8
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || ''
 if (!GITHUB_TOKEN) {
@@ -122,11 +129,24 @@ async function main() {
 
   for (const cfg of targets) {
     try {
-      // Repo meta (for pushed_at) + releases
-      const [repoMeta, releasesRaw] = await Promise.all([
+      // Repo meta (stars/description/pushed_at) + releases + contributors
+      const [repoMeta, releasesRaw, contributorsRaw] = await Promise.all([
         githubFetch(`${API_BASE}/repos/${cfg.full_name}`),
         githubFetch(`${API_BASE}/repos/${cfg.full_name}/releases?per_page=${MAX_RELEASES}`),
+        // contributors may be empty (e.g. mirrors) — tolerate non-200 via catch
+        githubFetch(
+          `${API_BASE}/repos/${cfg.full_name}/contributors?per_page=${MAX_CONTRIBUTORS}&anon=false`
+        ).catch(() => []),
       ])
+
+      const contributors: ReleaseContributor[] = (Array.isArray(contributorsRaw) ? contributorsRaw : [])
+        .slice(0, MAX_CONTRIBUTORS)
+        .map((c: any) => ({
+          login: c.login || '',
+          avatar_url: c.avatar_url || '',
+          html_url: c.html_url || `https://github.com/${c.login}`,
+        }))
+        .filter((c: ReleaseContributor) => c.login && c.avatar_url)
 
       const knownTags = new Set(
         (prevByRepo.get(cfg.full_name)?.releases || []).map((r) => r.tag_name)
@@ -139,13 +159,16 @@ async function main() {
         .map((r: any) => {
           const isNew = !isBaseline && !knownTags.has(r.tag_name)
           if (isNew) newCount++
+          const rawBody = typeof r.body === 'string' ? r.body : ''
           return {
             tag_name: r.tag_name || '',
             name: r.name || null,
+            body: rawBody ? rawBody.slice(0, MAX_BODY_CHARS) : null,
             published_at: r.published_at || r.created_at,
             html_url: r.html_url || `https://github.com/${cfg.full_name}/releases`,
             prerelease: !!r.prerelease,
             is_new: isNew,
+            contributors,
           }
         })
         .sort(
@@ -158,11 +181,14 @@ async function main() {
         alias: cfg.alias || null,
         tags: cfg.tags || [],
         html_url: repoMeta.html_url || `https://github.com/${cfg.full_name}`,
+        owner_avatar: repoMeta.owner?.avatar_url || null,
+        description: repoMeta.description || null,
+        stars: repoMeta.stargazers_count || 0,
         pushed_at: repoMeta.pushed_at || null,
         releases,
       })
       console.log(
-        `   ✓ ${cfg.full_name}: ${releases.length} release(s)${releases.some((r) => r.is_new) ? ' · has new' : ''}`
+        `   ✓ ${cfg.full_name}: ${releases.length} release(s), ${contributors.length} contributor(s)${releases.some((r) => r.is_new) ? ' · has new' : ''}`
       )
     } catch (err) {
       // Keep previous data for this repo instead of dropping it

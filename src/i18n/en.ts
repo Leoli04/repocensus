@@ -283,12 +283,22 @@ export default {
   'heat.more': 'More',
   'heat.cellTitle': '{date}: {n} repos pushed',
 
-  // Followed projects (v2.4)
+  // Followed projects (v2.4 / carded v1.11)
   'follow.title': 'Followed Projects',
   'follow.subtitle': 'Daily incremental Releases · generated at {date}',
   'follow.newCount': '{n} new updates',
   'follow.new': 'NEW',
   'follow.noConfig': 'No followed repos yet. Edit config/followed.yml to add owner/repo entries — releases are collected daily after push.',
+  'follow.noEntries': 'No updates yet (followed repos have not published releases)',
+  'follow.noNotes': 'No release notes provided',
+  'follow.released': 'released',
+  'follow.contributors': 'Contributors',
+  'follow.viewContrib': 'View all contributors',
+  'follow.viewRelease': 'View full release',
+  'follow.readMore': 'Read more',
+  'follow.readLess': 'Read less',
+  'follow.filterAll': 'All',
+  'follow.filterNew': 'New only',
   'follow.releaseCount': '{n} releases',
   'follow.noRelease': 'No releases',
   'follow.lastPush': 'last push {ago}',
