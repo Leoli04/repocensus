@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T00:21:08.471Z",
+  "generated_at": "2026-09-13T00:31:53.762Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,7 +10,7 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54369,
+      "stars": 54370,
       "pushed_at": "2026-09-11T22:56:42Z",
       "releases": [
         {
@@ -534,7 +534,7 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 155550,
+      "stars": 155552,
       "pushed_at": "2026-09-12T23:51:51Z",
       "releases": [
         {
