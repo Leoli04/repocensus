@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:02:31.560Z",
+  "generated_at": "2026-09-13T00:03:41.872Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -8,87 +8,520 @@
         "前端"
       ],
       "html_url": "https://github.com/vuejs/core",
+      "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
+      "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
+      "stars": 54369,
       "pushed_at": "2026-09-11T22:56:42Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.8",
           "name": "v3.6.0-rc.8",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-09-11T05:46:16Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.8",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.7",
           "name": "v3.6.0-rc.7",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-09-04T07:43:15Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.7",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.6",
           "name": "v3.6.0-rc.6",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-08-28T05:54:05Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.6",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.5.42",
           "name": "v3.5.42",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-08-27T05:47:42Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.42",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.5",
           "name": "v3.6.0-rc.5",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-08-21T09:21:06Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.5",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.4",
           "name": "v3.6.0-rc.4",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-08-14T08:58:48Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.4",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.3",
           "name": "v3.6.0-rc.3",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-08-11T03:55:47Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.3",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.5.41",
           "name": "v3.5.41",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-08-05T06:59:01Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.41",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.2",
           "name": "v3.6.0-rc.2",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
           "published_at": "2026-07-22T09:32:10Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.2",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         },
         {
           "tag_name": "v3.6.0-rc.1",
           "name": "v3.6.0-rc.1",
+          "body": "Vue 3.6 is now entering the RC phase as we have completed the intended feature set for Vapor Mode.\r\n\r\n3.6 also includes a major refactor of `@vue/reactivity` based on [alien-signals](https://github.com/stackblitz/alien-signals), which significantly improves the reactivity system's performance and memory usage.\r\n\r\nFor more details about Vapor Mode, see the [About Vapor Mode](#about-vapor-mode) section later in this release note.\r\n\r\n\r\n\r\n### Bug Fixes\r\n\r\n* **hydration:** avoid resolving inherited fallback in forwarded slots ([4c215b5](https://github.com/vuejs/core/commit/4c215b5bd293e18f3a4c62b627a7696016afb982))\r\n* **hydration:** remove adopted SSR DOM for unresolved async setup ([3859af4](https://github.com/vuejs/core/commit/3859af4066edeba647e886decb9b4737d7f371cc))\r\n* **runtime-vapor:** avoid patching invalid VNode slot content ([25f5a8a](https://github.com/vuejs/core/commit/25f5a8ae6ed3df9c4e3fbaed0da32ce0466c5612))\r\n* **runtime-vapor:** clean up detached slot branches ([b41009d](https://github.com/vuejs/core/commit/b41009d41b21c98174b214eebd271d456215d177))\r\n* **runtime-vapor:** defer slot content anchors during hydration ([9b9e4bd](https://github.com/vuejs/core/commit/9b9e4bd6e",
           "published_at": "2026-07-18T01:12:03Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.1",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
         }
       ]
     },
@@ -99,87 +532,520 @@
         "AI"
       ],
       "html_url": "https://github.com/langgenius/dify",
-      "pushed_at": "2026-09-12T11:14:36Z",
+      "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
+      "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+      "stars": 155550,
+      "pushed_at": "2026-09-12T23:51:51Z",
       "releases": [
         {
           "tag_name": "1.17.1",
           "name": "v1.17.1 - Bug Fixes and Improvements",
+          "body": "> [!WARNING]\r\n> **Self-hosted deployments using the bundled Weaviate must complete a manual, staged upgrade before starting 1.17.1.** The bundled Weaviate server moves from `1.27.0` to `1.39.2` — 12 minor versions — and skipping minors **is unsupported**. Pulling and restarting can silently and permanently break vector search. See Upgrade Guide below. Fresh deployments, external Weaviate, and other vector stores are unaffected.\r\n\r\n### New Features\r\n\r\n**Dataset-Scoped Knowledge Base API Keys**\r\n- Knowledge base service-API keys were scoped to the whole workspace: one key could read and write every knowledge base in the tenant, so giving an integration access to a single knowledge base meant giving it access to all of them. Keys can now be bound to specific knowledge bases from the knowledge base's API access panel, with a workspace / this-knowledge-base scope selector at creation time. A bound key returns `403` for any other dataset — both documents and retrieval — and for endpoints that carry no dataset ID, such as list-all. Existing keys are unbound and keep their workspace-wide behavior, so nothing changes when you upgrade. (#37569)\r\n\r\n**Keyboard Movement for Workflow Nodes and C",
           "published_at": "2026-09-10T10:04:06Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.17.1",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.17.0",
           "name": "v1.17.0",
+          "body": "## New Features\r\n\r\n**Agent: E2B Sandbox, Home Snapshots, and Skill Management**\r\n- **E2B sandbox backend**: agent shell/code execution can now run on [E2B](https://e2b.dev) cloud sandboxes in addition to the local sandbox. Select the backend with `DIFY_AGENT_RUNTIME_BACKEND`; a new `docker-compose.e2b.yaml` ships the E2B stack, E2B traffic is authenticated, and the E2B template is synced on release (#39480, #39705, #39873, #39996, #40858, #40871, #40891, #40892).\r\n- **Build-time Home Snapshots**: when an agent build is applied (published), the agent's sandbox home directory — installed packages, prepared files, working state — is captured and subsequent runs of the published agent restore their home directory from that snapshot, so the agent starts from the exact filesystem state it had at build time. (#39702, #40876, #40996).\r\n- **Workspace-level Skill management**: Skills are reusable, versioned capabilities packaged with code and tool definitions that agents can discover and invoke. A new workspace-level skills manager with draft → publish → version lifecycle ships alongside a web UI (skill listing, builder panel, file editor).  (#39675, #39798, #39799, #41180).\r\n- **Context-awa",
           "published_at": "2026-08-25T11:28:25Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.17.0",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.16.1",
           "name": "v1.16.1 - Bug Fixes and Security Enhancements",
+          "body": "## What's Changed\r\n\r\n### New Features\r\n**Tool Multi-Select Input**\r\n- Workflow tool nodes now support multi-select dropdown inputs, allowing users to choose multiple values from a predefined list when configuring tool parameters. (#39346)\r\n\r\n**Workflow Node Locator**\r\n- You can now click a node_id in workflow run logs or error messages to locate and highlight the corresponding node in the workflow editor canvas. (#38187)\r\n\r\n**Workflow Block Selector Improvements**\r\n- The block selector panel now features improved keyboard navigation, category previews, and a more intuitive search experience when adding nodes to workflows. (#39212)\r\n\r\n**Export Agent DSL from Sidebar**\r\n- Agent apps can now be exported as DSL YAML directly from the app sidebar menu, making it easy to back up or version-control agent configurations. (#39299)\r\n\r\n**Knowledge Tracing**\r\n- Added more observability traces to knowledge/RAG document processing operations, improving visibility into indexing pipelines. (#38959)\r\n\r\n\r\n---\r\n\r\n### Bug Fixes\r\n\r\n**Workflow & Collaboration**\r\n- Fixed hidden-tab collaboration leader saving stale drafts when the tab is inactive (#38997)\r\n- Fixed unsaved edits being dropped when collabo",
           "published_at": "2026-07-28T03:43:51Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.16.1",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.16.0",
           "name": "v1.16.0",
+          "body": "# Introducing Dify Agent *(Beta)*: A New Agent Experience in Dify\r\n\r\n> [!WARNING]\r\n> You should provide Dify Agent services ⚠️**only to trusted, non-malicious users**⚠️.\r\n\r\nAs many of you know, the shell-based LLM agent paradigm has brought a major leap in agent capabilities and changed how we think about agents. Meanwhile, Skills provide a standardized way to package and distribute capabilities, making it easier to build powerful agents.\r\n\r\n\r\nToday, we are launching Dify Agent. Like other leading agents, it runs in a Linux sandbox. This release includes:\r\n\r\n- A builder for creating Dify Agents\r\n  - You can build Dify Agents through the UI: set a base prompt, upload Skills and files, and connect tools and knowledge from the Dify ecosystem.\r\n  - We also provide an agent that helps you build Dify Agents. Through conversation, it can configure the Linux sandbox environment, install required packages, and create new Skills and files that your Dify Agent can use later.\r\n\r\n- Dify Workflow integration for Dify Agent\r\n  - You can use an existing Dify Agent in a Dify Workflow, or temporarily create an inline Dify Agent. It will execute the task defined by the workflow node, generate the req",
           "published_at": "2026-07-17T11:14:06Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.16.0",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.16.0-rc1",
           "name": "v1.16.0-rc1",
+          "body": "# Introducing Dify Agent *(Experimental)*: A New Agent Experience in Dify\r\n\r\n> [!WARNING]\r\n> You should provide Dify Agent services ⚠️**only to trusted, non-malicious users**⚠️.\r\n\r\nAs many of you know, the shell-based LLM agent paradigm has brought a major leap in agent capabilities and changed how we think about agents. Meanwhile, Skills provide a standardized way to package and distribute capabilities, making it easier to build powerful agents.\r\n\r\nToday, we are experimentally launching Dify Agent. Like other leading agents, it runs in a Linux sandbox. This release includes:\r\n\r\n- A builder for creating Dify Agents\r\n  - You can build Dify Agents through the UI: set a base prompt, upload Skills and files, and connect tools and knowledge from the Dify ecosystem.\r\n  - We also provide an agent that helps you build Dify Agents. Through conversation, it can configure the Linux sandbox environment, install required packages, and create new Skills and files that your Dify Agent can use later.\r\n\r\n- Dify Workflow integration for Dify Agent\r\n  - You can use an existing Dify Agent in a Dify Workflow, or temporarily create an inline Dify Agent. It will execute the task defined by the workflow n",
           "published_at": "2026-07-09T14:06:30Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.16.0-rc1",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.15.0",
           "name": "1.15.0",
+          "body": "# Dify 1.15.0 Release Note\r\n\r\n## What's Changed\r\n\r\n### UX & UI Enhancements\r\n\r\n<img width=\"1920\" height=\"1044\" alt=\"录屏2026-06-25 21 12 33\" src=\"https://github.com/user-attachments/assets/c3ac7394-2ccf-4a66-873a-b7224a16897a\" />\r\n\r\n\r\n- **Redesigned landing / onboarding** for an easier first-run experience (#37433, #37844, #37800)\r\n- **Faster navigation** — improved \"go to anything\" palette and autofocused search inputs (#32130, #37175)\r\n- **Safer deletes** — one-click confirmation before removing an app (#37263)\r\n- **Cleaner workflow editor** with collapsible panels (#37276)\r\n- **Clearer notifications** — consistent toasts that show long errors in full (#37382, #37581)\r\n- **More accessible** — plugin permission hints, restored contact-us menu, skip-nav link, and keyboard focus polish (#37310, #37774, #37644)\r\n\r\n### New Features\r\n**difyctl — drive Dify from the command line** ([Docs](https://docs.dify.ai/en/cli/overview))\r\n- difyctl is a command-line client for Dify: you can now run apps and workflows straight from your terminal, so personal agents, scripts, and CI pipelines can invoke Dify workflows without opening the web UI (#37036)\r\n- Install it on any platform (macOS, Linux, Win",
           "published_at": "2026-06-25T13:16:14Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.15.0",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.14.2",
           "name": "v1.14.2 - Security fixes, agent groundwork, workflow reliability, and deployment updates",
+          "body": "## 🚀 What's New in v1.14.2?\r\n\r\nv1.14.2 is a patch release focused on security hardening, workflow and knowledge reliability, observability fixes, agent groundwork, and deployment/runtime tuning after v1.14.1.\r\n\r\n### 🔐 Security and administration\r\n\r\n- **Tenant-scoped sensitive endpoints** — strengthened tenant isolation for app trace-config endpoints and FilePreview text extraction. Thanks @xr843 in [#35793](https://github.com/langgenius/dify/pull/35793) and [#35797](https://github.com/langgenius/dify/pull/35797).\r\n- **Tool credential safety** — restricted default builtin tool credential updates to workspace admins and owners, and cleaned stale tenant tool credentials during `reset-encrypt-key-pair`. Thanks @NeatGuyCoding and @xr843 in [#36264](https://github.com/langgenius/dify/pull/36264) and [#35843](https://github.com/langgenius/dify/pull/35843).\r\n\r\n### 🧩 Workflow, HITL, and app runtime\r\n\r\n- **Workflow execution reliability** — restored tracing after HITL workflow resume, improved workflow run callback tracking, reduced message-update database roundtrips, fixed memory fetches outside Flask context, and closed base64 file lookup sessions correctly. Thanks @Blackoutta, @CodingO",
           "published_at": "2026-05-19T05:34:25Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.2",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.14.1",
           "name": "v1.14.1 - Security hardening, workflow stability, and cleaner self-hosted deployments",
+          "body": "## 🚀 What's New in v1.14.1?\r\n\r\nv1.14.1 is a patch release focused on security hardening, workflow and knowledge-base stability, deployment cleanup, and continued UI platform migration after v1.14.0.\r\n\r\n### 🔐 Security\r\n\r\n- **Self-hosted `SECRET_KEY` hardening** — Docker deployments no longer rely on a public default key. When `SECRET_KEY` is left empty, the API generates and persists a runtime key through the configured storage backend, while explicitly configured keys continue to work as before. Thanks @laipz8200 in [#36049](https://github.com/langgenius/dify/pull/36049).\r\n- **Internal metrics endpoint protection** — `/threads` and `/db-pool-stat` are hardened to avoid unauthenticated exposure of internal runtime and database-pool details. Thanks @orbisai0security in [#35665](https://github.com/langgenius/dify/pull/35665).\r\n- **Account and tool isolation** — fixed an IDOR issue in `GET /account/avatar` and scoped builtin-tool default-credential cleanup to the current tenant. Thanks @NeatGuyCoding and @GareArc in [#35771](https://github.com/langgenius/dify/pull/35771) and [#35887](https://github.com/langgenius/dify/pull/35887).\r\n- **Dependency security** — upgraded LiteLLM for CVE",
           "published_at": "2026-05-12T08:19:23Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.1",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.14.0",
           "name": "v1.14.0",
+          "body": "## 🚀 What's New in v1.14.0?\r\n\r\n### Collaboration\r\n<img width=\"2632\" height=\"1190\" alt=\"img_v3_02117_67a67218-1ae5-4d68-a45b-3ada592f87fg\" src=\"https://github.com/user-attachments/assets/1d4a3660-8a6a-4b29-9766-4d5b5fd9a51b\" />\r\n\r\nCollaboration allows workspace members to edit the same workflow together, with synced graph updates, online presence, and shared visibility into who is working where.\r\n\r\nOn self-hosted deployments, collaboration is turned off by default. Enable it by setting:\r\n\r\n```\r\nENABLE_COLLABORATION_MODE = true\r\nSERVER_WORKER_CLASS = geventwebsocket.gunicorn.workers.GeventWebSocketWorker\r\nNEXT_PUBLIC_SOCKET_URL = your deployment’s WebSocket URL (e.g., wss://dify.example.com)\r\n```\r\n\r\nFor more details, see [Full Documentation](https://docs.dify.ai/en/use-dify/build/workflow-collaboration)\r\n\r\n### Human-in-the-loop (HITL)\r\n\r\n- **Service API for HITL** — programmatic support for human-in-the-loop flows alongside existing console behavior.\r\n\r\n### MCP and plugins\r\n\r\n- **MCP tool metadata** — refresh after updates so the UI stays in sync.\r\n- **MCP server URL** — fix double `/v1` that could break OAuth and authorization (404).\r\n- **MCP OAuth discovery** — handle malformed JS",
           "published_at": "2026-04-29T04:06:08Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.0",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         },
         {
           "tag_name": "1.13.3",
           "name": "v1.13.3",
+          "body": "## 🚀 What's New in v1.13.3?\r\nOur latest patch release, v1.13.3, focuses on stability and correctness across workflow execution, streaming, and knowledge retrieval. Here's a quick look at the most important updates:\r\n\r\n### 🎬 New Features\r\n- **Workflow Configuration**: Added variable-reference support for model parameters in LLM, Question Classifier, and Variable Extractor nodes by @scdeng in #33082.\r\n\r\n### 🛠️ Bug Fixes\r\n- **Streaming Reliability**: Fixed `StreamsBroadcastChannel` replay and concurrency issues to keep frontend/backend event delivery stable by @QuantumGhost in #34030 and #34061.\r\n- **Workflow Editor Behavior**: Fixed pasted nodes retaining Loop/Iteration metadata and prevented `HumanInput` nodes from being pasted into invalid containers by @majiayu000 and @hjlarry in #29983 and #34077.\r\n- **Runtime Execution**: Restored prompt message transformation logic and corrected `max_retries=0` handling for executor-driven HTTP Request execution by @QuantumGhost, @fatelei, and @kurokobo in #33666, #33619, and #33688.\r\n- **Knowledge Retrieval**: Preserved citation metadata in web responses, fixed crashes when dataset icon metadata is missing, corrected hit-count query filteri",
           "published_at": "2026-03-27T08:46:46Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.13.3",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            },
+            {
+              "login": "crazywoola",
+              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
+              "html_url": "https://github.com/crazywoola"
+            }
+          ]
         }
       ]
     },
@@ -190,87 +1056,520 @@
         "语言"
       ],
       "html_url": "https://github.com/microsoft/TypeScript",
+      "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
+      "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
+      "stars": 111015,
       "pushed_at": "2026-09-12T00:32:38Z",
       "releases": [
         {
           "tag_name": "v7.0.2",
           "name": "TypeScript 7.0.2",
+          "body": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/\r\n\r\nThis tag was originally released at: https://github.com/microsoft/typescript-go/releases/tag/typescript%2Fv7.0.2",
           "published_at": "2026-08-20T18:09:49Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v7.0.2",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v6.0.3",
           "name": "TypeScript 6.0.3",
+          "body": "For release notes, check out the [release announcement blog post](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/).\r\n\r\n* [fixed issues query for TypeScript 6.0.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.0%22).\r\n* [fixed issues query for TypeScript 6.0.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.1%22).\r\n* [fixed issues query for TypeScript 6.0.2 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.2%22).\r\n* [fixed issues query for TypeScript 6.0.3 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.3%22).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2026-04-16T23:43:08Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0.3",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v6.0.2",
           "name": "TypeScript 6.0",
+          "body": "For release notes, check out the [release announcement blog post](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/).\r\n\r\n* [fixed issues query for TypeScript 6.0.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.0%22).\r\n* [fixed issues query for TypeScript 6.0.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.1%22).\r\n* [fixed issues query for TypeScript 6.0.2 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.2%22).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2026-03-23T16:19:11Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0.2",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v6.0-rc",
           "name": "TypeScript 6.0.1 RC",
+          "body": "For release notes, check out the [release announcement blog post](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0-rc/).\r\n\r\n* [fixed issues query for TypeScript 6.0.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.0%22).\r\n* [fixed issues query for TypeScript 6.0.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.1%22).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2026-03-06T17:56:53Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0-rc",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v6.0-beta",
           "name": "TypeScript 6.0 Beta",
+          "body": "For release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0-beta/).\r\n\r\n* [fixed issues query for Typescript 6.0.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+6.0.0%22+is%3Aclosed+).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2026-02-18T18:11:46Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v6.0-beta",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v5.9.2",
           "name": "TypeScript 5.9",
+          "body": "Note: this tag was recreated to point at the correct commit. The npm package contained the correct content.\r\n\r\nFor release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/)\r\n\r\n* [fixed issues query for Typescript 5.9.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.0%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.9.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.1%22+is%3Aclosed+).\r\n* *No specific changes for TypeScript 5.9.2 (Stable)*\r\n\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2025-10-01T20:37:10Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9.2",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v5.9-rc",
           "name": "TypeScript 5.9 RC",
+          "body": "Note: this tag was recreated to point at the correct commit. The npm package contained the correct content.\r\n\r\nFor release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9-rc/)\r\n\r\n* [fixed issues query for Typescript 5.9.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.0%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.9.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.1%22+is%3Aclosed+).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2025-10-01T20:35:11Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9-rc",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v5.9-beta",
           "name": "TypeScript 5.9 Beta",
+          "body": "Note: this tag was recreated to point at the correct commit. The npm package contained the correct content.\r\n\r\nFor release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9-beta/).\r\n\r\n* [fixed issues query for Typescript 5.9.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.0%22+is%3Aclosed+).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2025-10-01T20:32:50Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9-beta",
           "prerelease": true,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v5.8.3",
           "name": "TypeScript 5.8.3",
+          "body": "Note: this tag was recreated to point at the correct commit. The npm package contained the correct content.\r\n\r\nFor release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-5-8/).\r\n\r\n* [fixed issues query for Typescript 5.8.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.0%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.8.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.1%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.8.2 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.2%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.8.3 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.3%22+is%3Aclosed+).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2025-10-01T20:29:30Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.8.3",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         },
         {
           "tag_name": "v5.9.3",
           "name": "TypeScript 5.9.3",
+          "body": "Note: this tag was recreated to point at the correct commit. The npm package contained the correct content.\r\n\r\nFor release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/)\r\n\r\n* [fixed issues query for Typescript 5.9.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.0%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.9.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.1%22+is%3Aclosed+).\r\n* *No specific changes for TypeScript 5.9.2 (Stable)*\r\n* [fixed issues query for Typescript 5.9.3 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.9.3%22+is%3Aclosed+).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
           "published_at": "2025-10-01T19:06:07Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9.3",
           "prerelease": false,
-          "is_new": false
+          "is_new": false,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
         }
       ]
     }
