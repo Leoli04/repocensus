@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T00:15:50.909Z",
+  "generated_at": "2026-09-13T00:21:08.471Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -1058,7 +1058,7 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111015,
+      "stars": 111016,
       "pushed_at": "2026-09-12T00:32:38Z",
       "releases": [
         {
