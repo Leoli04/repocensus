@@ -25,15 +25,18 @@ import ComparePanel from './components/ComparePanel.vue'
 import SectionNav from './components/SectionNav.vue'
 import AllView from './components/AllView.vue'
 import HotTrendingPage from './components/HotTrendingPage.vue'
+import WorkbenchPage from './components/WorkbenchPage.vue'
 import type { Repo } from './engine/types'
 
 // ── Active tab (persisted) ────────────────────────────────
+// Workbench is the default landing tab: it answers "what needs doing today".
+// Visitors who already picked a tab keep their choice (stored value wins).
 const TAB_KEY = 'repocensus:tab'
 function getInitialTab(): string {
   try {
-    return localStorage.getItem(TAB_KEY) || 'overview'
+    return localStorage.getItem(TAB_KEY) || 'workbench'
   } catch {
-    return 'overview'
+    return 'workbench'
   }
 }
 const activeTab = ref<string>(getInitialTab())
@@ -194,7 +197,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.14.0'
+const APP_VERSION = 'v1.15.0'
 </script>
 
 <template>
@@ -245,8 +248,13 @@ const APP_VERSION = 'v1.14.0'
       <!-- Side quick-jump navigation (v1.12) -->
       <SectionNav :active="activeTab" />
 
+      <!-- ══ Workbench Tab (v1.15) ══ -->
+      <template v-if="activeTab === 'workbench'">
+        <WorkbenchPage />
+      </template>
+
       <!-- ══ Overview Tab ══ -->
-      <template v-if="activeTab === 'overview'">
+      <template v-else-if="activeTab === 'overview'">
         <section id="overview" class="stat-cards">
           <div class="stat-card">
             <span class="stat-value">{{ stats.total }}</span>

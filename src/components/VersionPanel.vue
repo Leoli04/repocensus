@@ -21,6 +21,21 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.15.0',
+    date: '2026-09-14',
+    type: 'release',
+    items: [
+      '工作台（新增第 6 个 Tab，并作为默认落地页）：一屏放下「今天要动手的事」和「常去的站」，与既有 5 个 Tab（回答「我有什么仓库」）职责分离，不做重复的仓库列表',
+      '我的待办：待我审查的 PR / 指派给我的 Issue / 落后上游的 Fork（逐个比对提交数）/ 沉默的自建仓库，每一条都可直接跳转',
+      '新增 scripts/fetch-inbox.ts：在 Actions 中构建时抓取并落盘 workbench.json，浏览器零 API 调用，保持零服务器定位',
+      '注意：Actions 里的 GITHUB_TOKEN 身份是 github-actions[bot]，因此查询必须用显式用户名而非 @me，否则永远查不到结果；如需覆盖私有仓库可另配 INBOX_TOKEN secret',
+      '快捷入口：书签网格，支持分组、徽章、增删、导入 / 导出 JSON',
+      '书签数据只存本机浏览器，仓库内仅保留 src/data/bookmarks.example.json 示例 —— 别人 Fork 本项目不会连带拿到你的私人链接清单',
+      '书签可达性检测：浏览器端 no-cors 探测 + 24 小时缓存；只能判断「连接不上」（域名失效、拒绝连接、超时），404 仍算可达，故文案为「无法访问」而非「失效」',
+      '健壮性：待办采集失败时降级为 enabled:false 并给出配置提示，绝不中断构建与部署',
+    ],
+  },
+  {
     version: 'v1.14.0',
     date: '2026-09-14',
     type: 'release',

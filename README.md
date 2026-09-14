@@ -109,6 +109,7 @@ repocensus/
 │   │   ├── recommend.ts       # Smart recommendation engine (topic similarity)
 │   │   └── changeTracker.ts   # Change tracking (snapshot diff)
 │   ├── components/            # Vue components
+│   │   ├── WorkbenchPage.vue  # Workbench: action inbox + quick-launch (default tab)
 │   │   ├── RepoCard.vue       # Repo card (notes/tags editor)
 │   │   ├── TechProfile.vue
 │   │   ├── StarTimeline.vue
@@ -126,7 +127,9 @@ repocensus/
 │   │   ├── useTheme.ts        # Dark/light theme
 │   │   ├── useRepoMeta.ts     # Repo notes/tags (localStorage)
 │   │   ├── useExport.ts       # Markdown / JSON / CSV export
-│   │   └── useHotTrending.ts  # Global trending board data access
+│   │   ├── useHotTrending.ts  # Global trending board data access
+│   │   ├── useWorkbench.ts    # Action inbox data access
+│   │   └── useBookmarks.ts    # Quick-launch bookmarks (localStorage + link probe)
 │   ├── i18n/                  # Lightweight i18n (no vue-i18n dependency)
 │   │   ├── index.ts           # t() + locale ref
 │   │   ├── zh.ts              # Chinese strings
@@ -135,13 +138,16 @@ repocensus/
 │   │   ├── repos.json         # Generated data (auto-updated by Action)
 │   │   ├── snapshots.json     # History snapshots for change tracking
 │   │   ├── trending.json      # GitHub global trending boards
-│   │   └── trending-history.json # Daily rank snapshots (days-on-board)
+│   │   ├── trending-history.json # Daily rank snapshots (days-on-board)
+│   │   ├── workbench.json     # Action inbox (auto-updated by Action)
+│   │   └── bookmarks.example.json # Quick-launch example (yours stays in your browser)
 │   ├── styles/
 │   │   └── main.css           # Global styles + theme variables
 │   ├── App.vue                # Main app
 │   └── main.ts                # Entry
 ├── scripts/
 │   ├── fetch.ts               # GitHub API fetcher (runs in Actions)
+│   ├── fetch-inbox.ts         # Workbench action inbox (review/assigned/forks behind)
 │   └── fetch-trending.ts      # Global trending scraper (+ Search API fallback)
 ├── config/
 │   └── templates.yml          # Custom category templates
@@ -165,9 +171,16 @@ Yes, but you need their public data. Fork the repo, set `GITHUB_USERNAME` as a r
 **Is my data private?**
 Your repo metadata (public repos, stars) is already public on GitHub. RepoCensus just organizes it. No data leaves your own GitHub repository.
 
+The workbench's quick-launch bookmarks are a **deliberate exception**: they live only in your browser's localStorage and are **never written back to the repository**. Anyone forking this project only gets `src/data/bookmarks.example.json`, never your private links. The trade-off is that moving to another device needs a manual "Export JSON" → "Import".
+
+`config/followed.yml`, by contrast, **is** committed — the build-time Action has to read it — so a fork carries your followed list along. Keep it to public projects, or treat it as a shareable list.
+
+**Why aren't the bookmarks a repo config file?**
+Because "does this belong in the repo?" depends on **who has to read the data**: anything a build-time Action reads (like `followed.yml`) has to be committed; anything only the browser renders (bookmarks) should not be. Shipping an example in the repo and keeping the real data on the user's side is this project's default stance on personal data.
+
 ## Roadmap
 
-> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.14.0**.
+> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.15.0**.
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -186,6 +199,7 @@ Your repo metadata (public repos, stars) is already public on GitHub. RepoCensus
 | v1.12 | Full-page "view all" + side quick-nav | ✅ |
 | v1.13 | Drop learning-path view + dark chart colour calibration + build artifact cleanup | ✅ |
 | v1.14 | GitHub global trending board (utility): daily/weekly/monthly × 11 language boards + rank movement + days on board | ✅ |
+| v1.15 | Workbench (new tab, default landing page): action inbox (PRs to review / assigned issues / forks behind upstream / silent repos) + quick-launch bookmarks (stored on your device, import & export) | ✅ |
 
 ### Backlog
 

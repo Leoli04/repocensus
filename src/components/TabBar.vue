@@ -14,6 +14,7 @@ const emit = defineEmits<{ (e: 'update:active', id: string): void }>()
 const { t } = useI18n()
 
 const tabs = computed<TabItem[]>(() => [
+  { id: 'workbench', icon: '🧭', labelKey: 'tab.workbench' },
   { id: 'overview', icon: '📊', labelKey: 'tab.overview' },
   { id: 'repos', icon: '📦', labelKey: 'tab.repos' },
   { id: 'activity', icon: '📈', labelKey: 'tab.activity' },

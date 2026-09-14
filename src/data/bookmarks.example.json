@@ -1,0 +1,77 @@
+{
+  "_comment": "快捷入口的示例数据。真实收藏保存在浏览器本地（repocensus:bookmarks），不会写回仓库，因此 Fork 本项目的任何人都不会拿到你的私人链接。首次打开工作台会加载这份示例，你可以在页面上直接编辑，或用「导入 JSON」换成自己的清单。",
+  "bookmarks": [
+    {
+      "id": "bm-github",
+      "name": "GitHub",
+      "url": "https://github.com",
+      "group": "日常",
+      "badge": "GH",
+      "description": "代码托管"
+    },
+    {
+      "id": "bm-actions",
+      "name": "Actions",
+      "url": "https://github.com/actions",
+      "group": "日常",
+      "badge": "AC",
+      "description": "CI/CD"
+    },
+    {
+      "id": "bm-npm",
+      "name": "npm",
+      "url": "https://www.npmjs.com",
+      "group": "日常",
+      "badge": "NP",
+      "description": "包管理"
+    },
+    {
+      "id": "bm-vite",
+      "name": "Vite 文档",
+      "url": "https://cn.vite.dev",
+      "group": "项目文档",
+      "badge": "VT",
+      "description": "构建工具"
+    },
+    {
+      "id": "bm-vue",
+      "name": "Vue 3 文档",
+      "url": "https://cn.vuejs.org",
+      "group": "项目文档",
+      "badge": "V3",
+      "description": "前端框架"
+    },
+    {
+      "id": "bm-ts",
+      "name": "TypeScript",
+      "url": "https://www.typescriptlang.org/docs/",
+      "group": "项目文档",
+      "badge": "TS",
+      "description": "语言手册"
+    },
+    {
+      "id": "bm-mdn",
+      "name": "MDN",
+      "url": "https://developer.mozilla.org/zh-CN/",
+      "group": "查阅",
+      "badge": "MD",
+      "description": "Web 标准"
+    },
+    {
+      "id": "bm-shields",
+      "name": "shields.io",
+      "url": "https://shields.io",
+      "group": "查阅",
+      "badge": "SH",
+      "description": "徽章生成"
+    },
+    {
+      "id": "bm-caniuse",
+      "name": "Can I use",
+      "url": "https://caniuse.com",
+      "group": "查阅",
+      "badge": "CU",
+      "description": "兼容性查询"
+    }
+  ]
+}

@@ -57,6 +57,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Fetch workbench action inbox
+        run: npx tsx scripts/fetch-inbox.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: a PAT with `repo` + `read:user` widens the inbox beyond
+          # this repository. Unset by default — GITHUB_TOKEN still works.
+          INBOX_TOKEN: ${{ secrets.INBOX_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+
       - name: Notify followed updates (create issue if new releases)
         if: github.event_name == 'schedule'
         run: npx tsx scripts/notify-followed.ts
@@ -71,7 +80,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add src/data/repos.json src/data/snapshots.json src/data/followed.json src/data/trending.json src/data/trending-history.json
+          git add src/data/repos.json src/data/snapshots.json src/data/followed.json src/data/trending.json src/data/trending-history.json src/data/workbench.json
           git diff --staged --quiet || git commit -m 'chore: update census data [skip ci]'
           git push
 

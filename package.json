@@ -1,6 +1,6 @@
 {
   "name": "repocensus",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "Fork-and-go GitHub repository census dashboard with smart categorization",
   "type": "module",
   "scripts": {
@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "fetch": "tsx scripts/fetch.ts",
     "fetch:followed": "tsx scripts/fetch-followed.ts",
-    "fetch:trending": "tsx scripts/fetch-trending.ts"
+    "fetch:trending": "tsx scripts/fetch-trending.ts",
+    "fetch:inbox": "tsx scripts/fetch-inbox.ts"
   },
   "dependencies": {
     "vue": "^3.5.13"

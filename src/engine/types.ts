@@ -284,3 +284,63 @@ export interface HotSnapshot {
   /** boardKey -> ordered full_names (index + 1 = rank) */
   boards: Record<string, string[]>
 }
+
+// ── Workbench / action inbox (v1.15) ─────────────────────
+// Personal, action-oriented layer. Deliberately NOT another repo listing:
+// the existing five tabs already answer "what do I have?" — this one answers
+// "what needs doing today?".
+
+/** What kind of action an inbox entry represents */
+export type InboxKind = 'review' | 'assigned' | 'fork'
+
+/** One actionable entry on the workbench */
+export interface InboxItem {
+  kind: InboxKind
+  /** repo the entry belongs to, e.g. vuejs/core */
+  repo: string
+  /** where clicking the entry should go */
+  html_url: string
+  /** PR / issue title; the fork's name for `fork` entries */
+  title: string
+  /** PR / issue number; null for `fork` entries */
+  number: number | null
+  /** ISO timestamp — the UI renders it as relative time */
+  updated_at: string
+  /** `fork` entries only: commits the fork is behind its upstream */
+  behind?: number
+  /** `fork` entries only: upstream full_name */
+  upstream?: string | null
+}
+
+/** src/data/workbench.json payload (built by scripts/fetch-inbox.ts) */
+export interface WorkbenchData {
+  generated_at: string
+  /** false when the collector could not run — UI shows setup guidance instead */
+  enabled: boolean
+  counts: {
+    review: number
+    assigned: number
+    fork_behind: number
+  }
+  items: InboxItem[]
+}
+
+/**
+ * A bookmark shown in the workbench quick-launch grid.
+ *
+ * NOTE: this is *user-side* data. It lives in the browser, never in the repo,
+ * so that forking the project never drags along somebody else's link list.
+ */
+export interface Bookmark {
+  id: string
+  name: string
+  url: string
+  /** grouping label, e.g. 日常 / 项目文档 */
+  group: string
+  /** short monogram rendered on the tile; derived from the name when absent */
+  badge?: string
+  description?: string
+}
+
+/** Reachability of one bookmark, cached by the client-side link probe */
+export type BookmarkHealth = 'ok' | 'dead' | 'unknown'
