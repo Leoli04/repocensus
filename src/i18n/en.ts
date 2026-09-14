@@ -223,8 +223,14 @@ export default {
   'hot.newCount': '{n} new',
   'hot.droppedCount': '{n} dropped',
   'hot.streakCount': '{n} on board ≥3d',
+  'hot.sortBy': 'Sort',
+  'hot.sortPeriod': 'Stars gained',
+  'hot.sortStars': 'Total stars',
+  'hot.sortVelocity': 'Growth rate',
+  'hot.sortOfficial': 'GitHub order',
+  'hot.officialRank': 'official #{n}',
   'hot.droppedTitle': 'Dropped off the board',
-  'hot.footnote': 'Source: scraped from github.com/trending, falling back to the GitHub Search API. Rank movement compares with the previous run; days-on-board is derived from daily snapshots (up to 14 kept). This board is unrelated to the Trending board on the Repos tab, which ranks your own repos by star growth.',
+  'hot.footnote': 'Source: scraped from github.com/trending, falling back to the GitHub Search API. Rank movement compares with the previous run; days-on-board is derived from daily snapshots (up to 14 kept). Note that GitHub\'s own order is not sorted by total stars or by stars gained — it uses an internal trending score, so its #1 can show fewer stars than its #2. The list defaults to "Stars gained"; switch to "GitHub order" to match github.com/trending exactly, which is also the only mode where the ▲/▼ badges line up with list positions. This board is unrelated to the Trending board on the Repos tab, which ranks your own repos by star growth.',
 
   // Share card
   'share.cardTitle': 'Tech Profile Share Card',

@@ -223,8 +223,14 @@ export default {
   'hot.newCount': '新晋 {n}',
   'hot.droppedCount': '掉榜 {n}',
   'hot.streakCount': '连续在榜 ≥3 天 {n}',
+  'hot.sortBy': '排序',
+  'hot.sortPeriod': '周期新增',
+  'hot.sortStars': '总 Star',
+  'hot.sortVelocity': '增速',
+  'hot.sortOfficial': 'GitHub 官方序',
+  'hot.officialRank': '官方 #{n}',
   'hot.droppedTitle': '掉出榜单',
-  'hot.footnote': '数据来源：抓取 github.com/trending，失败时降级为 GitHub Search API。排名变化对比上一次采集；连续在榜天数基于每日快照（最多保留 14 天）。本榜与「仓库」页的 Trending 热榜（我的仓库 Star 增速）是两套数据。',
+  'hot.footnote': '数据来源：抓取 github.com/trending，失败时降级为 GitHub Search API。排名变化对比上一次采集；连续在榜天数基于每日快照（最多保留 14 天）。注意 GitHub 官方序并非按 Star 总数或周期新增排序，而是其内部热度分，因此官方 #1 的 Star 可能少于 #2；列表默认按「周期新增」排序，切换为官方序可对齐 github.com/trending，此刻 ▲▼ 才与列表位次一致。本榜与「仓库」页的 Trending 热榜（我的仓库 Star 增速）是两套数据。',
 
   // 分享卡片
   'share.cardTitle': '技术画像分享卡片',

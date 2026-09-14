@@ -2,6 +2,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from '../i18n'
 import { useHotTrending } from '../composables/useHotTrending'
+import { sortHotRows, type HotSort } from '../engine/hotSort'
 import type { HotPeriod } from '../engine/types'
 
 const { t, locale } = useI18n()
@@ -58,10 +59,21 @@ const periodsInData = computed(() => new Set(boards.value.map((b) => b.period)))
 /** Language buttons for the active period — see languagesFor() for why scoped */
 const languageOptions = computed(() => languagesFor(period.value))
 
+// ── Sorting ───────────────────────────────────────────────
+// Default to stars gained in the period. GitHub's own order is an internal
+// trending score rather than a star ranking, so its #1 often shows fewer stars
+// than its #2 — see engine/hotSort.ts for the full explanation.
+const sort = ref<HotSort>('period')
+
+const sortOptions = computed<{ id: HotSort; label: string }[]>(() => [
+  { id: 'period', label: t('hot.sortPeriod') },
+  { id: 'stars', label: t('hot.sortStars') },
+  { id: 'velocity', label: t('hot.sortVelocity') },
+  { id: 'official', label: t('hot.sortOfficial') },
+])
+
 const board = computed(() => findBoard(period.value, language.value))
-const rows = computed(() =>
-  (board.value?.items || []).map((item) => ({ item, meta: meta(item.full_name) }))
-)
+const rows = computed(() => sortHotRows(board.value?.items || [], meta, sort.value))
 const dropped = computed(() => board.value?.dropped || [])
 
 /** Keep the selected language valid when the data changes */
@@ -164,6 +176,21 @@ function langLabel(id: string, label: string): string {
         </div>
       </div>
 
+      <!-- Sort -->
+      <div v-if="boards.length" class="sort-row">
+        <span class="sort-label">{{ t('hot.sortBy') }}</span>
+        <div class="sort-switch">
+          <button
+            v-for="s in sortOptions"
+            :key="s.id"
+            :class="['sort-btn', { active: sort === s.id }]"
+            @click="sort = s.id"
+          >
+            {{ s.label }}
+          </button>
+        </div>
+      </div>
+
       <!-- Summary -->
       <div v-if="rows.length" class="summary">
         <span class="sum-item">{{ t('hot.repoCount', { n: rows.length }) }}</span>
@@ -199,6 +226,9 @@ function langLabel(id: string, label: string): string {
                 <span v-if="row.item.days_on_board >= 3" class="streak-chip">
                   🔥 {{ t('hot.daysOnBoard', { n: row.item.days_on_board }) }}
                 </span>
+                <span v-if="sort !== 'official'" class="official-chip">
+                  {{ t('hot.officialRank', { n: row.official }) }}
+                </span>
               </div>
               <p v-if="row.meta?.description" class="desc">{{ row.meta.description }}</p>
               <div class="metrics">
@@ -206,7 +236,12 @@ function langLabel(id: string, label: string): string {
                 <span v-if="row.item.stars_period" class="metric hot">
                   +{{ fmt(row.item.stars_period) }} {{ periodUnit[board?.period || 'daily'] }}
                 </span>
-                <span class="metric">🍴 {{ fmt(row.meta?.forks || 0) }}</span>
+                <span class="metric">
+                  <svg class="metric-ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                    <path fill="currentColor" d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
+                  </svg>
+                  {{ fmt(row.meta?.forks || 0) }}
+                </span>
               </div>
             </div>
 
@@ -420,6 +455,46 @@ function langLabel(id: string, label: string): string {
   font-weight: 600;
 }
 
+.sort-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.sort-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.sort-switch {
+  display: flex;
+  gap: 4px;
+}
+
+.sort-btn {
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sort-btn:hover {
+  border-color: var(--accent);
+}
+
+.sort-btn.active {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .summary {
   display: flex;
   flex-wrap: wrap;
@@ -570,6 +645,23 @@ function langLabel(id: string, label: string): string {
 .metric.hot {
   color: #ef4444;
   font-weight: 600;
+}
+
+/* Inline octicon — the 🍴 emoji is missing from many Windows emoji fonts and
+   renders as a tofu box, so the fork count uses an SVG instead. */
+.metric-ico {
+  vertical-align: -1px;
+  opacity: 0.7;
+}
+
+.official-chip {
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--card-border);
+  white-space: nowrap;
 }
 
 .badges {
