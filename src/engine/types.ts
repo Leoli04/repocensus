@@ -213,3 +213,74 @@ export interface RepoTrend {
   points: number[] // star counts aligned with the history window
   delta: number // last - first
 }
+
+// ── GitHub global trending board ─────────────────────────
+// Auxiliary utility. NOTE: this is NOT the same thing as TrendingData above.
+// TrendingData ranks the *user's own* repos by star delta (in-repo velocity
+// board); HotTrendingData tracks *GitHub-wide* hot repos scraped from
+// github.com/trending with a Search API fallback. Keep the wording apart.
+
+/** Time window of a global trending board */
+export type HotPeriod = 'daily' | 'weekly' | 'monthly'
+
+/** Where a board's data came from */
+export type HotSource = 'trending' | 'search'
+
+/** Shared metadata for one repo that appears on the global board */
+export interface HotRepoMeta {
+  full_name: string
+  html_url: string
+  owner_avatar: string
+  description: string | null
+  language: string | null
+  stars: number
+  forks: number
+}
+
+/** One ranked entry on a board (metadata lives in HotTrendingData.repos) */
+export interface HotBoardItem {
+  full_name: string
+  rank: number
+  /** stars gained inside the board's period; null when the source can't tell */
+  stars_period: number | null
+  /** rank in the previous run of the same board; null = newly entered */
+  prev_rank: number | null
+  /** positive = moved up, negative = moved down; null = new entry */
+  rank_delta: number | null
+  /** consecutive runs this repo has appeared on this board (1 = first seen) */
+  days_on_board: number
+}
+
+/** A board entry that disappeared since the previous run */
+export interface HotDroppedItem {
+  full_name: string
+  prev_rank: number
+}
+
+/** A single board = one period × one language ('' = all languages) */
+export interface HotBoard {
+  period: HotPeriod
+  language: string
+  updated_at: string
+  source: HotSource
+  items: HotBoardItem[]
+  /** entries on this board in the previous run that are gone now */
+  dropped: HotDroppedItem[]
+}
+
+/** src/data/trending.json payload (built by scripts/fetch-trending.ts) */
+export interface HotTrendingData {
+  generated_at: string
+  boards: HotBoard[]
+  /** full_name -> metadata, deduplicated across boards */
+  repos: Record<string, HotRepoMeta>
+  /** languages that actually have a board, for the filter UI */
+  languages: { id: string; label: string }[]
+}
+
+/** One stored snapshot of board rankings (names only, kept compact) */
+export interface HotSnapshot {
+  date: string
+  /** boardKey -> ordered full_names (index + 1 = rank) */
+  boards: Record<string, string[]>
+}

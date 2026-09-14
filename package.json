@@ -1,13 +1,15 @@
 {
   "name": "repocensus",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "description": "Fork-and-go GitHub repository census dashboard with smart categorization",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "fetch": "tsx scripts/fetch.ts"
+    "fetch": "tsx scripts/fetch.ts",
+    "fetch:followed": "tsx scripts/fetch-followed.ts",
+    "fetch:trending": "tsx scripts/fetch-trending.ts"
   },
   "dependencies": {
     "vue": "^3.5.13"

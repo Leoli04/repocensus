@@ -21,6 +21,18 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: 'v1.14.0',
+    date: '2026-09-14',
+    type: 'release',
+    items: [
+      'GitHub 全局热门榜（附属工具）：抓取 github.com/trending 全站热门项目，独立页面（顶栏 🌍 进入），与「仓库」页的 Trending 热榜（我的仓库 Star 增速）互不相干',
+      '三维榜单：今日 / 本周 / 本月 × 全部语言 + 10 种主流语言，共 33 个榜',
+      '历史快照差异化：对比上一次采集给出排名升降（▲ / ▼ / — / 新晋）与掉榜名单，并按每日快照计算「连续在榜 N 天」（最多保留 14 天）',
+      '双源降级：Trending 页解析失败自动回落 GitHub Search API；两源皆失败时沿用上一份数据，绝不刷空榜单',
+      '数据陈旧提示：超过 36 小时未更新时提示启用 Actions / 60 天暂停规则（Fork 即用场景的常见坑）',
+    ],
+  },
+  {
     version: 'v1.13.0',
     date: '2026-09-14',
     type: 'release',

@@ -13,7 +13,8 @@ RepoCensus scans **all your GitHub repositories** (self-created + forked + starr
 - **Three-in-one view** — Self-created, Forked, and Starred repos in one dashboard
 - **Smart auto-categorization** — Multi-signal weighted engine (topics, language, keywords)
 - **6 preset templates** — Switch between by-domain / by-language / by-activity / by-purpose / by-type / AI-domain
-- **Trending board** — Star velocity ranking with category filter pills
+- **Trending board** (your repos) — Star velocity ranking of your own repos, with category filter pills
+- **Global trending board** (utility) — Scrapes GitHub-wide Trending: daily/weekly/monthly × 11 language boards, with rank movement, dropped entries and days-on-board
 - **Health scoring** — 0-100 score per repo based on recency, stars, README, license, topics
 - **Stale repo detection** — Find repos you should archive or delete
 - **Star timeline** — See what you starred recently, with new-star highlighting
@@ -112,6 +113,7 @@ repocensus/
 │   │   ├── TechProfile.vue
 │   │   ├── StarTimeline.vue
 │   │   ├── TrendingBoard.vue
+│   │   ├── HotTrendingPage.vue # GitHub global trending board (utility, #/trending)
 │   │   ├── ShareCard.vue
 │   │   ├── RecommendBoard.vue # Explore-topics drill-down
 │   │   ├── ChangeTracker.vue  # Change tracking board
@@ -123,20 +125,24 @@ repocensus/
 │   │   ├── useRepos.ts        # Data + filtering + template switching
 │   │   ├── useTheme.ts        # Dark/light theme
 │   │   ├── useRepoMeta.ts     # Repo notes/tags (localStorage)
-│   │   └── useExport.ts       # Markdown / JSON / CSV export
+│   │   ├── useExport.ts       # Markdown / JSON / CSV export
+│   │   └── useHotTrending.ts  # Global trending board data access
 │   ├── i18n/                  # Lightweight i18n (no vue-i18n dependency)
 │   │   ├── index.ts           # t() + locale ref
 │   │   ├── zh.ts              # Chinese strings
 │   │   └── en.ts              # English strings
 │   ├── data/
 │   │   ├── repos.json         # Generated data (auto-updated by Action)
-│   │   └── snapshots.json     # History snapshots for change tracking
+│   │   ├── snapshots.json     # History snapshots for change tracking
+│   │   ├── trending.json      # GitHub global trending boards
+│   │   └── trending-history.json # Daily rank snapshots (days-on-board)
 │   ├── styles/
 │   │   └── main.css           # Global styles + theme variables
 │   ├── App.vue                # Main app
 │   └── main.ts                # Entry
 ├── scripts/
-│   └── fetch.ts               # GitHub API fetcher (runs in Actions)
+│   ├── fetch.ts               # GitHub API fetcher (runs in Actions)
+│   └── fetch-trending.ts      # Global trending scraper (+ Search API fallback)
 ├── config/
 │   └── templates.yml          # Custom category templates
 ├── index.html
@@ -161,28 +167,37 @@ Your repo metadata (public repos, stars) is already public on GitHub. RepoCensus
 
 ## Roadmap
 
-> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.7.0**.
+> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.14.0**.
 
-| Version | Features | Status |
+| Version | Feature | Status |
 |---------|---------|--------|
-| v1.0 | Core MVP: data fetch + categorization engine + dashboard + GitHub Actions | ✅ |
+| v1.0 | Core MVP: data fetch + categorization engine + health score + dashboard + GitHub Actions | ✅ |
 | v1.1 | YAML custom templates + cross-dimension + AI domain classification + Markdown export + multi-sort | ✅ |
 | v1.2 | Trending board (star velocity + monthly average + category filter) | ✅ |
 | v1.3 | Share card (PNG/SVG download) + README badges | ✅ |
-| v1.4 | Version progress panel (Changelog + Roadmap) + Trending filter fix + right-side quick nav | ✅ |
+| v1.4 | Version progress panel (Changelog + Roadmap) + live trending recompute + right-side quick nav | ✅ |
 | v1.5 | Search + advanced filtering + annual repo report (Spotify Wrapped style) + smart recommendations | ✅ |
 | v1.6 | i18n (Chinese / English) + repo notes/tags + data export (JSON/CSV) + explore drill-down + change tracking | ✅ |
 | v1.7 | Tab-based multi-view layout (Overview / Repos / Activity / Profile / Compare) | ✅ |
-| v2.1 | Multi-user comparison (compare tech profiles + star overlap score) | 🔲 |
-| v2.2 | Repo detail slide-over panel (click card to view details without leaving GitHub) | 🔲 |
-| v2.3 | Trend charts (snapshot history → star growth line + update heatmap) | 🔲 |
-| v2.4 | Followed repos activity (followed.yml + daily incremental Releases fetch + activity timeline) | 🔲 |
-| v2.5 | AI insight summary (optional LLM: profile summary, cleanup tips, weekly digest) | 🔲 |
-| v2.6 | Tech profile share card / README badge (external form of the in-app profile) | 🔲 |
-| v2.7 | HTML report export (single-file self-contained report, readable by non-technical audiences) | 🔲 |
-| v2.8 | Learning path view (intro → intermediate → advanced template) | 🔲 |
-| Later | Mobile responsive layout | 🔲 |
-| Later | Contribution heatmap (commit activity heatmap by repo/language) | 🔲 |
+| v1.8 | Followed repos activity + repo detail slide-over + trend charts + contribution heatmap + HTML report export | ✅ |
+| v1.9 | Multi-user comparison (formerly v2.1) + learning path view (formerly v2.8, removed in v1.13) | ✅ |
+| v1.10 | Language donut chart + README preview + PWA + release notifications | ✅ |
+| v1.11 | Followed activity cards (GitHub Feed style) | ✅ |
+| v1.12 | Full-page "view all" + side quick-nav | ✅ |
+| v1.13 | Drop learning-path view + dark chart colour calibration + build artifact cleanup | ✅ |
+| v1.14 | GitHub global trending board (utility): daily/weekly/monthly × 11 language boards + rank movement + days on board | ✅ |
+
+### Backlog
+
+| Item | Description | Status |
+|------|-------------|--------|
+| AI insight summary | Optional LLM: profile summary, cleanup tips, weekly digest (formerly v2.5) | 🔲 |
+| Mobile responsive layout | Responsive layout so the dashboard works on phones | 🔲 |
+| Fork value analysis | Detect which forks actually changed code vs. which are safe to clean up | 🔲 |
+| Language proficiency radar | Score each language by count / stars / activity, shown as a radar chart | 🔲 |
+| Repo favourites / pinning | Pin important repos to the top of the overview (localStorage) | 🔲 |
+| PNG share card themes | Multiple colour themes for the share card (minimal white / dark tech / gradient) | 🔲 |
+| Data chunk splitting | repos.json (~1MB) is inlined into the main bundle; evaluate lazy loading | 🔲 |
 
 ## License
 

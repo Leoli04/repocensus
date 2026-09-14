@@ -24,6 +24,7 @@ import RepoDetailPanel from './components/RepoDetailPanel.vue'
 import ComparePanel from './components/ComparePanel.vue'
 import SectionNav from './components/SectionNav.vue'
 import AllView from './components/AllView.vue'
+import HotTrendingPage from './components/HotTrendingPage.vue'
 import type { Repo } from './engine/types'
 
 // ── Active tab (persisted) ────────────────────────────────
@@ -172,6 +173,12 @@ function openAll(kind: 'releases' | 'changes') {
   window.scrollTo({ top: 0, behavior: 'auto' })
 }
 
+// Global trending board (auxiliary tool) — independent hash route
+function openTrending() {
+  location.hash = '#/trending'
+  window.scrollTo({ top: 0, behavior: 'auto' })
+}
+
 // Flat view toggle
 const viewMode = ref<'grouped' | 'flat' | 'trending'>('grouped')
 
@@ -187,7 +194,7 @@ function scrollToShare() {
 
 // Version panel
 const showVersionPanel = ref(false)
-const APP_VERSION = 'v1.13.0'
+const APP_VERSION = 'v1.14.0'
 </script>
 
 <template>
@@ -221,6 +228,9 @@ const APP_VERSION = 'v1.13.0'
         <div v-if="showExportMenu" class="export-backdrop" @click="showExportMenu = false"></div>
         <button class="header-btn share-btn" @click="scrollToShare" :title="t('app.btnShare')">
           📊
+        </button>
+        <button class="header-btn hot-btn" @click="openTrending" :title="t('hot.open')">
+          🌍
         </button>
         <button class="header-btn version-badge" @click="showVersionPanel = true" :title="t('app.btnVersion')">
           {{ APP_VERSION }}
@@ -496,6 +506,9 @@ const APP_VERSION = 'v1.13.0'
 
     <!-- Full-page view-all (v1.12) -->
     <AllView />
+
+    <!-- GitHub global trending board (auxiliary tool) -->
+    <HotTrendingPage />
 
     <!-- Repo Detail Slide Panel (v2.2) -->
     <RepoDetailPanel :repo="selectedRepo" @close="selectedRepo = null" />
