@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T11:47:50.656Z",
+  "generated_at": "2026-09-14T13:00:59.943Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,7 +10,7 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54390,
+      "stars": 54392,
       "pushed_at": "2026-09-14T07:33:16Z",
       "releases": [
         {
@@ -1058,7 +1058,7 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111036,
+      "stars": 111037,
       "pushed_at": "2026-09-14T00:56:07Z",
       "releases": [
         {
