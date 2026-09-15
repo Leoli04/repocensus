@@ -180,7 +180,7 @@ Because "does this belong in the repo?" depends on **who has to read the data**:
 
 ## Roadmap
 
-> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.15.0**.
+> Version numbers follow the in-app "Version Panel" Changelog. Current latest release: **v1.16.0**.
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -200,6 +200,7 @@ Because "does this belong in the repo?" depends on **who has to read the data**:
 | v1.13 | Drop learning-path view + dark chart colour calibration + build artifact cleanup | ✅ |
 | v1.14 | GitHub global trending board (utility): daily/weekly/monthly × 11 language boards + rank movement + days on board | ✅ |
 | v1.15 | Workbench (new tab, default landing page): action inbox (PRs to review / assigned issues / forks behind upstream / silent repos) + quick-launch bookmarks (stored on your device, import & export) | ✅ |
+| v1.16 | Multi-user compare upgraded: "Me vs others" / "Others vs others" modes, up to 4 people per run, chips input, best-value highlighting across all sides + overlap analysis (me vs each / pairwise) | ✅ |
 
 ### Backlog
 

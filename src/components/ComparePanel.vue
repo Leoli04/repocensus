@@ -1,10 +1,24 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { CensusData, Repo } from '../engine/types'
+import { onMounted, ref } from 'vue'
+import type { CensusData } from '../engine/types'
 import { useI18n } from '../i18n'
 
 const props = defineProps<{ data: CensusData }>()
 const { t } = useI18n()
+
+// ── Mode & chips input ────────────────────────────────────
+type Mode = 'me' | 'others'
+const MODE_KEY = 'repocensus:cmp-list'
+/** Hard cap of compared sides (including "me" in me-mode) */
+const MAX_SIDES = 4
+
+const mode = ref<Mode>('me')
+const chips = ref<string[]>([])
+const chipInput = ref('')
+const loading = ref(false)
+const loadingName = ref('')
+const error = ref('')
+const failed = ref<string[]>([])
 
 interface RawRepo {
   name: string
@@ -17,10 +31,31 @@ interface RawRepo {
   pushed_at: string
 }
 
-const otherName = ref('')
-const loading = ref(false)
-const error = ref('')
-const other = ref<{ username: string; avatar: string; url: string; repos: RawRepo[] } | null>(null)
+interface SideStats {
+  username: string
+  avatar: string
+  url: string
+  isMe: boolean
+  repoCount: number
+  totalStars: number
+  activeCount: number
+  avgStars: number
+  topLangs: { name: string; count: number; pct: number }[]
+  topRepos: { name: string; url: string; stars: number; lang: string | null }[]
+  /** raw repo list, kept for overlap computation */
+  repos: RawRepo[]
+}
+
+const sides = ref<SideStats[]>([])
+
+interface PairOverlap {
+  a: string
+  b: string
+  count: number
+  pct: number
+  repos: RawRepo[]
+}
+const overlaps = ref<PairOverlap[]>([])
 
 const langColors: Record<string, string> = {
   Java: '#b07219',
@@ -44,31 +79,23 @@ function langColor(name: string | null): string {
   return (name && langColors[name]) || '#8b8b8b'
 }
 
-// ── Metric computation shared by both sides ───────────────
-interface SideStats {
-  username: string
-  avatar: string
-  url: string
-  repoCount: number
-  totalStars: number
-  activeCount: number
-  avgStars: string
-  topLangs: { name: string; count: number; pct: number }[]
-  topRepos: { name: string; url: string; stars: number; lang: string | null }[]
-}
-
 function nowMs(): number {
   return Date.now()
 }
 
+/**
+ * Build the stats of one side. Forks are excluded on EVERY side so the
+ * comparison is apples-to-apples (the old 1-vs-1 view excluded forks on
+ * "my" side but counted them on the other's).
+ */
 function buildStats(
   username: string,
   avatar: string,
   url: string,
-  repos: { full_name: string; html_url: string; language: string | null; stargazers_count: number; pushed_at: string; fork?: boolean }[],
-  includeForks: boolean
+  reposRaw: RawRepo[],
+  isMe: boolean
 ): SideStats {
-  const list = includeForks ? repos : repos.filter((r) => !r.fork)
+  const list = reposRaw.filter((r) => !r.fork)
   const totalStars = list.reduce((s, r) => s + r.stargazers_count, 0)
   const activeCount = list.filter(
     (r) => nowMs() - new Date(r.pushed_at).getTime() < 180 * 86400_000
@@ -93,88 +120,217 @@ function buildStats(
     username,
     avatar,
     url,
+    isMe,
     repoCount: list.length,
     totalStars,
     activeCount,
-    avgStars: list.length ? (totalStars / list.length).toFixed(1) : '0',
+    avgStars: list.length ? totalStars / list.length : 0,
     topLangs,
     topRepos,
+    repos: list,
   }
 }
 
-// My side: original repos from the bundled census data
-const myStats = computed<SideStats>(() => {
-  const mine: Repo[] = props.data.repos.filter((r) => r.type === 'original')
-  return buildStats(props.data.username, props.data.avatar_url, props.data.html_url, mine as any, false)
-})
+// ── Chips ─────────────────────────────────────────────────
+function maxChips(): number {
+  return mode.value === 'me' ? MAX_SIDES - 1 : MAX_SIDES
+}
 
-const otherStats = computed<SideStats | null>(() => {
-  if (!other.value) return null
-  return buildStats(other.value.username, other.value.avatar, other.value.url, other.value.repos as any, true)
-})
-
-// ── Star / repo overlap ───────────────────────────────────
-const overlap = computed(() => {
-  if (!other.value) return null
-  const myNames = new Set(props.data.repos.map((r) => r.full_name.toLowerCase()))
-  const common = other.value.repos.filter((r) => myNames.has(r.full_name.toLowerCase()))
-  const pct = other.value.repos.length ? Math.round((common.length / other.value.repos.length) * 100) : 0
-  return { count: common.length, pct, repos: common.slice(0, 12) }
-})
-
-// ── Fetch the other user's public repos ───────────────────
-async function compare() {
-  const name = otherName.value.trim()
-  if (!name || loading.value) return
-  if (name.toLowerCase() === props.data.username.toLowerCase()) {
-    error.value = t('cmp.errSelf')
+function addChip() {
+  const name = chipInput.value.trim().replace(/^@/, '')
+  error.value = ''
+  if (!name) return
+  if (chips.value.some((c) => c.toLowerCase() === name.toLowerCase())) {
+    error.value = t('cmp.errDup', { name })
     return
   }
-  loading.value = true
+  if (mode.value === 'me' && name.toLowerCase() === props.data.username.toLowerCase()) {
+    error.value = t('cmp.errSelfChip')
+    return
+  }
+  if (chips.value.length >= maxChips()) {
+    error.value = t('cmp.errCount', { min: mode.value === 'me' ? 1 : 2, max: maxChips() })
+    return
+  }
+  chips.value.push(name)
+  chipInput.value = ''
+}
+
+function removeChip(i: number) {
+  chips.value.splice(i, 1)
   error.value = ''
-  other.value = null
+}
+
+function clearAll() {
+  chips.value = []
+  chipInput.value = ''
+  sides.value = []
+  overlaps.value = []
+  failed.value = []
+  error.value = ''
+  persist()
+}
+
+function switchMode(m: Mode) {
+  if (mode.value === m) return
+  mode.value = m
+  sides.value = []
+  overlaps.value = []
+  failed.value = []
+  error.value = ''
+  persist()
+}
+
+// ── Persist last used list (local device only) ────────────
+function persist() {
   try {
-    const headers: Record<string, string> = { Accept: 'application/vnd.github+json' }
-    const token = localStorage.getItem('repocensus:gh-token')
-    if (token) headers.Authorization = `Bearer ${token}`
-
-    const uResp = await fetch(`https://api.github.com/users/${encodeURIComponent(name)}`, { headers })
-    if (uResp.status === 404) {
-      error.value = t('cmp.errNotFound', { name })
-      return
-    }
-    if (uResp.status === 403) {
-      error.value = t('cmp.errRate')
-      return
-    }
-    if (!uResp.ok) throw new Error(String(uResp.status))
-    const u = await uResp.json()
-
-    const repos: RawRepo[] = []
-    for (let page = 1; page <= 2; page++) {
-      const rResp = await fetch(
-        `https://api.github.com/users/${encodeURIComponent(name)}/repos?per_page=100&type=owner&sort=pushed&page=${page}`,
-        { headers }
-      )
-      if (!rResp.ok) throw new Error(String(rResp.status))
-      const batch: RawRepo[] = await rResp.json()
-      repos.push(...batch)
-      if (batch.length < 100) break
-    }
-
-    other.value = { username: u.login, avatar: u.avatar_url, url: u.html_url, repos }
+    localStorage.setItem(MODE_KEY, JSON.stringify({ mode: mode.value, chips: chips.value }))
   } catch {
-    error.value = t('cmp.errFetch')
-  } finally {
-    loading.value = false
+    /* private mode etc. — list simply won't be remembered */
   }
 }
 
-function metricRow(a: number | string, b: number | string): 'a' | 'b' | 'tie' {
-  const na = Number(a)
-  const nb = Number(b)
-  if (isNaN(na) || isNaN(nb) || na === nb) return 'tie'
-  return na > nb ? 'a' : 'b'
+onMounted(() => {
+  try {
+    const raw = localStorage.getItem(MODE_KEY)
+    if (!raw) return
+    const saved = JSON.parse(raw)
+    if (saved && (saved.mode === 'me' || saved.mode === 'others') && Array.isArray(saved.chips)) {
+      mode.value = saved.mode
+      chips.value = saved.chips.filter((c: unknown) => typeof c === 'string' && c.trim()).slice(0, MAX_SIDES)
+    }
+  } catch {
+    /* corrupted storage — start empty */
+  }
+})
+
+// ── GitHub API (anonymous; ~3 requests per user) ──────────
+const API = 'https://api.github.com'
+const HEADERS: Record<string, string> = { Accept: 'application/vnd.github+json' }
+
+class RateLimitError extends Error {}
+
+async function fetchUser(name: string) {
+  const resp = await fetch(`${API}/users/${encodeURIComponent(name)}`, { headers: HEADERS })
+  if (resp.status === 404) return null
+  if (resp.status === 403) throw new RateLimitError('rate limited')
+  if (!resp.ok) throw new Error(String(resp.status))
+  return await resp.json()
+}
+
+async function fetchRepos(name: string): Promise<RawRepo[]> {
+  const repos: RawRepo[] = []
+  for (let page = 1; page <= 2; page++) {
+    const resp = await fetch(
+      `${API}/users/${encodeURIComponent(name)}/repos?per_page=100&type=owner&sort=pushed&page=${page}`,
+      { headers: HEADERS }
+    )
+    if (resp.status === 403) throw new RateLimitError('rate limited')
+    if (!resp.ok) throw new Error(String(resp.status))
+    const batch: RawRepo[] = await resp.json()
+    repos.push(...batch)
+    if (batch.length < 100) break
+  }
+  return repos
+}
+
+async function compare() {
+  if (loading.value) return
+  const names = [...new Set(chips.value.map((c) => c.trim()).filter(Boolean))]
+  const min = mode.value === 'me' ? 1 : 2
+  const max = maxChips()
+  if (names.length < min || names.length > max) {
+    error.value = t('cmp.errCount', { min, max })
+    return
+  }
+  if (mode.value === 'me' && names.some((n) => n.toLowerCase() === props.data.username.toLowerCase())) {
+    error.value = t('cmp.errSelfChip')
+    return
+  }
+
+  loading.value = true
+  error.value = ''
+  failed.value = []
+  sides.value = []
+  overlaps.value = []
+  try {
+    const fetched: { username: string; avatar: string; url: string; repos: RawRepo[] }[] = []
+    for (const name of names) {
+      loadingName.value = name
+      const u = await fetchUser(name)
+      if (!u) {
+        failed.value.push(name)
+        continue
+      }
+      const repos = await fetchRepos(u.login)
+      fetched.push({ username: u.login, avatar: u.avatar_url, url: u.html_url, repos })
+    }
+
+    if (!fetched.length) {
+      error.value = t('cmp.errFetch')
+      return
+    }
+
+    const stats = fetched.map((f) => buildStats(f.username, f.avatar, f.url, f.repos, false))
+
+    if (mode.value === 'me') {
+      const mine = props.data.repos.filter((r) => r.type === 'original') as unknown as RawRepo[]
+      const meStats = buildStats(props.data.username, props.data.avatar_url, props.data.html_url, mine, true)
+      sides.value = [meStats, ...stats.sort((a, b) => b.totalStars - a.totalStars)]
+
+      // overlap: me vs each other user
+      const myNames = new Set(props.data.repos.map((r) => r.full_name.toLowerCase()))
+      overlaps.value = stats
+        .map((s) => {
+          const common = s.repos.filter((r) => myNames.has(r.full_name.toLowerCase()))
+          const pct = s.repos.length ? Math.round((common.length / s.repos.length) * 100) : 0
+          return { a: props.data.username, b: s.username, count: common.length, pct, repos: common.slice(0, 12) }
+        })
+        .sort((x, y) => y.count - x.count)
+    } else {
+      sides.value = stats.sort((a, b) => b.totalStars - a.totalStars)
+
+      // overlap: every pair (4 users → at most 6 pairs)
+      const pairs: PairOverlap[] = []
+      for (let i = 0; i < sides.value.length; i++) {
+        for (let j = i + 1; j < sides.value.length; j++) {
+          const A = sides.value[i]
+          const B = sides.value[j]
+          const setB = new Set(B.repos.map((r) => r.full_name.toLowerCase()))
+          const common = A.repos.filter((r) => setB.has(r.full_name.toLowerCase()))
+          const pct = A.repos.length ? Math.round((common.length / A.repos.length) * 100) : 0
+          pairs.push({ a: A.username, b: B.username, count: common.length, pct, repos: common.slice(0, 12) })
+        }
+      }
+      overlaps.value = pairs.sort((x, y) => y.count - x.count)
+    }
+    persist()
+  } catch (e) {
+    if (e instanceof RateLimitError) error.value = t('cmp.errRate')
+    else error.value = t('cmp.errFetch')
+  } finally {
+    loading.value = false
+    loadingName.value = ''
+  }
+}
+
+// ── Metric rendering & "best among all sides" highlight ──
+const metricDefs = [
+  { key: 'repoCount', labelKey: 'cmp.repos' },
+  { key: 'totalStars', labelKey: 'cmp.totalStars', fmt: fmtStars },
+  { key: 'activeCount', labelKey: 'cmp.active' },
+  { key: 'avgStars', labelKey: 'cmp.avgStars', fmt: (n: number) => n.toFixed(1) },
+] as const
+
+function metricVal(side: SideStats, key: string): number {
+  return (side as unknown as Record<string, number>)[key]
+}
+
+/** true when this side holds the best value of the metric among all sides (ties all highlight) */
+function isBest(side: SideStats, key: string): boolean {
+  if (sides.value.length < 2) return false
+  const vals = sides.value.map((s) => metricVal(s, key))
+  return metricVal(side, key) === Math.max(...vals)
 }
 
 function fmtStars(n: number): string {
@@ -188,49 +344,70 @@ function fmtStars(n: number): string {
     <h3 class="section-title">⚖️ {{ t('cmp.title') }}</h3>
     <p class="section-subtitle">{{ t('cmp.subtitle') }}</p>
 
-    <!-- Input -->
-    <div class="cmp-input-row">
+    <!-- Mode switch -->
+    <div class="cmp-modes">
+      <button class="cmp-mode" :class="{ active: mode === 'me' }" @click="switchMode('me')">
+        {{ t('cmp.modeMe') }}
+      </button>
+      <button class="cmp-mode" :class="{ active: mode === 'others' }" @click="switchMode('others')">
+        {{ t('cmp.modeOthers') }}
+      </button>
+    </div>
+
+    <!-- Chips -->
+    <div class="cmp-chips">
+      <span v-if="mode === 'me'" class="cmp-chip me" :title="data.username">
+        <img :src="data.avatar_url" class="cmp-chip-avatar" alt="" />
+        {{ data.username }}
+      </span>
+      <span v-for="(c, i) in chips" :key="c.toLowerCase()" class="cmp-chip">
+        {{ c }}
+        <button class="cmp-chip-del" :title="t('cmp.removeChip')" @click="removeChip(i)">×</button>
+      </span>
       <input
-        v-model="otherName"
-        class="cmp-input"
-        :placeholder="t('cmp.placeholder')"
-        @keyup.enter="compare"
+        v-if="chips.length < maxChips()"
+        v-model="chipInput"
+        class="cmp-chip-input"
+        :placeholder="t('cmp.chipPlaceholder')"
+        @keyup.enter="addChip"
       />
-      <button class="cmp-btn" :disabled="loading || !otherName.trim()" @click="compare">
-        {{ loading ? '⏳' : t('cmp.go') }}
+    </div>
+
+    <div class="cmp-actions">
+      <button class="cmp-btn" :disabled="loading || !chips.length" @click="compare">
+        {{ loading ? `⏳ ${loadingName}…` : t('cmp.go') }}
+      </button>
+      <button v-if="chips.length || sides.length" class="cmp-btn-ghost" @click="clearAll">
+        {{ t('cmp.clear') }}
       </button>
     </div>
     <p class="cmp-hint">{{ t('cmp.hint') }}</p>
     <p v-if="error" class="cmp-error">{{ error }}</p>
+    <p v-if="failed.length" class="cmp-error">{{ t('cmp.failedSome', { names: failed.join(', ') }) }}</p>
 
     <!-- Results -->
-    <template v-if="myStats && otherStats">
+    <template v-if="sides.length">
       <div class="cmp-grid">
-        <div v-for="side in ([myStats, otherStats] as const)" :key="side.username" class="cmp-card" :class="{ mine: side.username === data.username }">
+        <div v-for="side in sides" :key="side.username" class="cmp-card" :class="{ mine: side.isMe }">
           <div class="cmp-user">
             <img :src="side.avatar" :alt="side.username" class="cmp-avatar" />
             <div class="cmp-user-meta">
               <a :href="side.url" target="_blank" rel="noopener" class="cmp-username">{{ side.username }}</a>
-              <span v-if="side.username === data.username" class="cmp-you">{{ t('cmp.you') }}</span>
+              <span v-if="side.isMe" class="cmp-you">{{ t('cmp.you') }}</span>
             </div>
           </div>
 
           <div class="cmp-metrics">
-            <div class="cmp-metric" :class="{ win: metricRow(myStats.repoCount, otherStats.repoCount) === (side.username === data.username ? 'a' : 'b') }">
-              <span class="metric-num">{{ side.repoCount }}</span>
-              <span class="metric-key">{{ t('cmp.repos') }}</span>
-            </div>
-            <div class="cmp-metric" :class="{ win: metricRow(myStats.totalStars, otherStats.totalStars) === (side.username === data.username ? 'a' : 'b') }">
-              <span class="metric-num">⭐ {{ fmtStars(side.totalStars) }}</span>
-              <span class="metric-key">{{ t('cmp.totalStars') }}</span>
-            </div>
-            <div class="cmp-metric" :class="{ win: metricRow(myStats.activeCount, otherStats.activeCount) === (side.username === data.username ? 'a' : 'b') }">
-              <span class="metric-num">🟢 {{ side.activeCount }}</span>
-              <span class="metric-key">{{ t('cmp.active') }}</span>
-            </div>
-            <div class="cmp-metric" :class="{ win: metricRow(myStats.avgStars, otherStats.avgStars) === (side.username === data.username ? 'a' : 'b') }">
-              <span class="metric-num">{{ side.avgStars }}</span>
-              <span class="metric-key">{{ t('cmp.avgStars') }}</span>
+            <div
+              v-for="m in metricDefs"
+              :key="m.key"
+              class="cmp-metric"
+              :class="{ win: isBest(side, m.key) }"
+            >
+              <span class="metric-num">
+                {{ 'fmt' in m && m.fmt ? m.fmt(metricVal(side, m.key)) : metricVal(side, m.key) }}
+              </span>
+              <span class="metric-key">{{ t(m.labelKey) }}</span>
             </div>
           </div>
 
@@ -260,20 +437,25 @@ function fmtStars(n: number): string {
       </div>
 
       <!-- Overlap -->
-      <div v-if="overlap" class="overlap-card">
+      <div v-if="overlaps.length" class="overlap-card">
         <div class="overlap-head">
-          <span class="overlap-title">🔗 {{ t('cmp.overlapTitle') }}</span>
-          <span class="overlap-num">{{ t('cmp.overlapNum', { n: overlap.count, p: overlap.pct }) }}</span>
+          <span class="overlap-title">🔗 {{ mode === 'me' ? t('cmp.overlapWithMe') : t('cmp.pairOverlap') }}</span>
         </div>
-        <div class="overlap-bar-track">
-          <div class="overlap-bar-fill" :style="{ width: overlap.pct + '%' }" />
+        <div v-for="o in overlaps" :key="o.a + '|' + o.b" class="overlap-row">
+          <div class="overlap-row-head">
+            <span class="overlap-pair">{{ o.a }} ↔ {{ o.b }}</span>
+            <span class="overlap-num">{{ t('cmp.overlapNum', { n: o.count, p: o.pct }) }}</span>
+          </div>
+          <div class="overlap-bar-track">
+            <div class="overlap-bar-fill" :style="{ width: o.pct + '%' }" />
+          </div>
+          <div v-if="o.repos.length" class="overlap-chips">
+            <a v-for="r in o.repos" :key="r.full_name" :href="r.html_url" target="_blank" rel="noopener" class="topic-chip">
+              {{ r.full_name }}
+            </a>
+          </div>
         </div>
-        <div v-if="overlap.repos.length" class="overlap-chips">
-          <a v-for="r in overlap.repos" :key="r.full_name" :href="r.html_url" target="_blank" rel="noopener" class="topic-chip">
-            {{ r.full_name }}
-          </a>
-        </div>
-        <p v-else class="cmp-none">{{ t('cmp.overlapNone') }}</p>
+        <p v-if="overlaps.every((o) => !o.count)" class="cmp-none">{{ t('cmp.overlapNone') }}</p>
       </div>
     </template>
   </section>
@@ -297,25 +479,96 @@ function fmtStars(n: number): string {
   margin: 0 0 16px;
 }
 
-.cmp-input-row {
-  display: flex;
-  gap: 8px;
-  max-width: 420px;
+.cmp-modes {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--badge-bg);
+  margin-bottom: 12px;
 }
 
-.cmp-input {
-  flex: 1;
-  padding: 9px 14px;
+.cmp-mode {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cmp-mode.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cmp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.cmp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cmp-chip.me {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cmp-chip-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.cmp-chip-del {
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.cmp-chip-del:hover {
+  color: #ef4444;
+}
+
+.cmp-chip-input {
+  padding: 7px 12px;
   border-radius: 9px;
   border: 1px solid var(--card-border);
   background: var(--card-bg);
   color: var(--text-primary);
   font-size: 13px;
+  min-width: 200px;
 }
 
-.cmp-input:focus {
+.cmp-chip-input:focus {
   outline: none;
   border-color: var(--accent);
+}
+
+.cmp-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .cmp-btn {
@@ -332,6 +585,21 @@ function fmtStars(n: number): string {
 .cmp-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.cmp-btn-ghost {
+  padding: 9px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--card-border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.cmp-btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .cmp-hint {
@@ -538,10 +806,7 @@ function fmtStars(n: number): string {
 }
 
 .overlap-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .overlap-title {
@@ -550,24 +815,51 @@ function fmtStars(n: number): string {
   color: var(--text-primary);
 }
 
+.overlap-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.overlap-row:last-of-type {
+  border-bottom: none;
+}
+
+.overlap-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.overlap-pair {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .overlap-num {
   font-size: 12px;
   font-weight: 700;
   color: var(--accent);
+  flex-shrink: 0;
 }
 
 .overlap-bar-track {
-  height: 10px;
+  height: 8px;
   background: var(--bar-track);
-  border-radius: 5px;
+  border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .overlap-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--accent), #8b5cf6);
-  border-radius: 5px;
+  border-radius: 4px;
   transition: width 0.4s ease;
 }
 
