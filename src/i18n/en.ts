@@ -392,6 +392,7 @@ export default {
   'wb.inboxSrc': 'From GitHub Actions',
   'wb.launch': 'Quick launch',
   'wb.launchSrc': 'Stored locally · import & export',
+  'wb.emptyBookmarks': 'No quick links yet. Use “Add” below, or “Import JSON” / “Reset to example”.',
   'wb.empty': 'Nothing pending — all clear',
   'wb.disabled': 'Inbox collection is off. Check that GITHUB_TOKEN and the repository owner are available in this repo\u2019s Actions; add an INBOX_TOKEN secret to cover private repos.',
   'wb.awaitReview': 'awaiting my review',

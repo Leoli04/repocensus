@@ -392,6 +392,7 @@ export default {
   'wb.inboxSrc': '来自 GitHub Actions',
   'wb.launch': '快捷入口',
   'wb.launchSrc': '本机保存 · 可导入导出',
+  'wb.emptyBookmarks': '还没有快捷入口。点下方「添加」，或「导入 JSON」/「恢复示例」。',
   'wb.empty': '暂无待办，一切清爽',
   'wb.disabled': '待办采集未启用。请在仓库 Actions 中确认 GITHUB_TOKEN 与仓库所有者可用；如需覆盖私有仓库，另配一个 INBOX_TOKEN secret。',
   'wb.awaitReview': '等待我审查',

@@ -39,24 +39,33 @@ function normalize(b: Bookmark): Bookmark {
   return { ...b, badge: (b.badge || '').trim() || deriveBadge(b.name) }
 }
 
-function readStored(): Bookmark[] | null {
+/**
+ * Read the stored list, keeping "nothing stored yet" apart from "stored an
+ * empty list". Collapsing both into null used to make an emptied list look
+ * like a first visit, so the bundled example silently reappeared on reload
+ * and every deletion the user made seemed to have been undone.
+ */
+function readStored(): { has: boolean; list: Bookmark[] } {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return null
+    if (!raw) return { has: false, list: [] }
     const parsed = JSON.parse(raw)
-    if (!Array.isArray(parsed)) return null
-    const valid = parsed.filter(isBookmark).map(normalize)
-    return valid.length ? valid : null
+    if (!Array.isArray(parsed)) return { has: false, list: [] }
+    const list = parsed.filter(isBookmark).map(normalize)
+    // An empty payload means the user deleted everything — honour it.
+    // A non-empty payload that yielded nothing valid is corrupt: fall back.
+    if (!list.length && parsed.length) return { has: false, list: [] }
+    return { has: true, list }
   } catch {
-    return null
+    return { has: false, list: [] }
   }
 }
 
 // ── Shared reactive state (one list for the whole app) ─────
 const stored = readStored()
-const bookmarks = ref<Bookmark[]>(stored ?? exampleList.map(normalize))
+const bookmarks = ref<Bookmark[]>(stored.has ? stored.list : exampleList.map(normalize))
 /** true while the list is still the untouched bundled example */
-const isExample = ref<boolean>(stored === null)
+const isExample = ref<boolean>(!stored.has)
 
 const healthMap = ref<Record<string, BookmarkHealth>>({})
 const healthCheckedAt = ref<number>(0)

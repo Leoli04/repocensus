@@ -232,32 +232,39 @@ onMounted(() => {
         <div v-for="g in bookmarksByGroup" :key="g.group" class="wb-group">
           <p class="wb-group-title">{{ g.group }}</p>
           <div class="wb-tiles">
-            <a
+            <div
               v-for="b in g.items"
               :key="b.id"
               class="wb-tile"
               :class="{ dead: healthMap[b.url] === 'dead' }"
-              :href="b.url"
-              target="_blank"
-              rel="noopener"
-              :title="b.url"
             >
-              <span class="wb-tile-badge">{{ b.badge }}</span>
-              <span class="wb-tile-name">{{ b.name }}</span>
-              <span v-if="healthMap[b.url] === 'dead'" class="wb-tile-dead">
-                {{ t('wb.unreachable') }}
-              </span>
-              <span v-else class="wb-tile-meta">{{ b.description || b.group }}</span>
+              <a
+                class="wb-tile-hit"
+                :href="b.url"
+                target="_blank"
+                rel="noopener"
+                :title="b.url"
+              >
+                <span class="wb-tile-badge">{{ b.badge }}</span>
+                <span class="wb-tile-name">{{ b.name }}</span>
+                <span v-if="healthMap[b.url] === 'dead'" class="wb-tile-dead">
+                  {{ t('wb.unreachable') }}
+                </span>
+                <span v-else class="wb-tile-meta">{{ b.description || b.group }}</span>
+              </a>
               <button
                 class="wb-tile-del"
                 :title="t('wb.remove')"
-                @click.prevent.stop="removeBookmark(b.id)"
+                :aria-label="`${t('wb.remove')} ${b.name}`"
+                @click="removeBookmark(b.id)"
               >
                 ×
               </button>
-            </a>
+            </div>
           </div>
         </div>
+
+        <p v-if="!bookmarksByGroup.length" class="wb-empty">{{ t('wb.emptyBookmarks') }}</p>
 
         <button v-if="!showAdd" class="wb-add" @click="showAdd = true">
           ＋ {{ t('wb.add') }}
@@ -512,14 +519,9 @@ onMounted(() => {
 
 .wb-tile {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 10px;
   border-radius: 10px;
   background: var(--bg-secondary);
   border: 1px solid transparent;
-  text-decoration: none;
   transition: border-color 0.15s;
   min-width: 0;
 }
@@ -530,6 +532,18 @@ onMounted(() => {
 
 .wb-tile.dead {
   opacity: 0.6;
+}
+
+/* The link fills the tile; the delete button is a sibling of it rather than a
+   child, so the markup stays valid and the × can never trigger navigation. */
+.wb-tile-hit {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  min-width: 0;
 }
 
 .wb-tile-badge {
@@ -586,11 +600,14 @@ onMounted(() => {
   line-height: 1;
   border-radius: 5px;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.15s;
+  /* Always visible (not hover-only): hover does not exist on touch devices,
+     and a control nobody can see is a control nobody can use. */
+  opacity: 0.35;
+  transition: opacity 0.15s, color 0.15s, background 0.15s;
 }
 
-.wb-tile:hover .wb-tile-del {
+.wb-tile:hover .wb-tile-del,
+.wb-tile-del:focus-visible {
   opacity: 1;
 }
 
