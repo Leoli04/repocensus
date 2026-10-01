@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T17:53:13.356Z",
+  "generated_at": "2026-10-01T18:18:34.223Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54465,
-      "pushed_at": "2026-09-30T08:57:51Z",
+      "stars": 54472,
+      "pushed_at": "2026-10-01T16:38:21Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.10",
@@ -20,7 +20,7 @@
           "published_at": "2026-09-30T09:01:06Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.10",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 157589,
-      "pushed_at": "2026-09-30T16:20:29Z",
+      "stars": 157675,
+      "pushed_at": "2026-10-01T15:33:04Z",
       "releases": [
         {
           "tag_name": "1.17.1",
@@ -1058,9 +1058,60 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111287,
-      "pushed_at": "2026-09-30T17:12:32Z",
+      "stars": 111297,
+      "pushed_at": "2026-10-01T18:16:58Z",
       "releases": [
+        {
+          "tag_name": "vscode-typescript/v1.0.1",
+          "name": "vscode-typescript/v1.0.1",
+          "body": "Bundles TypeScript 7.0.2 from commit b6eaace9d7cfd63c018ab25340ba463baae07fb5.",
+          "published_at": "2026-09-30T19:10:03Z",
+          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/vscode-typescript/v1.0.1",
+          "prerelease": false,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "ahejlsberg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
+              "html_url": "https://github.com/ahejlsberg"
+            },
+            {
+              "login": "sheetalkamat",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
+              "html_url": "https://github.com/sheetalkamat"
+            },
+            {
+              "login": "DanielRosenwasser",
+              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
+              "html_url": "https://github.com/DanielRosenwasser"
+            },
+            {
+              "login": "sandersn",
+              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
+              "html_url": "https://github.com/sandersn"
+            },
+            {
+              "login": "mhegazy",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
+              "html_url": "https://github.com/mhegazy"
+            },
+            {
+              "login": "rbuckton",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
+              "html_url": "https://github.com/rbuckton"
+            },
+            {
+              "login": "weswigham",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
+              "html_url": "https://github.com/weswigham"
+            },
+            {
+              "login": "vladima",
+              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
+              "html_url": "https://github.com/vladima"
+            }
+          ]
+        },
         {
           "tag_name": "v7.0.2",
           "name": "TypeScript 7.0.2",
@@ -1425,57 +1476,6 @@
           "published_at": "2025-10-01T20:32:50Z",
           "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.9-beta",
           "prerelease": true,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "ahejlsberg",
-              "avatar_url": "https://avatars.githubusercontent.com/u/4226954?v=4",
-              "html_url": "https://github.com/ahejlsberg"
-            },
-            {
-              "login": "sheetalkamat",
-              "avatar_url": "https://avatars.githubusercontent.com/u/8052792?v=4",
-              "html_url": "https://github.com/sheetalkamat"
-            },
-            {
-              "login": "DanielRosenwasser",
-              "avatar_url": "https://avatars.githubusercontent.com/u/972891?v=4",
-              "html_url": "https://github.com/DanielRosenwasser"
-            },
-            {
-              "login": "sandersn",
-              "avatar_url": "https://avatars.githubusercontent.com/u/293473?v=4",
-              "html_url": "https://github.com/sandersn"
-            },
-            {
-              "login": "mhegazy",
-              "avatar_url": "https://avatars.githubusercontent.com/u/8000722?v=4",
-              "html_url": "https://github.com/mhegazy"
-            },
-            {
-              "login": "rbuckton",
-              "avatar_url": "https://avatars.githubusercontent.com/u/3902892?v=4",
-              "html_url": "https://github.com/rbuckton"
-            },
-            {
-              "login": "weswigham",
-              "avatar_url": "https://avatars.githubusercontent.com/u/2932786?v=4",
-              "html_url": "https://github.com/weswigham"
-            },
-            {
-              "login": "vladima",
-              "avatar_url": "https://avatars.githubusercontent.com/u/8052307?v=4",
-              "html_url": "https://github.com/vladima"
-            }
-          ]
-        },
-        {
-          "tag_name": "v5.8.3",
-          "name": "TypeScript 5.8.3",
-          "body": "Note: this tag was recreated to point at the correct commit. The npm package contained the correct content.\r\n\r\nFor release notes, check out the [release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-5-8/).\r\n\r\n* [fixed issues query for Typescript 5.8.0 (Beta)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.0%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.8.1 (RC)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.1%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.8.2 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.2%22+is%3Aclosed+).\r\n* [fixed issues query for Typescript 5.8.3 (Stable)](https://github.com/Microsoft/TypeScript/issues?utf8=%E2%9C%93&q=milestone%3A%22TypeScript+5.8.3%22+is%3Aclosed+).\r\n\r\nDownloads are available on:\r\n* [npm](https://www.npmjs.com/package/typescript)",
-          "published_at": "2025-10-01T20:29:30Z",
-          "html_url": "https://github.com/microsoft/TypeScript/releases/tag/v5.8.3",
-          "prerelease": false,
           "is_new": false,
           "contributors": [
             {
