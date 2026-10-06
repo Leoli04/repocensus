@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T20:38:25.690Z",
+  "generated_at": "2026-10-06T18:11:35.241Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54534,
-      "pushed_at": "2026-10-05T11:28:17Z",
+      "stars": 54585,
+      "pushed_at": "2026-10-06T11:39:14Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.10",
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 157894,
-      "pushed_at": "2026-10-05T20:23:23Z",
+      "stars": 157958,
+      "pushed_at": "2026-10-06T15:12:46Z",
       "releases": [
         {
           "tag_name": "1.17.1",
@@ -552,14 +552,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -603,14 +603,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -654,14 +654,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -705,14 +705,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -756,14 +756,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -807,14 +807,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -858,14 +858,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -909,14 +909,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -960,14 +960,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -1011,14 +1011,14 @@
               "html_url": "https://github.com/lyzno1"
             },
             {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
               "login": "asukaminato0721",
               "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
               "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
             },
             {
               "login": "iamjoel",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111353,
-      "pushed_at": "2026-10-05T19:52:30Z",
+      "stars": 111367,
+      "pushed_at": "2026-10-06T17:08:14Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.1",
