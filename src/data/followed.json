@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T18:13:53.771Z",
+  "generated_at": "2026-10-10T17:13:02.648Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,9 +10,60 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54602,
-      "pushed_at": "2026-10-09T16:52:40Z",
+      "stars": 54608,
+      "pushed_at": "2026-10-10T16:23:45Z",
       "releases": [
+        {
+          "tag_name": "v3.6.0-rc.11",
+          "name": "v3.6.0-rc.11",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
+          "published_at": "2026-10-10T07:49:44Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.11",
+          "prerelease": true,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "underfin",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
+              "html_url": "https://github.com/underfin"
+            }
+          ]
+        },
         {
           "tag_name": "v3.6.0-rc.10",
           "name": "v3.6.0-rc.10",
@@ -471,57 +522,6 @@
               "html_url": "https://github.com/underfin"
             }
           ]
-        },
-        {
-          "tag_name": "v3.6.0-rc.3",
-          "name": "v3.6.0-rc.3",
-          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
-          "published_at": "2026-08-11T03:55:47Z",
-          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.3",
-          "prerelease": true,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "yyx990803",
-              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
-              "html_url": "https://github.com/yyx990803"
-            },
-            {
-              "login": "dependabot-preview[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
-              "html_url": "https://github.com/apps/dependabot-preview"
-            },
-            {
-              "login": "renovate[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
-              "html_url": "https://github.com/apps/renovate"
-            },
-            {
-              "login": "edison1105",
-              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
-              "html_url": "https://github.com/edison1105"
-            },
-            {
-              "login": "sxzz",
-              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
-              "html_url": "https://github.com/sxzz"
-            },
-            {
-              "login": "HcySunYang",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
-              "html_url": "https://github.com/HcySunYang"
-            },
-            {
-              "login": "pikax",
-              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
-              "html_url": "https://github.com/pikax"
-            },
-            {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
-            }
-          ]
         }
       ]
     },
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 157996,
-      "pushed_at": "2026-10-09T16:51:11Z",
+      "stars": 158087,
+      "pushed_at": "2026-10-10T16:31:05Z",
       "releases": [
         {
           "tag_name": "1.17.1",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111366,
-      "pushed_at": "2026-10-09T17:23:14Z",
+      "stars": 111378,
+      "pushed_at": "2026-10-09T23:51:53Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.1",
