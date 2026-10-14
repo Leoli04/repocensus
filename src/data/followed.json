@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T19:08:27.053Z",
+  "generated_at": "2026-10-14T16:56:42.198Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54671,
-      "pushed_at": "2026-10-13T14:00:30Z",
+      "stars": 54617,
+      "pushed_at": "2026-10-14T09:04:54Z",
       "releases": [
         {
           "tag_name": "v3.5.44",
@@ -20,7 +20,7 @@
           "published_at": "2026-10-13T07:43:25Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.44",
           "prerelease": false,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 158377,
-      "pushed_at": "2026-10-13T17:36:40Z",
+      "stars": 158459,
+      "pushed_at": "2026-10-14T16:52:28Z",
       "releases": [
         {
           "tag_name": "1.17.1",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111437,
-      "pushed_at": "2026-10-13T18:36:56Z",
+      "stars": 111464,
+      "pushed_at": "2026-10-14T16:56:32Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.1",
