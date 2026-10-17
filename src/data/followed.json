@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T16:25:58.205Z",
+  "generated_at": "2026-10-17T15:20:54.773Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54648,
-      "pushed_at": "2026-10-16T13:24:45Z",
+      "stars": 54654,
+      "pushed_at": "2026-10-17T09:48:49Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.12",
@@ -20,7 +20,7 @@
           "published_at": "2026-10-16T07:57:42Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.12",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 158656,
-      "pushed_at": "2026-10-16T16:11:10Z",
+      "stars": 158702,
+      "pushed_at": "2026-10-17T15:19:54Z",
       "releases": [
         {
           "tag_name": "1.17.1",
@@ -582,9 +582,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -633,9 +633,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -684,9 +684,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -735,9 +735,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -786,9 +786,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -837,9 +837,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -888,9 +888,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -939,9 +939,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -990,9 +990,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         },
@@ -1041,9 +1041,9 @@
               "html_url": "https://github.com/JohnJyong"
             },
             {
-              "login": "crazywoola",
-              "avatar_url": "https://avatars.githubusercontent.com/u/100913391?v=4",
-              "html_url": "https://github.com/crazywoola"
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
             }
           ]
         }
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111499,
-      "pushed_at": "2026-10-16T07:06:33Z",
+      "stars": 111510,
+      "pushed_at": "2026-10-17T07:07:56Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.1",
