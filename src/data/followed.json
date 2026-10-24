@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T16:50:37.371Z",
+  "generated_at": "2026-10-24T15:43:11.078Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54788,
-      "pushed_at": "2026-10-23T13:49:38Z",
+      "stars": 54800,
+      "pushed_at": "2026-10-24T10:36:07Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.13",
@@ -20,7 +20,7 @@
           "published_at": "2026-10-23T07:59:39Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.13",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -71,7 +71,7 @@
           "published_at": "2026-10-16T07:57:42Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.12",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -122,7 +122,7 @@
           "published_at": "2026-10-13T07:43:25Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.44",
           "prerelease": false,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -173,7 +173,7 @@
           "published_at": "2026-10-10T07:49:44Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.11",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -224,7 +224,7 @@
           "published_at": "2026-09-30T09:01:06Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.10",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -275,7 +275,7 @@
           "published_at": "2026-09-18T08:17:55Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.9",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -326,7 +326,7 @@
           "published_at": "2026-09-17T08:36:57Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.43",
           "prerelease": false,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -377,7 +377,7 @@
           "published_at": "2026-09-11T05:46:16Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.8",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -428,7 +428,7 @@
           "published_at": "2026-09-04T07:43:15Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.7",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -479,7 +479,7 @@
           "published_at": "2026-08-28T05:54:05Z",
           "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.6",
           "prerelease": true,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "yyx990803",
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 159360,
-      "pushed_at": "2026-10-23T16:36:17Z",
+      "stars": 159421,
+      "pushed_at": "2026-10-24T15:27:19Z",
       "releases": [
         {
           "tag_name": "1.18.0",
@@ -544,7 +544,7 @@
           "published_at": "2026-10-23T06:33:50Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.18.0",
           "prerelease": false,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "lyzno1",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111580,
-      "pushed_at": "2026-10-23T16:18:15Z",
+      "stars": 111588,
+      "pushed_at": "2026-10-24T07:07:51Z",
       "releases": [
         {
           "tag_name": "v7.1-beta",
