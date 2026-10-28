@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T17:49:45.085Z",
+  "generated_at": "2026-10-28T18:13:29.349Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54909,
-      "pushed_at": "2026-10-27T10:23:07Z",
+      "stars": 54801,
+      "pushed_at": "2026-10-28T15:02:00Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.13",
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 159713,
-      "pushed_at": "2026-10-27T17:36:44Z",
+      "stars": 159827,
+      "pushed_at": "2026-10-28T17:33:00Z",
       "releases": [
         {
           "tag_name": "1.18.0",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111630,
-      "pushed_at": "2026-10-27T17:41:29Z",
+      "stars": 111652,
+      "pushed_at": "2026-10-28T17:57:37Z",
       "releases": [
         {
           "tag_name": "v7.1-beta",
