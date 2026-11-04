@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T19:21:05.305Z",
+  "generated_at": "2026-11-04T19:37:39.563Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54821,
-      "pushed_at": "2026-11-03T09:50:33Z",
+      "stars": 54831,
+      "pushed_at": "2026-11-04T18:53:57Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.14",
@@ -534,9 +534,60 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 160336,
-      "pushed_at": "2026-11-03T18:21:55Z",
+      "stars": 160406,
+      "pushed_at": "2026-11-04T19:36:40Z",
       "releases": [
+        {
+          "tag_name": "1.19.0",
+          "name": "v1.19.0 - Trace Your Workflows, Layer by Layer",
+          "body": "**Dify 1.19.0 brings nested workflow tracing to your observability tools.** Follow a workflow into the Workflow Tools it calls, inspect the steps inside each invocation, and keep the LLM context alongside the execution tree.\r\n\r\nThis release also makes Workflow Tools portable with App packages, adds Skill Hub automation, and makes Agent files easier to upload and preview. The bundled plugin daemon is upgraded to **0.6.14-local**.\r\n\r\n[Release highlights](#user-content-release-highlights) · [Upgrade guide](#user-content-upgrade-guide) · [Detailed changes](#user-content-detailed-changes)\r\n\r\n<a id=\"release-highlights\"></a>\r\n\r\n## Release highlights\r\n\r\n### Nested workflow tracing\r\n\r\n**See what happens inside a Workflow Tool, all the way down to its LLM calls.**\r\n\r\nBuilding on the Console drilldown introduced in 1.18.0, new external traces now include the persisted execution steps inside called Workflow Tools. Child steps appear beneath the Tool span that invoked them, preserving the hierarchy across nested and repeated calls. (#44673)\r\n\r\n![Langfuse trace tree showing a workflow, nested Middle and Child Workflow Tools, and the selected LLM call with formatted prompts and responses](https:/",
+          "published_at": "2026-11-04T07:36:16Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.19.0",
+          "prerelease": false,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            }
+          ]
+        },
         {
           "tag_name": "1.18.0",
           "name": "v1.18.0 — Smarter Agent Routing, Portable Apps, Deeper Workflow Visibility",
@@ -995,57 +1046,6 @@
               "html_url": "https://github.com/JohnJyong"
             }
           ]
-        },
-        {
-          "tag_name": "1.14.0",
-          "name": "v1.14.0",
-          "body": "## 🚀 What's New in v1.14.0?\r\n\r\n### Collaboration\r\n<img width=\"2632\" height=\"1190\" alt=\"img_v3_02117_67a67218-1ae5-4d68-a45b-3ada592f87fg\" src=\"https://github.com/user-attachments/assets/1d4a3660-8a6a-4b29-9766-4d5b5fd9a51b\" />\r\n\r\nCollaboration allows workspace members to edit the same workflow together, with synced graph updates, online presence, and shared visibility into who is working where.\r\n\r\nOn self-hosted deployments, collaboration is turned off by default. Enable it by setting:\r\n\r\n```\r\nENABLE_COLLABORATION_MODE = true\r\nSERVER_WORKER_CLASS = geventwebsocket.gunicorn.workers.GeventWebSocketWorker\r\nNEXT_PUBLIC_SOCKET_URL = your deployment’s WebSocket URL (e.g., wss://dify.example.com)\r\n```\r\n\r\nFor more details, see [Full Documentation](https://docs.dify.ai/en/use-dify/build/workflow-collaboration)\r\n\r\n### Human-in-the-loop (HITL)\r\n\r\n- **Service API for HITL** — programmatic support for human-in-the-loop flows alongside existing console behavior.\r\n\r\n### MCP and plugins\r\n\r\n- **MCP tool metadata** — refresh after updates so the UI stays in sync.\r\n- **MCP server URL** — fix double `/v1` that could break OAuth and authorization (404).\r\n- **MCP OAuth discovery** — handle malformed JS",
-          "published_at": "2026-04-29T04:06:08Z",
-          "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.0",
-          "prerelease": false,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "lyzno1",
-              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
-              "html_url": "https://github.com/lyzno1"
-            },
-            {
-              "login": "asukaminato0721",
-              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
-              "html_url": "https://github.com/asukaminato0721"
-            },
-            {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
-              "login": "iamjoel",
-              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
-              "html_url": "https://github.com/iamjoel"
-            },
-            {
-              "login": "takatost",
-              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
-              "html_url": "https://github.com/takatost"
-            },
-            {
-              "login": "hjlarry",
-              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
-              "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
-            },
-            {
-              "login": "JohnJyong",
-              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
-              "html_url": "https://github.com/JohnJyong"
-            }
-          ]
         }
       ]
     },
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111729,
-      "pushed_at": "2026-11-03T18:57:29Z",
+      "stars": 111730,
+      "pushed_at": "2026-11-04T19:10:47Z",
       "releases": [
         {
           "tag_name": "v7.1-beta",
