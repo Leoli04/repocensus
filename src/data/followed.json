@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T19:37:39.563Z",
+  "generated_at": "2026-11-05T19:46:15.866Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,9 +10,60 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54831,
-      "pushed_at": "2026-11-04T18:53:57Z",
+      "stars": 54841,
+      "pushed_at": "2026-11-05T09:11:28Z",
       "releases": [
+        {
+          "tag_name": "v3.5.45",
+          "name": "v3.5.45",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
+          "published_at": "2026-11-05T09:15:06Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.45",
+          "prerelease": false,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
+            }
+          ]
+        },
         {
           "tag_name": "v3.6.0-rc.14",
           "name": "v3.6.0-rc.14",
@@ -58,9 +109,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -109,9 +160,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -160,9 +211,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -211,9 +262,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -262,9 +313,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -313,9 +364,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -364,9 +415,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -415,9 +466,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         },
@@ -466,60 +517,9 @@
               "html_url": "https://github.com/pikax"
             },
             {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
-            }
-          ]
-        },
-        {
-          "tag_name": "v3.6.0-rc.7",
-          "name": "v3.6.0-rc.7",
-          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
-          "published_at": "2026-09-04T07:43:15Z",
-          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.7",
-          "prerelease": true,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "yyx990803",
-              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
-              "html_url": "https://github.com/yyx990803"
-            },
-            {
-              "login": "dependabot-preview[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
-              "html_url": "https://github.com/apps/dependabot-preview"
-            },
-            {
-              "login": "renovate[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
-              "html_url": "https://github.com/apps/renovate"
-            },
-            {
-              "login": "edison1105",
-              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
-              "html_url": "https://github.com/edison1105"
-            },
-            {
-              "login": "sxzz",
-              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
-              "html_url": "https://github.com/sxzz"
-            },
-            {
-              "login": "HcySunYang",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
-              "html_url": "https://github.com/HcySunYang"
-            },
-            {
-              "login": "pikax",
-              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
-              "html_url": "https://github.com/pikax"
-            },
-            {
-              "login": "underfin",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14008915?v=4",
-              "html_url": "https://github.com/underfin"
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
             }
           ]
         }
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 160406,
-      "pushed_at": "2026-11-04T19:36:40Z",
+      "stars": 160474,
+      "pushed_at": "2026-11-05T17:37:32Z",
       "releases": [
         {
           "tag_name": "1.19.0",
@@ -544,7 +544,7 @@
           "published_at": "2026-11-04T07:36:16Z",
           "html_url": "https://github.com/langgenius/dify/releases/tag/1.19.0",
           "prerelease": false,
-          "is_new": true,
+          "is_new": false,
           "contributors": [
             {
               "login": "lyzno1",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111730,
-      "pushed_at": "2026-11-04T19:10:47Z",
+      "stars": 111762,
+      "pushed_at": "2026-11-05T19:26:41Z",
       "releases": [
         {
           "tag_name": "v7.1-beta",
