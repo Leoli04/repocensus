@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T19:27:18.136Z",
+  "generated_at": "2026-11-12T19:45:03.784Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,9 +10,60 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 54977,
-      "pushed_at": "2026-11-11T08:27:15Z",
+      "stars": 55011,
+      "pushed_at": "2026-11-12T08:47:08Z",
       "releases": [
+        {
+          "tag_name": "v3.6.0-rc.15",
+          "name": "v3.6.0-rc.15",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
+          "published_at": "2026-11-12T08:50:28Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.15",
+          "prerelease": true,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
+            }
+          ]
+        },
         {
           "tag_name": "v3.5.45",
           "name": "v3.5.45",
@@ -471,57 +522,6 @@
               "html_url": "https://github.com/apps/dependabot"
             }
           ]
-        },
-        {
-          "tag_name": "v3.6.0-rc.8",
-          "name": "v3.6.0-rc.8",
-          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
-          "published_at": "2026-09-11T05:46:16Z",
-          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.8",
-          "prerelease": true,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "yyx990803",
-              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
-              "html_url": "https://github.com/yyx990803"
-            },
-            {
-              "login": "dependabot-preview[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
-              "html_url": "https://github.com/apps/dependabot-preview"
-            },
-            {
-              "login": "renovate[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
-              "html_url": "https://github.com/apps/renovate"
-            },
-            {
-              "login": "edison1105",
-              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
-              "html_url": "https://github.com/edison1105"
-            },
-            {
-              "login": "sxzz",
-              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
-              "html_url": "https://github.com/sxzz"
-            },
-            {
-              "login": "HcySunYang",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
-              "html_url": "https://github.com/HcySunYang"
-            },
-            {
-              "login": "pikax",
-              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
-              "html_url": "https://github.com/pikax"
-            },
-            {
-              "login": "dependabot[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
-              "html_url": "https://github.com/apps/dependabot"
-            }
-          ]
         }
       ]
     },
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 160988,
-      "pushed_at": "2026-11-11T17:26:10Z",
+      "stars": 161053,
+      "pushed_at": "2026-11-12T19:44:53Z",
       "releases": [
         {
           "tag_name": "1.19.0",
@@ -567,6 +567,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -575,11 +580,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -618,6 +618,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -626,11 +631,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -669,6 +669,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -677,11 +682,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -720,6 +720,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -728,11 +733,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -771,6 +771,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -779,11 +784,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -822,6 +822,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -830,11 +835,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -873,6 +873,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -881,11 +886,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -924,6 +924,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -932,11 +937,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -975,6 +975,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -983,11 +988,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -1026,6 +1026,11 @@
               "html_url": "https://github.com/iamjoel"
             },
             {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
               "login": "takatost",
               "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
               "html_url": "https://github.com/takatost"
@@ -1034,11 +1039,6 @@
               "login": "hjlarry",
               "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
               "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
             },
             {
               "login": "JohnJyong",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111778,
-      "pushed_at": "2026-11-11T19:08:12Z",
+      "stars": 111787,
+      "pushed_at": "2026-11-12T16:50:43Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.2",
