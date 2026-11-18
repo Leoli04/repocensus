@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T20:42:05.346Z",
+  "generated_at": "2026-11-18T20:16:56.852Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,8 +10,8 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 55209,
-      "pushed_at": "2026-11-17T19:40:26Z",
+      "stars": 55019,
+      "pushed_at": "2026-11-18T19:58:45Z",
       "releases": [
         {
           "tag_name": "v3.6.0-rc.15",
@@ -534,9 +534,60 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 161371,
-      "pushed_at": "2026-11-17T17:21:28Z",
+      "stars": 161439,
+      "pushed_at": "2026-11-18T18:26:50Z",
       "releases": [
+        {
+          "tag_name": "1.20.0",
+          "name": "v1.20.0",
+          "body": "**Dify 1.20.0 keeps your traces flowing and your knowledge bases safer.** Export traces to any OpenTelemetry collector, keep Langfuse working after its legacy ingestion endpoint retirement, and scan uploaded knowledge files for malware before they are indexed. Chatflows can show Agent tool activity as it happens, and personal access tokens let scripts and agents call the Dify OpenAPI on your behalf. The bundled plugin daemon is upgraded to **0.6.15-local**.\r\n\r\n[New Features](#user-content-new-features) · [Configuration and Integration Changes](#user-content-configuration-and-integration-changes) · [Database Migrations](#user-content-database-migrations) · [Upgrade Guide](#user-content-upgrade-guide)\r\n\r\n## New Features\r\n\r\n### New HITL: bring approvals into your team's messaging tools\r\n\r\n**Integrate human review into your workflows via email and the messaging tools your team already uses.** New HITL introduces shared channels, centralized contacts, notification templates, and verified approval forms—allowing your team to configure recipients once and reuse them across Human Input nodes, and is now enabled by default (`NEXT_PUBLIC_ENABLE_HITL_IM=true`). (#44864, #45945)\r\n\r\n* **Reach a",
+          "published_at": "2026-11-18T09:55:28Z",
+          "html_url": "https://github.com/langgenius/dify/releases/tag/1.20.0",
+          "prerelease": false,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "lyzno1",
+              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
+              "html_url": "https://github.com/lyzno1"
+            },
+            {
+              "login": "asukaminato0721",
+              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
+              "html_url": "https://github.com/asukaminato0721"
+            },
+            {
+              "login": "laipz8200",
+              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
+              "html_url": "https://github.com/laipz8200"
+            },
+            {
+              "login": "iamjoel",
+              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
+              "html_url": "https://github.com/iamjoel"
+            },
+            {
+              "login": "hyoban",
+              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
+              "html_url": "https://github.com/hyoban"
+            },
+            {
+              "login": "hjlarry",
+              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
+              "html_url": "https://github.com/hjlarry"
+            },
+            {
+              "login": "takatost",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
+              "html_url": "https://github.com/takatost"
+            },
+            {
+              "login": "JohnJyong",
+              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
+              "html_url": "https://github.com/JohnJyong"
+            }
+          ]
+        },
         {
           "tag_name": "1.19.0",
           "name": "v1.19.0 - Trace Your Workflows, Layer by Layer",
@@ -995,57 +1046,6 @@
               "html_url": "https://github.com/JohnJyong"
             }
           ]
-        },
-        {
-          "tag_name": "1.14.1",
-          "name": "v1.14.1 - Security hardening, workflow stability, and cleaner self-hosted deployments",
-          "body": "## 🚀 What's New in v1.14.1?\r\n\r\nv1.14.1 is a patch release focused on security hardening, workflow and knowledge-base stability, deployment cleanup, and continued UI platform migration after v1.14.0.\r\n\r\n### 🔐 Security\r\n\r\n- **Self-hosted `SECRET_KEY` hardening** — Docker deployments no longer rely on a public default key. When `SECRET_KEY` is left empty, the API generates and persists a runtime key through the configured storage backend, while explicitly configured keys continue to work as before. Thanks @laipz8200 in [#36049](https://github.com/langgenius/dify/pull/36049).\r\n- **Internal metrics endpoint protection** — `/threads` and `/db-pool-stat` are hardened to avoid unauthenticated exposure of internal runtime and database-pool details. Thanks @orbisai0security in [#35665](https://github.com/langgenius/dify/pull/35665).\r\n- **Account and tool isolation** — fixed an IDOR issue in `GET /account/avatar` and scoped builtin-tool default-credential cleanup to the current tenant. Thanks @NeatGuyCoding and @GareArc in [#35771](https://github.com/langgenius/dify/pull/35771) and [#35887](https://github.com/langgenius/dify/pull/35887).\r\n- **Dependency security** — upgraded LiteLLM for CVE",
-          "published_at": "2026-05-12T08:19:23Z",
-          "html_url": "https://github.com/langgenius/dify/releases/tag/1.14.1",
-          "prerelease": false,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "lyzno1",
-              "avatar_url": "https://avatars.githubusercontent.com/u/92089059?v=4",
-              "html_url": "https://github.com/lyzno1"
-            },
-            {
-              "login": "asukaminato0721",
-              "avatar_url": "https://avatars.githubusercontent.com/u/30024051?v=4",
-              "html_url": "https://github.com/asukaminato0721"
-            },
-            {
-              "login": "laipz8200",
-              "avatar_url": "https://avatars.githubusercontent.com/u/16485841?v=4",
-              "html_url": "https://github.com/laipz8200"
-            },
-            {
-              "login": "iamjoel",
-              "avatar_url": "https://avatars.githubusercontent.com/u/2120155?v=4",
-              "html_url": "https://github.com/iamjoel"
-            },
-            {
-              "login": "hyoban",
-              "avatar_url": "https://avatars.githubusercontent.com/u/38493346?v=4",
-              "html_url": "https://github.com/hyoban"
-            },
-            {
-              "login": "hjlarry",
-              "avatar_url": "https://avatars.githubusercontent.com/u/25834719?v=4",
-              "html_url": "https://github.com/hjlarry"
-            },
-            {
-              "login": "takatost",
-              "avatar_url": "https://avatars.githubusercontent.com/u/5485478?v=4",
-              "html_url": "https://github.com/takatost"
-            },
-            {
-              "login": "JohnJyong",
-              "avatar_url": "https://avatars.githubusercontent.com/u/76649700?v=4",
-              "html_url": "https://github.com/JohnJyong"
-            }
-          ]
         }
       ]
     },
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111836,
-      "pushed_at": "2026-11-17T20:27:17Z",
+      "stars": 111843,
+      "pushed_at": "2026-11-18T20:03:16Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.2",
