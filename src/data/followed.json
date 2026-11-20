@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:20:41.923Z",
+  "generated_at": "2026-11-20T19:52:08.294Z",
   "repos": [
     {
       "full_name": "vuejs/core",
@@ -10,9 +10,111 @@
       "html_url": "https://github.com/vuejs/core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6128107?v=4",
       "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
-      "stars": 55049,
-      "pushed_at": "2026-11-19T09:39:11Z",
+      "stars": 55057,
+      "pushed_at": "2026-11-20T09:51:12Z",
       "releases": [
+        {
+          "tag_name": "v3.6.0-rc.16",
+          "name": "v3.6.0-rc.16",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
+          "published_at": "2026-11-20T09:54:15Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.16",
+          "prerelease": true,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
+            }
+          ]
+        },
+        {
+          "tag_name": "v3.5.46",
+          "name": "v3.5.46",
+          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
+          "published_at": "2026-11-20T08:18:41Z",
+          "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.46",
+          "prerelease": false,
+          "is_new": true,
+          "contributors": [
+            {
+              "login": "yyx990803",
+              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
+              "html_url": "https://github.com/yyx990803"
+            },
+            {
+              "login": "dependabot-preview[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
+              "html_url": "https://github.com/apps/dependabot-preview"
+            },
+            {
+              "login": "renovate[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+              "html_url": "https://github.com/apps/renovate"
+            },
+            {
+              "login": "edison1105",
+              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
+              "html_url": "https://github.com/edison1105"
+            },
+            {
+              "login": "sxzz",
+              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
+              "html_url": "https://github.com/sxzz"
+            },
+            {
+              "login": "HcySunYang",
+              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
+              "html_url": "https://github.com/HcySunYang"
+            },
+            {
+              "login": "pikax",
+              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
+              "html_url": "https://github.com/pikax"
+            },
+            {
+              "login": "dependabot[bot]",
+              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+              "html_url": "https://github.com/apps/dependabot"
+            }
+          ]
+        },
         {
           "tag_name": "v3.6.0-rc.15",
           "name": "v3.6.0-rc.15",
@@ -420,108 +522,6 @@
               "html_url": "https://github.com/apps/dependabot"
             }
           ]
-        },
-        {
-          "tag_name": "v3.6.0-rc.9",
-          "name": "v3.6.0-rc.9",
-          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
-          "published_at": "2026-09-18T08:17:55Z",
-          "html_url": "https://github.com/vuejs/core/releases/tag/v3.6.0-rc.9",
-          "prerelease": true,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "yyx990803",
-              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
-              "html_url": "https://github.com/yyx990803"
-            },
-            {
-              "login": "dependabot-preview[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
-              "html_url": "https://github.com/apps/dependabot-preview"
-            },
-            {
-              "login": "renovate[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
-              "html_url": "https://github.com/apps/renovate"
-            },
-            {
-              "login": "edison1105",
-              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
-              "html_url": "https://github.com/edison1105"
-            },
-            {
-              "login": "sxzz",
-              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
-              "html_url": "https://github.com/sxzz"
-            },
-            {
-              "login": "HcySunYang",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
-              "html_url": "https://github.com/HcySunYang"
-            },
-            {
-              "login": "pikax",
-              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
-              "html_url": "https://github.com/pikax"
-            },
-            {
-              "login": "dependabot[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
-              "html_url": "https://github.com/apps/dependabot"
-            }
-          ]
-        },
-        {
-          "tag_name": "v3.5.43",
-          "name": "v3.5.43",
-          "body": "For stable releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/main/CHANGELOG.md) for details.\nFor pre-releases, please refer to [CHANGELOG.md](https://github.com/vuejs/core/blob/minor/CHANGELOG.md) of the `minor` branch.",
-          "published_at": "2026-09-17T08:36:57Z",
-          "html_url": "https://github.com/vuejs/core/releases/tag/v3.5.43",
-          "prerelease": false,
-          "is_new": false,
-          "contributors": [
-            {
-              "login": "yyx990803",
-              "avatar_url": "https://avatars.githubusercontent.com/u/499550?v=4",
-              "html_url": "https://github.com/yyx990803"
-            },
-            {
-              "login": "dependabot-preview[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2141?v=4",
-              "html_url": "https://github.com/apps/dependabot-preview"
-            },
-            {
-              "login": "renovate[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
-              "html_url": "https://github.com/apps/renovate"
-            },
-            {
-              "login": "edison1105",
-              "avatar_url": "https://avatars.githubusercontent.com/u/3705199?v=4",
-              "html_url": "https://github.com/edison1105"
-            },
-            {
-              "login": "sxzz",
-              "avatar_url": "https://avatars.githubusercontent.com/u/6481596?v=4",
-              "html_url": "https://github.com/sxzz"
-            },
-            {
-              "login": "HcySunYang",
-              "avatar_url": "https://avatars.githubusercontent.com/u/14146560?v=4",
-              "html_url": "https://github.com/HcySunYang"
-            },
-            {
-              "login": "pikax",
-              "avatar_url": "https://avatars.githubusercontent.com/u/4620458?v=4",
-              "html_url": "https://github.com/pikax"
-            },
-            {
-              "login": "dependabot[bot]",
-              "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
-              "html_url": "https://github.com/apps/dependabot"
-            }
-          ]
         }
       ]
     },
@@ -534,8 +534,8 @@
       "html_url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "stars": 161513,
-      "pushed_at": "2026-11-19T18:55:05Z",
+      "stars": 161573,
+      "pushed_at": "2026-11-20T16:46:22Z",
       "releases": [
         {
           "tag_name": "1.20.0",
@@ -1058,8 +1058,8 @@
       "html_url": "https://github.com/microsoft/TypeScript",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-      "stars": 111860,
-      "pushed_at": "2026-11-19T20:17:41Z",
+      "stars": 111869,
+      "pushed_at": "2026-11-20T19:38:55Z",
       "releases": [
         {
           "tag_name": "vscode-typescript/v1.0.2",
